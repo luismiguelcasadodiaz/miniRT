@@ -1,3 +1,13 @@
+## LMCD Options
+## Mlx related
+Makefile.gen
+/test/mlx-test
+
+# tar or zipped files
+*.tgz
+
+
+## Template from https://github.com/github/gitignore
 # Prerequisites
 *.d
 
@@ -50,3 +60,4 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
