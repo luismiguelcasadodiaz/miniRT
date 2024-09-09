@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 13:07:33 by luicasad          #+#    #+#              #
-#    Updated: 2024/09/06 13:47:29 by luicasad         ###   ########.fr        #
+#    Updated: 2024/09/08 11:47:11 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,23 +51,26 @@ SRCDIR_MLIBX		= ./src/minilibx-linux/
 OBJDIR 			= ./obj/
 INCDIR 			= ./inc/
 LIBDIR			= ./lib/
+LIBSYS			= /usr/include/../lib 
+LOADLIBSYS		= -lXext -lX11 -lm -lbsd
 REQUIRED_DIRS	= $(OBJDIR) $(INCDIR) $(LIBDIR)
 vpath %.a $(LIBDIR)
 # ============================================================================ #
 #                               COMPILER SETUP                                 #
 # ============================================================================ #
 CC 				= cc
-WRNFL			= -Wall -Wextra -Werror -fsanitize=address
-DBGFL			= -g3 
+WRNFL			= -Wall -Wextra -Werror ####-fsanitize=address
+DBGFL			= -g3  -pg
 CFLGS			= $(DBGFL) $(WRNFL) -c 
 HEADS			= -I$(INCDIR)
 LFLGS 			=
-LFLGS 			= -fsanitize=address
+LFLGS 			= ####-fsanitize=address
 FRAMEWORKS		=
 
 # ============================================================================ #
 #                              LIBRARIES SETUP                                 #
 # ============================================================================ #
+
 NAMELIBMLIBX 		= libmlx.a
 PATH_MLIBX 			= $(addprefix $(SRCDIR_MLIBX), $(NAMELIBPRINTF))
 LOADLIBMLIBX 		= mlx 
@@ -84,18 +87,16 @@ NAMELIBFT 			= libft.a
 PATH_LIBFT 			= $(addprefix $(SRCDIR_LIBFT), $(NAMELIBFT))
 LOADLIBFT 			= ft
 
-
 #NAMELIBARGPA 		= libargpar.a
 #PATH_ARGPA 		= $(addprefix $(SRCDIR_ARGPA), $(NAMELIBARGPA))
 #LOADLIBARGPA 		= argpar
-
 #MYLIBS			= $(NAMELIBMLIBX) $(NAMELIBPRINTF) $(NAMELIBFTCOMPLEX) $(NAMELIBFT)
 #LLIBS 			= -L$(LIBDIR) -l$(LOADLIBMLIBX) -l$(LOADLIBPRINTF) -l$(LOADLIBFTCOMPLEX) -l$(LOADLIBFT)
 
 MYLIBS			= $(NAMELIBMLIBX) $(NAMELIBFT)
-LLIBS 			= -L$(LIBDIR) -l$(LOADLIBMLIBX) -l$(LOADLIBFT)
+LLIBS 			= -L$(LIBDIR) -l$(LOADLIBMLIBX) -l$(LOADLIBFT) -L$(LIBSYS) $(LOADLIBSYS) 
 
-LLIBS	+= -L/usr/inlcude/../lib -lXext -lX11 -lm -lbsd
+#LLIBS	+= -L/usr/include/../lib -lXext -lX11 -lm -lbsd
 
 # ============================================================================ #
 #                                 SOURCES                                      #
@@ -157,17 +158,20 @@ DEPE_MINRT = $(addprefix $(OBJDIR), $(SRCS_MINRT:.c=.d))
 DEPE_BONUS = $(addprefix $(OBJDIR), $(SRCS_BONUS:.c=.d))
 DEPE_TESTS = $(addprefix $(OBJDIR), $(SRCS_TESTS:.c=.d))
 
-$(info minrt source files $(SRCS_MINRT))
-$(info minrt source paths $(FILE_MINRT))
-$(info minrt object patha $(OBJS_MINRT))
+#$(info minrt source files $(SRCS_MINRT))
+#$(info minrt source paths $(FILE_MINRT))
+#$(info minrt object patha $(OBJS_MINRT))
 
-$(info bonus source files $(SRCS_BONUS))
-$(info bonus source paths $(FILE_BONUS))
-$(info bonus object patha $(OBJS_BONUS))
+#$(info bonus source files $(SRCS_BONUS))
+#$(info bonus source paths $(FILE_BONUS))
+#$(info bonus object patha $(OBJS_BONUS))
 
-$(info tests source files $(SRCS_TESTS))
-$(info tests source paths $(FILE_TESTS))
-$(info tests object patha $(OBJS_TESTS))
+#$(info tests source files $(SRCS_TESTS))
+#$(info tests source paths $(FILE_TESTS))
+#$(info tests object patha $(OBJS_TESTS))
+
+$(info tests object patha $(LLIBS))
+
 # ============================================================================ #
 #                                 RULES                                        #
 # ============================================================================ #
@@ -222,11 +226,11 @@ makelibft:
 
 # .......................... targets construction ............................ #
 $(MINRT): Makefile  $(OBJS_MINRT) -l$(LOADLIBMLIBX) 
-	@echo "$(GREEN)========== GATHERING FRACTOL OBJECTS =============$(DEF_COLOR)"
+	@echo "$(GREEN)========== GATHERING MINIRT OBJECTS =============$(DEF_COLOR)"
 	$(CC) $(LFLGS) $(OBJS_MINRT) -o $@ $(LLIBS) $(FRAMEWORKS)
 
 $(BONUS): Makefile $(OBJS_BONUS) -l$(LOADLIBMLIBX)
-	@echo "$(ORANGE)======= GATHERING FRACTOL BONUS OBJECTS ============$(DEF_COLOR)"
+	@echo "$(ORANGE)======= GATHERING MINIRT BONUS OBJECTS ============$(DEF_COLOR)"
 	$(CC) $(LFLGS) $(OBJS_BONUS) -o $@ $(LLIBS) $(FRAMEWORKS)
 
 $(TESTS): Makefile $(OBJS_TESTS) -l$(LOADLIBMLIBX)
@@ -235,11 +239,11 @@ $(TESTS): Makefile $(OBJS_TESTS) -l$(LOADLIBMLIBX)
 
 # .......................... objects construction ............................ #
 $(OBJDIR)%.o: $(SRCDIR_MINRT)%.c $(INCDIR)$(HEADER_iRT)
-	@echo "$(GREEN)========== COMPILING FRACTOL FILES ===============$(DEF_COLOR)"
+	@echo "$(GREEN)========== COMPILING MINIRT FILES ===============$(DEF_COLOR)"
 	$(CC) $(CFLGS) $< -o $@ $(HEADS)  
 
 $(OBJDIR)%.o: $(SRCDIR_BONUS)%.c $(INCDIR)$(HEADER_BON)
-	@echo "$(ORANGE)========== COMPILING FRACTOL BONUS FILES ===============$(DEF_COLOR)"
+	@echo "$(ORANGE)========== COMPILING MINIRT BONUS FILES ===============$(DEF_COLOR)"
 	$(CC) $(CFLGS) $< -o $@ $(HEADS)  
 
 $(OBJDIR)%.o: $(SRCDIR_TESTS)%.c $(INCDIR)$(HEADER_TES)
@@ -268,7 +272,6 @@ clean:
 	$(MAKE) -C $(SRCDIR_MLIBX) clean
 #	$(MAKE) -C $(SRCDIR_PRINT) clean
 	$(MAKE) -C $(SRCDIR_LIBFT) clean
-	$(MAKE) -C $(SRCDIR_FTCOMPLEX) clean
 
 
 fclean: clean
@@ -298,5 +301,9 @@ norma:
 	@echo "$(WHITE)========== CHECKING NORME $(SRCDIR_MLIBX) ==============$(DEF_COLOR)"
 	$(MAKE) -C $(SRCDIR_MLIBX)  norma
 
-.PHONY: all bonus test clean fclean re rebonus norma
+profile:
+	valgrind --tool=callgrind ./$(MINRT) tirame
+	callgrind_annotate
+
+.PHONY: all bonus test clean fclean re rebonus norma profile
 
