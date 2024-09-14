@@ -6,15 +6,15 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 21:19:34 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/06 13:43:10 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/09/12 21:16:26 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "keys_ubuntu.h"
+#include "keys_ubuntu_home.h"
 #include "miniRT.h"
 #include <stdio.h>
 #include "mlx.h"
-
+/*
 static void	arrows(int keysym, t_win *w)
 {
 	if (keysym == ARROW_DOWN)
@@ -51,7 +51,7 @@ static void	iteractions(int keysym, t_win *w)
 		w->iteractions--;
 	w->palette = 0x00FFFFFF / w->iteractions;
 }
-
+*/
 int	win_h_key_down(int keysym, t_win *w)
 {
 	if (keysym == KEY_ESC)
@@ -60,18 +60,20 @@ int	win_h_key_down(int keysym, t_win *w)
 		free(w->mlx_ptr);
 		exit (0);
 	}
+/*
 	if (keysym == KEY_R)
-		w->palette = col_create(0, w->iteractions, 0, 0);
+		w->palette = col_create_int(0, w->iteractions, 0, 0);
 	if (keysym == KEY_G)
-		w->palette = col_create(0, 0, w->iteractions, 0);
+		w->palette = col_create_int(0, 0, w->iteractions, 0);
 	if (keysym == KEY_B)
-		w->palette = col_create(0, 0, 0, w->iteractions);
+		w->palette = col_create_int(0, 0, 0, w->iteractions);
 	if (keysym == KEY_S)
 		w->palette = 0x0003F40B;
 	if (keysym == NUMPAD_KEY_PLUS || keysym == NUMPAD_KEY_MINUS)
 		iteractions(keysym, w);
 	if ((ARROW_LEFT <= keysym) && (keysym <= ARROW_UP))
 		arrows(keysym, w);
+	*/
 	draw_fractal(*w);
 	printf("Key_down: %d\n", keysym);
 	return (0);

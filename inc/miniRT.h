@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 19:47:24 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/07 09:49:34 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/09/14 14:06:30 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,12 @@
 # define INITIAL_ZOOM 1
 # define ZOOM_FACTOR 1.05
 # define MAX_ITERATIONS 2
-# define WINDOW_W 900
-# define WINDOW_H 600
-# define ASPECT_RATIO_1_H 4
-# define ASPECT_RATIO_1_V 3
+# define WINDOW_W 1000
 
-# define ASPECT_RATIO_2_H 16
-# define ASPECT_RATIO_2_V 9
-
-# define ASPECT_RATIO_3_H 21
-# define ASPECT_RATIO_3_V 9
+# define ASPECT_RATIO_W 16.0
+# define ASPECT_RATIO_H 9.0
+# define VIEW_PORT_H 2.0
+# define FOCAL_LENGTH 1
 
 # define BLACK 0x00000000
 # define RED   0x00FF0000
@@ -42,23 +38,11 @@
 # define ON_DESTROY 17
 /*# include "ft_complex.h"*/
 # include <stdlib.h>
+# include "point.h"
+# include "vec3.h"
+# include "color.h"
+# include "ray.h"
 
-typedef struct s_point
-{
-	int	x;
-	int	y;
-}	t_point;
-
-t_point	point_init(void);
-t_point	point_set(int x, int y);
-
-typedef struct s_color
-{
-	int	r;
-	int	g;
-	int	b;
-	int	t;
-}			t_color;
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                                            */
@@ -75,32 +59,24 @@ typedef struct s_img
 	int			bits_per_pixel;
 	int			line_length;
 	int			endian;
-	t_point		size;
-	t_point		lu;
-	t_point		rd;
-	int			x_0;
-	int			y_0;
-	float		real;
-	float		imag;
-	float		r_x;
-	float		r_y;
+	t_point		*size;
+//	t_point		lu;
+//	t_point		rd;
+//	int			x_0;
+//	int			y_0;
+//	float		real;
+//	float		imag;
+//	float		r_x;
+//	float		r_y;
 /*	t_complex	z;*/
 }	t_img;
 
 /* ************************************************************************** */
-/* w : windows width in pixels                                                */
-/* h : windows height in pixels                                               */
-/* md_x : x coordinate of last mousedown event                                */
-/* md_y : y coordinate of last mousedown event                                */
-/* mu_x : x coordinate of last mouseup event                                  */
-/* mu_y : y coordinate of last mouseup event                                  */
-/* mm_x : x coordinate of last mousemove event                                */
-/* mm_y : y coordinate of last mousemove event                                */
-/* zoom : zoom level [1..MAX_ITERATIONS]                                      */
-/* shift_x : horizontal shift requested by LEFT or RIGHT ARROWS               */
-/* shitf_y : vertical shifht requested by UP or DOWN ARROWS                   */
-/* palete : RGB integer to multiply by number of iterations.                  */
-/*                                                                            */
+/* size : for window. a point with x= width & y = heigth                      */
+/* lu   : left upper coordinate                                               */
+/* rd   : right down coordinate                                               */
+/* vp   : viewport. a point with x= width & y = heigth                        */
+/* cc   : camera center. a point with x= width & y = heigth                   */
 /* ************************************************************************** */
 
 typedef struct s_win
@@ -109,18 +85,20 @@ typedef struct s_win
 	void		*win_ptr;
 	t_img		img;
 	char		*title;
-	t_point		size;
-	t_point		lu;
-	t_point		rd;
-	t_point		md;
-	t_point		mu;
-	t_point		mm;
-	int			zoom;
-	float		scale;
-	t_point		shift;
-	int			palette;
-	int			iteractions;
+	t_point		*size;
+	t_point		*lu;
+	t_point		*rd;
+	t_point		*vp;
+	t_point		*cc;
+	t_vec3		*vp_x;
+	t_vec3		*vp_y;
+	t_vec3		*pd_x;
+	t_vec3		*pd_y;
+	t_vec3		*vp_ul;
+	t_vec3		*pixel00;
+	t_vec3		*ray_direction;
 }				t_win;
+
 t_win	win_init(char *title);
 int		win_h_key_down(int keysym, t_win *data);
 int		win_h_key_up(int keysym, t_win *data);
@@ -133,14 +111,11 @@ int		win_h_destroy(t_win *data);
 void	win_pixel_put(t_win w, int x, int y, int color);
 void	draw_fractal(t_win w);
 void	draw_square_2(t_win w, t_point upper_left, t_point lower_right);
-
-int		col_create(int transp, int red, int green, int blue);
-int		col_get_t(int color);
-int		col_get_r(int color);
-int		col_get_g(int color);
-int		col_get_b(int color);
-
 void	draw_image1(t_win w);
+void	draw_image2(t_win *w);
 void	show_usage(void);
 void	show_data(t_win w);
+void	win_calculate_vp_and_pd(t_win *w);
+void	win_calculate_vp_ul(t_win *w);
+void	win_calculate_pix00(t_win *w);
 #endif

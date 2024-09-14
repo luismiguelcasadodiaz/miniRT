@@ -6,12 +6,11 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 19:54:06 by luicasad          #+#    #+#             */
-/*   Updated: 2024/02/22 13:39:51 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/09/12 13:15:06 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
-
 
 void	win_pixel_put(t_win w, int x, int y, int color)
 {

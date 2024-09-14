@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 09:56:29 by luicasad          #+#    #+#             */
-/*   Updated: 2024/02/26 00:31:23 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/09/13 09:04:11 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ void	draw_white(t_win w)
 	int			wx0;
 	int			wy0;
 
-	wy0 = w.lu.y;
-	while (wy0 < w.rd.y)
+	wy0 = w.lu->y;
+	while (wy0 < w.rd->y)
 	{
-		wx0 = w.lu.x;
-		while (wx0 < w.rd.x)
+		wx0 = w.lu->x;
+		while (wx0 < w.rd->x)
 		{
 			win_pixel_put(w, wx0, wy0, WHITE);
 			wx0++;

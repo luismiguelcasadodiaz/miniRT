@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2024/09/12 12:48:02 by luicasad         ###   ########.fr        #
+#    Updated: 2024/09/14 09:24:30 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #MAKEFLAGS += rR
@@ -29,11 +29,11 @@ DARK_GRAY	=	\033[38;5;234m
 MID_GRAY	=	\033[38;5;245m
 DARK_GREEN	=	\033[38;2;75;179;82m
 DARK_YELLOW	=	\033[38;5;143m
-MY_COLOR	= $(ORANGE)
+MY_COLOR	= $(BLUE)
 # ============================================================================ #
 #                                 TARGETS                                      #
 # ============================================================================ #
-NAME		= vec3.a
+NAME		= libvec3.a
 # ============================================================================ #
 #                                 FOLDERS                                      #
 # ============================================================================ #
@@ -48,7 +48,7 @@ vpath %.a $(LIBDIR)
 #                               COMPILER SETUP                                 #
 # ============================================================================ #
 CC		=	cc
-CFLAGS		=  -g -Wall -Wextra -Werror ####-fsanitize=address -fno-omit-frame-pointer
+CFLAGS		=  -g -Wall -Wextra -Werror #-fsanitize=address -fno-omit-frame-pointer
 HEADS		=	-I$(INCDIR)
 # From 4.4.3 The Function wildcard gnu make manual....
 # Althought wildcard exparnds automaticaly in rules
@@ -60,11 +60,12 @@ HEADS		=	-I$(INCDIR)
 # So I must explicitly enumerate files for the project.
 
 HEADER	=	vec3.h
-SRCS	=	init.c \
-      	set_get.c \
-      	addition.c \
-      	product.c \
-      	module.c
+SRCS	=	vec3_init.c \
+      		vec3_module.c \
+      		vec3_setters.c \
+      		vec3_getters.c \
+      		vec3_addition.c \
+      		vec3_product.c
 
 # Generate a list of object files by replacing .c with .o
 #
@@ -131,5 +132,5 @@ re: fclean all
 norma:
 	@echo "$(MY_COLOR)$(NAME) ============== CHECKING NORME =======================$(DEF_COLOR)"
 	norminette $(SRCS)
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re norma
 

@@ -6,14 +6,14 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 12:32:45 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/06 13:44:56 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/09/12 21:19:45 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
 #include <stdio.h>
 #include "keys_ubuntu.h"
-
+/*
 static void	calculate_shift_x(int x, t_win *w)
 {
 	int	a;
@@ -59,10 +59,10 @@ static void	calculate_shift(int x, int y, t_win *w)
 	calculate_shift_x(x, w);
 	calculate_shift_y(y, w);
 }
-
+*/
 int	win_h_mouse_down(int button, int x, int y, t_win *w)
 {
-	if (button == MOUSE_SCROLL_DOWN)
+/*	if (button == MOUSE_SCROLL_DOWN)
 	{
 		w->zoom++;
 		w->scale *= ZOOM_FACTOR;
@@ -81,6 +81,9 @@ int	win_h_mouse_down(int button, int x, int y, t_win *w)
 		w->md = point_set(x, y);
 		draw_fractal(*w);
 	}
-	printf("dowm (%d, %d) button %d zoom %d \n", x, y, button, w->zoom);
+*/
+	draw_fractal(*w);
+	printf("dowm (%d, %d) button %d \n", x, y, button);
+	//printf("dowm (%d, %d) button %d zoom %d \n", x, y, button, w->zoom);
 	return (0);
 }

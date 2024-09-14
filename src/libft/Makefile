@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2024/09/08 11:15:58 by luicasad         ###   ########.fr        #
+#    Updated: 2024/09/12 13:30:02 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #MAKEFLAGS += rR
@@ -29,7 +29,7 @@ DARK_GRAY	=	\033[38;5;234m
 MID_GRAY	=	\033[38;5;245m
 DARK_GREEN	=	\033[38;2;75;179;82m
 DARK_YELLOW	=	\033[38;5;143m
-MY_COLOR	= $(BLUE)
+MY_COLOR	= $(DARK_GRAY)
 # ============================================================================ #
 #                                 TARGETS                                      #
 # ============================================================================ #
@@ -48,7 +48,7 @@ vpath %.a $(LIBDIR)
 #                               COMPILER SETUP                                 #
 # ============================================================================ #
 CC		=	cc
-CFLAGS		=  -g -Wall -Wextra -Werror ####-fsanitize=address -fno-omit-frame-pointer
+CFLAGS		=  -g -Wall -Wextra -Werror #-fsanitize=address -fno-omit-frame-pointer
 HEADS		=	-I$(INCDIR)
 # From 4.4.3 The Function wildcard gnu make manual....
 # Althought wildcard exparnds automaticaly in rules

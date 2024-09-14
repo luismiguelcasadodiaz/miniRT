@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keys_ubuntu.h                                      :+:      :+:    :+:   */
+/*   keys_ubuntu_home.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 18:10:00 by luicasad          #+#    #+#             */
-/*   Updated: 2024/02/25 19:17:23 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/09/12 20:11:10 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef KEYS_UBUNTU_H
-# define KEYS_UBUNTU_H
+#ifndef KEYS_UBUNTU_HOME_H
+# define KEYS_UBUNTU_HOME_H
 
 # define KEY_A 97
 # define KEY_B 98
-# define KEY_C 90
+# define KEY_C 99
 # define KEY_D 100
 # define KEY_E 101
 # define KEY_F 102
@@ -56,8 +56,8 @@
 # define KEY_SHIFT_RIGHT 65506
 # define NUMPAD_KEY_0 65438
 # define NUMPAD_KEY_1 65436
-# define NUMPAD_KEY_2 65435
-# define NUMPAD_KEY_3 65430
+# define NUMPAD_KEY_2 65433
+# define NUMPAD_KEY_3 65435
 # define NUMPAD_KEY_4 65430
 # define NUMPAD_KEY_5 65437
 # define NUMPAD_KEY_6 65432

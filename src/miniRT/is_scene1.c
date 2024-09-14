@@ -6,42 +6,42 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 09:56:29 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/07 10:44:53 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/09/14 10:51:38 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
 #include "mlx.h"
+#include <stdio.h>
 
-static t_color	make_my_color(t_point size, int x, int y)
+static int	make_my_color(t_point *size, int x, int y)
 {
-	t_color	c;
-	float	fx;
-	float	fy;
+	t_color	*color;
+	int		mlx_color;
 
-	fx = (float)x / (size.x - 1);
-	fy = (float)y / (size.y - 1);
-	c.r = (int)(255.999 * fx);
-	c.g = (int)(255.999 * fy);
-	c.b = 0;
-	c.t = 0;
-	return (c);
+	color = col_new();
+	col_init_with_1(color,
+		(double)x / (size->x - 1),
+		(double)y / (size->y - 1),
+		(double)0.0);
+	mlx_color = col_get_mlx_color(color);
+	col_free(color);
+	return (mlx_color);
 }
 
 void	draw_image1(t_win w)
 {
 	int			wx0;
 	int			wy0;
-	t_color		c;
 
-	wy0 = w.lu.y;
-	while (wy0 <= w.rd.y)
+	wy0 = w.lu->y;
+	while (wy0 <= w.rd->y)
 	{
-		wx0 = w.lu.x;
-		while (wx0 <= w.rd.x)
+		fprintf(stderr, "\rLines remaining: %*d", 5, w.rd->y - wy0);
+		wx0 = w.lu->x;
+		while (wx0 <= w.rd->x)
 		{
-			c = make_my_color(w.rd, wx0, wy0);
-			win_pixel_put(w, wx0, wy0, col_create(c.t, c.r, c.g, c.b));
+			win_pixel_put(w, wx0, wy0, make_my_color(w.rd, wx0, wy0));
 			wx0++;
 		}
 		wy0++;

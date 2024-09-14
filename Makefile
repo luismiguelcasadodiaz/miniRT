@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 13:07:33 by luicasad          #+#    #+#              #
-#    Updated: 2024/09/08 11:47:11 by luicasad         ###   ########.fr        #
+#    Updated: 2024/09/14 07:11:53 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,10 @@ SRCDIR_MINRT		= ./src/miniRT/
 SRCDIR_BONUS		= ./src/miniRT_bonus/
 SRCDIR_TESTS		= ./src/tests/
 SRCDIR_LIBFT		= ./src/libft/
+SRCDIR_VEC3			= ./src/vec3/
+SRCDIR_COLOR		= ./src/color/
+SRCDIR_POINT		= ./src/point/
+SRCDIR_RAY			= ./src/ray/
 #SRCDIR_FTCOMPLEX	= ./src/compl/
 SRCDIR_MLIBX		= ./src/minilibx-linux/
 
@@ -59,12 +63,12 @@ vpath %.a $(LIBDIR)
 #                               COMPILER SETUP                                 #
 # ============================================================================ #
 CC 				= cc
-WRNFL			= -Wall -Wextra -Werror ####-fsanitize=address
+WRNFL			= -Wall -Wextra -Werror #-fsanitize=address
 DBGFL			= -g3  -pg
 CFLGS			= $(DBGFL) $(WRNFL) -c 
 HEADS			= -I$(INCDIR)
 LFLGS 			=
-LFLGS 			= ####-fsanitize=address
+LFLGS 			= #-fsanitize=address
 FRAMEWORKS		=
 
 # ============================================================================ #
@@ -74,6 +78,22 @@ FRAMEWORKS		=
 NAMELIBMLIBX 		= libmlx.a
 PATH_MLIBX 			= $(addprefix $(SRCDIR_MLIBX), $(NAMELIBPRINTF))
 LOADLIBMLIBX 		= mlx 
+
+NAMELIBVEC3			= libvec3.a
+PATH_VEC3      		= $(addprefix $(SRCDIR_VEC3), $(NAMELIBVEC3))
+LOADLIBVEC3      	= vec3
+
+NAMELIBCOLOR		= libcolor.a
+PATH_COLOR     		= $(addprefix $(SRCDIR_COLOR), $(NAMELIBCOLOR))
+LOADLIBCOLOR      	= color
+
+NAMELIBPOINT		= libpoint.a
+PATH_POINT     		= $(addprefix $(SRCDIR_POINT), $(NAMELIBPOINT))
+LOADLIBPOINT      	= point
+
+NAMELIBRAY			= libray.a
+PATH_RAY     		= $(addprefix $(SRCDIR_RAY), $(NAMELIBRAY))
+LOADLIBRAY      	= ray
 
 #NAMELIBPRINTF 		= libftprintf.a
 #PATH_PRINT 			= $(addprefix $(SRCDIR_PRINT), $(NAMELIBPRINTF))
@@ -93,8 +113,20 @@ LOADLIBFT 			= ft
 #MYLIBS			= $(NAMELIBMLIBX) $(NAMELIBPRINTF) $(NAMELIBFTCOMPLEX) $(NAMELIBFT)
 #LLIBS 			= -L$(LIBDIR) -l$(LOADLIBMLIBX) -l$(LOADLIBPRINTF) -l$(LOADLIBFTCOMPLEX) -l$(LOADLIBFT)
 
-MYLIBS			= $(NAMELIBMLIBX) $(NAMELIBFT)
-LLIBS 			= -L$(LIBDIR) -l$(LOADLIBMLIBX) -l$(LOADLIBFT) -L$(LIBSYS) $(LOADLIBSYS) 
+MYLIBS			= $(NAMELIBMLIBX)
+MYLIBS			+= $(NAMELIBRAY)
+MYLIBS			+= $(NAMELIBCOLOR)
+MYLIBS			+= $(NAMELIBPOINT)
+MYLIBS			+= $(NAMELIBVEC3)
+MYLIBS			+= $(NAMELIBFT)
+
+LLIBS 			= -L$(LIBDIR) -l$(LOADLIBMLIBX)
+LLIBS 			+= -l$(LOADLIBRAY)
+LLIBS 			+= -l$(LOADLIBCOLOR)
+LLIBS 			+= -l$(LOADLIBPOINT)
+LLIBS 			+= -l$(LOADLIBVEC3)
+LLIBS 			+= -l$(LOADLIBFT)
+LLIBS 			+= -L$(LIBSYS) $(LOADLIBSYS) 
 
 #LLIBS	+= -L/usr/include/../lib -lXext -lX11 -lm -lbsd
 
@@ -106,8 +138,6 @@ HEADER_iRT	=	miniRT.h
 SRCS_MINRT	= 	miniRT.c \
 				show_usage.c \
 				show_data.c \
-				point_init.c \
-				point_set.c \
 				win_init.c \
 				win_h_key_down.c \
 				win_h_key_up.c \
@@ -119,16 +149,15 @@ SRCS_MINRT	= 	miniRT.c \
 				win_h_expose.c \
 				win_pixel_put.c \
 				draw_fractal.c \
-				col_create.c \
+				win_calculate_vp_ul.c \
 				is_scene1.c \
+				is_scene2.c \
 				is_white.c
 
 HEADER_BON	=	miniRT_bonus.h
 SRCS_BONUS	 =	miniRT_bonus.c \
 				show_usage_bonus.c \
 				show_data_bonus.c \
-				point_init_bonus.c \
-				point_set_bonus.c \
 				win_init_bonus.c \
 				win_h_key_down_bonus.c \
 				win_h_key_up_bonus.c \
@@ -197,6 +226,10 @@ makedirs:
 makelibs: $(MYLIBS) 
 
 $(NAMELIBMLIBX): makelibmlibx $(LIBDIR)$(NAMELIBMLIBX)
+$(NAMELIBVEC3): makelibvec3  $(LIBDIR)$(NAMELIBVEC3)
+$(NAMELIBCOLOR): makelibcolor  $(LIBDIR)$(NAMELIBCOLOR)
+$(NAMELIBPOINT): makelibpoint  $(LIBDIR)$(NAMELIBPOINT)
+$(NAMELIBRAY): makelibray  $(LIBDIR)$(NAMELIBRAY)
 #$(NAMELIBPRINTF): makelibftprintf  $(LIBDIR)$(NAMELIBPRINTF)
 $(NAMELIBFT): makelibft  $(LIBDIR)$(NAMELIBFT)
 #$(NAMELIBFTCOMPLEX): makelibftcomplex  $(LIBDIR)$(NAMELIBFTCOMPLEX)
@@ -204,6 +237,18 @@ $(NAMELIBFT): makelibft  $(LIBDIR)$(NAMELIBFT)
 makelibmlibx: 
 	$(MAKE) -C $(SRCDIR_MLIBX)
 	cp $(SRCDIR_MLIBX)$(NAMELIBMLIBX) $(LIBDIR)
+
+makelibvec3:
+	$(MAKE) -C $(SRCDIR_VEC3)
+
+makelibcolor:
+	$(MAKE) -C $(SRCDIR_COLOR)
+
+makelibpoint:
+	$(MAKE) -C $(SRCDIR_POINT)
+
+makelibray:
+	$(MAKE) -C $(SRCDIR_RAY)
 
 #makelibftprintf:
 #	$(MAKE) -C $(SRCDIR_PRINT)
@@ -270,6 +315,10 @@ clean:
 	rm -f $(NAME) $(OBJ)
 	rm -rf $(OBJDIR)
 	$(MAKE) -C $(SRCDIR_MLIBX) clean
+	$(MAKE) -C $(SRCDIR_VEC3) clean
+	$(MAKE) -C $(SRCDIR_COLOR) clean
+	$(MAKE) -C $(SRCDIR_POINT) clean
+	$(MAKE) -C $(SRCDIR_RAY) clean
 #	$(MAKE) -C $(SRCDIR_PRINT) clean
 	$(MAKE) -C $(SRCDIR_LIBFT) clean
 
@@ -296,9 +345,19 @@ norma:
 #	$(MAKE) -C $(SRCDIR_PRINT)  norma
 #	@echo "$(WHITE)========== CHECKING NORME $(SRCDIR_FTCOMPLEX) ==============$(DEF_COLOR)"
 #	$(MAKE) -C $(SRCDIR_FTCOMPLEX)  norma
+	@echo "$(DARK_GRAY)========== CHECKING NORME $(SRCDIR_LIBFT) ==============$(DEF_COLOR)"
+	$(MAKE) -C $(SRCDIR_LIBFT)  norma
+	@echo "$(BLUE)========== CHECKING NORME $(SRCDIR_VEC3) ==============$(DEF_COLOR)"
+	$(MAKE) -C $(SRCDIR_VEC3)  norma
+	@echo "$(YELLOW)========== CHECKING NORME $(SRCDIR_COLOR) ==============$(DEF_COLOR)"
+	$(MAKE) -C $(SRCDIR_COLOR)  norma
+	@echo "$(MID_GRAY)========== CHECKING NORME $(SRCDIR_POINT) ==============$(DEF_COLOR)"
+	$(MAKE) -C $(SRCDIR_POINT)  norma
+	@echo "$(DARK_GREEN)========== CHECKING NORME $(SRCDIR_RAY) ==============$(DEF_COLOR)"
+	$(MAKE) -C $(SRCDIR_RAY)  norma
 	@echo "$(GREEN)============ CHECKING NORME $(INCDIR) ==============$(DEF_COLOR)"
 	norminette $(INCDIR)
-	@echo "$(WHITE)========== CHECKING NORME $(SRCDIR_MLIBX) ==============$(DEF_COLOR)"
+	@echo "$(RED)========== CHECKING NORME $(SRCDIR_MLIBX) ==============$(DEF_COLOR)"
 	$(MAKE) -C $(SRCDIR_MLIBX)  norma
 
 profile:
