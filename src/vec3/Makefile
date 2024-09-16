@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2024/09/14 09:24:30 by luicasad         ###   ########.fr        #
+#    Updated: 2024/09/16 15:59:45 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #MAKEFLAGS += rR
@@ -65,7 +65,8 @@ SRCS	=	vec3_init.c \
       		vec3_setters.c \
       		vec3_getters.c \
       		vec3_addition.c \
-      		vec3_product.c
+      		vec3_product.c \
+			vec3_show.c
 
 # Generate a list of object files by replacing .c with .o
 #

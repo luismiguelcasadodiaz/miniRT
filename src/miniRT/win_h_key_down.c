@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 21:19:34 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/12 21:16:26 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/09/16 15:53:42 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,21 +60,20 @@ int	win_h_key_down(int keysym, t_win *w)
 		free(w->mlx_ptr);
 		exit (0);
 	}
-/*
 	if (keysym == KEY_R)
-		w->palette = col_create_int(0, w->iteractions, 0, 0);
+		col_init_with_1(w->color_end, 0.9607, 0.4627, 0.5372);
 	if (keysym == KEY_G)
-		w->palette = col_create_int(0, 0, w->iteractions, 0);
+		col_init_with_1(w->color_end, 0.584, 0.8588, 0.6588);
 	if (keysym == KEY_B)
-		w->palette = col_create_int(0, 0, 0, w->iteractions);
-	if (keysym == KEY_S)
+		col_init_with_1(w->color_end, 0.5, 0.7, 1.0);
+	draw_fractal(*w);
+	printf("Key_down: %d\n", keysym);
+	return (0);
+}
+/*	if (keysym == KEY_S)
 		w->palette = 0x0003F40B;
 	if (keysym == NUMPAD_KEY_PLUS || keysym == NUMPAD_KEY_MINUS)
 		iteractions(keysym, w);
 	if ((ARROW_LEFT <= keysym) && (keysym <= ARROW_UP))
 		arrows(keysym, w);
 	*/
-	draw_fractal(*w);
-	printf("Key_down: %d\n", keysym);
-	return (0);
-}

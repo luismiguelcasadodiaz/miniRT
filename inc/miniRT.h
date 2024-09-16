@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 19:47:24 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/14 14:06:30 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/09/16 13:25:17 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,9 +97,12 @@ typedef struct s_win
 	t_vec3		*vp_ul;
 	t_vec3		*pixel00;
 	t_vec3		*ray_direction;
+	t_color		*color_start;
+	t_color		*color_end;
 }				t_win;
 
 t_win	win_init(char *title);
+void	win_free(t_win w);
 int		win_h_key_down(int keysym, t_win *data);
 int		win_h_key_up(int keysym, t_win *data);
 int		win_h_mouse_down(int button, int x, int y, t_win *data);
@@ -118,4 +121,5 @@ void	show_data(t_win w);
 void	win_calculate_vp_and_pd(t_win *w);
 void	win_calculate_vp_ul(t_win *w);
 void	win_calculate_pix00(t_win *w);
+void	win_calculate_background_colors(t_win *w);
 #endif

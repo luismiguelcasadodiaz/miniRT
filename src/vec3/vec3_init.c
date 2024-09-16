@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>		  +#+  +:+	   +#+		*/
 /*												+#+#+#+#+#+   +#+		   */
 /*   Created: 2024/09/07 12:47:07 by luicasad		  #+#	#+#			 */
-/*   Updated: 2024/09/13 12:33:02 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/09/16 16:02:52 by luicasad         ###   ########.fr       */
 /*																			*/
 /* ************************************************************************** */
 
@@ -51,9 +51,4 @@ void	vec3_copy_values(t_vec3 *dest, t_vec3 *orig)
 	dest->e[0] = orig->e[0];
 	dest->e[1] = orig->e[1];
 	dest->e[2] = orig->e[2];
-}
-
-void	vec3_print(const t_vec3 *v)
-{
-	printf("[x=%f y=%f z=%f]\n", v->e[0], v->e[1], v->e[2]);
 }

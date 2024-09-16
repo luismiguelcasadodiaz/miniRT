@@ -24,9 +24,10 @@ break main.c:47
 # Set other breakpoint
 #break init.c:108
 #break init.c:117
-break win_init.c:51
-break is_scene2.c:62 if wy0 == 5
-break is_scene2.c:62 if wy0 == 23
-break is_scene2.c:62 if wy0 == 50
+break is_scene2.c:53
+break is_scene2.c:71
+#break is_scene2.c:62 if wy0 == 5
+#break is_scene2.c:62 if wy0 == 23
+#break is_scene2.c:62 if wy0 == 50
 # set alias
 run ./miniRT tirame

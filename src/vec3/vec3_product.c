@@ -6,23 +6,16 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 12:28:35 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/13 12:20:48 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/09/16 16:23:36 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "vec3.h"
 
-void	vec3_mul_lmcd(t_vec3 *result, const t_vec3 *u, double t)
+void	vec3_mul(t_vec3 *result, const t_vec3 *u, double t)
 {
 	result->e[0] = u->e[0] * t;
 	result->e[1] = u->e[1] * t;
 	result->e[2] = u->e[2] * t;
-}
-
-void	vec3_mul(t_vec3 *result, const t_vec3 *u, const t_vec3 *v)
-{
-	result->e[0] = u->e[0] * v->e[0];
-	result->e[1] = u->e[1] * v->e[1];
-	result->e[2] = u->e[2] * v->e[2];
 }
 
 void	vec3_div(t_vec3 *result, const t_vec3 *v, double t)

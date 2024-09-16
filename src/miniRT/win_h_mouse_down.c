@@ -6,13 +6,13 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 12:32:45 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/12 21:19:45 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/09/16 15:51:45 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
 #include <stdio.h>
-#include "keys_ubuntu.h"
+#include "keys_ubuntu_42.h"
 /*
 static void	calculate_shift_x(int x, t_win *w)
 {
@@ -62,6 +62,10 @@ static void	calculate_shift(int x, int y, t_win *w)
 */
 int	win_h_mouse_down(int button, int x, int y, t_win *w)
 {
+	draw_fractal(*w);
+	printf("dowm (%d, %d) button %d \n", x, y, button);
+	return (0);
+}
 /*	if (button == MOUSE_SCROLL_DOWN)
 	{
 		w->zoom++;
@@ -82,8 +86,4 @@ int	win_h_mouse_down(int button, int x, int y, t_win *w)
 		draw_fractal(*w);
 	}
 */
-	draw_fractal(*w);
-	printf("dowm (%d, %d) button %d \n", x, y, button);
 	//printf("dowm (%d, %d) button %d zoom %d \n", x, y, button, w->zoom);
-	return (0);
-}

@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 09:56:29 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/14 10:51:38 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/09/16 12:30:29 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	draw_image1(t_win w)
 	wy0 = w.lu->y;
 	while (wy0 <= w.rd->y)
 	{
-		fprintf(stderr, "\rLines remaining: %*d", 5, w.rd->y - wy0);
+		fprintf(stderr, "\rLines remaining: %*d", 5, (int)w.rd->y - wy0);
 		wx0 = w.lu->x;
 		while (wx0 <= w.rd->x)
 		{

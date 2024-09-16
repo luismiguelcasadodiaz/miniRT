@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 10:28:52 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/12 20:46:18 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/09/16 15:52:55 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,21 +48,11 @@ int	main(int argc, char **argv)
 	w = win_init(argv[1]);
 	mlx_hook(w.win_ptr, ON_KEYDOWN, (1L << 0), &win_h_key_down, &w);
 	mlx_hook(w.win_ptr, ON_KEYUP, 0L, &win_h_key_up, &w);
-//	mlx_hook(w.win_ptr, ON_MOUSEDOWN, (1L << 2), &win_h_mouse_down, &w);
-//	mlx_hook(w.win_ptr, ON_MOUSEUP, 0L, &win_h_mouse_up, &w);
-//	mlx_hook(w.win_ptr, ON_MOUSEMOVE, (1L << 6), &win_h_mouse_move, &w);
 	mlx_hook(w.win_ptr, ON_EXPOSE, 0L, &win_h_expose, &w);
 	mlx_hook(w.win_ptr, ON_DESTROY, 0L, &win_h_destroy, &w);
 	mlx_loop_hook(w.mlx_ptr, &win_h_not_event, &w);
-/*	mlx_hook(w.win_ptr, ON_KEYDOWN, 0, &win_h_key_down, &w);
-	mlx_hook(w.win_ptr, ON_KEYUP, 0, &win_h_key_up, &w);
-	mlx_hook(w.win_ptr, ON_MOUSEDOWN, 0, &win_h_mouse_down, &w);
-	mlx_hook(w.win_ptr, ON_MOUSEUP, 0, &win_h_mouse_up, &w);
-	mlx_hook(w.win_ptr, ON_MOUSEMOVE, 0, &win_h_mouse_move, &w);
-	mlx_hook(w.win_ptr, ON_EXPOSE, 0, &win_h_expose, &w);
-	mlx_hook(w.win_ptr, ON_DESTROY, 0, &win_h_destroy, &w);
-*/
 	mlx_loop(w.mlx_ptr);
+	win_free(w);
 	return (0);
 }
 
@@ -75,3 +65,14 @@ int	main(int argc, char **argv)
 	mlx_hook(w.win_ptr, ON_EXPOSE, 0L, &win_h_expose, &w);
 	mlx_hook(w.win_ptr, ON_DESTROY, 0L, &win_h_destroy, &w);
 	*/
+//	mlx_hook(w.win_ptr, ON_MOUSEDOWN, (1L << 2), &win_h_mouse_down, &w);
+//	mlx_hook(w.win_ptr, ON_MOUSEUP, 0L, &win_h_mouse_up, &w);
+//	mlx_hook(w.win_ptr, ON_MOUSEMOVE, (1L << 6), &win_h_mouse_move, &w);
+/*	mlx_hook(w.win_ptr, ON_KEYDOWN, 0, &win_h_key_down, &w);
+	mlx_hook(w.win_ptr, ON_KEYUP, 0, &win_h_key_up, &w);
+	mlx_hook(w.win_ptr, ON_MOUSEDOWN, 0, &win_h_mouse_down, &w);
+	mlx_hook(w.win_ptr, ON_MOUSEUP, 0, &win_h_mouse_up, &w);
+	mlx_hook(w.win_ptr, ON_MOUSEMOVE, 0, &win_h_mouse_move, &w);
+	mlx_hook(w.win_ptr, ON_EXPOSE, 0, &win_h_expose, &w);
+	mlx_hook(w.win_ptr, ON_DESTROY, 0, &win_h_destroy, &w);
+*/

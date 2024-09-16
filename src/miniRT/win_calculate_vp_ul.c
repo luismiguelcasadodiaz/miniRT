@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 11:09:47 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/14 13:21:28 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/09/16 13:43:45 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,12 @@ void	win_calculate_pix00(t_win *w)
 	vec3_add(w->pixel00, w->pd_x, w->pd_y);
 	vec3_div(w->pixel00, w->pixel00, 2);
 	vec3_add(w->pixel00, w->pixel00, w->vp_ul);
+}
+
+void	win_calculate_background_colors(t_win *w)
+{
+	w->color_start = col_new();
+	w->color_end = col_new();
+	col_init_with_1(w->color_start, 1.0, 1.0, 1.0);
+	col_init_with_1(w->color_end, 0.5, 0.7, 1.0);
 }

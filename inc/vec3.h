@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 12:33:42 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/14 09:14:45 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/09/16 16:11:54 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,7 @@ void	vec3_add(t_vec3 *result, const t_vec3 *u, const t_vec3 *v);
 void	vec3_sub(t_vec3 *result, const t_vec3 *u, const t_vec3 *v);
 void	vec3_negate(t_vec3 *result, const t_vec3 *v);
 // Product functions (vec3_product.c)
-void	vec3_mul_lmcd(t_vec3 *result, const t_vec3 *u, double t);
-void	vec3_mul(t_vec3 *result, const t_vec3 *u, const t_vec3 *v);
+void	vec3_mul(t_vec3 *result, const t_vec3 *u, double t);
 void	vec3_div(t_vec3 *result, const t_vec3 *v, double t);
 void	vec3_scale(t_vec3 *result, const t_vec3 *v, double t);
 double	vec3_dot(const t_vec3 *u, const t_vec3 *v);

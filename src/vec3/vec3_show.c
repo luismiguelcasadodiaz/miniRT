@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   point_setters.c                                    :+:      :+:    :+:   */
+/*   vec3_show.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: luicasad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/26 00:09:55 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/13 07:43:20 by luicasad         ###   ########.fr       */
+/*   Created: 2024/09/16 15:58:40 by luicasad          #+#    #+#             */
+/*   Updated: 2024/09/16 16:02:17 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "point.h"
+#include "vec3.h"
+#include <stdio.h>
 
-void	point_set_x(t_point *self, double the_x)
+void	vec3_print(const t_vec3 *v)
 {
-	self->x = the_x;
-}
-
-void	point_set_y(t_point *self, double the_y)
-{
-	self->y = the_y;
-}
-
-void	point_set_z(t_point *self, double the_z)
-{
-	self->z = the_z;
+	printf("[x=%f y=%f z=%f]\n", v->e[0], v->e[1], v->e[2]);
 }

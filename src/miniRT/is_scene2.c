@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 12:46:50 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/14 15:17:52 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/09/16 16:14:14 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "miniRT.h"
@@ -34,10 +34,10 @@ static void	win_calculate_ray_dir(t_win *w, int x, int y)
 {
 	t_vec3	aux;
 
-	vec3_mul_lmcd(&aux, w->pd_x, x);
+	vec3_mul(&aux, w->pd_x, x);
 	vec3_copy_values(w->ray_direction, w->pixel00);
 	vec3_add(w->ray_direction, w->ray_direction, &aux);
-	vec3_mul_lmcd(&aux, w->pd_y, y);
+	vec3_mul(&aux, w->pd_y, y);
 	vec3_add(w->ray_direction, w->ray_direction, &aux);
 	vec3_init_values(&aux, w->cc->x, w->cc->y, w->cc->z);
 	vec3_sub(w->ray_direction, w->ray_direction, &aux);
@@ -54,13 +54,13 @@ void	draw_image2(t_win *w)
 	wy0 = w->lu->y;
 	while (wy0 <= w->rd->y)
 	{
-		fprintf(stderr, "\rLines remaining: %*d", 5, w->rd->y - wy0);
+		fprintf(stderr, "\rLines remaining: %*d", 5, (int)w->rd->y - wy0);
 		wx0 = w->lu->x;
 		while (wx0 <= w->rd->x)
 		{
 			win_calculate_ray_dir(w, wx0, wy0);
 			ray_init(r, w->cc, w->ray_direction);
-			mlx_color = ray_color(r);
+			mlx_color = ray_color(r, *w->color_start, *w->color_end);
 			win_pixel_put(*w, wx0, wy0, mlx_color);
 			wx0++;
 		}

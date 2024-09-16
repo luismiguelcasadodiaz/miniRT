@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 13:07:33 by luicasad          #+#    #+#              #
-#    Updated: 2024/09/14 07:11:53 by luicasad         ###   ########.fr        #
+#    Updated: 2024/09/16 16:17:39 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -364,5 +364,8 @@ profile:
 	valgrind --tool=callgrind ./$(MINRT) tirame
 	callgrind_annotate
 
-.PHONY: all bonus test clean fclean re rebonus norma profile
+leaks:
+	valgrind -s --tool=memcheck --leak-check=full ./$(MINRT) tirame
+
+.PHONY: all bonus test clean fclean re rebonus norma profile leaks
 

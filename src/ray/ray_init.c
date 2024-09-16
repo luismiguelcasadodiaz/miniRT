@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 07:52:52 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/13 15:09:34 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/09/16 15:31:26 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,13 @@ t_ray	*ray_new(void)
 
 void	ray_init(t_ray *self, t_point *the_orig, t_vec3 *the_dir)
 {
-	self->orig = the_orig;
-	self->dir = the_dir;
+	*self->orig = *the_orig;
+	*self->dir = *the_dir;
 }
 
 void	ray_free(t_ray *self)
 {
+	point_free(self->orig);
+	vec3_free(self->dir);
 	free(self);
 }

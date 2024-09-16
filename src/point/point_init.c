@@ -31,7 +31,7 @@ void	point_free(t_point *self)
 	free(self);
 }
 
-void	point_init(t_point *self, int the_x, int the_y, int the_z)
+void	point_init(t_point *self, double the_x, double the_y, double the_z)
 {
 	self->x = the_x;
 	self->y = the_y;

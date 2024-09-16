@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 10:49:57 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/14 13:09:02 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/09/16 15:56:21 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ static void	set_init_values_win(t_win *w, char *title)
 	win_calculate_vp_and_pd(w);
 	win_calculate_vp_ul(w);
 	win_calculate_pix00(w);
+	win_calculate_background_colors(w);
 	w->ray_direction = vec3_new();
 }
 
@@ -77,18 +78,17 @@ t_win	win_init(char *title)
 
 	set_init_values_win(&w, title);
 	w.mlx_ptr = mlx_init();
-	printf("mlx_init ha devuelto %p\n", w.mlx_ptr);
 	if (w.mlx_ptr == NULL)
 		exit (-1);
-	w.win_ptr = mlx_new_window(w.mlx_ptr, w.size->x, w.size->y, w.title);
-	printf("mlx_new_window ha devuelto %p\n", w.win_ptr);
+	w.win_ptr = mlx_new_window(w.mlx_ptr,
+			(int)w.size->x, (int)w.size->y, w.title);
 	if (w.win_ptr == NULL)
 	{
 		free(w.mlx_ptr);
 		exit (-1);
 	}
-	w.img.img_ptr = mlx_new_image(w.mlx_ptr, w.img.size->x, w.img.size->y);
-	printf("mlx_new_image ha devuelto %p\n", w.img.img_ptr);
+	w.img.img_ptr = mlx_new_image(w.mlx_ptr,
+			(int)w.img.size->x, (int)w.img.size->y);
 	if (w.img.img_ptr == NULL)
 	{
 		free(w.win_ptr);
@@ -98,4 +98,21 @@ t_win	win_init(char *title)
 	w.img.addr = mlx_get_data_addr(w.img.img_ptr, &w.img.bits_per_pixel,
 			&w.img.line_length, &w.img.endian);
 	return (w);
+}
+
+void	win_free(t_win w)
+{
+	point_free(w.size);
+	point_free(w.lu);
+	point_free(w.rd);
+	point_free(w.vp);
+	point_free(w.cc);
+	vec3_free(w.vp_x);
+	vec3_free(w.vp_y);
+	vec3_free(w.pd_x);
+	vec3_free(w.pd_y);
+	vec3_free(w.vp_ul);
+	vec3_free(w.pixel00);
+	col_free(w.color_start);
+	col_free(w.color_end);
 }
