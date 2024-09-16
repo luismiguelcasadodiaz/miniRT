@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 13:07:33 by luicasad          #+#    #+#              #
-#    Updated: 2024/09/16 16:17:39 by luicasad         ###   ########.fr        #
+#    Updated: 2024/09/16 16:52:12 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,7 @@ SRCDIR_VEC3			= ./src/vec3/
 SRCDIR_COLOR		= ./src/color/
 SRCDIR_POINT		= ./src/point/
 SRCDIR_RAY			= ./src/ray/
+SRCDIR_ELEME		= ./src/eleme/
 #SRCDIR_FTCOMPLEX	= ./src/compl/
 SRCDIR_MLIBX		= ./src/minilibx-linux/
 
@@ -95,6 +96,10 @@ NAMELIBRAY			= libray.a
 PATH_RAY     		= $(addprefix $(SRCDIR_RAY), $(NAMELIBRAY))
 LOADLIBRAY      	= ray
 
+NAMELIBELEME		= libeleme.a
+PATH_ELEME     		= $(addprefix $(SRCDIR_ELEME), $(NAMELIBELEME))
+LOADLIBELEME      	= eleme
+
 #NAMELIBPRINTF 		= libftprintf.a
 #PATH_PRINT 			= $(addprefix $(SRCDIR_PRINT), $(NAMELIBPRINTF))
 #LOADLIBPRINTF 		= ftprintf
@@ -115,12 +120,14 @@ LOADLIBFT 			= ft
 
 MYLIBS			= $(NAMELIBMLIBX)
 MYLIBS			+= $(NAMELIBRAY)
+MYLIBS			+= $(NAMELIBELEME)
 MYLIBS			+= $(NAMELIBCOLOR)
 MYLIBS			+= $(NAMELIBPOINT)
 MYLIBS			+= $(NAMELIBVEC3)
 MYLIBS			+= $(NAMELIBFT)
 
 LLIBS 			= -L$(LIBDIR) -l$(LOADLIBMLIBX)
+LLIBS 			+= -l$(LOADLIBELEME)
 LLIBS 			+= -l$(LOADLIBRAY)
 LLIBS 			+= -l$(LOADLIBCOLOR)
 LLIBS 			+= -l$(LOADLIBPOINT)
@@ -230,6 +237,7 @@ $(NAMELIBVEC3): makelibvec3  $(LIBDIR)$(NAMELIBVEC3)
 $(NAMELIBCOLOR): makelibcolor  $(LIBDIR)$(NAMELIBCOLOR)
 $(NAMELIBPOINT): makelibpoint  $(LIBDIR)$(NAMELIBPOINT)
 $(NAMELIBRAY): makelibray  $(LIBDIR)$(NAMELIBRAY)
+$(NAMELIBELEME): makelibeleme  $(LIBDIR)$(NAMELIBELEME)
 #$(NAMELIBPRINTF): makelibftprintf  $(LIBDIR)$(NAMELIBPRINTF)
 $(NAMELIBFT): makelibft  $(LIBDIR)$(NAMELIBFT)
 #$(NAMELIBFTCOMPLEX): makelibftcomplex  $(LIBDIR)$(NAMELIBFTCOMPLEX)
@@ -249,6 +257,9 @@ makelibpoint:
 
 makelibray:
 	$(MAKE) -C $(SRCDIR_RAY)
+
+makelibeleme:
+	$(MAKE) -C $(SRCDIR_ELEME)
 
 #makelibftprintf:
 #	$(MAKE) -C $(SRCDIR_PRINT)
@@ -319,6 +330,7 @@ clean:
 	$(MAKE) -C $(SRCDIR_COLOR) clean
 	$(MAKE) -C $(SRCDIR_POINT) clean
 	$(MAKE) -C $(SRCDIR_RAY) clean
+	$(MAKE) -C $(SRCDIR_ELEME) clean
 #	$(MAKE) -C $(SRCDIR_PRINT) clean
 	$(MAKE) -C $(SRCDIR_LIBFT) clean
 
@@ -355,6 +367,8 @@ norma:
 	$(MAKE) -C $(SRCDIR_POINT)  norma
 	@echo "$(DARK_GREEN)========== CHECKING NORME $(SRCDIR_RAY) ==============$(DEF_COLOR)"
 	$(MAKE) -C $(SRCDIR_RAY)  norma
+	@echo "$(DARK_YELLOW)========== CHECKING NORME $(SRCDIR_ELEME) ==============$(DEF_COLOR)"
+	$(MAKE) -C $(SRCDIR_ELEME)  norma
 	@echo "$(GREEN)============ CHECKING NORME $(INCDIR) ==============$(DEF_COLOR)"
 	norminette $(INCDIR)
 	@echo "$(RED)========== CHECKING NORME $(SRCDIR_MLIBX) ==============$(DEF_COLOR)"
