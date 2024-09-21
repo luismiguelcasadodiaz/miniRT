@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 19:47:24 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/20 21:32:54 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/09/21 13:20:28 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,9 @@ typedef struct s_win
 	t_vec3		*ray_direction;
 	t_color		*color_start;
 	t_color		*color_end;
+	t_eleme		*ambient;
+	t_eleme		*camera;
+	t_eleme		*light;	
 	t_eleme		*eleme;
 }				t_win;
 

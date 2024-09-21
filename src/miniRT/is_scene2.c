@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 12:46:50 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/16 16:14:14 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/09/21 13:16:01 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "miniRT.h"
@@ -60,7 +60,7 @@ void	draw_image2(t_win *w)
 		{
 			win_calculate_ray_dir(w, wx0, wy0);
 			ray_init(r, w->cc, w->ray_direction);
-			mlx_color = ray_color(r, *w->color_start, *w->color_end);
+			mlx_color = ray_color(r, *w->color_start, *w->color_end, w->eleme);
 			win_pixel_put(*w, wx0, wy0, mlx_color);
 			wx0++;
 		}
