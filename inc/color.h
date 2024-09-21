@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 12:33:42 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/14 10:21:19 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/09/20 20:41:14 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,6 @@ void	col_set_g_1(t_color *self, double value);
 void	col_set_b_1(t_color *self, double value);
 
 int		col_lerp(t_color *start, t_color *end, t_vec3 *direction);
+void	col_print(t_color *self);
+void	col_copy_values(t_color *dest, t_color *orig);
 #endif

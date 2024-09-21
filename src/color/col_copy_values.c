@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_fractal.c                                     :+:      :+:    :+:   */
+/*   col_copy_values.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
+/*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/06 11:13:27 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/20 20:46:32 by luicasad         ###   ########.fr       */
+/*   Created: 2024/09/20 20:38:32 by luicasad          #+#    #+#             */
+/*   Updated: 2024/09/20 20:40:51 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
-#include "mlx.h"
-#include "libft.h"
-#include <unistd.h>
+#include "color.h"
 
-void	draw_fractal(t_win w)
+void	col_copy_values(t_color *dest, t_color *ori)
 {
-	show_data(w);
-	//draw_image2(&w);
-	draw_image3(&w);
-	return ;
+	vec3_copy_values(dest->rgb, ori->rgb);
+	dest->t = ori->t;
+	dest->mlx_color = ori->mlx_color;
 }
-	//draw_image1(w);

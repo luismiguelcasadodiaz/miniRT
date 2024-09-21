@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   eleme_getters_two.c                                :+:      :+:    :+:   */
+/*   eleme_sphere.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luicasad <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/16 17:32:53 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/20 20:26:05 by luicasad         ###   ########.fr       */
+/*   Created: 2024/09/21 09:40:29 by luicasad          #+#    #+#             */
+/*   Updated: 2024/09/21 10:01:44 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "eleme.h"
 
-double	eleme_get_heigh(t_eleme *self)
+t_eleme	*eleme_new_sph(t_vec3 *coor, double d, t_color *rgb255)
 {
-	return (self->h);
-}
+	t_eleme	*self;
 
-double	eleme_get_fview(t_eleme *self)
-{
-	return (self->fview);
-}
-
-double	eleme_get_lambi(t_eleme *self)
-{
-	return (self->lambi);
-}
-
-double	eleme_get_lbrig(t_eleme *self)
-{
-	return (self->lbrig);
+	self = eleme_new();
+	eleme_set_ident(self, SPHERE);
+	eleme_set_coord(self, coor);
+	eleme_set_diame(self, d);
+	eleme_set_color(self, rgb255);
+	return (self);
 }

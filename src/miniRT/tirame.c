@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   win_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/20 21:00:58 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/20 21:39:06 by luicasad         ###   ########.fr       */
+/*   Created: 2024/02/12 10:49:57 by luicasad          #+#    #+#             */
+/*   Updated: 2024/09/20 20:54:55 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static void	set_init_values_win(t_win *w, char *title)
 	win_calculate_pix00(w);
 	win_calculate_background_colors(w);
 	w->ray_direction = vec3_new();
-//	w->eleme = eleme_new();
+	w->eleme = eleme_new();
 }
 
 t_win	win_init(char *title)
@@ -117,5 +117,5 @@ void	win_free(t_win w)
 	vec3_free(w.pixel00);
 	col_free(w.color_start);
 	col_free(w.color_end);
-	eleme_free(w.eleme);
+	eleme_free(w.eleme)
 }

@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 13:07:33 by luicasad          #+#    #+#              #
-#    Updated: 2024/09/16 16:52:12 by luicasad         ###   ########.fr        #
+#    Updated: 2024/09/20 20:46:59 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,12 +64,12 @@ vpath %.a $(LIBDIR)
 #                               COMPILER SETUP                                 #
 # ============================================================================ #
 CC 				= cc
-WRNFL			= -Wall -Wextra -Werror #-fsanitize=address
+WRNFL			= -Wall -Wextra -Werror -fsanitize=address
 DBGFL			= -g3  -pg
 CFLGS			= $(DBGFL) $(WRNFL) -c 
 HEADS			= -I$(INCDIR)
 LFLGS 			=
-LFLGS 			= #-fsanitize=address
+LFLGS 			= -fsanitize=address
 FRAMEWORKS		=
 
 # ============================================================================ #
@@ -159,6 +159,7 @@ SRCS_MINRT	= 	miniRT.c \
 				win_calculate_vp_ul.c \
 				is_scene1.c \
 				is_scene2.c \
+				is_scene3.c \
 				is_white.c
 
 HEADER_BON	=	miniRT_bonus.h

@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 19:47:24 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/16 13:25:17 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/09/20 21:32:54 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@
 # include "vec3.h"
 # include "color.h"
 # include "ray.h"
+# include "eleme.h"
 
 /* ************************************************************************** */
 /*                                                                            */
@@ -99,6 +100,7 @@ typedef struct s_win
 	t_vec3		*ray_direction;
 	t_color		*color_start;
 	t_color		*color_end;
+	t_eleme		*eleme;
 }				t_win;
 
 t_win	win_init(char *title);
@@ -116,6 +118,7 @@ void	draw_fractal(t_win w);
 void	draw_square_2(t_win w, t_point upper_left, t_point lower_right);
 void	draw_image1(t_win w);
 void	draw_image2(t_win *w);
+void	draw_image3(t_win *w);
 void	show_usage(void);
 void	show_data(t_win w);
 void	win_calculate_vp_and_pd(t_win *w);

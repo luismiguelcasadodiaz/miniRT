@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2024/09/16 15:59:45 by luicasad         ###   ########.fr        #
+#    Updated: 2024/09/20 20:07:57 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #MAKEFLAGS += rR
@@ -48,7 +48,7 @@ vpath %.a $(LIBDIR)
 #                               COMPILER SETUP                                 #
 # ============================================================================ #
 CC		=	cc
-CFLAGS		=  -g -Wall -Wextra -Werror #-fsanitize=address -fno-omit-frame-pointer
+CFLAGS		=  -g -Wall -Wextra -Werror -fsanitize=address -fno-omit-frame-pointer
 HEADS		=	-I$(INCDIR)
 # From 4.4.3 The Function wildcard gnu make manual....
 # Althought wildcard exparnds automaticaly in rules
@@ -66,7 +66,7 @@ SRCS	=	vec3_init.c \
       		vec3_getters.c \
       		vec3_addition.c \
       		vec3_product.c \
-			vec3_show.c
+			vec3_print.c
 
 # Generate a list of object files by replacing .c with .o
 #
