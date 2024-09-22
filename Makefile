@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 13:07:33 by luicasad          #+#    #+#              #
-#    Updated: 2024/09/20 20:46:59 by luicasad         ###   ########.fr        #
+#    Updated: 2024/09/21 14:10:15 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -160,6 +160,7 @@ SRCS_MINRT	= 	miniRT.c \
 				is_scene1.c \
 				is_scene2.c \
 				is_scene3.c \
+				is_scene4.c \
 				is_white.c
 
 HEADER_BON	=	miniRT_bonus.h

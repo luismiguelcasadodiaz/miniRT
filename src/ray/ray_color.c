@@ -6,12 +6,13 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 13:11:26 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/21 12:13:30 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/09/21 15:45:19 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ray.h"
 #include "eleme.h"
+#include <math.h>
 
 static int	hit_sphere(t_eleme *o, t_ray *r)
 {
@@ -20,6 +21,7 @@ static int	hit_sphere(t_eleme *o, t_ray *r)
 	double	b;
 	double	c;
 	double	radio;
+	double	discriminant;
 
 	radio = o->d / 2.0;
 	oc.e[0] = o->coor->e[0] - r->orig->x;
@@ -28,14 +30,21 @@ static int	hit_sphere(t_eleme *o, t_ray *r)
 	a = vec3_dot(r->dir, r->dir);
 	b = vec3_dot(r->dir, &oc) * -2.0;
 	c = vec3_dot(&oc, &oc) - (radio * radio);
-	return ((((b * b) - (4 * a * c)) >= 0));
+	discriminant = (((b * b) - (4 * a * c)) >= 0);
+	if (discriminant < 0)
+		return (-1.0);
+	else
+		return (((-b - sqrt(discriminant)) / (2.0 * a)));
 }
 
 int	ray_color(t_ray	*self, t_color color_start, t_color color_end, t_eleme *o)
 {
 	int		mlx_color;
+	double	t;
 
-	if (hit_sphere(o, self))
+	t = hit_sphere(o, self);
+
+	if ()
 		return (o->color->mlx_color);
 	mlx_color = col_lerp(&color_start, &color_end, self->dir);
 	return (mlx_color);

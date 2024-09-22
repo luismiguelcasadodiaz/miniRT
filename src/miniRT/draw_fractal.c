@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 11:13:27 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/20 20:46:32 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/09/21 14:11:45 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@
 void	draw_fractal(t_win w)
 {
 	show_data(w);
-	//draw_image2(&w);
-	draw_image3(&w);
+	draw_image4(&w);
 	return ;
 }
 	//draw_image1(w);
+	//draw_image2(&w);
+	//draw_image3(&w);
