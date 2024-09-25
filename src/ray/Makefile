@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2024/09/13 14:45:53 by luicasad         ###   ########.fr        #
+#    Updated: 2024/09/25 20:28:13 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #MAKEFLAGS += rR
@@ -63,6 +63,7 @@ HEADER	=	ray.h
 SRCS	=	ray_init.c \
       		ray_getters.c \
       		ray_setters.c \
+			ray_at.c \
 			ray_color.c
 
 # Generate a list of object files by replacing .c with .o

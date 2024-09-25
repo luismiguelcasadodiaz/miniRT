@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 00:09:55 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/13 07:43:20 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/09/25 20:03:53 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 void	point_set_x(t_point *self, double the_x)
 {
-	self->x = the_x;
+	vec3_set_x(self, the_x);
 }
 
 void	point_set_y(t_point *self, double the_y)
 {
-	self->y = the_y;
+	vec3_set_y(self, the_y);
 }
 
 void	point_set_z(t_point *self, double the_z)
 {
-	self->z = the_z;
+	vec3_set_z(self, the_z);
 }

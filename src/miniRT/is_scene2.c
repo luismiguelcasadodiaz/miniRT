@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 12:46:50 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/21 13:16:01 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/09/25 20:22:13 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "miniRT.h"
@@ -39,7 +39,7 @@ static void	win_calculate_ray_dir(t_win *w, int x, int y)
 	vec3_add(w->ray_direction, w->ray_direction, &aux);
 	vec3_mul(&aux, w->pd_y, y);
 	vec3_add(w->ray_direction, w->ray_direction, &aux);
-	vec3_init_values(&aux, w->cc->x, w->cc->y, w->cc->z);
+	vec3_init_values(&aux, w->cc->e[0], w->cc->e[1], w->cc->e[2]);
 	vec3_sub(w->ray_direction, w->ray_direction, &aux);
 }
 
@@ -51,12 +51,12 @@ void	draw_image2(t_win *w)
 	t_ray		*r;
 
 	r = ray_new();
-	wy0 = w->lu->y;
-	while (wy0 <= w->rd->y)
+	wy0 = w->lu->e[1];
+	while (wy0 <= w->rd->e[1])
 	{
-		fprintf(stderr, "\rLines remaining: %*d", 5, (int)w->rd->y - wy0);
-		wx0 = w->lu->x;
-		while (wx0 <= w->rd->x)
+		fprintf(stderr, "\rLines remaining: %*d", 5, (int)w->rd->e[1] - wy0);
+		wx0 = w->lu->e[0];
+		while (wx0 <= w->rd->e[0])
 		{
 			win_calculate_ray_dir(w, wx0, wy0);
 			ray_init(r, w->cc, w->ray_direction);

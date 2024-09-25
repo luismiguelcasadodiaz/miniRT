@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 06:55:46 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/21 14:26:41 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/09/25 19:22:01 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ void	ray_set_dir(t_ray *self, t_vec3 *the_dir);
 t_point	*ray_get_orig(t_ray *self);
 t_vec3	*ray_get_dir(t_ray *self);
 int		ray_color(t_ray *self, t_color start, t_color end, t_eleme *o);
-t_point	ray_at(t_ray *self, double t);
+t_point	*ray_at(t_ray *self, double t);
 #endif

@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 21:00:58 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/21 13:26:05 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/09/25 20:12:45 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,8 @@ static void	set_init_values_win(t_win *w, char *title)
 	point_init(w->rd, WINDOW_W, height, 0);
 	w->vp = point_new();
 	point_init(w->vp,
-		VIEW_PORT_H * ((double)w->rd->x / (double)w->rd->y), VIEW_PORT_H, 0);
+		VIEW_PORT_H * ((double)w->rd->e[0] / (double)w->rd->e[1]),
+		VIEW_PORT_H, 0);
 	w->cc = point_new();
 	point_init(w->cc, 0, 0, 0);
 	set_init_values_img(w);
@@ -86,14 +87,14 @@ t_win	win_init(char *title)
 	if (w.mlx_ptr == NULL)
 		exit (-1);
 	w.win_ptr = mlx_new_window(w.mlx_ptr,
-			(int)w.size->x, (int)w.size->y, w.title);
+			(int)w.size->e[0], (int)w.size->e[1], w.title);
 	if (w.win_ptr == NULL)
 	{
 		free(w.mlx_ptr);
 		exit (-1);
 	}
 	w.img.img_ptr = mlx_new_image(w.mlx_ptr,
-			(int)w.img.size->x, (int)w.img.size->y);
+			(int)w.img.size->e[0], (int)w.img.size->e[1]);
 	if (w.img.img_ptr == NULL)
 	{
 		free(w.win_ptr);

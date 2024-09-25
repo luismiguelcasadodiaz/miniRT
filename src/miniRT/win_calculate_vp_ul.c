@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 11:09:47 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/16 13:43:45 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/09/25 20:18:23 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@
 void	win_calculate_vp_and_pd(t_win *w)
 {
 	w->vp_x = vec3_new();
-	vec3_init_values(w->vp_x, w->vp->x, 0, 0);
+	vec3_init_values(w->vp_x, w->vp->e[0], 0, 0);
 	w->vp_y = vec3_new();
-	vec3_init_values(w->vp_y, 0, -w->vp->y, 0);
+	vec3_init_values(w->vp_y, 0, -w->vp->e[1], 0);
 	w->pd_x = vec3_new();
-	vec3_div(w->pd_x, w->vp_x, w->size->x);
+	vec3_div(w->pd_x, w->vp_x, w->size->e[0]);
 	w->pd_y = vec3_new();
-	vec3_div(w->pd_y, w->vp_y, w->size->y);
+	vec3_div(w->pd_y, w->vp_y, w->size->e[1]);
 }
 
 /* ************************************************************************** */
@@ -36,7 +36,7 @@ void	win_calculate_vp_ul(t_win *w)
 	aux = vec3_new();
 	vec3_init_values(aux, 0, 0, FOCAL_LENGTH);
 	w->vp_ul = vec3_new();
-	vec3_init_values(w->vp_ul, w->cc->x, w->cc->y, w->cc->z);
+	vec3_init_values(w->vp_ul, w->cc->e[0], w->cc->e[1], w->cc->e[2]);
 	vec3_sub(w->vp_ul, w->vp_ul, aux);
 	vec3_div(aux, w->vp_x, 2);
 	vec3_sub(w->vp_ul, w->vp_ul, aux);

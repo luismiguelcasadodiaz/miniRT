@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 00:09:55 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/13 07:39:30 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/09/25 20:01:45 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,16 @@ t_point	*point_new(void)
 	self = (t_point *)malloc(sizeof(t_point));
 	if (!self)
 		return (NULL);
-	self->x = 0;
-	self->y = 0;
-	self->z = 0;
+	vec3_init(self);
 	return (self);
 }
 
 void	point_free(t_point *self)
 {
-	free(self);
+	vec3_free(self);
 }
 
 void	point_init(t_point *self, double the_x, double the_y, double the_z)
 {
-	self->x = the_x;
-	self->y = the_y;
-	self->z = the_z;
+	vec3_init_values(self, the_x, the_y, the_z);
 }
