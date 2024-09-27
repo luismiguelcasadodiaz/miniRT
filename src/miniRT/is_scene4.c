@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 12:46:50 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/25 20:26:07 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/09/27 20:26:06 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "miniRT.h"
@@ -44,6 +44,7 @@ static void	win_calculate_ray_dir(t_win *w, int x, int y)
 	vec3_init_values(&aux, w->cc->e[0], w->cc->e[1], w->cc->e[2]);
 	vec3_sub(w->ray_direction, w->ray_direction, &aux);
 }
+
 static void	world_destroy(t_win *w)
 {
 	eleme_free(w->eleme);
@@ -74,7 +75,7 @@ void	draw_image4(t_win *w)
 	wy0 = w->lu->e[1];
 	while (wy0 <= w->rd->e[1])
 	{
-//		fprintf(stderr, "\rLines remaining: %*d", 5, (int)w->rd->y - wy0);
+		//fprintf(stderr, "\rLines remaining: %*d", 5, (int)w->rd->e[1] - wy0);
 		wx0 = w->lu->e[0];
 		while (wx0 <= w->rd->e[0])
 		{
@@ -83,8 +84,9 @@ void	draw_image4(t_win *w)
 			mlx_color = ray_color(r, *w->color_start, *w->color_end, w->eleme);
 			win_pixel_put(*w, wx0, wy0, mlx_color);
 			wx0++;
+			//fprintf(stderr, "x=%d, y=%d , color=%d\n", wx0, wy0, mlx_color);
 		}
-//		fprintf(stderr, "y=%d , color=%d\n", wy0, mlx_color);
+		//fprintf(stderr, "y=%d , color=%d\n", wy0, mlx_color);
 		wy0++;
 	}
 	mlx_put_image_to_window(w->mlx_ptr, w->win_ptr, w->img.img_ptr, 0, 0);
