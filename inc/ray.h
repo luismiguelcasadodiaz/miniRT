@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 06:55:46 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/25 19:22:01 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/09/30 17:47:38 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_ray
 {
 	t_point	*orig;
 	t_vec3	*dir;
+	double	t_max;
 }	t_ray;
 
 t_ray	*ray_new(void);

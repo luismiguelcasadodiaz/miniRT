@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 19:47:24 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/27 19:24:28 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/09/30 17:57:56 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,9 @@
 # include "color.h"
 # include "ray.h"
 # include "eleme.h"
+# include "camer.h"
+# include "ambil.h"
+# include "light.h"
 
 /* ************************************************************************** */
 /*                                                                            */
@@ -100,9 +103,9 @@ typedef struct s_win
 	t_vec3		*ray_direction;
 	t_color		*color_start;
 	t_color		*color_end;
-	t_eleme		*ambient;
-	t_eleme		*camera;
-	t_eleme		*light;	
+	t_ambil		*ambient;
+	t_camer		*camera;
+	t_ligth		*light;	
 	t_eleme		*eleme;
 }				t_win;
 

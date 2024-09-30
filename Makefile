@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 13:07:33 by luicasad          #+#    #+#              #
-#    Updated: 2024/09/21 14:10:15 by luicasad         ###   ########.fr        #
+#    Updated: 2024/09/30 18:14:27 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,6 +50,9 @@ SRCDIR_COLOR		= ./src/color/
 SRCDIR_POINT		= ./src/point/
 SRCDIR_RAY			= ./src/ray/
 SRCDIR_ELEME		= ./src/eleme/
+SRCDIR_CAMER		= ./src/camer/
+SRCDIR_LIGHT		= ./src/light/
+SRCDIR_AMBIL		= ./src/ambil/
 #SRCDIR_FTCOMPLEX	= ./src/compl/
 SRCDIR_MLIBX		= ./src/minilibx-linux/
 
@@ -100,6 +103,18 @@ NAMELIBELEME		= libeleme.a
 PATH_ELEME     		= $(addprefix $(SRCDIR_ELEME), $(NAMELIBELEME))
 LOADLIBELEME      	= eleme
 
+NAMELIBCAMER		= libcamer.a
+PATH_CAMER     		= $(addprefix $(SRCDIR_CAMER), $(NAMELIBCAMER))
+LOADLIBCAMER      	= camer
+
+NAMELIBAMBIL		= libambil.a
+PATH_AMBIL     		= $(addprefix $(SRCDIR_AMBIL), $(NAMELIBAMBIL))
+LOADLIBAMBIL      	= ambil
+
+NAMELIBLIGHT		= liblight.a
+PATH_LIGHT     		= $(addprefix $(SRCDIR_LIGHT), $(NAMELIBLIGHT))
+LOADLIBLIGHT      	= light
+
 #NAMELIBPRINTF 		= libftprintf.a
 #PATH_PRINT 			= $(addprefix $(SRCDIR_PRINT), $(NAMELIBPRINTF))
 #LOADLIBPRINTF 		= ftprintf
@@ -121,6 +136,9 @@ LOADLIBFT 			= ft
 MYLIBS			= $(NAMELIBMLIBX)
 MYLIBS			+= $(NAMELIBRAY)
 MYLIBS			+= $(NAMELIBELEME)
+MYLIBS			+= $(NAMELIBCAMER)
+MYLIBS			+= $(NAMELIBAMBIL)
+MYLIBS			+= $(NAMELIBLIGHT)
 MYLIBS			+= $(NAMELIBCOLOR)
 MYLIBS			+= $(NAMELIBPOINT)
 MYLIBS			+= $(NAMELIBVEC3)
@@ -128,6 +146,9 @@ MYLIBS			+= $(NAMELIBFT)
 
 LLIBS 			= -L$(LIBDIR) -l$(LOADLIBMLIBX)
 LLIBS 			+= -l$(LOADLIBELEME)
+LLIBS 			+= -l$(LOADLIBCAMER)
+LLIBS 			+= -l$(LOADLIBAMBIL)
+LLIBS 			+= -l$(LOADLIBLIGHT)
 LLIBS 			+= -l$(LOADLIBRAY)
 LLIBS 			+= -l$(LOADLIBCOLOR)
 LLIBS 			+= -l$(LOADLIBPOINT)
@@ -240,6 +261,9 @@ $(NAMELIBCOLOR): makelibcolor  $(LIBDIR)$(NAMELIBCOLOR)
 $(NAMELIBPOINT): makelibpoint  $(LIBDIR)$(NAMELIBPOINT)
 $(NAMELIBRAY): makelibray  $(LIBDIR)$(NAMELIBRAY)
 $(NAMELIBELEME): makelibeleme  $(LIBDIR)$(NAMELIBELEME)
+$(NAMELIBCAMER): makelibcamer  $(LIBDIR)$(NAMELIBCAMER)
+$(NAMELIBAMBIL): makelibambil  $(LIBDIR)$(NAMELIBAMBIL)
+$(NAMELIBLIGHT): makeliblight  $(LIBDIR)$(NAMELIBLIGHT)
 #$(NAMELIBPRINTF): makelibftprintf  $(LIBDIR)$(NAMELIBPRINTF)
 $(NAMELIBFT): makelibft  $(LIBDIR)$(NAMELIBFT)
 #$(NAMELIBFTCOMPLEX): makelibftcomplex  $(LIBDIR)$(NAMELIBFTCOMPLEX)
@@ -262,6 +286,15 @@ makelibray:
 
 makelibeleme:
 	$(MAKE) -C $(SRCDIR_ELEME)
+
+makelibcamer:
+	$(MAKE) -C $(SRCDIR_CAMER)
+
+makelibambil:
+	$(MAKE) -C $(SRCDIR_AMBIL)
+
+makeliblight:
+	$(MAKE) -C $(SRCDIR_LIGHT)
 
 #makelibftprintf:
 #	$(MAKE) -C $(SRCDIR_PRINT)
@@ -333,6 +366,9 @@ clean:
 	$(MAKE) -C $(SRCDIR_POINT) clean
 	$(MAKE) -C $(SRCDIR_RAY) clean
 	$(MAKE) -C $(SRCDIR_ELEME) clean
+	$(MAKE) -C $(SRCDIR_CAMER) clean
+	$(MAKE) -C $(SRCDIR_AMBIL) clean
+	$(MAKE) -C $(SRCDIR_LIGHT) clean
 #	$(MAKE) -C $(SRCDIR_PRINT) clean
 	$(MAKE) -C $(SRCDIR_LIBFT) clean
 
@@ -371,6 +407,12 @@ norma:
 	$(MAKE) -C $(SRCDIR_RAY)  norma
 	@echo "$(DARK_YELLOW)========== CHECKING NORME $(SRCDIR_ELEME) ==============$(DEF_COLOR)"
 	$(MAKE) -C $(SRCDIR_ELEME)  norma
+	@echo "$(DARK_CYAN)========== CHECKING NORME $(SRCDIR_CAMER) ==============$(DEF_COLOR)"
+	$(MAKE) -C $(SRCDIR_CAMER)  norma
+	@echo "$(DARK_GRAY)========== CHECKING NORME $(SRCDIR_AMBIL) ==============$(DEF_COLOR)"
+	$(MAKE) -C $(SRCDIR_AMBIL)  norma
+	@echo "$(DARK_BLACK)========== CHECKING NORME $(SRCDIR_LIGHT) ==============$(DEF_COLOR)"
+	$(MAKE) -C $(SRCDIR_LIGHT)  norma
 	@echo "$(GREEN)============ CHECKING NORME $(INCDIR) ==============$(DEF_COLOR)"
 	norminette $(INCDIR)
 	@echo "$(RED)========== CHECKING NORME $(SRCDIR_MLIBX) ==============$(DEF_COLOR)"
