@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 21:00:58 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/25 20:12:45 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/10/01 19:31:47 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,9 @@ static void	set_init_values_win(t_win *w, char *title)
 	win_calculate_pix00(w);
 	win_calculate_background_colors(w);
 	w->ray_direction = vec3_new();
-	w->ambient = eleme_new();
-	w->camera = eleme_new();
-	w->light = eleme_new();
+	w->ambient = ambil_new();
+	w->camera = camer_new();
+	w->light = light_new();
 	w->eleme = eleme_new();
 }
 
@@ -121,8 +121,8 @@ void	win_free(t_win w)
 	vec3_free(w.pixel00);
 	col_free(w.color_start);
 	col_free(w.color_end);
-	eleme_free(w.ambient);
-	eleme_free(w.camera);
-	eleme_free(w.light);
+	ambil_free(w.ambient);
+	camer_free(w.camera);
+	light_free(w.light);
 	eleme_free(w.eleme);
 }

@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 19:47:24 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/30 17:57:56 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/10/01 19:09:19 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ typedef struct s_win
 	t_color		*color_end;
 	t_ambil		*ambient;
 	t_camer		*camera;
-	t_ligth		*light;	
+	t_light		*light;	
 	t_eleme		*eleme;
 }				t_win;
 

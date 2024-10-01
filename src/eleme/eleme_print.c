@@ -6,7 +6,7 @@
 /*   By: luicasad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 17:32:35 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/20 21:50:22 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/10/01 19:15:22 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,6 @@ static char	*translate_e_eleme(enum e_eleme id)
 {
 	if (id == NOELEM)
 		return ("NOELEM");
-	if (id == AMBIENT)
-		return ("AMBIEMT");
-	if (id == CAMERA)
-		return ("CAMERA");
-	if (id == LIGHT)
-		return ("LIGHT");
 	if (id == SPHERE)
 		return ("SPHERE");
 	if (id == PLANE)
@@ -43,7 +37,4 @@ void	eleme_print(t_eleme	*self)
 	col_print(self->color);
 	printf("diameter                 = %f\n", self->d);
 	printf("height                   = %f\n", self->h);
-	printf("Horizontal Field of view = %f\n", self->fview);
-	printf("ligth ambient            = %f\n", self->lambi);
-	printf("light brightness         = %f\n", self->lbrig);
 }

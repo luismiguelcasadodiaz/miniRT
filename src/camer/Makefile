@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2024/09/30 19:40:41 by luicasad         ###   ########.fr        #
+#    Updated: 2024/10/01 18:59:54 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #MAKEFLAGS += rR
@@ -62,11 +62,7 @@ HEADS		=	-I$(INCDIR)
 HEADER	=	camer.h
 SRCS	=	camer_init.c \
       		camer_getters_one.c \
-      		camer_getters_two.c \
       		camer_setters_one.c \
-      		camer_setters_two.c \
-			camer_fix_elements.c \
-			camer_hitables.c \
 			camer_print.c
 
 # Generate a list of object files by replacing .c with .o

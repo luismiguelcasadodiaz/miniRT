@@ -6,7 +6,7 @@
 /*   By: luicasad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 16:56:43 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/21 13:10:11 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/10/01 19:14:16 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,6 @@
 enum e_eleme
 {
 	NOELEM,
-	AMBIENT,
-	CAMERA,
-	LIGHT,
 	SPHERE,
 	PLANE,
 	CYLINDER
@@ -34,9 +31,6 @@ typedef struct s_eleme
 	t_color			*color;
 	double			d;
 	double			h;
-	double			fview;
-	double			lambi;
-	double			lbrig;
 }	t_eleme;
 
 // eleme_init.c
@@ -45,26 +39,20 @@ void			eleme_init(t_eleme *self);
 void			eleme_free(t_eleme *self);
 // eleme_setters_one.c
 void			eleme_set_ident(t_eleme *self, enum e_eleme id);
+void			eleme_set_diame(t_eleme *self, double d);
+void			eleme_set_heigh(t_eleme *self, double h);
+// eleme_setters_two.c
 void			eleme_set_coord(t_eleme *self, t_vec3 *coor);
 void			eleme_set_novec(t_eleme *self, t_vec3 *novec);
 void			eleme_set_color(t_eleme *self, t_color *color);
-void			eleme_set_diame(t_eleme *self, double d);
-// eleme_setters_two.c
-void			eleme_set_heigh(t_eleme *self, double h);
-void			eleme_set_fview(t_eleme *self, double fview);
-void			eleme_set_lambi(t_eleme *self, double lambi);
-void			eleme_set_lbrig(t_eleme *self, double lbrig);
 // eleme_getters_one.c
 enum e_eleme	eleme_get_ident(t_eleme *self);
+double			eleme_get_diame(t_eleme *self);
+double			eleme_get_heigh(t_eleme *self);
+// eleme_getters_two.c
 t_vec3			*eleme_get_coord(t_eleme *self);
 t_vec3			*eleme_get_novec(t_eleme *self);
 t_color			*eleme_get_color(t_eleme *self);
-double			eleme_get_diame(t_eleme *self);
-// eleme_getters_two.c
-double			eleme_get_heigh(t_eleme *self);
-double			eleme_get_fview(t_eleme *self);
-double			eleme_get_lambi(t_eleme *self);
-double			eleme_get_lbrig(t_eleme *self);
 
 // eleme_show.c
 void			eleme_print(t_eleme *self);

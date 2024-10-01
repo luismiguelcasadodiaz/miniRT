@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2024/09/21 13:14:40 by luicasad         ###   ########.fr        #
+#    Updated: 2024/10/01 19:16:13 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #MAKEFLAGS += rR
@@ -65,7 +65,6 @@ SRCS	=	eleme_init.c \
       		eleme_getters_two.c \
       		eleme_setters_one.c \
       		eleme_setters_two.c \
-			eleme_fix_elements.c \
 			eleme_hitables.c \
 			eleme_print.c
 

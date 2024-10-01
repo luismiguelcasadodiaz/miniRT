@@ -6,7 +6,7 @@
 /*   By: luicasad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 17:33:00 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/20 21:42:29 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/10/01 19:24:09 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,4 @@ void	eleme_init(t_eleme *self)
 	col_init_with_1(self->color, 0.0, 0.0, 0.0);
 	eleme_set_diame(self, 0.0);
 	eleme_set_heigh(self, 0.0);
-	eleme_set_fview(self, 0.0);
-	eleme_set_lambi(self, 0.0);
-	eleme_set_lbrig(self, 0.0);
 }

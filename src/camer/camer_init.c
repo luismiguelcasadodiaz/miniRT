@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   eleme_init.c                                       :+:      :+:    :+:   */
+/*   camer_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luicasad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 17:33:00 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/20 21:42:29 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/10/01 19:27:44 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "eleme.h"
+#include "camer.h"
 
-static void	try_alloc_novec(t_eleme *self)
+static void	try_alloc_novec(t_camer *self)
 {
 	self->novec = vec3_new();
 	if (!self->novec)
@@ -23,26 +23,13 @@ static void	try_alloc_novec(t_eleme *self)
 	}
 }
 
-static void	try_alloc_color(t_eleme *self)
+t_camer	*camer_new(void)
 {
-	self->color = col_new();
-	if (!self->color)
-	{
-		vec3_free(self->coor);
-		vec3_free(self->novec);
-		free(self);
-		self = NULL;
-	}
-}
+	t_camer	*self;
 
-t_eleme	*eleme_new(void)
-{
-	t_eleme	*self;
-
-	self = (t_eleme *)malloc(sizeof(t_eleme));
+	self = (t_camer *)malloc(sizeof(t_camer));
 	if (!self)
 		return (NULL);
-	self->id = NOELEM;
 	self->coor = vec3_new();
 	if (!self->coor)
 	{
@@ -50,30 +37,32 @@ t_eleme	*eleme_new(void)
 		return (NULL);
 	}
 	try_alloc_novec(self);
-	try_alloc_color(self);
 	return (self);
 }
 
-void	eleme_free(t_eleme *self)
+void	camer_free(t_camer *self)
 {
 	if (self->coor)
 		vec3_free(self->coor);
 	if (self->novec)
 		vec3_free(self->novec);
-	if (self->color)
-		col_free(self->color);
 	free(self);
 }
 
-void	eleme_init(t_eleme *self)
+void	camer_init(t_camer *self)
 {
-	eleme_set_ident(self, NOELEM);
 	vec3_init(self->coor);
 	vec3_init(self->novec);
-	col_init_with_1(self->color, 0.0, 0.0, 0.0);
-	eleme_set_diame(self, 0.0);
-	eleme_set_heigh(self, 0.0);
-	eleme_set_fview(self, 0.0);
-	eleme_set_lambi(self, 0.0);
-	eleme_set_lbrig(self, 0.0);
+	camer_set_fview(self, 0.0);
+}
+
+t_camer	*camer_new_cam(t_vec3 *coor, t_vec3 *novec, double fview)
+{
+	t_camer	*self;
+
+	self = camer_new();
+	camer_set_coord(self, coor);
+	camer_set_novec(self, novec);
+	camer_set_fview(self, fview);
+	return (self);
 }
