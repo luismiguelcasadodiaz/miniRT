@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 21:00:58 by luicasad          #+#    #+#             */
-/*   Updated: 2024/10/01 19:31:47 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/10/02 20:23:08 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,28 +49,19 @@ static void	set_init_values_win(t_win *w, char *title)
 {
 	int	height;
 
-	height = (int)(WINDOW_W * (ASPECT_RATIO_H / ASPECT_RATIO_W));
+	height = (int)(WINDOW_W * ASPECT_RATIO_H / ASPECT_RATIO_W);
 	if (height < 1.0)
 		height = 1;
 	ft_bzero(w, sizeof(t_win));
 	w->title = title;
 	w->size = point_new();
-	point_init(w->size, WINDOW_W, height, 0);
+	if (w->size)
+		point_init(w->size, WINDOW_W, height, 0);
 	w->lu = point_new();
 	point_init(w->lu, 0, 0, 0);
 	w->rd = point_new();
 	point_init(w->rd, WINDOW_W, height, 0);
-	w->vp = point_new();
-	point_init(w->vp,
-		VIEW_PORT_H * ((double)w->rd->e[0] / (double)w->rd->e[1]),
-		VIEW_PORT_H, 0);
-	w->cc = point_new();
-	point_init(w->cc, 0, 0, 0);
 	set_init_values_img(w);
-	win_calculate_vp_and_pd(w);
-	win_calculate_vp_ul(w);
-	win_calculate_pix00(w);
-	win_calculate_background_colors(w);
 	w->ray_direction = vec3_new();
 	w->ambient = ambil_new();
 	w->camera = camer_new();
@@ -111,16 +102,6 @@ void	win_free(t_win w)
 	point_free(w.size);
 	point_free(w.lu);
 	point_free(w.rd);
-	point_free(w.vp);
-	point_free(w.cc);
-	vec3_free(w.vp_x);
-	vec3_free(w.vp_y);
-	vec3_free(w.pd_x);
-	vec3_free(w.pd_y);
-	vec3_free(w.vp_ul);
-	vec3_free(w.pixel00);
-	col_free(w.color_start);
-	col_free(w.color_end);
 	ambil_free(w.ambient);
 	camer_free(w.camera);
 	light_free(w.light);

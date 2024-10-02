@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 19:47:24 by luicasad          #+#    #+#             */
-/*   Updated: 2024/10/01 19:09:19 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/10/02 20:11:23 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@
 
 # define ASPECT_RATIO_W 16.0
 # define ASPECT_RATIO_H 9.0
-# define VIEW_PORT_H 2.0
-# define FOCAL_LENGTH 1
 
 # define BLACK 0x00000000
 # define RED   0x00FF0000
@@ -79,8 +77,6 @@ typedef struct s_img
 /* size : for window. a point with x= width & y = heigth                      */
 /* lu   : left upper coordinate                                               */
 /* rd   : right down coordinate                                               */
-/* vp   : viewport. a point with x= width & y = heigth                        */
-/* cc   : camera center. a point with x= width & y = heigth                   */
 /* ************************************************************************** */
 
 typedef struct s_win
@@ -92,17 +88,7 @@ typedef struct s_win
 	t_point		*size;
 	t_point		*lu;
 	t_point		*rd;
-	t_point		*vp;
-	t_point		*cc;
-	t_vec3		*vp_x;
-	t_vec3		*vp_y;
-	t_vec3		*pd_x;
-	t_vec3		*pd_y;
-	t_vec3		*vp_ul;
-	t_vec3		*pixel00;
 	t_vec3		*ray_direction;
-	t_color		*color_start;
-	t_color		*color_end;
 	t_ambil		*ambient;
 	t_camer		*camera;
 	t_light		*light;	
@@ -128,8 +114,4 @@ void	draw_image3(t_win *w);
 void	draw_image4(t_win *w);
 void	show_usage(void);
 void	show_data(t_win w);
-void	win_calculate_vp_and_pd(t_win *w);
-void	win_calculate_vp_ul(t_win *w);
-void	win_calculate_pix00(t_win *w);
-void	win_calculate_background_colors(t_win *w);
 #endif

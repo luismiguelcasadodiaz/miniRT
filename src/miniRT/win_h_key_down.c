@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 21:19:34 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/16 15:53:42 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/10/02 20:24:36 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,11 @@ int	win_h_key_down(int keysym, t_win *w)
 		exit (0);
 	}
 	if (keysym == KEY_R)
-		col_init_with_1(w->color_end, 0.9607, 0.4627, 0.5372);
+		col_init_with_1(w->camera->color_end, 0.9607, 0.4627, 0.5372);
 	if (keysym == KEY_G)
-		col_init_with_1(w->color_end, 0.584, 0.8588, 0.6588);
+		col_init_with_1(w->camera->color_end, 0.584, 0.8588, 0.6588);
 	if (keysym == KEY_B)
-		col_init_with_1(w->color_end, 0.5, 0.7, 1.0);
+		col_init_with_1(w->camera->color_end, 0.5, 0.7, 1.0);
 	draw_fractal(*w);
 	printf("Key_down: %d\n", keysym);
 	return (0);

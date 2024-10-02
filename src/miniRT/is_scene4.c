@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 12:46:50 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/27 20:26:06 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/10/02 20:33:37 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "miniRT.h"
@@ -36,12 +36,12 @@ static void	win_calculate_ray_dir(t_win *w, int x, int y)
 {
 	t_vec3	aux;
 
-	vec3_mul(&aux, w->pd_x, x);
-	vec3_copy_values(w->ray_direction, w->pixel00);
+	vec3_mul(&aux, w->camera->pd_x, x);
+	vec3_copy_values(w->ray_direction, w->camera->pixel00);
 	vec3_add(w->ray_direction, w->ray_direction, &aux);
-	vec3_mul(&aux, w->pd_y, y);
+	vec3_mul(&aux, w->camera->pd_y, y);
 	vec3_add(w->ray_direction, w->ray_direction, &aux);
-	vec3_init_values(&aux, w->cc->e[0], w->cc->e[1], w->cc->e[2]);
+	vec3_init_values(&aux, w->camera->cacen->e[0], w->camera->cacen->e[1], w->camera->cacen->e[2]);
 	vec3_sub(w->ray_direction, w->ray_direction, &aux);
 }
 
@@ -80,8 +80,8 @@ void	draw_image4(t_win *w)
 		while (wx0 <= w->rd->e[0])
 		{
 			win_calculate_ray_dir(w, wx0, wy0);
-			ray_init(r, w->cc, w->ray_direction);
-			mlx_color = ray_color(r, *w->color_start, *w->color_end, w->eleme);
+			ray_init(r, w->camera->cacen, w->ray_direction);
+			mlx_color = ray_color(r, *w->camera->color_start, *w->camera->color_end, w->eleme);
 			win_pixel_put(*w, wx0, wy0, mlx_color);
 			wx0++;
 			//fprintf(stderr, "x=%d, y=%d , color=%d\n", wx0, wy0, mlx_color);
