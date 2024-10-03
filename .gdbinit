@@ -24,11 +24,12 @@ break main.c:47
 # Set other breakpoint
 #break init.c:108
 #break init.c:117
-break is_scene4.c:83 if wy0 == 280
-break is_scene4.c:83 if wx0 == 435
-break is_scene4.c:83 if wx0 == 500
-break is_scene4.c:83 if wx0 == 565
-break is_scene2.c:71
+break win_init.c:111
+#break is_scene4.c:83 if wy0 == 280
+#break is_scene4.c:83 if wx0 == 435
+#break is_scene4.c:83 if wx0 == 500
+#break is_scene4.c:83 if wx0 == 565
+#break is_scene2.c:71
 #break is_scene2.c:62 if wy0 == 5
 #break is_scene2.c:62 if wy0 == 23
 #break is_scene2.c:62 if wy0 == 50

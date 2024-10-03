@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2024/10/02 18:09:20 by luicasad         ###   ########.fr        #
+#    Updated: 2024/10/03 20:34:29 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #MAKEFLAGS += rR
@@ -48,7 +48,7 @@ vpath %.a $(LIBDIR)
 #                               COMPILER SETUP                                 #
 # ============================================================================ #
 CC		=	cc
-CFLAGS		=  -g -Wall -Wextra -Werror -fsanitize=address -fno-omit-frame-pointer
+CFLAGS		=  -g -Wall -Wextra -Werror ##-fsanitize=address -fno-omit-frame-pointer
 HEADS		=	-I$(INCDIR)
 # From 4.4.3 The Function wildcard gnu make manual....
 # Althought wildcard exparnds automaticaly in rules
@@ -61,6 +61,8 @@ HEADS		=	-I$(INCDIR)
 
 HEADER	=	camer.h
 SRCS	=	camer_init.c \
+			camer_free.c \
+			camer_new.c \
       		camer_getters_one.c \
       		camer_setters_one.c \
 			camer_calculate_vp_ul.c \

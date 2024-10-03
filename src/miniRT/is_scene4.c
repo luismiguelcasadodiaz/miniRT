@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 12:46:50 by luicasad          #+#    #+#             */
-/*   Updated: 2024/10/02 20:33:37 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/10/03 20:19:18 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "miniRT.h"
@@ -34,15 +34,18 @@
 
 static void	win_calculate_ray_dir(t_win *w, int x, int y)
 {
-	t_vec3	aux;
+	t_vec3	*aux;
 
-	vec3_mul(&aux, w->camera->pd_x, x);
+	aux = vec3_new();
+	vec3_mul(aux, w->camera->pd_x, x);
 	vec3_copy_values(w->ray_direction, w->camera->pixel00);
-	vec3_add(w->ray_direction, w->ray_direction, &aux);
-	vec3_mul(&aux, w->camera->pd_y, y);
-	vec3_add(w->ray_direction, w->ray_direction, &aux);
-	vec3_init_values(&aux, w->camera->cacen->e[0], w->camera->cacen->e[1], w->camera->cacen->e[2]);
-	vec3_sub(w->ray_direction, w->ray_direction, &aux);
+	vec3_add(w->ray_direction, w->ray_direction, aux);
+	vec3_mul(aux, w->camera->pd_y, y);
+	vec3_add(w->ray_direction, w->ray_direction, aux);
+	vec3_init_values(aux, w->camera->cacen->e[0],
+		w->camera->cacen->e[1], w->camera->cacen->e[2]);
+	vec3_sub(w->ray_direction, w->ray_direction, aux);
+	vec3_free(aux);
 }
 
 static void	world_destroy(t_win *w)
@@ -75,18 +78,16 @@ void	draw_image4(t_win *w)
 	wy0 = w->lu->e[1];
 	while (wy0 <= w->rd->e[1])
 	{
-		//fprintf(stderr, "\rLines remaining: %*d", 5, (int)w->rd->e[1] - wy0);
 		wx0 = w->lu->e[0];
 		while (wx0 <= w->rd->e[0])
 		{
 			win_calculate_ray_dir(w, wx0, wy0);
 			ray_init(r, w->camera->cacen, w->ray_direction);
-			mlx_color = ray_color(r, *w->camera->color_start, *w->camera->color_end, w->eleme);
+			mlx_color = ray_color(r, *w->camera->color_start,
+					*w->camera->color_end, w->eleme);
 			win_pixel_put(*w, wx0, wy0, mlx_color);
 			wx0++;
-			//fprintf(stderr, "x=%d, y=%d , color=%d\n", wx0, wy0, mlx_color);
 		}
-		//fprintf(stderr, "y=%d , color=%d\n", wy0, mlx_color);
 		wy0++;
 	}
 	mlx_put_image_to_window(w->mlx_ptr, w->win_ptr, w->img.img_ptr, 0, 0);

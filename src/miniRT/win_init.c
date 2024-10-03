@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 21:00:58 by luicasad          #+#    #+#             */
-/*   Updated: 2024/10/02 20:23:08 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/10/03 20:22:00 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ static void	set_init_values_img(t_win *w)
 /* ************************************************************************** */
 static void	set_init_values_win(t_win *w, char *title)
 {
-	int	height;
+	int		height;
+	t_vec3	*coor;
 
 	height = (int)(WINDOW_W * ASPECT_RATIO_H / ASPECT_RATIO_W);
 	if (height < 1.0)
@@ -64,7 +65,10 @@ static void	set_init_values_win(t_win *w, char *title)
 	set_init_values_img(w);
 	w->ray_direction = vec3_new();
 	w->ambient = ambil_new();
-	w->camera = camer_new();
+	coor = vec3_new();
+	vec3_init_values(coor, 0, 0, 0);
+	w->camera = camer_set(coor, coor, 0.0, w->size);
+	vec3_free(coor);
 	w->light = light_new();
 	w->eleme = eleme_new();
 }

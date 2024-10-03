@@ -6,7 +6,7 @@
 /*   By: luicasad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 17:33:04 by luicasad          #+#    #+#             */
-/*   Updated: 2024/10/02 20:18:19 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/10/03 20:27:31 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,17 @@ void	camer_set_novec(t_camer *self, t_vec3 *novec)
 void	camer_set_fview(t_camer *self, double fview)
 {
 	self->fview = fview;
-
 }
 
 void	camer_set_vport(t_camer *self, double the_vp_h)
 {
 	point_init(self->vport,
-	the_vp_h * ((double)self->vport->e[0] / (double)self->vport->e[1]),
-	the_vp_h, 0);
+		the_vp_h * ((double)self->vport->e[0] / (double)self->vport->e[1]),
+		the_vp_h, 0);
 }
 
 void	camer_set_cacen(t_camer *self)
 {
-	self->cacen = point_new();
 	point_init(self->cacen, 0, 0, 0);
 }
 

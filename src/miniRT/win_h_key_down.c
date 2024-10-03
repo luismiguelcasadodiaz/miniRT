@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 21:19:34 by luicasad          #+#    #+#             */
-/*   Updated: 2024/10/02 20:24:36 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/10/03 19:03:18 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int	win_h_key_down(int keysym, t_win *w)
 	if (keysym == KEY_ESC)
 	{
 		mlx_destroy_window(w->mlx_ptr, w->win_ptr);
+		win_free(*w);
 		free(w->mlx_ptr);
 		exit (0);
 	}

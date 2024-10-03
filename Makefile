@@ -67,12 +67,12 @@ vpath %.a $(LIBDIR)
 #                               COMPILER SETUP                                 #
 # ============================================================================ #
 CC 				= cc
-WRNFL			= -Wall -Wextra -Werror -fsanitize=address
+WRNFL			= -Wall -Wextra -Werror ##-fsanitize=address
 DBGFL			= -g3  -pg
 CFLGS			= $(DBGFL) $(WRNFL) -c 
 HEADS			= -I$(INCDIR)
 LFLGS 			=
-LFLGS 			= -fsanitize=address
+LFLGS 			= ##-fsanitize=address
 FRAMEWORKS		=
 
 # ============================================================================ #
