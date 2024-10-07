@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 13:11:26 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/27 20:51:09 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/10/08 00:23:09 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,11 @@ int	ray_color(t_ray	*self, t_color color_start, t_color color_end, t_eleme *o)
 	{
 		normal = get_normal(self, t);
 		normalized_color = col_new();
-		col_init_with_1(normalized_color, 0.5 * vec3_get_x(normal),
-			0.5 * vec3_get_y(normal), 0.5 * vec3_get_z(normal));
+		col_init_with_1(normalized_color, 0.5 * (1 + vec3_get_x(normal)),
+			0.5 * (1 + vec3_get_y(normal)), 0.5 * (1 + vec3_get_z(normal)));
+		//col_init_with_1(normalized_color, 1, 0, 0);
 		mlx_color = col_get_mlx_color(normalized_color);
-		vec3_print(normalized_color->rgb);
+		//vec3_print(normalized_color->rgb);
 		vec3_free(normal);
 		col_free(normalized_color);
 	}

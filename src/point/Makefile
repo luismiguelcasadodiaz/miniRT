@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2024/09/13 07:45:48 by luicasad         ###   ########.fr        #
+#    Updated: 2024/10/08 00:14:24 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #MAKEFLAGS += rR
@@ -62,7 +62,8 @@ HEADS		=	-I$(INCDIR)
 HEADER	=	point.h
 SRCS	=	point_init.c \
       		point_setters.c \
-      		point_getters.c 
+      		point_getters.c \
+			point_print.c
 
 # Generate a list of object files by replacing .c with .o
 #

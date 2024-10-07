@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vec3_print.c                                       :+:      :+:    :+:   */
+/*   point_print.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luicasad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 15:58:40 by luicasad          #+#    #+#             */
-/*   Updated: 2024/10/08 00:32:21 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/10/08 00:31:16 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vec3.h"
+#include "point.h"
 #include <stdio.h>
 
-void	vec3_print(const t_vec3 *v)
+void	point_print(t_point *v)
 {
 	printf("[x=%+f y=%+f z=%+f]\n", v->e[0], v->e[1], v->e[2]);
 }

@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 21:00:58 by luicasad          #+#    #+#             */
-/*   Updated: 2024/10/03 20:22:00 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/10/08 00:21:30 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ static void	set_init_values_win(t_win *w, char *title)
 	coor = vec3_new();
 	vec3_init_values(coor, 0, 0, 0);
 	w->camera = camer_set(coor, coor, 0.0, w->size);
+	camer_print(w->camera);
 	vec3_free(coor);
 	w->light = light_new();
 	w->eleme = eleme_new();

@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 19:47:24 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/25 19:06:14 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/10/08 00:15:32 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,5 @@ void	point_set_x(t_point *self, double the_z);
 double	point_get_x(t_point *self);
 double	point_get_y(t_point *self);
 double	point_get_z(t_point *self);
+void	point_print(t_point *self);
 #endif
