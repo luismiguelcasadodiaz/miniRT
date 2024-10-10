@@ -27,10 +27,10 @@ void	camer_set_fview(t_camer *self, double fview)
 	self->fview = fview;
 }
 
-void	camer_set_vport(t_camer *self, double the_vp_h)
+void	camer_set_vport(t_camer *self, double the_vp_h, t_point *size)
 {
 	point_init(self->vport,
-		the_vp_h * ((double)self->vport->e[0] / (double)self->vport->e[1]),
+		the_vp_h * (size->e[0] / size->e[1]),
 		the_vp_h, 0);
 }
 

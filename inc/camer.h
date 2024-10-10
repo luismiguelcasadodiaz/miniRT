@@ -41,14 +41,14 @@ typedef struct s_camer
 
 // camer_init.c
 t_camer			*camer_new(void);
-void			camer_init(t_camer *self);
+//void			camer_init(t_camer *self);
 t_camer			*camer_set(t_vec3 *coor, t_vec3 *novec, double fview, t_point *size);
 void			camer_free(t_camer *self);
 // camer_setters_one.c
 void			camer_set_coord(t_camer *self, t_vec3 *coor);
 void			camer_set_novec(t_camer *self, t_vec3 *novec);
 void			camer_set_fview(t_camer *self, double fview);
-void			camer_set_vport(t_camer *self, double the_vp_h);
+void			camer_set_vport(t_camer *self, double the_vp_h, t_point *size);
 //void			camer_set_isize(t_camer *self, double win_w, double asp_ratio);
 void			camer_set_cacen(t_camer *self);
 // camer_getters_one.c
