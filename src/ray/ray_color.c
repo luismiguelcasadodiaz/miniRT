@@ -13,7 +13,18 @@
 #include "ray.h"
 #include "eleme.h"
 #include <math.h>
+/* a vector dotted with itself is equal to the squared length of that vector
+this is te reason why we change the calculation.
+      *a = vec3_dot(r->dir, r->dir);
+	  *a = vec3_length_squared(r->dir)
+and 
+	  c = vec3_dot(&oc, &oc) - (radio * radio);
+	  c = vec3_length_squared(&oc) - radio ** 2
 
+An additional simplification to calculate the quadratic solution comes wiht a variable substitution .
+let's imaginde b = -2h. then waht was b = -2d*oc becomes -2h = -2d*oc and h= d*oc
+
+*/
 static double	calc_discriminant(t_eleme *o, t_ray *r, double *a, double *b)
 {
 	double	c;
@@ -22,10 +33,10 @@ static double	calc_discriminant(t_eleme *o, t_ray *r, double *a, double *b)
 
 	radio = o->d / 2.0;
 	vec3_sub(&oc, o->coor, r->orig);
-	*a = vec3_dot(r->dir, r->dir);
-	*b = vec3_dot(r->dir, &oc) * -2.0;
-	c = vec3_dot(&oc, &oc) - (radio * radio);
-	return (((*b * *b) - (*a * c * 4)));
+	*a = vec3_length_squared(r->dir);
+	*b = vec3_dot(r->dir, &oc);
+	c = vec3_length_squared(&oc) - (radio * radio);
+	return (((*b * *b) - (*a * c)));
 }
 
 static double	hit_sphere(t_eleme *o, t_ray *r)
@@ -38,7 +49,7 @@ static double	hit_sphere(t_eleme *o, t_ray *r)
 	if (discriminant < 0)
 		return (-1.0);
 	else
-		return (((-b - sqrt(discriminant)) / (2.0 * a)));
+		return (((b - sqrt(discriminant)) / a));
 }
 
 static	t_vec3	*get_normal(t_ray *self, double t)

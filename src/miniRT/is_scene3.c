@@ -57,7 +57,7 @@ static void	world_create(t_win *w)
 	t_color	*rgb255;
 
 	rgb255 = col_new();
-	vec3_init_values(&center, 0, 0, -3);
+	vec3_init_values(&center, 0, 0, -1);
 	col_init_with_255(rgb255, 255, 0, 0);
 	w->eleme = eleme_new_sph(&center, 0.47, rgb255);
 	eleme_print(w->eleme);

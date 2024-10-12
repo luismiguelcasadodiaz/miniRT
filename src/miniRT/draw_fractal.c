@@ -18,7 +18,7 @@
 void	draw_fractal(t_win w)
 {
 	show_data(w);
-	draw_image3(&w);
+	draw_image4(&w);
 	return ;
 }
 	//draw_image1(w);
