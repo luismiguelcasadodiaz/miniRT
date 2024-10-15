@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 13:07:33 by luicasad          #+#    #+#              #
-#    Updated: 2024/10/02 19:56:08 by luicasad         ###   ########.fr        #
+#    Updated: 2024/10/12 18:13:32 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,9 @@ SRCDIR_ELEME		= ./src/eleme/
 SRCDIR_CAMER		= ./src/camer/
 SRCDIR_LIGHT		= ./src/light/
 SRCDIR_AMBIL		= ./src/ambil/
+SRCDIR_HITTABLE		= ./src/hittable/
+SRCDIR_HITRECORD	= ./src/hitrecord/
+SRCDIR_SPHERE		= ./src/sphere/
 #SRCDIR_FTCOMPLEX	= ./src/compl/
 SRCDIR_MLIBX		= ./src/minilibx-linux/
 
@@ -115,6 +118,19 @@ NAMELIBLIGHT		= liblight.a
 PATH_LIGHT     		= $(addprefix $(SRCDIR_LIGHT), $(NAMELIBLIGHT))
 LOADLIBLIGHT      	= light
 
+NAMELIBHITRECORD	= libhitrecord.a
+PATH_HITRECORD 		= $(addprefix $(SRCDIR_HITRECORD), $(NAMELIBHITRECORD))
+LOADLIBHITRECORD   	= hitrecord
+
+NAMELIBHITTABLE		= libhittable.a
+PATH_HITTABLE  		= $(addprefix $(SRCDIR_HITTABLE), $(NAMELIBHITTABLE))
+LOADLIBHITTABLE    	= hittable
+
+NAMELIBSPHERE	 	= libsphere.a
+PATH_SPHERE  		= $(addprefix $(SRCDIR_SPHERE), $(NAMELIBSPHERE))
+LOADLIBSPHERE    	= sphere
+
+
 #NAMELIBPRINTF 		= libftprintf.a
 #PATH_PRINT 			= $(addprefix $(SRCDIR_PRINT), $(NAMELIBPRINTF))
 #LOADLIBPRINTF 		= ftprintf
@@ -134,6 +150,9 @@ LOADLIBFT 			= ft
 #LLIBS 			= -L$(LIBDIR) -l$(LOADLIBMLIBX) -l$(LOADLIBPRINTF) -l$(LOADLIBFTCOMPLEX) -l$(LOADLIBFT)
 
 MYLIBS			= $(NAMELIBMLIBX)
+MYLIBS			+= $(NAMELIBSPHERE)
+MYLIBS			+= $(NAMELIBHITTABLE)
+MYLIBS			+= $(NAMELIBHITRECORD)
 MYLIBS			+= $(NAMELIBRAY)
 MYLIBS			+= $(NAMELIBELEME)
 MYLIBS			+= $(NAMELIBCAMER)
@@ -145,6 +164,9 @@ MYLIBS			+= $(NAMELIBVEC3)
 MYLIBS			+= $(NAMELIBFT)
 
 LLIBS 			= -L$(LIBDIR) -l$(LOADLIBMLIBX)
+LLIBS 			+= -l$(LOADLIBSPHERE)
+LLIBS 			+= -l$(LOADLIBHITTABLE)
+LLIBS 			+= -l$(LOADLIBHITRECORD)
 LLIBS 			+= -l$(LOADLIBELEME)
 LLIBS 			+= -l$(LOADLIBCAMER)
 LLIBS 			+= -l$(LOADLIBAMBIL)
@@ -263,6 +285,9 @@ $(NAMELIBELEME): makelibeleme  $(LIBDIR)$(NAMELIBELEME)
 $(NAMELIBCAMER): makelibcamer  $(LIBDIR)$(NAMELIBCAMER)
 $(NAMELIBAMBIL): makelibambil  $(LIBDIR)$(NAMELIBAMBIL)
 $(NAMELIBLIGHT): makeliblight  $(LIBDIR)$(NAMELIBLIGHT)
+$(NAMELIBHITRECORD): makelibhitrecord  $(LIBDIR)$(NAMELIBHITRECORD)
+$(NAMELIBHITTABLE): makelibhittable  $(LIBDIR)$(NAMELIBHITTABLE)
+$(NAMELIBSPHERE): makelibshpere  $(LIBDIR)$(NAMELIBSPHERE)
 #$(NAMELIBPRINTF): makelibftprintf  $(LIBDIR)$(NAMELIBPRINTF)
 $(NAMELIBFT): makelibft  $(LIBDIR)$(NAMELIBFT)
 #$(NAMELIBFTCOMPLEX): makelibftcomplex  $(LIBDIR)$(NAMELIBFTCOMPLEX)
@@ -294,6 +319,15 @@ makelibambil:
 
 makeliblight:
 	$(MAKE) -C $(SRCDIR_LIGHT)
+
+makelibhitrecord:
+	$(MAKE) -C $(SRCDIR_HITRECORD)
+
+makelibhittable:
+	$(MAKE) -C $(SRCDIR_HITTABLE)
+
+makelibsphere:
+	$(MAKE) -C $(SRCDIR_SPHERE)
 
 #makelibftprintf:
 #	$(MAKE) -C $(SRCDIR_PRINT)
@@ -368,6 +402,9 @@ clean:
 	$(MAKE) -C $(SRCDIR_CAMER) clean
 	$(MAKE) -C $(SRCDIR_AMBIL) clean
 	$(MAKE) -C $(SRCDIR_LIGHT) clean
+	$(MAKE) -C $(SRCDIR_HITRECORD) clean
+	$(MAKE) -C $(SRCDIR_HITTABLE) clean
+	$(MAKE) -C $(SRCDIR_SPHERE) clean
 #	$(MAKE) -C $(SRCDIR_PRINT) clean
 	$(MAKE) -C $(SRCDIR_LIBFT) clean
 
@@ -412,6 +449,12 @@ norma:
 	$(MAKE) -C $(SRCDIR_AMBIL)  norma
 	@echo "$(DARK_BLACK)========== CHECKING NORME $(SRCDIR_LIGHT) ==============$(DEF_COLOR)"
 	$(MAKE) -C $(SRCDIR_LIGHT)  norma
+	@echo "$(DARK_BLUE)========== CHECKING NORME $(SRCDIR_HITTABLE) ==============$(DEF_COLOR)"
+	$(MAKE) -C $(SRCDIR_HITRECORD)  norma
+	@echo "$(YELLOW)========== CHECKING NORME $(SRCDIR_HITRECORD) ==============$(DEF_COLOR)"
+	$(MAKE) -C $(SRCDIR_HITTABLE)  norma
+	@echo "$(MID_GRAY)========== CHECKING NORME $(SRCDIR_SPHERE) ==============$(DEF_COLOR)"
+	$(MAKE) -C $(SRCDIR_SPHERE)  norma
 	@echo "$(GREEN)============ CHECKING NORME $(INCDIR) ==============$(DEF_COLOR)"
 	norminette $(INCDIR)
 	@echo "$(RED)========== CHECKING NORME $(SRCDIR_MLIBX) ==============$(DEF_COLOR)"
