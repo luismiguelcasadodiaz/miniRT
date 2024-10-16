@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 18:42:01 by luicasad          #+#    #+#             */
-/*   Updated: 2024/10/15 21:09:17 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/10/16 19:00:04 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,11 @@ int	dobla(int num)
 
 int	acuatro(int num)
 {
-	return (4);
+	if (num > 0)
+		return (4);
+	else
+		return (4);
+
 }
 
 int	espar(int num)
