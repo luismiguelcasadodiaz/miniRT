@@ -14,6 +14,8 @@
 # define ELEME_H
 # include "vec3.h"
 # include "color.h"
+# include "ray.h"
+# include "hitrecord.h"
 
 enum e_eleme
 {
@@ -22,6 +24,8 @@ enum e_eleme
 	PLANE,
 	CYLINDER
 };
+//typedef int	(*t_dafp)(int numa, t_node *lista);
+typedef bool	(*t_hitfp)(t_ray *r, double ray_tmin, double ray_tmax, t_hitrecord *rec);
 
 typedef struct s_eleme
 {
@@ -31,6 +35,7 @@ typedef struct s_eleme
 	t_color			*color;
 	double			d;
 	double			h;
+	t_hitfp			hit;
 }	t_eleme;
 
 // eleme_init.c
