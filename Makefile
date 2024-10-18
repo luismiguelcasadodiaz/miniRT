@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 13:07:33 by luicasad          #+#    #+#              #
-#    Updated: 2024/10/12 18:13:32 by luicasad         ###   ########.fr        #
+#    Updated: 2024/10/18 20:28:49 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,6 +55,7 @@ SRCDIR_LIGHT		= ./src/light/
 SRCDIR_AMBIL		= ./src/ambil/
 SRCDIR_HITTABLE		= ./src/hittable/
 SRCDIR_HITRECORD	= ./src/hitrecord/
+SRCDIR_INTERVAL		= ./src/interval/
 SRCDIR_SPHERE		= ./src/sphere/
 #SRCDIR_FTCOMPLEX	= ./src/compl/
 SRCDIR_MLIBX		= ./src/minilibx-linux/
@@ -130,6 +131,10 @@ NAMELIBSPHERE	 	= libsphere.a
 PATH_SPHERE  		= $(addprefix $(SRCDIR_SPHERE), $(NAMELIBSPHERE))
 LOADLIBSPHERE    	= sphere
 
+NAMELIBINTERVAL	 	= libinterval.a
+PATH_INTERVAL  		= $(addprefix $(SRCDIR_SPHERE), $(NAMELIBSPHERE))
+LOADLIBINTERVAL    	= interval
+
 
 #NAMELIBPRINTF 		= libftprintf.a
 #PATH_PRINT 			= $(addprefix $(SRCDIR_PRINT), $(NAMELIBPRINTF))
@@ -151,6 +156,7 @@ LOADLIBFT 			= ft
 
 MYLIBS			= $(NAMELIBMLIBX)
 MYLIBS			+= $(NAMELIBSPHERE)
+MYLIBS			+= $(NAMELIBINTERVAL)
 MYLIBS			+= $(NAMELIBHITTABLE)
 MYLIBS			+= $(NAMELIBHITRECORD)
 MYLIBS			+= $(NAMELIBRAY)
@@ -165,6 +171,7 @@ MYLIBS			+= $(NAMELIBFT)
 
 LLIBS 			= -L$(LIBDIR) -l$(LOADLIBMLIBX)
 LLIBS 			+= -l$(LOADLIBSPHERE)
+LLIBS 			+= -l$(LOADLIBINTERVAL)
 LLIBS 			+= -l$(LOADLIBHITTABLE)
 LLIBS 			+= -l$(LOADLIBHITRECORD)
 LLIBS 			+= -l$(LOADLIBELEME)
@@ -287,6 +294,7 @@ $(NAMELIBAMBIL): makelibambil  $(LIBDIR)$(NAMELIBAMBIL)
 $(NAMELIBLIGHT): makeliblight  $(LIBDIR)$(NAMELIBLIGHT)
 $(NAMELIBHITRECORD): makelibhitrecord  $(LIBDIR)$(NAMELIBHITRECORD)
 $(NAMELIBHITTABLE): makelibhittable  $(LIBDIR)$(NAMELIBHITTABLE)
+$(NAMELIBINTERVAL): makelibinterval  $(LIBDIR)$(NAMELIBINTERVAL)
 $(NAMELIBSPHERE): makelibshpere  $(LIBDIR)$(NAMELIBSPHERE)
 #$(NAMELIBPRINTF): makelibftprintf  $(LIBDIR)$(NAMELIBPRINTF)
 $(NAMELIBFT): makelibft  $(LIBDIR)$(NAMELIBFT)
@@ -325,6 +333,9 @@ makelibhitrecord:
 
 makelibhittable:
 	$(MAKE) -C $(SRCDIR_HITTABLE)
+
+makelibinterval:
+	$(MAKE) -C $(SRCDIR_INTERVAL)
 
 makelibsphere:
 	$(MAKE) -C $(SRCDIR_SPHERE)
@@ -404,6 +415,7 @@ clean:
 	$(MAKE) -C $(SRCDIR_LIGHT) clean
 	$(MAKE) -C $(SRCDIR_HITRECORD) clean
 	$(MAKE) -C $(SRCDIR_HITTABLE) clean
+	$(MAKE) -C $(SRCDIR_INTERVAL) clean
 	$(MAKE) -C $(SRCDIR_SPHERE) clean
 #	$(MAKE) -C $(SRCDIR_PRINT) clean
 	$(MAKE) -C $(SRCDIR_LIBFT) clean
@@ -455,6 +467,8 @@ norma:
 	$(MAKE) -C $(SRCDIR_HITTABLE)  norma
 	@echo "$(MID_GRAY)========== CHECKING NORME $(SRCDIR_SPHERE) ==============$(DEF_COLOR)"
 	$(MAKE) -C $(SRCDIR_SPHERE)  norma
+	@echo "$(DARK_GREEN)========== CHECKING NORME $(SRCDIR_INTERVAL) ==============$(DEF_COLOR)"
+	$(MAKE) -C $(SRCDIR_INTERVAL)  norma
 	@echo "$(GREEN)============ CHECKING NORME $(INCDIR) ==============$(DEF_COLOR)"
 	norminette $(INCDIR)
 	@echo "$(RED)========== CHECKING NORME $(SRCDIR_MLIBX) ==============$(DEF_COLOR)"
