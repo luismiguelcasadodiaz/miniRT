@@ -6,7 +6,7 @@
 /*   By: luicasad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 16:56:43 by luicasad          #+#    #+#             */
-/*   Updated: 2024/10/03 18:38:12 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/10/19 17:57:50 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ typedef struct s_camer
 // camer_init.c
 t_camer			*camer_new(void);
 //void			camer_init(t_camer *self);
-t_camer			*camer_set(t_vec3 *coor, t_vec3 *novec, double fview, t_point *size);
+t_camer			*camer_set(t_vec3 *coor, t_vec3 *novec,
+					double fview, t_point *size);
 void			camer_free(t_camer *self);
 // camer_setters_one.c
 void			camer_set_coord(t_camer *self, t_vec3 *coor);

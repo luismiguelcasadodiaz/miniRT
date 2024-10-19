@@ -34,11 +34,11 @@ void	draw_image1(t_win w)
 	int			wx0;
 	int			wy0;
 
-	wy0 = w.lu->e[1];
+	wy0 = (int) w.lu->e[1];
 	while (wy0 <= w.rd->e[1])
 	{
 		fprintf(stderr, "\rLines remaining: %*d", 5, (int)w.rd->e[1] - wy0);
-		wx0 = w.lu->e[0];
+		wx0 = (int) w.lu->e[0];
 		while (wx0 <= w.rd->e[0])
 		{
 			win_pixel_put(w, wx0, wy0, make_my_color(w.rd, wx0, wy0));

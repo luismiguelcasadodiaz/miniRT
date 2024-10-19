@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   win_pixel_put.c                                    :+:      :+:    :+:   */
+/*   hitrecord_methods.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/05 19:54:06 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/12 13:15:06 by luicasad         ###   ########.fr       */
+/*   Created: 2024/10/19 19:30:52 by luicasad          #+#    #+#             */
+/*   Updated: 2024/10/19 19:36:26 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+#include "hitrecord.h"
 
-void	win_pixel_put(t_win w, int x, int y, int color)
+void	hitrecord_face_normal(t_hitrecord *self, t_ray *ray, t_vec3 *norm)
 {
-	char	*dst;
-	int		offset_y;
-	int		offset_x;
+	int	front_face;
 
-	offset_y = y * w.img.line_length;
-	offset_x = x * (w.img.bits_per_pixel / 8);
-	dst = w.img.addr + offset_y + offset_x;
-	*(unsigned int *)dst = (unsigned int)color;
+	front_face = (vec3_dot(ray_get_dir(ray), norm) < 0);
+	if (!front_face)
+		vec3_negate(norm, norm);
+	hitrecord_set_front_face(self, front_face);
+	hitrecord_set_normal(self, norm);
 }

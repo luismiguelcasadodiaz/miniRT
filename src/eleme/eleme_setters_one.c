@@ -26,3 +26,8 @@ void	eleme_set_heigh(t_eleme *self, double h)
 {
 	self->h = h;
 }
+
+void	eleme_set_hit(t_eleme *self, t_hitfp func)
+{
+	*self->hit = *func;
+}

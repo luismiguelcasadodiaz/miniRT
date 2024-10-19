@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 20:32:35 by luicasad          #+#    #+#             */
-/*   Updated: 2024/10/18 21:03:05 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/10/19 11:27:25 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ typedef struct s_interval
 
 //interval_init.c
 t_interval	*interval_new(void);
+void		interval_free(t_interval *self);
 void		interval_init(t_interval *self, double min, double max);
 void		interval_init_empty(t_interval *self);
 void		interval_init_universe(t_interval *self);
-void		interval_copy(t_interval *dest, t_interval *orig);
 //interval_setters.c
 void		interval_set_min(t_interval *self, double min);
 void		interval_set_max(t_interval *self, double max);
@@ -38,5 +38,7 @@ bool		interval_contains(t_interval *self, double x);
 bool		interval_sorrounds(t_interval *self, double x);
 void		interval_expand(t_interval *self, double delta);
 double		interval_clamp(t_interval *self, double x);
-
+//interval_methods_two.c
+void		interval_copy(t_interval *dest, t_interval *orig);
+void		interval_print(t_interval *self);
 #endif

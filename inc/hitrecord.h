@@ -6,14 +6,18 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 18:18:27 by luicasad          #+#    #+#             */
-/*   Updated: 2024/10/12 21:57:32 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/10/19 19:32:36 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HITRECORD_H
 # define HITRECORD_H
 # include "point.h"
+# include "ray.h"
 # include "vec3.h"
+
+typedef struct s_ray t_ray;
+
 /* ************************************************************************** */
 /*        *p : Impact point                                                   */
 /*   *normal : Surface normal in the impact point                             */
@@ -48,4 +52,6 @@ void		hitrecord_set_normal(t_hitrecord *self, t_vec3 *the_normal);
 void		hitrecord_set_t(t_hitrecord *self, double the_t);
 void		hitrecord_set_front_face(t_hitrecord *self, int the_front_face);
 void		hitrecord_set_hit_obj(t_hitrecord *self, void *the_hit_obj);
+// hitrecord_methods.c
+void		hitrecord_face_normal(t_hitrecord *self, t_ray *r, t_vec3 *norm);
 #endif

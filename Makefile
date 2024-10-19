@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 13:07:33 by luicasad          #+#    #+#              #
-#    Updated: 2024/10/18 20:28:49 by luicasad         ###   ########.fr        #
+#    Updated: 2024/10/19 21:04:52 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,7 @@ SRCDIR_AMBIL		= ./src/ambil/
 SRCDIR_HITTABLE		= ./src/hittable/
 SRCDIR_HITRECORD	= ./src/hitrecord/
 SRCDIR_INTERVAL		= ./src/interval/
-SRCDIR_SPHERE		= ./src/sphere/
+#SRCDIR_SPHERE		= ./src/sphere/
 #SRCDIR_FTCOMPLEX	= ./src/compl/
 SRCDIR_MLIBX		= ./src/minilibx-linux/
 
@@ -71,12 +71,12 @@ vpath %.a $(LIBDIR)
 #                               COMPILER SETUP                                 #
 # ============================================================================ #
 CC 				= cc
-WRNFL			= -Wall -Wextra -Werror ##-fsanitize=address
+WRNFL			= -Wall -Wextra -Werror -Wconversion -Wdouble-promotion #-fsanitize=address
 DBGFL			= -g3  -pg
 CFLGS			= $(DBGFL) $(WRNFL) -c 
 HEADS			= -I$(INCDIR)
 LFLGS 			=
-LFLGS 			= ##-fsanitize=address
+LFLGS 			= #-fsanitize=address
 FRAMEWORKS		=
 
 # ============================================================================ #
@@ -127,9 +127,9 @@ NAMELIBHITTABLE		= libhittable.a
 PATH_HITTABLE  		= $(addprefix $(SRCDIR_HITTABLE), $(NAMELIBHITTABLE))
 LOADLIBHITTABLE    	= hittable
 
-NAMELIBSPHERE	 	= libsphere.a
-PATH_SPHERE  		= $(addprefix $(SRCDIR_SPHERE), $(NAMELIBSPHERE))
-LOADLIBSPHERE    	= sphere
+#NAMELIBSPHERE	 	= libsphere.a
+#PATH_SPHERE  		= $(addprefix $(SRCDIR_SPHERE), $(NAMELIBSPHERE))
+#LOADLIBSPHERE    	= sphere
 
 NAMELIBINTERVAL	 	= libinterval.a
 PATH_INTERVAL  		= $(addprefix $(SRCDIR_SPHERE), $(NAMELIBSPHERE))
@@ -155,12 +155,13 @@ LOADLIBFT 			= ft
 #LLIBS 			= -L$(LIBDIR) -l$(LOADLIBMLIBX) -l$(LOADLIBPRINTF) -l$(LOADLIBFTCOMPLEX) -l$(LOADLIBFT)
 
 MYLIBS			= $(NAMELIBMLIBX)
-MYLIBS			+= $(NAMELIBSPHERE)
+MYLIBS			+= $(NAMELIBELEME)
+#MYLIBS			+= $(NAMELIBSPHERE)
+MYLIBS			+= $(NAMELIBRAY)
 MYLIBS			+= $(NAMELIBINTERVAL)
 MYLIBS			+= $(NAMELIBHITTABLE)
-MYLIBS			+= $(NAMELIBHITRECORD)
-MYLIBS			+= $(NAMELIBRAY)
 MYLIBS			+= $(NAMELIBELEME)
+MYLIBS			+= $(NAMELIBHITRECORD)
 MYLIBS			+= $(NAMELIBCAMER)
 MYLIBS			+= $(NAMELIBAMBIL)
 MYLIBS			+= $(NAMELIBLIGHT)
@@ -170,15 +171,16 @@ MYLIBS			+= $(NAMELIBVEC3)
 MYLIBS			+= $(NAMELIBFT)
 
 LLIBS 			= -L$(LIBDIR) -l$(LOADLIBMLIBX)
-LLIBS 			+= -l$(LOADLIBSPHERE)
+LLIBS 			+= -l$(LOADLIBELEME)
+LLIBS 			+= -l$(LOADLIBRAY)
+#LLIBS 			+= -l$(LOADLIBSPHERE)
 LLIBS 			+= -l$(LOADLIBINTERVAL)
 LLIBS 			+= -l$(LOADLIBHITTABLE)
 LLIBS 			+= -l$(LOADLIBHITRECORD)
-LLIBS 			+= -l$(LOADLIBELEME)
+LLIBS 			+= -l$(LOADLIBRAY)
 LLIBS 			+= -l$(LOADLIBCAMER)
 LLIBS 			+= -l$(LOADLIBAMBIL)
 LLIBS 			+= -l$(LOADLIBLIGHT)
-LLIBS 			+= -l$(LOADLIBRAY)
 LLIBS 			+= -l$(LOADLIBCOLOR)
 LLIBS 			+= -l$(LOADLIBPOINT)
 LLIBS 			+= -l$(LOADLIBVEC3)
@@ -295,7 +297,7 @@ $(NAMELIBLIGHT): makeliblight  $(LIBDIR)$(NAMELIBLIGHT)
 $(NAMELIBHITRECORD): makelibhitrecord  $(LIBDIR)$(NAMELIBHITRECORD)
 $(NAMELIBHITTABLE): makelibhittable  $(LIBDIR)$(NAMELIBHITTABLE)
 $(NAMELIBINTERVAL): makelibinterval  $(LIBDIR)$(NAMELIBINTERVAL)
-$(NAMELIBSPHERE): makelibshpere  $(LIBDIR)$(NAMELIBSPHERE)
+#$(NAMELIBSPHERE): makelibshpere  $(LIBDIR)$(NAMELIBSPHERE)
 #$(NAMELIBPRINTF): makelibftprintf  $(LIBDIR)$(NAMELIBPRINTF)
 $(NAMELIBFT): makelibft  $(LIBDIR)$(NAMELIBFT)
 #$(NAMELIBFTCOMPLEX): makelibftcomplex  $(LIBDIR)$(NAMELIBFTCOMPLEX)
@@ -337,8 +339,8 @@ makelibhittable:
 makelibinterval:
 	$(MAKE) -C $(SRCDIR_INTERVAL)
 
-makelibsphere:
-	$(MAKE) -C $(SRCDIR_SPHERE)
+#makelibsphere:
+#	$(MAKE) -C $(SRCDIR_SPHERE)
 
 #makelibftprintf:
 #	$(MAKE) -C $(SRCDIR_PRINT)
@@ -416,7 +418,7 @@ clean:
 	$(MAKE) -C $(SRCDIR_HITRECORD) clean
 	$(MAKE) -C $(SRCDIR_HITTABLE) clean
 	$(MAKE) -C $(SRCDIR_INTERVAL) clean
-	$(MAKE) -C $(SRCDIR_SPHERE) clean
+#	$(MAKE) -C $(SRCDIR_SPHERE) clean
 #	$(MAKE) -C $(SRCDIR_PRINT) clean
 	$(MAKE) -C $(SRCDIR_LIBFT) clean
 
@@ -437,8 +439,8 @@ norma:
 	norminette $(SRCDIR_MINRT) 
 	@echo "$(ORANGE)========== CHECKING NORME $(BONUS) ==============$(DEF_COLOR)"
 	norminette $(SRCDIR_BONUS)
-	@echo "$(MAGENTA)========== CHECKING NORME $(TESTS) ==============$(DEF_COLOR)"
-	norminette $(SRCDIR_TESTS)
+#	@echo "$(MAGENTA)========== CHECKING NORME $(TESTS) ==============$(DEF_COLOR)"
+#	norminette $(SRCDIR_TESTS)
 #	@echo "$(WHITE)========== CHECKING NORME $(SRCDIR_PRINT) ==============$(DEF_COLOR)"
 #	$(MAKE) -C $(SRCDIR_PRINT)  norma
 #	@echo "$(WHITE)========== CHECKING NORME $(SRCDIR_FTCOMPLEX) ==============$(DEF_COLOR)"
@@ -465,8 +467,8 @@ norma:
 	$(MAKE) -C $(SRCDIR_HITRECORD)  norma
 	@echo "$(YELLOW)========== CHECKING NORME $(SRCDIR_HITRECORD) ==============$(DEF_COLOR)"
 	$(MAKE) -C $(SRCDIR_HITTABLE)  norma
-	@echo "$(MID_GRAY)========== CHECKING NORME $(SRCDIR_SPHERE) ==============$(DEF_COLOR)"
-	$(MAKE) -C $(SRCDIR_SPHERE)  norma
+#	@echo "$(MID_GRAY)========== CHECKING NORME $(SRCDIR_SPHERE) ==============$(DEF_COLOR)"
+#	$(MAKE) -C $(SRCDIR_SPHERE)  norma
 	@echo "$(DARK_GREEN)========== CHECKING NORME $(SRCDIR_INTERVAL) ==============$(DEF_COLOR)"
 	$(MAKE) -C $(SRCDIR_INTERVAL)  norma
 	@echo "$(GREEN)============ CHECKING NORME $(INCDIR) ==============$(DEF_COLOR)"

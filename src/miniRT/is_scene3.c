@@ -73,10 +73,10 @@ void	draw_image3(t_win *w)
 
 	world_create(w);
 	r = ray_new();
-	wy0 = w->lu->e[1];
+	wy0 = (int) w->lu->e[1];
 	while (wy0 <= w->rd->e[1])
 	{
-		wx0 = w->lu->e[0];
+		wx0 = (int)w->lu->e[0];
 		while (wx0 <= w->rd->e[0])
 		{
 			win_calculate_ray_dir(w, wx0, wy0);

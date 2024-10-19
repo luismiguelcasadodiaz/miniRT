@@ -35,6 +35,19 @@ static void	try_alloc_color(t_eleme *self)
 	}
 }
 
+static void try_alloc_hit(t_eleme * self)
+{
+	self->hit = malloc(sizeof(t_hitfp));
+	if (!self->hit)
+	{
+		vec3_free(self->coor);
+		vec3_free(self->novec);
+		col_free(self->color);
+		free(self);
+		self = NULL;
+	}
+}
+
 t_eleme	*eleme_new(void)
 {
 	t_eleme	*self;
@@ -51,6 +64,7 @@ t_eleme	*eleme_new(void)
 	}
 	try_alloc_novec(self);
 	try_alloc_color(self);
+	try_alloc_hit(self);
 	return (self);
 }
 
@@ -62,6 +76,8 @@ void	eleme_free(t_eleme *self)
 		vec3_free(self->novec);
 	if (self->color)
 		col_free(self->color);
+	if (self->hit)
+		free(self->hit);
 	free(self);
 }
 

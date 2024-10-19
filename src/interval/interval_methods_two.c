@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   win_pixel_put.c                                    :+:      :+:    :+:   */
+/*   interval_methods_two.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/05 19:54:06 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/12 13:15:06 by luicasad         ###   ########.fr       */
+/*   Created: 2024/10/19 11:17:57 by luicasad          #+#    #+#             */
+/*   Updated: 2024/10/19 11:44:29 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+#include "interval.h"
+#include <stdio.h>
 
-void	win_pixel_put(t_win w, int x, int y, int color)
+void	interval_copy(t_interval *dest, t_interval *orig)
 {
-	char	*dst;
-	int		offset_y;
-	int		offset_x;
+	interval_set_min(dest, interval_get_min(orig));
+	interval_set_max(dest, interval_get_max(orig));
+}
 
-	offset_y = y * w.img.line_length;
-	offset_x = x * (w.img.bits_per_pixel / 8);
-	dst = w.img.addr + offset_y + offset_x;
-	*(unsigned int *)dst = (unsigned int)color;
+void	interval_print(t_interval *self)
+{
+	printf("[%1.4e .. %1.4e]\n", interval_get_min(self),
+		interval_get_max(self));
 }

@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 06:55:46 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/30 17:47:38 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/10/19 12:35:44 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include "vec3.h"
 # include "color.h"
 # include "eleme.h"
+
+typedef struct s_eleme	t_eleme;
 
 typedef struct s_ray
 {

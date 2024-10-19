@@ -37,4 +37,5 @@ void	eleme_print(t_eleme	*self)
 	col_print(self->color);
 	printf("diameter                 = %f\n", self->d);
 	printf("height                   = %f\n", self->h);
+	printf("hit function             = %pF\n", self->hit);
 }

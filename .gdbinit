@@ -20,18 +20,10 @@ set follow-fork-mode child
 # To keep father & child under control with "inferior" command
 set detach-on-fork off
 # Set Breakpoint at main function
-break main.c:47
+break main.c:
+break eleme_hittables_sph.c:hit_sphere
 # Set other breakpoint
 #break init.c:108
 #break init.c:117
-break win_init.c:111
-break is_scene3.c:84 if wy0 == 280
-break is_scene3.c:84 if wx0 == 435
-#break is_scene4.c:83 if wx0 == 500
-#break is_scene4.c:83 if wx0 == 565
-#break is_scene2.c:71
-#break is_scene2.c:62 if wy0 == 5
-#break is_scene2.c:62 if wy0 == 23
-#break is_scene2.c:62 if wy0 == 50
-# set alias
+break is_scene4.c:86
 run ./miniRT tirame

@@ -6,7 +6,7 @@
 /*   By: luicasad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 16:56:43 by luicasad          #+#    #+#             */
-/*   Updated: 2024/10/01 19:14:16 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/10/19 17:56:30 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 # include "color.h"
 # include "ray.h"
 # include "hitrecord.h"
+# include "interval.h"
+# include <stdbool.h>
+
+
 
 enum e_eleme
 {
@@ -24,8 +28,13 @@ enum e_eleme
 	PLANE,
 	CYLINDER
 };
-//typedef int	(*t_dafp)(int numa, t_node *lista);
-typedef bool	(*t_hitfp)(t_ray *r, double ray_tmin, double ray_tmax, t_hitrecord *rec);
+
+typedef struct s_ray	t_ray;
+typedef struct s_eleme	t_eleme;
+typedef struct s_hitrecord t_hitrecord;
+
+typedef bool			(*t_hitfp)(t_eleme *self, t_ray *r,
+	t_interval *range, t_hitrecord *rec);
 
 typedef struct s_eleme
 {
@@ -35,7 +44,7 @@ typedef struct s_eleme
 	t_color			*color;
 	double			d;
 	double			h;
-	t_hitfp			hit;
+	t_hitfp			*hit;
 }	t_eleme;
 
 // eleme_init.c
@@ -46,6 +55,7 @@ void			eleme_free(t_eleme *self);
 void			eleme_set_ident(t_eleme *self, enum e_eleme id);
 void			eleme_set_diame(t_eleme *self, double d);
 void			eleme_set_heigh(t_eleme *self, double h);
+void			eleme_set_hit(t_eleme *self, t_hitfp func);
 // eleme_setters_two.c
 void			eleme_set_coord(t_eleme *self, t_vec3 *coor);
 void			eleme_set_novec(t_eleme *self, t_vec3 *novec);
@@ -54,6 +64,7 @@ void			eleme_set_color(t_eleme *self, t_color *color);
 enum e_eleme	eleme_get_ident(t_eleme *self);
 double			eleme_get_diame(t_eleme *self);
 double			eleme_get_heigh(t_eleme *self);
+t_hitfp			*eleme_get_hit(t_eleme *self);
 // eleme_getters_two.c
 t_vec3			*eleme_get_coord(t_eleme *self);
 t_vec3			*eleme_get_novec(t_eleme *self);

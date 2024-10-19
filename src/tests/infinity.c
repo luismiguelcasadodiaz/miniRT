@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   win_pixel_put.c                                    :+:      :+:    :+:   */
+/*   infinity.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/05 19:54:06 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/12 13:15:06 by luicasad         ###   ########.fr       */
+/*   Created: 2024/10/19 09:32:27 by luicasad          #+#    #+#             */
+/*   Updated: 2024/10/19 11:25:38 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <stdio.h>
+#include <float.h>
 
-#include "miniRT.h"
-
-void	win_pixel_put(t_win w, int x, int y, int color)
+int	main(void)
 {
-	char	*dst;
-	int		offset_y;
-	int		offset_x;
-
-	offset_y = y * w.img.line_length;
-	offset_x = x * (w.img.bits_per_pixel / 8);
-	dst = w.img.addr + offset_y + offset_x;
-	*(unsigned int *)dst = (unsigned int)color;
+	printf("DBL_MAX %lf\n\n", DBL_MAX);
+	printf("DBL_MIN %lf\n\n", DBL_MIN);
+	printf("-DBL_MAX %lf\n\n", -DBL_MAX);
+	printf("DBL_MAX %2.4e\n\n", DBL_MAX);
+	printf("DBL_MIN %1.5e\n\n", DBL_MIN);
+	printf("-DBL_MAX %3.3e\n\n", -DBL_MAX);
 }
+

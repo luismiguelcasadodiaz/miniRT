@@ -52,11 +52,11 @@ void	draw_image2(t_win *w)
 	t_ray		*r;
 
 	r = ray_new();
-	wy0 = w->lu->e[1];
+	wy0 = (int) w->lu->e[1];
 	while (wy0 <= w->rd->e[1])
 	{
 		fprintf(stderr, "\rLines remaining: %*d", 5, (int)w->rd->e[1] - wy0);
-		wx0 = w->lu->e[0];
+		wx0 = (int) w->lu->e[0];
 		while (wx0 <= w->rd->e[0])
 		{
 			win_calculate_ray_dir(w, wx0, wy0);

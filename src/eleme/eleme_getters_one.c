@@ -26,3 +26,8 @@ double	eleme_get_heigh(t_eleme *self)
 {
 	return (self->h);
 }
+
+t_hitfp	*eleme_get_hit(t_eleme *self)
+{
+	return (self->hit);
+}

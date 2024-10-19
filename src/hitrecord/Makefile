@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2024/10/12 18:16:37 by luicasad         ###   ########.fr        #
+#    Updated: 2024/10/19 19:30:39 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #MAKEFLAGS += rR
@@ -48,7 +48,7 @@ vpath %.a $(LIBDIR)
 #                               COMPILER SETUP                                 #
 # ============================================================================ #
 CC		=	cc
-CFLAGS		=  -g -Wall -Wextra -Werror ##-fsanitize=address -fno-omit-frame-pointer
+CFLAGS		=  -g -Wall -Wextra -Werror #-fsanitize=address -fno-omit-frame-pointer
 HEADS		=	-I$(INCDIR)
 # From 4.4.3 The Function wildcard gnu make manual....
 # Althought wildcard exparnds automaticaly in rules
@@ -63,6 +63,7 @@ HEADER	=	hitrecord.h
 SRCS	=	hitrecord_init.c \
       		hitrecord_getters.c \
       		hitrecord_setters.c \
+			hitrecord_methods.c
 
 # Generate a list of object files by replacing .c with .o
 #
