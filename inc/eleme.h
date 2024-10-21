@@ -6,7 +6,7 @@
 /*   By: luicasad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 16:56:43 by luicasad          #+#    #+#             */
-/*   Updated: 2024/10/19 17:56:30 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/10/21 17:16:45 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,15 @@ typedef struct s_eleme
 	double			d;
 	double			h;
 	t_hitfp			*hit;
+	t_eleme			*next;
 }	t_eleme;
 
-// eleme_init.c
+// eleme_new.c
 t_eleme			*eleme_new(void);
+// eleme_init.c
 void			eleme_init(t_eleme *self);
 void			eleme_free(t_eleme *self);
+void			eleme_add(t_eleme *self, t_eleme *new);
 // eleme_setters_one.c
 void			eleme_set_ident(t_eleme *self, enum e_eleme id);
 void			eleme_set_diame(t_eleme *self, double d);

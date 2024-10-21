@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 13:07:33 by luicasad          #+#    #+#              #
-#    Updated: 2024/10/19 21:04:52 by luicasad         ###   ########.fr        #
+#    Updated: 2024/10/21 18:26:00 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -197,6 +197,7 @@ HEADER_iRT	=	miniRT.h
 SRCS_MINRT	= 	miniRT.c \
 				show_usage.c \
 				show_data.c \
+				win_create_world.c \
 				win_init.c \
 				win_h_key_down.c \
 				win_h_key_up.c \

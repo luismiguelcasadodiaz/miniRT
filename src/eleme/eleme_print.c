@@ -28,14 +28,19 @@ static char	*translate_e_eleme(enum e_eleme id)
 
 void	eleme_print(t_eleme	*self)
 {
-	printf("id                       = %s\n", translate_e_eleme(self->id));
-	printf("coor                     = ");
-	vec3_print(self->coor);
-	printf("novec                    = ");
-	vec3_print(self->novec);
-	printf("color                    = ");
-	col_print(self->color);
-	printf("diameter                 = %f\n", self->d);
-	printf("height                   = %f\n", self->h);
-	printf("hit function             = %pF\n", self->hit);
+	while (self != NULL)
+	{
+		printf("-------------------------------------------");
+		printf("id                       = %s\n", translate_e_eleme(self->id));
+		printf("coor                     = ");
+		vec3_print(self->coor);
+		printf("novec                    = ");
+		vec3_print(self->novec);
+		printf("color                    = ");
+		col_print(self->color);
+		printf("diameter                 = %f\n", self->d);
+		printf("height                   = %f\n", self->h);
+		printf("hit function             = %pF\n", self->hit);
+		eleme_print(self->next);
+	}
 }

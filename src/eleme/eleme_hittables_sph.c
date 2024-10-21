@@ -49,10 +49,9 @@ static	void	calc_normal(t_eleme *self, t_ray *ray, t_hitrecord *rec)
 	vec3_sub(normal, hitrecord_get_point(rec), eleme_get_coord(self));
 	vec3_div(normal, normal, eleme_get_diame(self) / 2);
 	hitrecord_face_normal(rec, ray, normal);
-	//hitrecord_set_normal(rec, normal);
 }
 
-bool	hit_sphere(t_eleme *self, t_ray *ray, t_interval *range, t_hitrecord *rec)
+bool	hit_sphere(t_eleme *slf, t_ray *ray, t_interval *ran, t_hitrecord *rec)
 {
 	double	a;
 	double	b;
@@ -60,20 +59,20 @@ bool	hit_sphere(t_eleme *self, t_ray *ray, t_interval *range, t_hitrecord *rec)
 	double	discriminant_root;
 	double	root;
 
-	discriminant = calc_discriminant(self, ray, &a, &b);
+	discriminant = calc_discriminant(slf, ray, &a, &b);
 	if (discriminant < 0)
 		return (false);
 	discriminant_root = sqrt(discriminant);
 	root = (b - discriminant_root) / a;
-	if (!interval_sorrounds(range, root))
+	if (!interval_sorrounds(ran, root))
 	{
 		root = (b + discriminant_root) / a;
-		if (!interval_sorrounds(range, root))
+		if (!interval_sorrounds(ran, root))
 			return (false);
 	}
 	hitrecord_set_t(rec, root);
 	hitrecord_set_point(rec, ray_at(ray, root));
-	calc_normal(self, ray, rec);
+	calc_normal(slf, ray, rec);
 	return (true);
 }
 

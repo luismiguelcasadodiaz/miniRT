@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 12:46:50 by luicasad          #+#    #+#             */
-/*   Updated: 2024/10/03 20:19:18 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/10/21 18:38:48 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "miniRT.h"
@@ -53,19 +53,6 @@ static void	world_destroy(t_win *w)
 	eleme_free(w->eleme);
 }
 
-static void	world_create(t_win *w)
-{
-	t_vec3	center;
-	t_color	*rgb255;
-
-	rgb255 = col_new();
-	vec3_init_values(&center, 0, 0, -1);
-	col_init_with_255(rgb255, 255, 0, 0);
-	w->eleme = eleme_new_sph(&center, 0.5, rgb255);
-	eleme_print(w->eleme);
-	col_free(rgb255);
-}
-
 void	draw_image4(t_win *w)
 {
 	int			wx0;
@@ -73,7 +60,7 @@ void	draw_image4(t_win *w)
 	int			mlx_color;
 	t_ray		*r;
 
-	world_create(w);
+	
 	r = ray_new();
 	wy0 = (int)w->lu->e[1];
 	while (wy0 <= w->rd->e[1])

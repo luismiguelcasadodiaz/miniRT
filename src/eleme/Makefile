@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2024/10/19 17:33:26 by luicasad         ###   ########.fr        #
+#    Updated: 2024/10/21 17:20:58 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #MAKEFLAGS += rR
@@ -60,7 +60,8 @@ HEADS		=	-I$(INCDIR)
 # So I must explicitly enumerate files for the project.
 
 HEADER	=	eleme.h
-SRCS	=	eleme_init.c \
+SRCS	=	eleme_new.c \
+			eleme_init.c \
       		eleme_getters_one.c \
       		eleme_getters_two.c \
       		eleme_setters_one.c \

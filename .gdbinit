@@ -25,5 +25,6 @@ break eleme_hittables_sph.c:hit_sphere
 # Set other breakpoint
 #break init.c:108
 #break init.c:117
-break is_scene4.c:86
+break draw_fractal.c:21
+break is_scene4.c:87
 run ./miniRT tirame
