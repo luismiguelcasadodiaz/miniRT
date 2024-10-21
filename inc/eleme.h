@@ -19,8 +19,6 @@
 # include "interval.h"
 # include <stdbool.h>
 
-
-
 enum e_eleme
 {
 	NOELEM,
@@ -29,11 +27,11 @@ enum e_eleme
 	CYLINDER
 };
 
-typedef struct s_ray	t_ray;
-typedef struct s_eleme	t_eleme;
-typedef struct s_hitrecord t_hitrecord;
+typedef struct s_ray		t_ray;
+typedef struct s_eleme		t_eleme;
+typedef struct s_hitrecord	t_hitrecord;
 
-typedef bool			(*t_hitfp)(t_eleme *self, t_ray *r,
+typedef bool				(*t_hitfp)(t_eleme *self, t_ray *r,
 	t_interval *range, t_hitrecord *rec);
 
 typedef struct s_eleme
@@ -53,7 +51,8 @@ t_eleme			*eleme_new(void);
 // eleme_init.c
 void			eleme_init(t_eleme *self);
 void			eleme_free(t_eleme *self);
-void			eleme_add(t_eleme *self, t_eleme *new);
+void			eleme_add(t_eleme **self, t_eleme *new);
+bool			eleme_hit(t_eleme *e, t_ray *r, t_interval *i, t_hitrecord *c);
 // eleme_setters_one.c
 void			eleme_set_ident(t_eleme *self, enum e_eleme id);
 void			eleme_set_diame(t_eleme *self, double d);

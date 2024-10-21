@@ -39,13 +39,13 @@ void	eleme_free(t_eleme *self)
 	}
 }
 
-void	eleme_add(t_eleme *self, t_eleme *new)
+void	eleme_add(t_eleme **self, t_eleme *new)
 {
-	if (self == NULL)
-		self = new;
+	if (*self == NULL)
+		*self = new;
 	else
 	{
-		new->next = self;
-		self = new;
+		new->next = *self;
+		*self = new;
 	}
 }

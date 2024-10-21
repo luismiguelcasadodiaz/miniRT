@@ -21,18 +21,19 @@ void	win_world_create(t_eleme *eleme)
 	rgb255 = col_new();
 	vec3_init_values(center, 0, 0, -1);
 	col_init_with_255(rgb255, 255, 0, 0);
-	eleme_add(eleme,eleme_new_sph(center, 0.5, rgb255));
+	eleme_add(&eleme,eleme_new_sph(center, 0.5, rgb255));
 	center = vec3_new();
 	rgb255 = col_new();
 	vec3_init_values(center, 20, 10, -1);
 	col_init_with_255(rgb255,0, 255, 0);
-	eleme_add(eleme,eleme_new_sph(center, 0.5, rgb255));
+	eleme_add(&eleme,eleme_new_sph(center, 0.5, rgb255));
 	center = vec3_new();
 	rgb255 = col_new();
 	vec3_init_values(center, -20, -10, -1);
 	col_init_with_255(rgb255,0, 0, 255);
-	eleme_add(eleme,eleme_new_sph(center, 0.5, rgb255));
+	eleme_add(&eleme,eleme_new_sph(center, 0.5, rgb255));
 	eleme_print(eleme);
 	col_free(rgb255);
+	vec3_free(center);
 }
 

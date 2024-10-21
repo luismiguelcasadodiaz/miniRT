@@ -73,6 +73,7 @@ bool	hit_sphere(t_eleme *slf, t_ray *ray, t_interval *ran, t_hitrecord *rec)
 	hitrecord_set_t(rec, root);
 	hitrecord_set_point(rec, ray_at(ray, root));
 	calc_normal(slf, ray, rec);
+	hitrecord_set_hit_obj(rec, slf);
 	return (true);
 }
 

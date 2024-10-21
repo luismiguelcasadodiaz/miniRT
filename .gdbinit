@@ -21,6 +21,7 @@ set follow-fork-mode child
 set detach-on-fork off
 # Set Breakpoint at main function
 break main.c:
+break win_init.c:75
 break eleme_hittables_sph.c:hit_sphere
 # Set other breakpoint
 #break init.c:108

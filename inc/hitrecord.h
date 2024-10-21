@@ -40,6 +40,7 @@ typedef struct s_hitrecord
 t_hitrecord	*hitrecord_new(void);
 void		hitrecord_free(t_hitrecord *self);
 void		hitrecord_init(t_hitrecord *self);
+void		hitrecord_copy(t_hitrecord *dest, t_hitrecord *ori);
 // hitrecord_getters.c
 t_point		*hitrecord_get_point(t_hitrecord *self);
 t_vec3		*hitrecord_get_normal(t_hitrecord *self);

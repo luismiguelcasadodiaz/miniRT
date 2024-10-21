@@ -54,3 +54,14 @@ void	hitrecord_init(t_hitrecord *self)
 	self->front_face = 0;
 	self->hit_obj = NULL;
 }
+
+void		hitrecord_copy(t_hitrecord *dest, t_hitrecord *ori)
+{
+	*dest->p = *ori->p;
+	*dest->normal = *ori->normal;
+	dest->t = ori->t;
+	dest->front_face = ori->front_face;
+	*(t_eleme *)dest->hit_obj = *(t_eleme *)ori->hit_obj;
+	//*dest->mat = *ori->mat;
+
+}

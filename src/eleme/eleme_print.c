@@ -41,6 +41,8 @@ void	eleme_print(t_eleme	*self)
 		printf("diameter                 = %f\n", self->d);
 		printf("height                   = %f\n", self->h);
 		printf("hit function             = %pF\n", self->hit);
-		eleme_print(self->next);
+		if (self->next != NULL)
+			eleme_print(self->next);
+		break;
 	}
 }

@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 13:07:33 by luicasad          #+#    #+#              #
-#    Updated: 2024/10/21 18:26:00 by luicasad         ###   ########.fr        #
+#    Updated: 2024/10/22 01:10:22 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -171,8 +171,8 @@ MYLIBS			+= $(NAMELIBVEC3)
 MYLIBS			+= $(NAMELIBFT)
 
 LLIBS 			= -L$(LIBDIR) -l$(LOADLIBMLIBX)
-LLIBS 			+= -l$(LOADLIBELEME)
 LLIBS 			+= -l$(LOADLIBRAY)
+LLIBS 			+= -l$(LOADLIBELEME)
 #LLIBS 			+= -l$(LOADLIBSPHERE)
 LLIBS 			+= -l$(LOADLIBINTERVAL)
 LLIBS 			+= -l$(LOADLIBHITTABLE)

@@ -43,7 +43,7 @@ int	ray_color(t_ray	*self, t_color color_start, t_color color_end, t_eleme *o)
 	rec = hitrecord_new();
 	range = interval_new();
 	interval_init(range, 0, __DBL_MAX__);
-	if ((*o->hit)(o, self, range, rec))
+	if (eleme_hit(o, self, range, rec))
 	{
 		normal = get_normal(self, hitrecord_get_t(rec));
 		normalized_color = col_new();
