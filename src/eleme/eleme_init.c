@@ -34,9 +34,11 @@ void	eleme_free(t_eleme *self)
 			col_free(self->color);
 		if (self->hit)
 			free(self->hit);
-		eleme_free(self->next);
-		free(self);
+		if (self->next)
+			eleme_free(self->next);
+		break ;
 	}
+	free(self);
 }
 
 void	eleme_add(t_eleme **self, t_eleme *new)

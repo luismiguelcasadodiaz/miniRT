@@ -6,7 +6,7 @@
 /*   By: luicasad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 17:32:35 by luicasad          #+#    #+#             */
-/*   Updated: 2024/10/01 19:15:22 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/10/22 23:32:36 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,6 @@ void	eleme_print(t_eleme	*self)
 		printf("hit function             = %pF\n", self->hit);
 		if (self->next != NULL)
 			eleme_print(self->next);
-		break;
+		break ;
 	}
 }

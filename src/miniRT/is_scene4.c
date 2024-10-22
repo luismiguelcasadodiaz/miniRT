@@ -60,7 +60,6 @@ void	draw_image4(t_win *w)
 	int			mlx_color;
 	t_ray		*r;
 
-	
 	r = ray_new();
 	wy0 = (int)w->lu->e[1];
 	while (wy0 <= w->rd->e[1])

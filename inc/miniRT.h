@@ -106,7 +106,7 @@ int		win_h_not_event(t_win *data);
 int		win_h_expose(t_win *data);
 int		win_h_destroy(t_win *data);
 void	win_pixel_put(t_win w, int x, int y, int color);
-void	win_world_create(t_eleme *eleme);
+void	win_world_create(t_eleme **eleme);
 void	draw_fractal(t_win w);
 void	draw_square_2(t_win w, t_point upper_left, t_point lower_right);
 void	draw_image1(t_win w);

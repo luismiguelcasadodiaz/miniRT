@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 18:33:04 by luicasad          #+#    #+#             */
-/*   Updated: 2024/10/13 01:06:02 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/10/22 23:36:37 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,12 @@ void	hitrecord_init(t_hitrecord *self)
 	self->hit_obj = NULL;
 }
 
-void		hitrecord_copy(t_hitrecord *dest, t_hitrecord *ori)
+void	hitrecord_copy(t_hitrecord *dest, t_hitrecord *ori)
 {
 	*dest->p = *ori->p;
 	*dest->normal = *ori->normal;
 	dest->t = ori->t;
 	dest->front_face = ori->front_face;
-	*(t_eleme *)dest->hit_obj = *(t_eleme *)ori->hit_obj;
-	//*dest->mat = *ori->mat;
-
+	dest->hit_obj = ori->hit_obj;
 }
+	//*dest->mat = *ori->mat;

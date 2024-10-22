@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 18:18:27 by luicasad          #+#    #+#             */
-/*   Updated: 2024/10/19 19:32:36 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/10/22 23:38:10 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 # include "point.h"
 # include "ray.h"
 # include "vec3.h"
+# include "eleme.h"
 
-typedef struct s_ray t_ray;
+typedef struct s_ray	t_ray;
+typedef struct s_eleme	t_eleme;
 
 /* ************************************************************************** */
 /*        *p : Impact point                                                   */
@@ -32,7 +34,7 @@ typedef struct s_hitrecord
 	t_vec3	*normal;
 	double	t;
 	int		front_face;
-	void	*hit_obj;
+	t_eleme	*hit_obj;
 	//t_mat	*mat;
 }	t_hitrecord;
 
