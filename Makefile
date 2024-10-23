@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 13:07:33 by luicasad          #+#    #+#              #
-#    Updated: 2024/10/22 01:10:22 by luicasad         ###   ########.fr        #
+#    Updated: 2024/10/23 20:17:09 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,6 +87,10 @@ NAMELIBMLIBX 		= libmlx.a
 PATH_MLIBX 			= $(addprefix $(SRCDIR_MLIBX), $(NAMELIBPRINTF))
 LOADLIBMLIBX 		= mlx 
 
+NAMELIBFT 			= libft.a
+PATH_LIBFT 			= $(addprefix $(SRCDIR_LIBFT), $(NAMELIBFT))
+LOADLIBFT 			= ft
+
 NAMELIBVEC3			= libvec3.a
 PATH_VEC3      		= $(addprefix $(SRCDIR_VEC3), $(NAMELIBVEC3))
 LOADLIBVEC3      	= vec3
@@ -135,7 +139,6 @@ NAMELIBINTERVAL	 	= libinterval.a
 PATH_INTERVAL  		= $(addprefix $(SRCDIR_SPHERE), $(NAMELIBSPHERE))
 LOADLIBINTERVAL    	= interval
 
-
 #NAMELIBPRINTF 		= libftprintf.a
 #PATH_PRINT 			= $(addprefix $(SRCDIR_PRINT), $(NAMELIBPRINTF))
 #LOADLIBPRINTF 		= ftprintf
@@ -144,9 +147,6 @@ LOADLIBINTERVAL    	= interval
 #PATH_FTCOMPLEX 		= $(addprefix $(SRCDIR_FTCOMPLEX), $(NAMELIBFTCOMPLEX))
 #LOADLIBFTCOMPLEX 	= ftcomplex
 
-NAMELIBFT 			= libft.a
-PATH_LIBFT 			= $(addprefix $(SRCDIR_LIBFT), $(NAMELIBFT))
-LOADLIBFT 			= ft
 
 #NAMELIBARGPA 		= libargpar.a
 #PATH_ARGPA 		= $(addprefix $(SRCDIR_ARGPA), $(NAMELIBARGPA))
@@ -155,6 +155,7 @@ LOADLIBFT 			= ft
 #LLIBS 			= -L$(LIBDIR) -l$(LOADLIBMLIBX) -l$(LOADLIBPRINTF) -l$(LOADLIBFTCOMPLEX) -l$(LOADLIBFT)
 
 MYLIBS			= $(NAMELIBMLIBX)
+MYLIBS			+= $(NAMELIBFT)
 MYLIBS			+= $(NAMELIBELEME)
 #MYLIBS			+= $(NAMELIBSPHERE)
 MYLIBS			+= $(NAMELIBRAY)
@@ -168,7 +169,6 @@ MYLIBS			+= $(NAMELIBLIGHT)
 MYLIBS			+= $(NAMELIBCOLOR)
 MYLIBS			+= $(NAMELIBPOINT)
 MYLIBS			+= $(NAMELIBVEC3)
-MYLIBS			+= $(NAMELIBFT)
 
 LLIBS 			= -L$(LIBDIR) -l$(LOADLIBMLIBX)
 LLIBS 			+= -l$(LOADLIBRAY)
@@ -287,6 +287,7 @@ makedirs:
 makelibs: $(MYLIBS) 
 
 $(NAMELIBMLIBX): makelibmlibx $(LIBDIR)$(NAMELIBMLIBX)
+$(NAMELIBFT): makelibft  $(LIBDIR)$(NAMELIBFT)
 $(NAMELIBVEC3): makelibvec3  $(LIBDIR)$(NAMELIBVEC3)
 $(NAMELIBCOLOR): makelibcolor  $(LIBDIR)$(NAMELIBCOLOR)
 $(NAMELIBPOINT): makelibpoint  $(LIBDIR)$(NAMELIBPOINT)
@@ -300,12 +301,14 @@ $(NAMELIBHITTABLE): makelibhittable  $(LIBDIR)$(NAMELIBHITTABLE)
 $(NAMELIBINTERVAL): makelibinterval  $(LIBDIR)$(NAMELIBINTERVAL)
 #$(NAMELIBSPHERE): makelibshpere  $(LIBDIR)$(NAMELIBSPHERE)
 #$(NAMELIBPRINTF): makelibftprintf  $(LIBDIR)$(NAMELIBPRINTF)
-$(NAMELIBFT): makelibft  $(LIBDIR)$(NAMELIBFT)
 #$(NAMELIBFTCOMPLEX): makelibftcomplex  $(LIBDIR)$(NAMELIBFTCOMPLEX)
 
 makelibmlibx: 
 	$(MAKE) -C $(SRCDIR_MLIBX)
 	cp $(SRCDIR_MLIBX)$(NAMELIBMLIBX) $(LIBDIR)
+
+makelibft:
+	$(MAKE) -C $(SRCDIR_LIBFT)
 
 makelibvec3:
 	$(MAKE) -C $(SRCDIR_VEC3)
@@ -345,9 +348,6 @@ makelibinterval:
 
 #makelibftprintf:
 #	$(MAKE) -C $(SRCDIR_PRINT)
-
-makelibft:
-	$(MAKE) -C $(SRCDIR_LIBFT)
 
 #makelibftcomplex:
 #	$(MAKE) -C $(SRCDIR_FTCOMPLEX)

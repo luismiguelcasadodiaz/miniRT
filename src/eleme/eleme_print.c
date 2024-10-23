@@ -30,12 +30,18 @@ void	eleme_print(t_eleme	*self)
 {
 	while (self != NULL)
 	{
-		printf("-------------------------------------------");
+		printf("-------------------------------------------\n");
 		printf("id                       = %s\n", translate_e_eleme(self->id));
 		printf("coor                     = ");
 		vec3_print(self->coor);
 		printf("novec                    = ");
 		vec3_print(self->novec);
+		printf("u                        = ");
+		if (self->u != NULL)
+			vec3_print(self->u);
+		printf("v                        = ");
+		if (self->v != NULL)
+			vec3_print(self->v);
 		printf("color                    = ");
 		col_print(self->color);
 		printf("diameter                 = %f\n", self->d);

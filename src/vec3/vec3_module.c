@@ -10,6 +10,8 @@
 /*																			*/
 /* ************************************************************************** */
 #include "vec3.h"
+#include "stdlib.h"
+#include "libft.h"
 
 double	vec3_length_squared(const t_vec3 *v)
 {
@@ -24,4 +26,21 @@ double	vec3_length(const t_vec3 *v)
 void	vec3_unit_vector(t_vec3 *result, const t_vec3 *v)
 {
 	vec3_div(result, v, vec3_length(v));
+}
+
+void	vec3_random(t_vec3	*s)
+{
+	vec3_init_values(s, ft_rand_mp05(), ft_rand_mp05(), ft_rand_mp05());
+}
+
+// randomly generates a non parallelel vector to normal
+// with product co
+void	vec3_u_v_from_n(t_vec3 *n, t_vec3 *u, t_vec3 *v)
+{
+	vec3_unit_vector(n, n);
+	vec3_random(u);
+	while (vec3_dot(n, u) == 0)
+		vec3_random(u);
+	vec3_unit_vector(u, u);
+	vec3_cross(v, n, u);
 }

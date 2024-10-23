@@ -83,15 +83,22 @@ t_eleme	*eleme_new_sph(t_vec3 *coor, double d, t_color *rgb255)
 	t_vec3	*novec;
 
 	self = eleme_new();
+	if (!self)
+		return(NULL);
+	novec = vec3_new();
+	if (!novec)
+	{
+		eleme_free(self);
+		return (NULL);
+	}
+	vec3_init_values(novec, 0, 0, 0);
 	eleme_set_ident(self, SPHERE);
 	eleme_set_coord(self, coor);
-	novec = vec3_new();
-	vec3_init_values(novec, 0, 0, 0);
 	eleme_set_novec(self, novec);
-	vec3_free(novec);
 	eleme_set_color(self, rgb255);
 	eleme_set_diame(self, d);
 	eleme_set_heigh(self, 0.0);
 	eleme_set_hit(self, hit_sphere);
+	vec3_free(novec);
 	return (self);
 }

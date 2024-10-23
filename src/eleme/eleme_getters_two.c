@@ -26,3 +26,13 @@ t_color	*eleme_get_color(t_eleme *self)
 {
 	return (self->color);
 }
+
+t_vec3	*eleme_get_u(t_eleme *self)
+{
+	return (self->u);
+}
+
+t_vec3	*eleme_get_v(t_eleme *self)
+{
+	return (self->v);
+}

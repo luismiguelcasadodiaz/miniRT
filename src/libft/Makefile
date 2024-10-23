@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2024/09/12 13:30:02 by luicasad         ###   ########.fr        #
+#    Updated: 2024/10/23 19:16:21 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #MAKEFLAGS += rR
@@ -110,7 +110,8 @@ SRCS	=	ft_isalnum.c \
 		ft_lstclear_bonus.c \
 		ft_lstiter_bonus.c \
 		ft_msb.c \
-		ft_bit.c
+		ft_bit.c \
+		ft_rand_mp05.c
 
 # Generate a list of object files by replacing .c with .o
 #

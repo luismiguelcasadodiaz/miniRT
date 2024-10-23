@@ -33,17 +33,30 @@ typedef struct s_hitrecord	t_hitrecord;
 
 typedef bool				(*t_hitfp)(t_eleme *self, t_ray *r,
 	t_interval *range, t_hitrecord *rec);
-
+/* ************************************************************************** */
+/*  *next (8): pointer to next element                                        */
+/*  *coor (8): sphere/culinder center or plane point or                       */
+/*  *novec(8): plane or cylinder normal                                       */
+/*  *color(8): element colo                                                   */
+/*  *hit  (8): function to detect ray impact                                  */
+/*  *u    (8): calculated from a plane's normal, defines a plane              */
+/*  *v    (8): calculated form a plane's normal, defines a plane              */
+/*  d     (8): double sphere diameter or cylinder diamenter                   */
+/*  h     (8): double cylinder height                                         */
+/*  id    (4): element type identifier                                        */
+/* ************************************************************************** */
 typedef struct s_eleme
 {
-	enum e_eleme	id;
+	t_eleme			*next;
 	t_vec3			*coor;
 	t_vec3			*novec;
 	t_color			*color;
+	t_hitfp			*hit;
+	t_vec3			*u;
+	t_vec3			*v;
 	double			d;
 	double			h;
-	t_hitfp			*hit;
-	t_eleme			*next;
+	enum e_eleme	id;
 }	t_eleme;
 
 // eleme_new.c
@@ -62,6 +75,8 @@ void			eleme_set_hit(t_eleme *self, t_hitfp func);
 void			eleme_set_coord(t_eleme *self, t_vec3 *coor);
 void			eleme_set_novec(t_eleme *self, t_vec3 *novec);
 void			eleme_set_color(t_eleme *self, t_color *color);
+void			eleme_set_u(t_eleme *self, t_vec3 *u);
+void			eleme_set_v(t_eleme *self, t_vec3 *v);
 // eleme_getters_one.c
 enum e_eleme	eleme_get_ident(t_eleme *self);
 double			eleme_get_diame(t_eleme *self);
@@ -71,6 +86,8 @@ t_hitfp			*eleme_get_hit(t_eleme *self);
 t_vec3			*eleme_get_coord(t_eleme *self);
 t_vec3			*eleme_get_novec(t_eleme *self);
 t_color			*eleme_get_color(t_eleme *self);
+t_vec3			*eleme_get_u(t_eleme *self);
+t_vec3			*eleme_get_v(t_eleme *self);
 
 // eleme_show.c
 void			eleme_print(t_eleme *self);

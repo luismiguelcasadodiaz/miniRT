@@ -26,3 +26,13 @@ void	eleme_set_color(t_eleme *self, t_color *color)
 {
 	col_copy_values(self->color, color);
 }
+
+void	eleme_set_u(t_eleme *self, t_vec3 *u)
+{
+	vec3_copy_values(self->u, u);
+}
+
+void	eleme_set_v(t_eleme *self, t_vec3 *v)
+{
+	vec3_copy_values(self->v, v);
+}
