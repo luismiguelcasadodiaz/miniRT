@@ -41,6 +41,7 @@ void	vec3_set_i(t_vec3 *v, double value, int i);
 void	vec3_add(t_vec3 *result, const t_vec3 *u, const t_vec3 *v);
 void	vec3_sub(t_vec3 *result, const t_vec3 *u, const t_vec3 *v);
 void	vec3_negate(t_vec3 *result, const t_vec3 *v);
+int 	vec3_iszero(t_vec3 *v);
 // Product functions (vec3_product.c)
 void	vec3_mul(t_vec3 *result, const t_vec3 *u, double t);
 void	vec3_div(t_vec3 *result, const t_vec3 *v, double t);
@@ -51,6 +52,6 @@ void	vec3_cross(t_vec3 *result, const t_vec3 *u, const t_vec3 *v);
 double	vec3_length_squared(const t_vec3 *v);
 double	vec3_length(const t_vec3 *v);
 void	vec3_unit_vector(t_vec3 *result, const t_vec3 *v);
-void	vec3_random(t_vec3 *random);
+void	vec3_random(t_vec3 *random, float min, float max);
 void	vec3_u_v_from_n(t_vec3 *n, t_vec3 *u, t_vec3 *v);
 #endif

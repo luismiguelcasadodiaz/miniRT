@@ -22,11 +22,16 @@ float	ft_rand_mp1(void)
 }
 */
 
-// returns a a random numbre in range -0.5 .. 0.5
-float	ft_rand_mp05(void)
+// returns a a random number in range min..max
+// rand() returns integer and RAND_MAX is integer 
+// that generartes zero at integer division ale/ RAND_MAX
+// this is way i cast rand to float
+float	ft_rand(float min, float max)
 {
-	int	half_rand_max;
+	float result;
+	double ale;
 
-	half_rand_max = RAND_MAX / 2;
-	return (((rand() - half_rand_max) / half_rand_max) / 2);
+	ale = (double)rand();
+	result = min + (max - min) * (ale/ RAND_MAX);
+	return (result);
 }

@@ -28,19 +28,25 @@ void	vec3_unit_vector(t_vec3 *result, const t_vec3 *v)
 	vec3_div(result, v, vec3_length(v));
 }
 
-void	vec3_random(t_vec3	*s)
+void	vec3_random(t_vec3	*s, float min, float max)
 {
-	vec3_init_values(s, ft_rand_mp05(), ft_rand_mp05(), ft_rand_mp05());
+	vec3_init_values(s,
+			ft_rand(min, max), 
+			ft_rand(min, max),
+			ft_rand(min, max));
 }
 
 // randomly generates a non parallelel vector to normal
 // with product co
 void	vec3_u_v_from_n(t_vec3 *n, t_vec3 *u, t_vec3 *v)
 {
-	vec3_unit_vector(n, n);
-	vec3_random(u);
-	while (vec3_dot(n, u) == 0)
-		vec3_random(u);
-	vec3_unit_vector(u, u);
-	vec3_cross(v, n, u);
+	if (!vec3_iszero(n))
+	{
+		vec3_unit_vector(n, n);
+		vec3_random(u, -0.5, 0.5);
+		while (vec3_dot(n, u) == 0)
+			vec3_random(u, -0.5, 0.5);
+		vec3_unit_vector(u, u);
+		vec3_cross(v, n, u);
+	}
 }

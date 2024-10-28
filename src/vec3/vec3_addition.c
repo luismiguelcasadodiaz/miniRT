@@ -31,3 +31,10 @@ void	vec3_negate(t_vec3 *result, const t_vec3 *u)
 	result->e[1] -= u->e[1];
 	result->e[2] -= u->e[2];
 }
+
+int 	vec3_iszero(t_vec3 *v)
+{
+	if ((v->e[0] == 0) && (v->e[1] == 0) && (v->e[2] == 0))
+		return (1);
+	return(0);
+}

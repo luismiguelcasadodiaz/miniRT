@@ -30,7 +30,6 @@ void	win_world_create(t_eleme **eleme)
 	vec3_init_values(center, 0.2, 0, -0.5);
 	col_init_with_255(rgb255, 0, 255, 255);
 	eleme_add(*(&eleme), eleme_new_sph(center, 0.2, rgb255));
-	eleme_print(*eleme);
 	vec3_init_values(center, -0.3, 0, -1.5);
 	col_init_with_255(rgb255, 255, 255, 0);
 	eleme_add(*(&eleme), eleme_new_sph(center, 0.5, rgb255));
@@ -39,9 +38,10 @@ void	win_world_create(t_eleme **eleme)
 	eleme_add(*(&eleme), eleme_new_sph(center, 100, rgb255));
 	vec3_init_values(center, -3, 3, -5);
 	col_init_with_255(rgb255, 255, 255, 0);
-	vec3_init_values(novec, 0, 0, 0);
+	vec3_init_values(novec, -1, 3, 5);
 	eleme_add(*(&eleme), eleme_new_pla(center, novec, rgb255));
 	col_free(rgb255);
 	vec3_free(center);
 	vec3_free(novec);
+	eleme_print(*eleme);
 }

@@ -111,7 +111,7 @@ SRCS	=	ft_isalnum.c \
 		ft_lstiter_bonus.c \
 		ft_msb.c \
 		ft_bit.c \
-		ft_rand_mp05.c
+		ft_rand.c
 
 # Generate a list of object files by replacing .c with .o
 #
