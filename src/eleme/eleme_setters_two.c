@@ -17,9 +17,24 @@ void	eleme_set_coord(t_eleme *self, t_vec3 *coor)
 	vec3_copy_values(self->coor, coor);
 }
 
+// known the normal, calculates w.
 void	eleme_set_novec(t_eleme *self, t_vec3 *novec)
 {
+	double	n_dot_n;
+	t_vec3	*w;
+
 	vec3_copy_values(self->novec, novec);
+	if (!vec3_iszero(novec))
+	{
+		n_dot_n = vec3_dot(novec, novec);
+		w = vec3_new();
+		if (w)
+		{
+			vec3_scale(w, novec, 1.0 / n_dot_n);
+			eleme_set_w(self, w);
+			vec3_free(w);
+		}
+	}
 }
 
 void	eleme_set_color(t_eleme *self, t_color *color)

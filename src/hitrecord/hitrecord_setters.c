@@ -15,13 +15,13 @@
 void	hitrecord_set_point(t_hitrecord *self, t_point *the_p)
 {
 	point_copy_values(self->p, the_p);
-	point_free(the_p);
+	//point_free(the_p);
 }
 
 void	hitrecord_set_normal(t_hitrecord *self, t_vec3 *the_normal)
 {
 	vec3_copy_values(self->normal, the_normal);
-	vec3_free(the_normal);
+	//vec3_free(the_normal);
 }
 
 void	hitrecord_set_t(t_hitrecord *self, double the_t)

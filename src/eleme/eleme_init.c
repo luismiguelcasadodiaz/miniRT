@@ -34,6 +34,12 @@ void	eleme_free(t_eleme *self)
 			col_free(self->color);
 		if (self->hit)
 			free(self->hit);
+		if (self->u)
+			vec3_free(self->u);
+		if (self->v)
+			vec3_free(self->v);
+		if (self->w)
+			vec3_free(self->w);
 		if (self->next)
 			eleme_free(self->next);
 		break ;

@@ -14,26 +14,30 @@
 #include "hitrecord.h"
 #include <math.h>
 #include <stdbool.h>
+// when (alpha < 0 || alpha > 1 || beta < 0 || beta > 1)
+// the ray intersected the infinite plane outside de square
+static bool	alfa_beta(t_eleme *self, t_vec3 *a, t_vec3 *b)
+{
+	double	alpha;
+	double	beta;
 
-static bool lies_within_planar_shape(t_eleme *self, t_point *p)
+	alpha = vec3_dot(eleme_get_w(self), a);
+	beta = vec3_dot(eleme_get_w(self), b);
+	if (alpha < 0 || alpha > 1 || beta < 0 || beta > 1)
+		return (false);
+	return (true);
+}
+
+static bool	lies_within_planar_shape(t_eleme *self, t_point *p)
 {
 	t_vec3	pq;
 	t_vec3	a;
 	t_vec3	b;
-	double 	alpha;
-	double 	beta;
 
-    vec3_sub(&pq, p, self->coor);
-    vec3_cross(&a, &pq, self->v);
-    vec3_cross(&b, self->u, &pq);
-    alpha = vec3_dot(&q->w, &a);
-    beta = vec3_dot(&q->w, &b);
-
-    // Verifica si el punto está dentro del cuadrilátero
-    if (alpha < 0 || alpha > 1 || beta < 0 || beta > 1) {
-        return false;  // El punto de intersección está fuera del cuadrilátero
-    }
-	return true;
+	vec3_sub(&pq, p, self->coor);
+	vec3_cross(&a, &pq, self->v);
+	vec3_cross(&b, self->u, &pq);
+	return (alfa_beta(self, &a, &b));
 }
 
 //the ray orig + dir * t, hits de plane when a ray point dotted wiht plane 
@@ -51,25 +55,27 @@ bool	hit_plane(t_eleme *self, t_ray *ray, t_interval *ran, t_hitrecord *rec)
 	double	t;
 	t_point	*p;
 
-
 	denom = vec3_dot(self->novec, ray->dir);
 	if (fabs(denom) < 1e-8)
-        return false;
+		return (false);
 	d = vec3_dot(self->novec, self->coor);
-    t = (d - vec3_dot(self->novec, ray->orig)) / denom;
-    if (!interval_contains(ran, t))
-        return false;
-    p = ray_at(ray, t);
+	t = (d - vec3_dot(self->novec, ray->orig)) / denom;
+	if (!interval_contains(ran, t))
+		return (false);
+	p = ray_at(ray, t);
 	if (!lies_within_planar_shape(self, p))
-		return false;
-    rec->t = t;
-    rec->p = P;
-    //rec->mat_ptr = ((Quad*)self)->mat;
-    rec->hit_obj = self;
+	{
+		point_free(p);
+		return (false);
+	}
+	hitrecord_set_t(rec, t);
+	hitrecord_set_point(rec, p);
+	hitrecord_set_hit_obj(rec, self);
 	hitrecord_face_normal(rec, ray, self->novec);
-	point_free(p);
-    return true;
+
+	return (true);
 }
+
 t_eleme	*eleme_new_pla(t_vec3 *coor, t_vec3 *novec, t_color *rgb255)
 {
 	t_eleme	*self;

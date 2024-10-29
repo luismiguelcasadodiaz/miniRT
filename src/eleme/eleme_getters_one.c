@@ -31,3 +31,8 @@ t_hitfp	*eleme_get_hit(t_eleme *self)
 {
 	return (self->hit);
 }
+
+t_vec3	*eleme_get_w(t_eleme *self)
+{
+	return (self->w);
+}

@@ -54,6 +54,7 @@ typedef struct s_eleme
 	t_hitfp			*hit;
 	t_vec3			*u;
 	t_vec3			*v;
+	t_vec3			*w;
 	double			d;
 	double			h;
 	enum e_eleme	id;
@@ -71,6 +72,7 @@ void			eleme_set_ident(t_eleme *self, enum e_eleme id);
 void			eleme_set_diame(t_eleme *self, double d);
 void			eleme_set_heigh(t_eleme *self, double h);
 void			eleme_set_hit(t_eleme *self, t_hitfp func);
+void			eleme_set_w(t_eleme *self, t_vec3 *w);
 // eleme_setters_two.c
 void			eleme_set_coord(t_eleme *self, t_vec3 *coor);
 void			eleme_set_novec(t_eleme *self, t_vec3 *novec);
@@ -82,6 +84,7 @@ enum e_eleme	eleme_get_ident(t_eleme *self);
 double			eleme_get_diame(t_eleme *self);
 double			eleme_get_heigh(t_eleme *self);
 t_hitfp			*eleme_get_hit(t_eleme *self);
+t_vec3			*eleme_get_w(t_eleme *self);
 // eleme_getters_two.c
 t_vec3			*eleme_get_coord(t_eleme *self);
 t_vec3			*eleme_get_novec(t_eleme *self);

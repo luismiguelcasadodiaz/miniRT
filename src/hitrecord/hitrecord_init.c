@@ -40,7 +40,8 @@ void	hitrecord_free(t_hitrecord *self)
 {
 	if (self)
 	{
-		point_free(self->p);
+		if (self->p != NULL)
+			point_free(self->p);
 		vec3_free(self->normal);
 		free(self);
 	}

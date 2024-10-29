@@ -34,9 +34,9 @@ break main.c:
 #break is_scene4.c:73  if ((wy0 == 140) && (wx0 ==250))
 #break eleme_hittables_sph.c:63 if (discriminant > 0)
 #break hitrecord_copy
-break is_scene4.c:53
-break eleme_hit.c:33
+#break is_scene4.c:53
+#break eleme_hit.c:33
 #break eleme_init.c:44
 #break win_create_world.c:41
-#break eleme_hittables_pln.c:46
+break hitrecord_init.c:43
 run ./miniRT tirame
