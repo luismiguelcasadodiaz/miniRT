@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 10:28:52 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/16 15:52:55 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/10/30 23:37:27 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int	main(int argc, char **argv)
 		show_usage();
 		return (0);
 	}
+	read_file(argv[1]);
 	w = win_init(argv[1]);
 	mlx_hook(w.win_ptr, ON_KEYDOWN, (1L << 0), &win_h_key_down, &w);
 	mlx_hook(w.win_ptr, ON_KEYUP, 0L, &win_h_key_up, &w);

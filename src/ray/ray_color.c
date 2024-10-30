@@ -52,7 +52,7 @@ int	ray_color(t_ray	*self, t_color color_start, t_color color_end, t_eleme *o)
 		mlx_color = col_get_mlx_color(normalized_color);
 		vec3_free(normal);
 		col_free(normalized_color);
-		point_free(rec->p);
+		//point_free(rec->p);
 	}
 	else
 		mlx_color = col_lerp(&color_start, &color_end, self->dir);

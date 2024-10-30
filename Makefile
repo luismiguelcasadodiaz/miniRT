@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 13:07:33 by luicasad          #+#    #+#              #
-#    Updated: 2024/10/23 20:17:09 by luicasad         ###   ########.fr        #
+#    Updated: 2024/10/30 23:39:54 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,6 +56,7 @@ SRCDIR_AMBIL		= ./src/ambil/
 SRCDIR_HITTABLE		= ./src/hittable/
 SRCDIR_HITRECORD	= ./src/hitrecord/
 SRCDIR_INTERVAL		= ./src/interval/
+SRCDIR_GETNL		= ./src/getnl/
 #SRCDIR_SPHERE		= ./src/sphere/
 #SRCDIR_FTCOMPLEX	= ./src/compl/
 SRCDIR_MLIBX		= ./src/minilibx-linux/
@@ -71,12 +72,12 @@ vpath %.a $(LIBDIR)
 #                               COMPILER SETUP                                 #
 # ============================================================================ #
 CC 				= cc
-WRNFL			= -Wall -Wextra -Werror -Wconversion -Wdouble-promotion #-fsanitize=address
+WRNFL			= -Wall -Wextra -Werror -Wconversion -Wdouble-promotion -fsanitize=address
 DBGFL			= -g3  -pg
 CFLGS			= $(DBGFL) $(WRNFL) -c 
 HEADS			= -I$(INCDIR)
 LFLGS 			=
-LFLGS 			= #-fsanitize=address
+LFLGS 			= -fsanitize=address
 FRAMEWORKS		=
 
 # ============================================================================ #
@@ -136,8 +137,12 @@ LOADLIBHITTABLE    	= hittable
 #LOADLIBSPHERE    	= sphere
 
 NAMELIBINTERVAL	 	= libinterval.a
-PATH_INTERVAL  		= $(addprefix $(SRCDIR_SPHERE), $(NAMELIBSPHERE))
+PATH_INTERVAL  		= $(addprefix $(SRCDIR_INTERVAL), $(NAMELIBINTERVAL))
 LOADLIBINTERVAL    	= interval
+
+NAMELIBGETNL	 	= libgetnl.a
+PATH_GETNL  		= $(addprefix $(SRCDIR_GETNL), $(NAMELIBGETNL))
+LOADLIBGETNL    	= getnl
 
 #NAMELIBPRINTF 		= libftprintf.a
 #PATH_PRINT 			= $(addprefix $(SRCDIR_PRINT), $(NAMELIBPRINTF))
@@ -169,6 +174,7 @@ MYLIBS			+= $(NAMELIBLIGHT)
 MYLIBS			+= $(NAMELIBCOLOR)
 MYLIBS			+= $(NAMELIBPOINT)
 MYLIBS			+= $(NAMELIBVEC3)
+MYLIBS			+= $(NAMELIBGETNL)
 
 LLIBS 			= -L$(LIBDIR) -l$(LOADLIBMLIBX)
 LLIBS 			+= -l$(LOADLIBRAY)
@@ -184,6 +190,7 @@ LLIBS 			+= -l$(LOADLIBLIGHT)
 LLIBS 			+= -l$(LOADLIBCOLOR)
 LLIBS 			+= -l$(LOADLIBPOINT)
 LLIBS 			+= -l$(LOADLIBVEC3)
+LLIBS 			+= -l$(LOADLIBGETNL)
 LLIBS 			+= -l$(LOADLIBFT)
 LLIBS 			+= -L$(LIBSYS) $(LOADLIBSYS) 
 
@@ -213,7 +220,8 @@ SRCS_MINRT	= 	miniRT.c \
 				is_scene2.c \
 				is_scene3.c \
 				is_scene4.c \
-				is_white.c
+				is_white.c \
+				read_file.c
 
 HEADER_BON	=	miniRT_bonus.h
 SRCS_BONUS	 =	miniRT_bonus.c \
@@ -288,6 +296,7 @@ makelibs: $(MYLIBS)
 
 $(NAMELIBMLIBX): makelibmlibx $(LIBDIR)$(NAMELIBMLIBX)
 $(NAMELIBFT): makelibft  $(LIBDIR)$(NAMELIBFT)
+$(NAMELIBGETNL): makelibgetnl  $(LIBDIR)$(NAMELIBGETNL)
 $(NAMELIBVEC3): makelibvec3  $(LIBDIR)$(NAMELIBVEC3)
 $(NAMELIBCOLOR): makelibcolor  $(LIBDIR)$(NAMELIBCOLOR)
 $(NAMELIBPOINT): makelibpoint  $(LIBDIR)$(NAMELIBPOINT)
@@ -309,6 +318,9 @@ makelibmlibx:
 
 makelibft:
 	$(MAKE) -C $(SRCDIR_LIBFT)
+
+makelibgetnl:
+	$(MAKE) -C $(SRCDIR_GETNL)
 
 makelibvec3:
 	$(MAKE) -C $(SRCDIR_VEC3)
@@ -421,6 +433,7 @@ clean:
 	$(MAKE) -C $(SRCDIR_INTERVAL) clean
 #	$(MAKE) -C $(SRCDIR_SPHERE) clean
 #	$(MAKE) -C $(SRCDIR_PRINT) clean
+	$(MAKE) -C $(SRCDIR_GETNL) clean
 	$(MAKE) -C $(SRCDIR_LIBFT) clean
 
 
@@ -448,6 +461,8 @@ norma:
 #	$(MAKE) -C $(SRCDIR_FTCOMPLEX)  norma
 	@echo "$(DARK_GRAY)========== CHECKING NORME $(SRCDIR_LIBFT) ==============$(DEF_COLOR)"
 	$(MAKE) -C $(SRCDIR_LIBFT)  norma
+	@echo "$(DARK_GRAY)========== CHECKING NORME $(SRCDIR_GETNL) ==============$(DEF_COLOR)"
+	$(MAKE) -C $(SRCDIR_GETNL)  norma
 	@echo "$(BLUE)========== CHECKING NORME $(SRCDIR_VEC3) ==============$(DEF_COLOR)"
 	$(MAKE) -C $(SRCDIR_VEC3)  norma
 	@echo "$(YELLOW)========== CHECKING NORME $(SRCDIR_COLOR) ==============$(DEF_COLOR)"

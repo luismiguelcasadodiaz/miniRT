@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 12:46:50 by luicasad          #+#    #+#             */
-/*   Updated: 2024/10/21 18:38:48 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/10/29 21:50:23 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "miniRT.h"
@@ -47,12 +47,12 @@ static void	win_calculate_ray_dir(t_win *w, int x, int y)
 	vec3_sub(w->ray_direction, w->ray_direction, aux);
 	vec3_free(aux);
 }
-
+/*
 static void	world_destroy(t_win *w)
 {
 	eleme_free(w->eleme);
 }
-
+*/
 void	draw_image4(t_win *w)
 {
 	int			wx0;
@@ -78,5 +78,5 @@ void	draw_image4(t_win *w)
 	}
 	mlx_put_image_to_window(w->mlx_ptr, w->win_ptr, w->img.img_ptr, 0, 0);
 	ray_free(r);
-	world_destroy(w);
+	//world_destroy(w);
 }

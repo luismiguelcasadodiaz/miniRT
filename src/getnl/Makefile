@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2024/09/25 20:28:13 by luicasad         ###   ########.fr        #
+#    Updated: 2024/10/30 23:03:22 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #MAKEFLAGS += rR
@@ -29,11 +29,11 @@ DARK_GRAY	=	\033[38;5;234m
 MID_GRAY	=	\033[38;5;245m
 DARK_GREEN	=	\033[38;2;75;179;82m
 DARK_YELLOW	=	\033[38;5;143m
-MY_COLOR	= $(DARK_GREEN)
+MY_COLOR	= $(DARK_YELLOW)
 # ============================================================================ #
 #                                 TARGETS                                      #
 # ============================================================================ #
-NAME		= libray.a
+NAME		= libgetnl.a
 # ============================================================================ #
 #                                 FOLDERS                                      #
 # ============================================================================ #
@@ -59,12 +59,9 @@ HEADS		=	-I$(INCDIR)
 #
 # So I must explicitly enumerate files for the project.
 
-HEADER	=	ray.h
-SRCS	=	ray_init.c \
-      		ray_getters.c \
-      		ray_setters.c \
-			ray_at.c \
-			ray_color.c
+HEADER	=	getnl.h
+SRCS	=	getnl.c \
+			getnl_u.c
 
 # Generate a list of object files by replacing .c with .o
 #

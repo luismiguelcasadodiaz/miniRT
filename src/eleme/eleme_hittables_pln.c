@@ -70,6 +70,7 @@ bool	hit_plane(t_eleme *self, t_ray *ray, t_interval *ran, t_hitrecord *rec)
 	}
 	hitrecord_set_t(rec, t);
 	hitrecord_set_point(rec, p);
+	point_free(p);
 	hitrecord_set_hit_obj(rec, self);
 	hitrecord_face_normal(rec, ray, self->novec);
 
