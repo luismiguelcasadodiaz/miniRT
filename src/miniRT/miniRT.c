@@ -39,13 +39,20 @@
 int	main(int argc, char **argv)
 {
 	t_win	w;
+	char	*errmsg;
 
+	errmsg = NULL;
 	if (argc != 2)
 	{
 		show_usage();
 		return (0);
 	}
-	read_file(argv[1]);
+	read_file(argv[1], &errmsg);
+	if (errmsg)
+	{
+		printf("Error\n%s\n", errmsg);
+		exit (1);
+	}
 	w = win_init(argv[1]);
 	mlx_hook(w.win_ptr, ON_KEYDOWN, (1L << 0), &win_h_key_down, &w);
 	mlx_hook(w.win_ptr, ON_KEYUP, 0L, &win_h_key_up, &w);

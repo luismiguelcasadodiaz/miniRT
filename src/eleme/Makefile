@@ -48,7 +48,7 @@ vpath %.a $(LIBDIR)
 #                               COMPILER SETUP                                 #
 # ============================================================================ #
 CC		=	cc
-CFLAGS		=  -g -Wall -Wextra -Werror -fsanitize=address -fno-omit-frame-pointer
+CFLAGS		=  -g -Wall -Wextra -Werror ##-fsanitize=address -fno-omit-frame-pointer
 HEADS		=	-I$(INCDIR)
 # From 4.4.3 The Function wildcard gnu make manual....
 # Althought wildcard exparnds automaticaly in rules

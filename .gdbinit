@@ -39,4 +39,5 @@ break main.c:
 #break eleme_init.c:44
 #break win_create_world.c:41
 break hitrecord_init.c:43
+break read_file.c:28
 run ./miniRT tirame

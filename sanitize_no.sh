@@ -11,6 +11,7 @@ sed -i -e '/-fsanitize/ s/-fsanitize/#-fsanitize/' src/eleme/Makefile
 sed -i -e '/-fsanitize/ s/-fsanitize/#-fsanitize/' src/hitrecord/Makefile
 sed -i -e '/-fsanitize/ s/-fsanitize/#-fsanitize/' src/hittable/Makefile
 sed -i -e '/-fsanitize/ s/-fsanitize/#-fsanitize/' src/interval/Makefile
+sed -i -e '/-fsanitize/ s/-fsanitize/#-fsanitize/' src/getnl/Makefile
 #sed -i -e '/-fsanitize/ s/-fsanitize/#-fsanitize/' src/error/Makefile
 #sed -i -e '/-fsanitize/ s/-fsanitize/#-fsanitize/' src/ftpri/Makefile
 sed -i -e '/-fsanitize/ s/-fsanitize/#-fsanitize/' Makefile
