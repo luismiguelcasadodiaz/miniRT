@@ -73,12 +73,12 @@ vpath %.a $(LIBDIR)
 #                               COMPILER SETUP                                 #
 # ============================================================================ #
 CC 				= cc
-WRNFL			= -Wall -Wextra -Werror -Wconversion -Wdouble-promotion ##-fsanitize=address
+WRNFL			= -Wall -Wextra -Werror -Wconversion -Wdouble-promotion #-fsanitize=address
 DBGFL			= -g3  -pg
 CFLGS			= $(DBGFL) $(WRNFL) -c 
 HEADS			= -I$(INCDIR)
 LFLGS 			=
-LFLGS 			= ##-fsanitize=address
+LFLGS 			= #-fsanitize=address
 FRAMEWORKS		=
 
 # ============================================================================ #
@@ -165,7 +165,6 @@ LOADLIBCHUNK    	= chunk
 #LLIBS 			= -L$(LIBDIR) -l$(LOADLIBMLIBX) -l$(LOADLIBPRINTF) -l$(LOADLIBFTCOMPLEX) -l$(LOADLIBFT)
 
 MYLIBS			= $(NAMELIBMLIBX)
-MYLIBS			+= $(NAMELIBFT)
 MYLIBS			+= $(NAMELIBELEME)
 #MYLIBS			+= $(NAMELIBSPHERE)
 MYLIBS			+= $(NAMELIBRAY)
@@ -181,6 +180,7 @@ MYLIBS			+= $(NAMELIBPOINT)
 MYLIBS			+= $(NAMELIBVEC3)
 MYLIBS			+= $(NAMELIBCHUNK)
 MYLIBS			+= $(NAMELIBGETNL)
+MYLIBS			+= $(NAMELIBFT)
 
 LLIBS 			= -L$(LIBDIR) -l$(LOADLIBMLIBX)
 LLIBS 			+= -l$(LOADLIBRAY)

@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "color.h"
+#include <stdlib.h>
 
 static int	col_create_mlx_color_with_int(int t, int r, int g, int b)
 {
@@ -51,3 +52,14 @@ void	col_init_with_1(t_color *self, double r, double g, double b)
 	self->t = 0;
 	col_create_mlx_color(self);
 }
+
+int	col_in_range(t_color *self)
+{
+	int	result;
+
+	result  = ((0 <= self->rgb->e[0]) && (self->rgb->e[0] <= 1));
+	result  = result  && ((0 <= self->rgb->e[1]) && (self->rgb->e[1] <= 1));
+	result  = result  && ((0 <= self->rgb->e[2]) && (self->rgb->e[2] <= 1));
+	return (result);
+}
+

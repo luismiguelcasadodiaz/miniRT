@@ -48,7 +48,7 @@ vpath %.a $(LIBDIR)
 #                               COMPILER SETUP                                 #
 # ============================================================================ #
 CC		=	cc
-CFLAGS		=  -g -Wall -Wextra -Werror ##-fsanitize=address -fno-omit-frame-pointer
+CFLAGS		=  -g -Wall -Wextra -Werror #-fsanitize=address -fno-omit-frame-pointer
 HEADS		=	-I$(INCDIR)
 # From 4.4.3 The Function wildcard gnu make manual....
 # Althought wildcard exparnds automaticaly in rules
@@ -63,7 +63,9 @@ HEADER	=	chunk.h
 SRCS	=	chunk_read.c \
 			chunk_treatments_one.c \
 			chunk_treatments_two.c \
+			chunk_transfer_values_one.c \
 			chunk_errors_one.c \
+			chunk_errors_two.c \
 			chunk_print.c
 
 #chunk_init.c \

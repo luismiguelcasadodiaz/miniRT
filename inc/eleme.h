@@ -60,6 +60,7 @@ typedef struct s_eleme
 	enum e_eleme	id;
 }	t_eleme;
 
+
 // eleme_new.c
 t_eleme			*eleme_new(void);
 // eleme_init.c

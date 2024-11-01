@@ -19,7 +19,7 @@ void	chunk_print(t_chunk chunks)
     size_t  i;
 
     i = 0;
-    printf("This chunk has %d elements\n", chunks.num)
-    while (i <= chunks.num)
+    printf("This chunk has %ld elements\n", chunks.num);
+    while (i < chunks.num)
         printf("%s\n", chunks.param[i++]);
 }

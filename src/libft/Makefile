@@ -48,7 +48,7 @@ vpath %.a $(LIBDIR)
 #                               COMPILER SETUP                                 #
 # ============================================================================ #
 CC		=	cc
-CFLAGS		=  -g -Wall -Wextra -Werror ##-fsanitize=address -fno-omit-frame-pointer
+CFLAGS		=  -g -Wall -Wextra -Werror #-fsanitize=address -fno-omit-frame-pointer
 HEADS		=	-I$(INCDIR)
 # From 4.4.3 The Function wildcard gnu make manual....
 # Althought wildcard exparnds automaticaly in rules
@@ -81,6 +81,7 @@ SRCS	=	ft_isalnum.c \
       	ft_strtoupper.c \
 		ft_atoi.c \
 		ft_atol.c \
+		ft_atof.c \
       	ft_strtrim.c \
       	ft_strncmp.c \
       	ft_calloc.c \

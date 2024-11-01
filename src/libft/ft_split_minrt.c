@@ -163,18 +163,18 @@ void	ft_split_minrt(char const *s, char c, t_chunk *chunks)
 	if ((!s && !c) || (!s && c))
 	{
 			chunks->num = 0;
-			chunks->chunks = NULL;
+			chunks->param = NULL;
 	}
 	else
 	{
 		chunks->num = word_count(s, c);
-		chunks->chunks = allocate(chunks->num);
-		if (chunks->chunks == NULL)
+		chunks->param = allocate(chunks->num);
+		if (chunks->param == NULL)
 			chunks->num = 0;
 		else
 		{
-			chunks->chunks = split(s, c, chunks->chunks);
-			if (chunks->chunks == NULL)
+			chunks->param = split(s, c, chunks->param);
+			if (chunks->param == NULL)
 				chunks->num = 0;
 		}
 	}

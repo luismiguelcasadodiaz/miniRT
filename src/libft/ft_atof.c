@@ -73,5 +73,5 @@ float	ft_atof(const char *s)
         while (ft_isdigit(s[idx]) && (idx <= len))
 		    decimal = decimal / 10.0 + (s[idx++] - '0');
     }
-   	return ((entera + decimal) * sign);
+   	return ((entera + decimal / 10 ) * sign);
 }

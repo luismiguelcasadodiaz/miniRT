@@ -15,6 +15,7 @@
 
 # include "vec3.h"
 # include <stdlib.h>
+# 
 
 /* ************************************************************************** */
 /* rgb is made of doubles. keeps colors in range 0 .. 1                       */
@@ -35,6 +36,7 @@ void	col_free(t_color *self);
 void	col_init_with_255(t_color *self, int r, int g, int b);
 void	col_init_with_1(t_color *self, double r, double g, double b);
 void	col_create_mlx_color(t_color *self);
+int		col_in_range(t_color *self);
 //int		col_create_mlx_color_with_double(t_vec3 *the_rgb, double the_t);
 //int		col_create_mlx_color_with_int(int t, int r, int g, int b);
 
