@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
+#include "chunk.h"
 
 /* ************************************************************************** */
 /* word_count(), counts chunks of chars in 's' between a separation char 'c'. */
@@ -157,26 +158,26 @@ static char	**split(char const *s, char c, char **result)
 /* With this in main is not necessary propagate to the called functions the   */
 /* table size. that helps me to nest wordcount call inside allocate function. */
 /*                                                                            */
-char	**ft_split_minrt(char const *s, char c, size_t *numchunks)
+void	ft_split_minrt(char const *s, char c, t_chunk *chunks)
 {
-	char	**result;
-
 	if ((!s && !c) || (!s && c))
-		return (NULL);
-	*numchunks = word_count(s, c);
-	result = allocate(*numchunks);
-	if (result == NULL)
 	{
-		*numchunks = 0;
-		return (NULL);
+			chunks->num = 0;
+			chunks->chunks = NULL;
 	}
-	result = split(s, c, result);
-	if (result == NULL)
+	else
 	{
-		*numchunks = 0;
-		return (NULL);
+		chunks->num = word_count(s, c);
+		chunks->chunks = allocate(chunks->num);
+		if (chunks->chunks == NULL)
+			chunks->num = 0;
+		else
+		{
+			chunks->chunks = split(s, c, chunks->chunks);
+			if (chunks->chunks == NULL)
+				chunks->num = 0;
+		}
 	}
-	return (result);
 }
 
 

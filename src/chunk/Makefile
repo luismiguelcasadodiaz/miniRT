@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2024/11/01 08:57:35 by luicasad         ###   ########.fr        #
+#    Updated: 2024/11/01 08:57:19 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #MAKEFLAGS += rR
@@ -29,11 +29,11 @@ DARK_GRAY	=	\033[38;5;234m
 MID_GRAY	=	\033[38;5;245m
 DARK_GREEN	=	\033[38;2;75;179;82m
 DARK_YELLOW	=	\033[38;5;143m
-MY_COLOR	= $(YELLOW)
+MY_COLOR	= $(DARK_GREEN)
 # ============================================================================ #
 #                                 TARGETS                                      #
 # ============================================================================ #
-NAME		= libgetnl.a
+NAME		= libchunk.a
 # ============================================================================ #
 #                                 FOLDERS                                      #
 # ============================================================================ #
@@ -48,7 +48,7 @@ vpath %.a $(LIBDIR)
 #                               COMPILER SETUP                                 #
 # ============================================================================ #
 CC		=	cc
-CFLAGS		=  -g -Wall -Wextra -Werror #-fsanitize=address -fno-omit-frame-pointer
+CFLAGS		=  -g -Wall -Wextra -Werror ##-fsanitize=address -fno-omit-frame-pointer
 HEADS		=	-I$(INCDIR)
 # From 4.4.3 The Function wildcard gnu make manual....
 # Althought wildcard exparnds automaticaly in rules
@@ -59,9 +59,17 @@ HEADS		=	-I$(INCDIR)
 #
 # So I must explicitly enumerate files for the project.
 
-HEADER	=	getnl.h
-SRCS	=	getnl.c \
-			getnl_u.c
+HEADER	=	chunk.h
+SRCS	=	chunk_read.c \
+			chunk_treatments_one.c \
+			chunk_treatments_two.c \
+			chunk_errors_one.c \
+			chunk_print.c
+
+#chunk_init.c \
+#chunk_getters_one.c \
+#chunk_setters_one.c \
+#chunk_print.c
 
 # Generate a list of object files by replacing .c with .o
 #

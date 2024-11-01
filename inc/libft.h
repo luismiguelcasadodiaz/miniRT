@@ -14,6 +14,8 @@
 # include <stdlib.h>
 # include <errno.h>
 
+typedef struct s_chunk	t_chunk;
+
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
@@ -39,13 +41,14 @@ char	*ft_strrchr(const char *s, int c);
 char	*ft_strtrim(char const *s, char const *set);
 int		ft_atoi(const char *nptr);
 long	ft_atol(const char *nptr);
+float	ft_atof(const char *nptr);
 void	*ft_calloc(size_t nmemb, size_t size);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 char	*ft_strtoupper(char *str);
 char	**ft_split(char const *s, char c);
 char	**ft_split_pipex(char const *s, char c);
-char	**ft_split_minrt(char const *s, char c, size_t *numchunks);
+void 	ft_split_minrt(char const *s, char c, t_chunk *chunks);
 char	**allocate(size_t rows);
 char	**de_allocate(char **table, size_t allocated_rows);
 char	*ft_itoa(int n);

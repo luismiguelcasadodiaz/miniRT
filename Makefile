@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 13:07:33 by luicasad          #+#    #+#              #
-#    Updated: 2024/10/30 23:39:54 by luicasad         ###   ########.fr        #
+#    Updated: 2024/11/01 09:47:13 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,6 +57,7 @@ SRCDIR_HITTABLE		= ./src/hittable/
 SRCDIR_HITRECORD	= ./src/hitrecord/
 SRCDIR_INTERVAL		= ./src/interval/
 SRCDIR_GETNL		= ./src/getnl/
+SRCDIR_CHUNK		= ./src/chunk/
 #SRCDIR_SPHERE		= ./src/sphere/
 #SRCDIR_FTCOMPLEX	= ./src/compl/
 SRCDIR_MLIBX		= ./src/minilibx-linux/
@@ -144,6 +145,10 @@ NAMELIBGETNL	 	= libgetnl.a
 PATH_GETNL  		= $(addprefix $(SRCDIR_GETNL), $(NAMELIBGETNL))
 LOADLIBGETNL    	= getnl
 
+NAMELIBCHUNK	 	= libchunk.a
+PATH_CHUNK  		= $(addprefix $(SRCDIR_CHUNK), $(NAMELIBCHUNK))
+LOADLIBCHUNK    	= chunk
+
 #NAMELIBPRINTF 		= libftprintf.a
 #PATH_PRINT 			= $(addprefix $(SRCDIR_PRINT), $(NAMELIBPRINTF))
 #LOADLIBPRINTF 		= ftprintf
@@ -174,6 +179,7 @@ MYLIBS			+= $(NAMELIBLIGHT)
 MYLIBS			+= $(NAMELIBCOLOR)
 MYLIBS			+= $(NAMELIBPOINT)
 MYLIBS			+= $(NAMELIBVEC3)
+MYLIBS			+= $(NAMELIBCHUNK)
 MYLIBS			+= $(NAMELIBGETNL)
 
 LLIBS 			= -L$(LIBDIR) -l$(LOADLIBMLIBX)
@@ -190,6 +196,7 @@ LLIBS 			+= -l$(LOADLIBLIGHT)
 LLIBS 			+= -l$(LOADLIBCOLOR)
 LLIBS 			+= -l$(LOADLIBPOINT)
 LLIBS 			+= -l$(LOADLIBVEC3)
+LLIBS 			+= -l$(LOADLIBCHUNK)
 LLIBS 			+= -l$(LOADLIBGETNL)
 LLIBS 			+= -l$(LOADLIBFT)
 LLIBS 			+= -L$(LIBSYS) $(LOADLIBSYS) 
@@ -221,7 +228,6 @@ SRCS_MINRT	= 	miniRT.c \
 				is_scene3.c \
 				is_scene4.c \
 				is_white.c \
-				read_file.c
 
 HEADER_BON	=	miniRT_bonus.h
 SRCS_BONUS	 =	miniRT_bonus.c \
@@ -297,6 +303,7 @@ makelibs: $(MYLIBS)
 $(NAMELIBMLIBX): makelibmlibx $(LIBDIR)$(NAMELIBMLIBX)
 $(NAMELIBFT): makelibft  $(LIBDIR)$(NAMELIBFT)
 $(NAMELIBGETNL): makelibgetnl  $(LIBDIR)$(NAMELIBGETNL)
+$(NAMELIBCHUNK): makelibchunk  $(LIBDIR)$(NAMELIBCHUNK)
 $(NAMELIBVEC3): makelibvec3  $(LIBDIR)$(NAMELIBVEC3)
 $(NAMELIBCOLOR): makelibcolor  $(LIBDIR)$(NAMELIBCOLOR)
 $(NAMELIBPOINT): makelibpoint  $(LIBDIR)$(NAMELIBPOINT)
@@ -321,6 +328,9 @@ makelibft:
 
 makelibgetnl:
 	$(MAKE) -C $(SRCDIR_GETNL)
+
+makelibchunk:
+	$(MAKE) -C $(SRCDIR_CHUNK)
 
 makelibvec3:
 	$(MAKE) -C $(SRCDIR_VEC3)
@@ -434,6 +444,7 @@ clean:
 #	$(MAKE) -C $(SRCDIR_SPHERE) clean
 #	$(MAKE) -C $(SRCDIR_PRINT) clean
 	$(MAKE) -C $(SRCDIR_GETNL) clean
+	$(MAKE) -C $(SRCDIR_CHUNK) clean
 	$(MAKE) -C $(SRCDIR_LIBFT) clean
 
 
@@ -461,8 +472,10 @@ norma:
 #	$(MAKE) -C $(SRCDIR_FTCOMPLEX)  norma
 	@echo "$(DARK_GRAY)========== CHECKING NORME $(SRCDIR_LIBFT) ==============$(DEF_COLOR)"
 	$(MAKE) -C $(SRCDIR_LIBFT)  norma
-	@echo "$(DARK_GRAY)========== CHECKING NORME $(SRCDIR_GETNL) ==============$(DEF_COLOR)"
+	@echo "$(YELLOW)========== CHECKING NORME $(SRCDIR_GETNL) ==============$(DEF_COLOR)"
 	$(MAKE) -C $(SRCDIR_GETNL)  norma
+	@echo "$(DARK_GREEEN)========== CHECKING NORME $(SRCDIR_CHUNK) ==============$(DEF_COLOR)"
+	$(MAKE) -C $(SRCDIR_CHUNK)  norma
 	@echo "$(BLUE)========== CHECKING NORME $(SRCDIR_VEC3) ==============$(DEF_COLOR)"
 	$(MAKE) -C $(SRCDIR_VEC3)  norma
 	@echo "$(YELLOW)========== CHECKING NORME $(SRCDIR_COLOR) ==============$(DEF_COLOR)"

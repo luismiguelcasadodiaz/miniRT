@@ -12,53 +12,29 @@
 
 #include "getnl.h"
 #include "libft.h"
+#include "chunk.h"
 #include <stdio.h>
 #include <fcntl.h>
 #include <unistd.h>
-static void treat_one_letter_command(char **chunks, char **errmsg)
-{
-	if (ft_strncmp(chunks[0], 'A', 1))
-		treat_ambient(chunks, errmsg);
-	else if (ft_strncmp(chunks[0], 'C', 1))
-		treat_camera(chunks, errmsg);
-	else if (ft_strncmp(chunks[0], 'L', 1))
-		treat_light(chunks, errmsg);
-	else
-		error_bad_letter_command(chunks, **errmsg);
-}
 
-static void treat_two_letter_command(char **chunks, char **errmsg)
+void	chunk_treat_line(char *line, char **errmsg, t_win *w)
 {
-	if (ft_strncmp(chunks[0], 'sp', 2))
-		treat_sphere(chunks, errmsg);
-	else if (ft_strncmp(chunks[0], 'pl', 2))
-		treat_plane(chunks, errmsg);
-	else if (ft_strncmp(chunks[0], 'cy', 2))
-		treat_cylin(chunks, errmsg);
-	else
-		error_bad_letter_command(chunks, **errmsg);
-}
-static void	treat_line(char *line, char **errmsg)
-{
-	char	**chunks;
-	char	*trimmed;
-	size_t	numchunks;
-	int		i;
+	t_chunk	chunks;
 
-	i = 0;
 	printf("%s", line);
-	chunks = ft_split_minrt(line, ' ', &numchunks);
-	if (ft_strlen(chunks[0]) == 1)
-		treat_one_letter_command(chunks, **errmsg);
-	else if (ft_strlen(chunks[0]) == 2)
-		treat_two_letter_command(chunks, **errmsg);
-	else
-		error_bad_letter_command(chunks, **errmsg);
-
-	de_allocate(chunks, numchunks);
+	ft_split_minrt(line, ' ', &chunks);
+	chunk_print(chunks);
+	if (ft_strlen(chunks.param[0]) == 1)
+		treat_one_letter_command(chunks, errmsg, w);
+	else if (ft_strlen(chunks.param[0]) == 2)
+		treat_two_letter_command(chunks, errmsg, w);
+	else	
+		error_bad_letter_command(chunks, errmsg);
+	
+	de_allocate(chunks.param, chunks.num);
 }
 
-void	read_file(char *filename, char **errmsg)
+void	chunk_read(char *filename, char **errmsg, t_win *w)
 {
 	int		fd;
 	short	end_file;
@@ -77,7 +53,7 @@ void	read_file(char *filename, char **errmsg)
 		if (line == NULL)
 			end_file = 1;
 		else
-			treat_line(line, errmsg);
+			chunk_treat_line(line, errmsg, w);
 		free(line);
 	}
 	close(fd);

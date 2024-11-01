@@ -115,14 +115,5 @@ void	draw_image3(t_win *w);
 void	draw_image4(t_win *w);
 void	show_usage(void);
 void	show_data(t_win w);
-void	read_file(char *filename, char **errmsg);
-void	treat_ambient(char **chunks, char **errmsg);
-void	treat_camera(char **chunks, char **errmsg);
-void	treat_light(char **chunks, char **errmsg);
-void	treat_sphere(char **chunks, char **errmsg);
-void	treat_plane(char **chunks, char **errmsg);
-void	treat_cylin(char **chunks, char **errmsg);
-void	treat_one_letter_command(char **chunks, char **errmsg);
-void	treat_two_letter_command(char **chunks, char **errmsg);
-void	error_bad_letter_command(char **chunks, char **errmsg);
 
+#endif
