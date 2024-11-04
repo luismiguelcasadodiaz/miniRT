@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 13:07:33 by luicasad          #+#    #+#              #
-#    Updated: 2024/11/01 09:47:13 by luicasad         ###   ########.fr        #
+#    Updated: 2024/11/01 23:10:47 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -506,11 +506,11 @@ norma:
 	$(MAKE) -C $(SRCDIR_MLIBX)  norma
 
 profile:
-	valgrind --tool=callgrind ./$(MINRT) tirame
+	valgrind --tool=callgrind ./$(MINRT) scenes/spheres.rt
 	callgrind_annotate
 
 leaks:
-	valgrind -s --tool=memcheck --leak-check=full ./$(MINRT) tirame
+	valgrind -s --tool=memcheck --leak-check=full ./$(MINRT) scenes/spheres.rt
 
 .PHONY: all bonus test clean fclean re rebonus norma profile leaks
 
