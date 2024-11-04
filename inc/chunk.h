@@ -48,13 +48,19 @@ void	treat_cylin(t_eleme_chunks chunks, char **errmsg, t_win *w);
 
 // chunk_transfer_values.c
 void	trans_sphere(t_win *w, t_eleme_chunks chunks, char ** errmsg);
+void	trans_plane(t_win *w, t_eleme_chunks chunks, char ** errmsg);
+void	trans_cylin(t_win *w, t_eleme_chunks chunks, char ** errmsg);
 // chunk_errors_one.c
 void	error_bad_letter_command(t_chunk chunks, char **errmsg);
 void	error_bad_number_argumen(t_chunk chunks, char **errmsg);
 void	error_bad_color_num_argu(t_chunk chunks, char **errmsg);
 void	error_bad_point_num_argu(t_chunk chunks, char **errmsg);
 void	error_bad_color_range(t_chunk chunks, char **errmsg);
+// chunk_errors_two.c
 void	error_bad_sp_diam(char *diam, char **errmsg);
+void	error_normal_bad_num_argu(t_chunk chunks, char **errmsg);
+void	error_normal_bad_range(t_chunk chunks, char **errmsg);
+void	error_normal_zero(t_chunk chunks, char **errmsg);
 void	error_not_implemented(char *proc, char **errmsg);
 
 // chunk_print.c

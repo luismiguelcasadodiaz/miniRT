@@ -31,20 +31,20 @@ void	error_bad_number_argumen(t_chunk chunks, char **errmsg)
     free(aux);
 }
 
-void	error_bad_point_num_argu(t_chunk chunks, char **errmsg)
-{
-    char    *aux;
-
-    aux = ft_strjoin("La coordenada tiene ", ft_itoa(chunks.num));
-    *errmsg = ft_strjoin(aux, " parámetros. Deben de ser tres.");
-    free(aux);
-}
-
 void	error_bad_color_num_argu(t_chunk chunks, char **errmsg)
 {
     char    *aux;
 
     aux = ft_strjoin("El color tiene ", ft_itoa(chunks.num));
+    *errmsg = ft_strjoin(aux, " parámetros. Deben de ser tres.");
+    free(aux);
+}
+
+void	error_bad_point_num_argu(t_chunk chunks, char **errmsg)
+{
+    char    *aux;
+
+    aux = ft_strjoin("La coordenada tiene ", ft_itoa(chunks.num));
     *errmsg = ft_strjoin(aux, " parámetros. Deben de ser tres.");
     free(aux);
 }

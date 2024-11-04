@@ -22,6 +22,32 @@ void	error_bad_sp_diam(char *diam, char **errmsg)
     free(aux);
 }
 
+void	error_normal_bad_num_argu(t_chunk chunks, char **errmsg)
+{
+   char    *aux;
+
+    aux = ft_strjoin("La normal del ", chunks.param[0]);
+    *errmsg = ft_strjoin(aux, " tiene un número incorrecto de parámetros.");
+    free(aux);
+}
+
+void	error_normal_bad_range(t_chunk chunks, char **errmsg)
+{
+   char    *aux;
+
+    aux = ft_strjoin("La normal del ", chunks.param[0]);
+    *errmsg = ft_strjoin(aux, " tiene coordenadas fuera del intervalo [-1, 1].");
+    free(aux);
+}
+
+void	error_normal_zero(t_chunk chunks, char **errmsg)
+{
+    char    *aux;
+
+    aux = ft_strjoin("La normal del ", chunks.param[0]);
+    *errmsg = ft_strjoin(aux, " tiene todas las coordenadas nulas. IMPOSIBLE.");
+    free(aux);
+}
 
 void	error_not_implemented(char *proc, char **errmsg)
 {

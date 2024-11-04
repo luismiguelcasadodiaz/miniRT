@@ -12,6 +12,9 @@
 
 #include "chunk.h"
 #include "libft.h"
+#define X 0
+#define Y 1
+#define Z 2
 
 void	trans_sphere(t_win *w, t_eleme_chunks chunks, char **errmsg)
 {
@@ -22,10 +25,10 @@ void	trans_sphere(t_win *w, t_eleme_chunks chunks, char **errmsg)
 	center = vec3_new();
 	rgb255 = col_new();
 
-	vec3_init_values(center, ft_atof(chunks.coor.param[0]), ft_atof(chunks.coor.param[1]),
-        ft_atof(chunks.coor.param[2]));
-	col_init_with_255(rgb255, ft_atoi(chunks.color.param[0]), ft_atoi(chunks.color.param[1]),
-        ft_atoi(chunks.color.param[2]));
+	vec3_init_values(center, ft_atof(chunks.coor.param[X]), ft_atof(chunks.coor.param[Y]),
+        ft_atof(chunks.coor.param[Z]));
+	col_init_with_255(rgb255, ft_atoi(chunks.color.param[X]), ft_atoi(chunks.color.param[Y]),
+        ft_atoi(chunks.color.param[Z]));
 	diameter = ft_atof(chunks.diam);
 	if (!col_in_range(rgb255))
 		error_bad_color_range(chunks.color, errmsg);
@@ -34,5 +37,63 @@ void	trans_sphere(t_win *w, t_eleme_chunks chunks, char **errmsg)
 	else
 		eleme_add(&w->eleme, eleme_new_sph(center, diameter, rgb255));
     col_free(rgb255);
+	vec3_free(center);
+}
+
+void	trans_plane(t_win *w, t_eleme_chunks chunks, char **errmsg)
+{
+    t_vec3	*center;
+	t_vec3	*novec;
+	t_color	*rgb255;
+
+
+	center = vec3_new();
+	novec = vec3_new();
+	rgb255 = col_new();
+	vec3_init_values(center, ft_atof(chunks.coor.param[X]), ft_atof(chunks.coor.param[Y]),
+        ft_atof(chunks.coor.param[Z]));
+	vec3_init_values(novec, ft_atof(chunks.novec.param[X]), ft_atof(chunks.novec.param[Y]),
+        ft_atof(chunks.novec.param[Z]));
+	col_init_with_255(rgb255, ft_atoi(chunks.color.param[X]), ft_atoi(chunks.color.param[Y]),
+        ft_atoi(chunks.color.param[Z]));
+	if (!col_in_range(rgb255))
+		error_bad_color_range(chunks.color, errmsg);
+	else if (!vec3_in_range(novec, -1, 1))
+		error_normal_bad_range(chunks.novec, errmsg);
+	else if (vec3_iszero(novec))
+		error_normal_zero(chunks.novec, errmsg);
+	else
+		eleme_add(&w->eleme, eleme_new_pla(center, novec, rgb255));
+    col_free(rgb255);
+	vec3_free(novec);
+	vec3_free(center);
+}
+
+void	trans_cylin(t_win *w, t_eleme_chunks chunks, char **errmsg)
+{
+    t_vec3	*center;
+	t_vec3	*novec;
+	t_color	*rgb255;
+
+
+	center = vec3_new();
+	novec = vec3_new();
+	rgb255 = col_new();
+	vec3_init_values(center, ft_atof(chunks.coor.param[X]), ft_atof(chunks.coor.param[Y]),
+        ft_atof(chunks.coor.param[Z]));
+	vec3_init_values(novec, ft_atof(chunks.novec.param[X]), ft_atof(chunks.novec.param[Y]),
+        ft_atof(chunks.novec.param[Z]));
+	col_init_with_255(rgb255, ft_atoi(chunks.color.param[X]), ft_atoi(chunks.color.param[Y]),
+        ft_atoi(chunks.color.param[Z]));
+	if (!col_in_range(rgb255))
+		error_bad_color_range(chunks.color, errmsg);
+	else if (!vec3_in_range(novec, -1, 1))
+		error_normal_bad_range(chunks.novec, errmsg);
+	else if (vec3_iszero(novec))
+		error_normal_zero(chunks.novec, errmsg);
+	else
+		eleme_add(&w->eleme, eleme_new_pla(center, novec, rgb255));
+    col_free(rgb255);
+	vec3_free(novec);
 	vec3_free(center);
 }

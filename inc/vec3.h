@@ -42,6 +42,7 @@ void	vec3_add(t_vec3 *result, const t_vec3 *u, const t_vec3 *v);
 void	vec3_sub(t_vec3 *result, const t_vec3 *u, const t_vec3 *v);
 void	vec3_negate(t_vec3 *result, const t_vec3 *v);
 int 	vec3_iszero(t_vec3 *v);
+int		vec3_in_range(t_vec3 *self, float min, float max);
 // Product functions (vec3_product.c)
 void	vec3_mul(t_vec3 *result, const t_vec3 *u, double t);
 void	vec3_div(t_vec3 *result, const t_vec3 *v, double t);

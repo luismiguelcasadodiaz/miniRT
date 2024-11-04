@@ -38,3 +38,14 @@ int 	vec3_iszero(t_vec3 *v)
 		return (1);
 	return(0);
 }
+
+
+int 	vec3_in_range(t_vec3 *self, float min, float max)
+{
+	int	result;
+
+	result  = ((min <= self->e[0]) && (self->e[0] <= max));
+	result  = result  && ((min <= self->e[1]) && (self->e[1] <= max));
+	result  = result  && ((min <= self->e[2]) && (self->e[2] <= max));
+	return (result);
+}
