@@ -52,6 +52,18 @@ static	void	calc_normal(t_eleme *self, t_ray *ray, t_hitrecord *rec)
 	vec3_free(normal);
 }
 
+static void	set_hitrecord(t_hitrecord *re, double ro, t_eleme *s, t_ray *ra)
+{
+	t_point	*p;
+
+	hitrecord_set_t(re, ro);
+	p = ray_at(ra, ro);
+	hitrecord_set_point(re, p);
+	calc_normal(s, ra, re);
+	hitrecord_set_hit_obj(re, s);
+	point_free(p);
+}
+
 bool	hit_sphere(t_eleme *slf, t_ray *ray, t_interval *ran, t_hitrecord *rec)
 {
 	double	a;
@@ -59,7 +71,6 @@ bool	hit_sphere(t_eleme *slf, t_ray *ray, t_interval *ran, t_hitrecord *rec)
 	double	discriminant;
 	double	discriminant_root;
 	double	root;
-	t_point	*p;
 
 	discriminant = calc_discriminant(slf, ray, &a, &b);
 	if (discriminant < 0)
@@ -72,37 +83,6 @@ bool	hit_sphere(t_eleme *slf, t_ray *ray, t_interval *ran, t_hitrecord *rec)
 		if (!interval_sorrounds(ran, root))
 			return (false);
 	}
-	hitrecord_set_t(rec, root);
-	p = ray_at(ray, root);
-	hitrecord_set_point(rec, p);
-	calc_normal(slf, ray, rec);
-	hitrecord_set_hit_obj(rec, slf);
-	point_free(p);
+	set_hitrecord(rec, root, slf, ray);
 	return (true);
-}
-
-t_eleme	*eleme_new_sph(t_vec3 *coor, double d, t_color *rgb255)
-{
-	t_eleme	*self;
-	t_vec3	*novec;
-
-	self = eleme_new();
-	if (!self)
-		return (NULL);
-	novec = vec3_new();
-	if (!novec)
-	{
-		eleme_free(self);
-		return (NULL);
-	}
-	vec3_init_values(novec, 0, 0, 0);
-	eleme_set_ident(self, SPHERE);
-	eleme_set_coord(self, coor);
-	eleme_set_novec(self, novec);
-	eleme_set_color(self, rgb255);
-	eleme_set_diame(self, d);
-	eleme_set_heigh(self, 0.0);
-	eleme_set_hit(self, hit_sphere);
-	vec3_free(novec);
-	return (self);
 }

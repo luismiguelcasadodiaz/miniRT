@@ -100,9 +100,16 @@ void			eleme_print(t_eleme *self);
 t_eleme			*eleme_new_amb(double lambi, t_color *rgb_255);
 t_eleme			*eleme_new_cam(t_vec3 *coor, t_vec3 *novec, double fview);
 t_eleme			*eleme_new_lig(t_vec3 *coor, double lbrig, t_color *rgb255);
-// eleme_hitables.c
+// eleme_new_objesc.c
 t_eleme			*eleme_new_sph(t_vec3 *c, double d, t_color *rgb255);
 t_eleme			*eleme_new_pla(t_vec3 *coor, t_vec3 *novec, t_color *rgb255);
 t_eleme			*eleme_new_cyl(t_vec3 *coor, t_vec3 *novec,
 					t_vec3 *dim, t_color *rgb_255);
+// eleme_hittables_sph.c
+bool	hit_sphere(t_eleme *slf, t_ray *ray, t_interval *ran, t_hitrecord *rec);
+// eleme_hittables_pln.c
+bool	hit_plane(t_eleme *self, t_ray *ray, t_interval *ran, t_hitrecord *rec);
+// eleme_hittables_cyl.c
+bool 	hit_cyl(t_eleme *self, t_ray *ray, t_interval *ran, t_hitrecord *rec);
+
 #endif

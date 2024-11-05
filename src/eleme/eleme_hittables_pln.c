@@ -63,34 +63,15 @@ bool	hit_plane(t_eleme *self, t_ray *ray, t_interval *ran, t_hitrecord *rec)
 	if (!interval_contains(ran, t))
 		return (false);
 	p = ray_at(ray, t);
-	if (!lies_within_planar_shape(self, p))
-	{
-		point_free(p);
-		return (false);
-	}
+	//if (!lies_within_planar_shape(self, p))
+	//{
+	//	point_free(p);
+	//	return (false);
+	//}
 	hitrecord_set_t(rec, t);
 	hitrecord_set_point(rec, p);
 	point_free(p);
 	hitrecord_set_hit_obj(rec, self);
 	hitrecord_face_normal(rec, ray, self->novec);
-
 	return (true);
-}
-
-t_eleme	*eleme_new_pla(t_vec3 *coor, t_vec3 *novec, t_color *rgb255)
-{
-	t_eleme	*self;
-
-	self = eleme_new();
-	if (!self)
-		return (NULL);
-	vec3_u_v_from_n(novec, self->u, self->v);
-	eleme_set_ident(self, PLANE);
-	eleme_set_coord(self, coor);
-	eleme_set_novec(self, novec);
-	eleme_set_color(self, rgb255);
-	eleme_set_diame(self, 0.0);
-	eleme_set_heigh(self, 0.0);
-	eleme_set_hit(self, hit_plane);
-	return (self);
 }

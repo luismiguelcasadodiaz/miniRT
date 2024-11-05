@@ -70,6 +70,7 @@ SRCS	=	eleme_new.c \
 			eleme_hittables_sph.c \
 			eleme_hittables_pln.c \
 			eleme_hittables_cyl.c \
+			eleme_new_object.c \
 			eleme_print.c
 
 # Generate a list of object files by replacing .c with .o

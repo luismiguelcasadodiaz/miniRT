@@ -22,3 +22,8 @@ void	hitrecord_face_normal(t_hitrecord *self, t_ray *ray, t_vec3 *norm)
 	hitrecord_set_front_face(self, front_face);
 	hitrecord_set_normal(self, norm);
 }
+
+void		hitrecord_reverse_normal(t_hitrecord *self)
+{
+	vec3_negate(self->normal, self->normal);
+}
