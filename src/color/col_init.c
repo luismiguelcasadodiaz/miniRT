@@ -24,10 +24,10 @@ static int	col_create_mlx_color_with_double(t_vec3 *the_rgb, double the_t)
 	int	b_int;
 	int	t_int;
 
-	r_int = (int)(255.999 * vec3_get_x(the_rgb));
-	g_int = (int)(255.999 * vec3_get_y(the_rgb));
-	b_int = (int)(255.999 * vec3_get_z(the_rgb));
-	t_int = (int)(255.999 * the_t);
+	r_int = (int)(254.999 * vec3_get_x(the_rgb));
+	g_int = (int)(254.999 * vec3_get_y(the_rgb));
+	b_int = (int)(254.999 * vec3_get_z(the_rgb));
+	t_int = (int)(254.999 * the_t);
 	return (col_create_mlx_color_with_int(t_int, r_int, g_int, b_int));
 }
 
@@ -40,9 +40,9 @@ void	col_create_mlx_color(t_color *self)
 void	col_init_with_255(t_color *self, int r, int g, int b)
 {
 	col_init_with_1(self,
-		(double)(r / 255),
-		(double)(g / 255),
-		(double)(b / 255));
+		(double)(r / 255.0),
+		(double)(g / 255.0),
+		(double)(b / 255.0));
 }
 
 // to use when colors are in range 0.0 .. 1.0

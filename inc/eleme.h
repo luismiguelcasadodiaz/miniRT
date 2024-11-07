@@ -24,7 +24,8 @@ enum e_eleme
 	NOELEM,
 	SPHERE,
 	PLANE,
-	CYLINDER
+	CYLINDER,
+	CONE
 };
 
 typedef struct s_ray		t_ray;

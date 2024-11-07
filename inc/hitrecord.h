@@ -58,4 +58,5 @@ void		hitrecord_set_hit_obj(t_hitrecord *self, void *the_hit_obj);
 // hitrecord_methods.c
 void		hitrecord_face_normal(t_hitrecord *self, t_ray *r, t_vec3 *norm);
 void		hitrecord_reverse_normal(t_hitrecord *self);
+void		hitrecord_unit_normal(t_hitrecord * self);
 #endif

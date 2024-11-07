@@ -89,7 +89,7 @@ void	treat_cylin(t_eleme_chunks chunks, char **errmsg, t_win *w)
             else
             {
                 chunks.diam = chunks.line.param[CY_DIAM];
-                chunks.diam = chunks.line.param[CY_HEIG];
+                chunks.height = chunks.line.param[CY_HEIG];
                 ft_split_minrt(chunks.line.param[CY_COLO], ',', &chunks.color);
                 if (chunks.color.num != 3)
                     error_normal_bad_num_argu(chunks.novec, errmsg);

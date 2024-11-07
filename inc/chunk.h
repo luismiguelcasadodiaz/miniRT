@@ -57,10 +57,13 @@ void	error_bad_color_num_argu(t_chunk chunks, char **errmsg);
 void	error_bad_point_num_argu(t_chunk chunks, char **errmsg);
 void	error_bad_color_range(t_chunk chunks, char **errmsg);
 // chunk_errors_two.c
-void	error_bad_sp_diam(char *diam, char **errmsg);
+void	error_bad_diam(char *diam, char **errmsg, enum e_eleme obj);
+void	error_bad_heig(char *diam, char **errmsg, enum e_eleme obj);
 void	error_normal_bad_num_argu(t_chunk chunks, char **errmsg);
 void	error_normal_bad_range(t_chunk chunks, char **errmsg);
 void	error_normal_zero(t_chunk chunks, char **errmsg);
+
+// chunk_errors_three.c
 void	error_not_implemented(char *proc, char **errmsg);
 
 // chunk_print.c

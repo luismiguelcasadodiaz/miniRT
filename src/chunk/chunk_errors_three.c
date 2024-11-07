@@ -19,22 +19,10 @@ void	error_bad_diam(char *diam, char **errmsg, enum e_eleme obj)
     char    *aux;
 
     aux = ft_strjoin("El diámetro ", diam);
-    if (obj == SPHERE)
+    if (obj = SPHERE)
         *errmsg = ft_strjoin(aux, " no es correcto para la esfera.");
-    if (obj == CYLINDER)
+    if (obj = CYLINDER)
         *errmsg = ft_strjoin(aux, " no es correcto para el cilindro.");
-    free(aux);
-}
-
-void	error_bad_heig(char *diam, char **errmsg, enum e_eleme obj)
-{
-    char    *aux;
-
-    aux = ft_strjoin("La altura ", diam);
-    if (obj == CYLINDER)
-        *errmsg = ft_strjoin(aux, " no es correcta para el cilindro.");
-    if (obj == CONE)
-        *errmsg = ft_strjoin(aux, " no es correcta para el cono.");
     free(aux);
 }
 

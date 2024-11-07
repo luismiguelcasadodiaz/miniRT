@@ -27,3 +27,8 @@ void		hitrecord_reverse_normal(t_hitrecord *self)
 {
 	vec3_negate(self->normal, self->normal);
 }
+
+void		hitrecord_unit_normal(t_hitrecord * self)
+{
+	vec3_unit_vector(self->normal, self->normal);
+}

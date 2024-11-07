@@ -16,6 +16,7 @@
 #include <stdbool.h>
 // when (alpha < 0 || alpha > 1 || beta < 0 || beta > 1)
 // the ray intersected the infinite plane outside de square
+/*
 static bool	alfa_beta(t_eleme *self, t_vec3 *a, t_vec3 *b)
 {
 	double	alpha;
@@ -27,7 +28,8 @@ static bool	alfa_beta(t_eleme *self, t_vec3 *a, t_vec3 *b)
 		return (false);
 	return (true);
 }
-
+*/
+/*
 static bool	lies_within_planar_shape(t_eleme *self, t_point *p)
 {
 	t_vec3	pq;
@@ -39,7 +41,7 @@ static bool	lies_within_planar_shape(t_eleme *self, t_point *p)
 	vec3_cross(&b, self->u, &pq);
 	return (alfa_beta(self, &a, &b));
 }
-
+*/
 //the ray orig + dir * t, hits de plane when a ray point dotted wiht plane 
 // normal equals D, being plane formula Ax + By + Cz = D
 // n dot (orig + dir * t) = d, solved for t gives the impact point.

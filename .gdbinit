@@ -42,7 +42,9 @@ break main.c:
 #break eleme_init.c:44
 #break win_create_world.c:41
 #break hitrecord_init.c:43
-break chunk_read.c:27
-break ft_atof.c:64
+#break chunk_treatments_two.c:91
+break chunk_transfer_values_one.c:83
+#break chunk_read.c:27
+#break ft_atof.c:64
 #reak ft_split_minrt.c:170
-run scenes/spheres.rt
+run  scenes/cylindres.rt
