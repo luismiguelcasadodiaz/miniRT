@@ -25,77 +25,74 @@
 #define CY_HEIG 4
 #define CY_COLO 5
 
-void	treat_sphere(t_eleme_chunks chunks, char **errmsg, t_win *w)
+void	treat_sphere(t_eleme_chunks *chunks, char **errmsg, t_win *w)
 {
-    if (chunks.line.num != 4)
-        error_bad_number_argumen(chunks.line, errmsg);
+    if (chunks->line.num != 4)
+        error_bad_number_argumen(&(chunks->line), errmsg);
     else
     {
-        ft_split_minrt(chunks.line.param[SP_CENT], ',', &chunks.coor);
-        if (chunks.coor.num !=3)
-            error_bad_point_num_argu(chunks.coor, errmsg);
+        ft_split_minrt(chunks->line.param[SP_CENT], ',', &(chunks->coor));
+        ft_split_minrt(chunks->line.param[SP_COLO], ',', &chunks->color);
+        if (chunks->coor.num !=3)
+            error_bad_point_num_argu(&(chunks->coor), errmsg);
+        else if (chunks->color.num !=3)
+            error_bad_color_num_argu(&(chunks->color), errmsg);
         else
         {
-            chunks.diam = chunks.line.param[SP_DIAM];
-            ft_split_minrt(chunks.line.param[SP_COLO], ',', &chunks.color);
-            if (chunks.color.num !=3)
-                error_bad_color_num_argu(chunks.color, errmsg);
-            else
-                trans_sphere(w, chunks, errmsg);
+            chunks->diam = chunks->line.param[SP_DIAM];
+            trans_sphere(w, chunks, errmsg);
         }
+        de_allocate(chunks->coor.param, chunks->coor.num);
+        de_allocate(chunks->color.param, chunks->color.num);
     }
 }
 
-void	treat_plane(t_eleme_chunks chunks, char **errmsg, t_win *w)
+void	treat_plane(t_eleme_chunks *chunks, char **errmsg, t_win *w)
 {
-    if (chunks.line.num != 4)
-        error_bad_number_argumen(chunks.line, errmsg);
+    if (chunks->line.num != 4)
+        error_bad_number_argumen(&(chunks->line), errmsg);
     else
     {
-        ft_split_minrt(chunks.line.param[PL_CENT], ',', &chunks.coor);
-        if (chunks.coor.num !=3)
-            error_bad_point_num_argu(chunks.coor, errmsg);
+        ft_split_minrt(chunks->line.param[PL_CENT], ',', &(chunks->coor));
+        ft_split_minrt(chunks->line.param[PL_VECT], ',', &(chunks->novec));
+        ft_split_minrt(chunks->line.param[PL_COLO], ',', &(chunks->color));
+        if (chunks->coor.num !=3)
+            error_bad_point_num_argu(&(chunks->coor), errmsg);
+        else if (chunks->novec.num != 3)
+            error_normal_bad_num_argu(&(chunks->novec), errmsg);
+        else if (chunks->novec.num != 3)
+            error_bad_color_num_argu(&(chunks->color), errmsg);
         else
-        {
-            ft_split_minrt(chunks.line.param[PL_VECT], ',', &chunks.novec);
-            if (chunks.novec.num != 3)
-                error_normal_bad_num_argu(chunks.novec, errmsg);
-            else
-            {
-                ft_split_minrt(chunks.line.param[PL_COLO], ',', &chunks.color);
-                if (chunks.novec.num != 3)
-                    error_bad_color_num_argu(chunks.color, errmsg);
-                else
-                    trans_plane(w, chunks, errmsg);
-            }
-        }
+            trans_plane(w, chunks, errmsg);
+        de_allocate(chunks->coor.param, chunks->coor.num);
+        de_allocate(chunks->novec.param, chunks->novec.num);
+        de_allocate(chunks->color.param, chunks->color.num);
     }
 }
 
-void	treat_cylin(t_eleme_chunks chunks, char **errmsg, t_win *w)
+void	treat_cylin(t_eleme_chunks *chunks, char **errmsg, t_win *w)
 {
-    if (chunks.line.num != 6)
-        error_bad_number_argumen(chunks.line, errmsg);
+    if (chunks->line.num != 6)
+        error_bad_number_argumen(&(chunks->line), errmsg);
     else
     {
-        ft_split_minrt(chunks.line.param[CY_CENT], ',', &chunks.coor);
-        if (chunks.coor.num !=3)
-            error_bad_point_num_argu(chunks.coor, errmsg);
+        ft_split_minrt(chunks->line.param[CY_CENT], ',', &chunks->coor);
+        ft_split_minrt(chunks->line.param[CY_VECT], ',', &chunks->novec);
+        ft_split_minrt(chunks->line.param[CY_COLO], ',', &chunks->color);
+        if (chunks->coor.num !=3)
+            error_bad_point_num_argu(&(chunks->coor), errmsg);
+        else if (chunks->novec.num != 3)
+            error_normal_bad_num_argu(&(chunks->novec), errmsg);
+        else if (chunks->color.num != 3)
+            error_normal_bad_num_argu(&(chunks->novec), errmsg);
         else
         {
-            ft_split_minrt(chunks.line.param[CY_VECT], ',', &chunks.novec);
-            if (chunks.novec.num != 3)
-                error_normal_bad_num_argu(chunks.novec, errmsg);
-            else
-            {
-                chunks.diam = chunks.line.param[CY_DIAM];
-                chunks.height = chunks.line.param[CY_HEIG];
-                ft_split_minrt(chunks.line.param[CY_COLO], ',', &chunks.color);
-                if (chunks.color.num != 3)
-                    error_normal_bad_num_argu(chunks.novec, errmsg);
-                else
-                    trans_cylin(w, chunks, errmsg);
-            }
+            chunks->diam = chunks->line.param[CY_DIAM];
+            chunks->height = chunks->line.param[CY_HEIG];
+            trans_cylin(w, chunks, errmsg);
         }
+        de_allocate(chunks->coor.param, chunks->coor.num);
+        de_allocate(chunks->novec.param, chunks->novec.num);
+        de_allocate(chunks->color.param, chunks->color.num);
     }
 }

@@ -14,12 +14,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 /* chunk_print() prints line by line each chunk member*/
-void	chunk_print(t_chunk chunks)
+void	chunk_print(t_chunk *chunks)
 {
     size_t  i;
 
     i = 0;
-    printf("This chunk has %ld elements\n", chunks.num);
-    while (i < chunks.num)
-        printf("%s\n", chunks.param[i++]);
+    printf("This chunk has %ld elements\n", chunks->num);
+    while (i < chunks->num)
+        printf("%s\n", chunks->param[i++]);
 }

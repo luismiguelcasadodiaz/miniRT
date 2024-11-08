@@ -19,22 +19,24 @@
 
 void	chunk_treat_line(char *line, char **errmsg, t_win *w)
 {
-	t_eleme_chunks	chunks;
+	t_eleme_chunks	*chunks;
 
+	chunks = (t_eleme_chunks *)malloc(sizeof(t_eleme_chunks));
 	printf("La linea >%s< tiene %ld cars\n", line, ft_strlen(line));
 	if (ft_strlen(line) != 1)
 	{
-		ft_split_minrt(line, ' ', &(chunks.line));
-		chunk_print(chunks.line);
-		if (ft_strlen(chunks.line.param[0]) == 1)
+		ft_split_minrt(line, ' ', &(chunks->line));
+		chunk_print(&(chunks->line));
+		if (ft_strlen(chunks->line.param[0]) == 1)
 			treat_one_letter_command(chunks, errmsg, w);
-		else if (ft_strlen(chunks.line.param[0]) == 2)
+		else if (ft_strlen(chunks->line.param[0]) == 2)
 			treat_two_letter_command(chunks, errmsg, w);
 		else	
-			error_bad_letter_command(chunks.line, errmsg);
+			error_bad_letter_command(&(chunks->line), errmsg);
 		
-		de_allocate(chunks.line.param, chunks.line.num);
+		de_allocate(chunks->line.param, chunks->line.num);
 	}
+	free(chunks);
 }
 
 void	chunk_read(char *filename, char **errmsg, t_win *w)

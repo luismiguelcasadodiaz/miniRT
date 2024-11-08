@@ -60,13 +60,15 @@ static int	calc_intersect_tap_bottom(t_eleme *self, t_ray *ray, t_interval *ran,
 	if (interval_contains(ran, t))
 	{
 		p = ray_at(ray, t);
-		point_free(p);
+		
 		vec3_sub(&from_cen, p, &center);
 		if (vec3_length_squared(&from_cen) <= ((self->d / 2) * (self->d / 2)))
 		{
 			set_hitrecord_tap(rec, t, p, self, ray);
+			point_free(p);
 			return (1);
 		}
+		point_free(p);
 		return (0);
 	}
 	return (0);

@@ -71,7 +71,7 @@ static void	set_init_values_win(t_win *w, char *title)
 	camer_print(w->camera);
 	vec3_free(coor);
 	w->light = light_new();
-	win_world_create(&w->eleme);
+	//win_world_create(&w->eleme);
 }
 
 t_win	win_init(char *title)
