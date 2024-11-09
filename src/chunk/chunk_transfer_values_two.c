@@ -59,7 +59,7 @@ void	trans_pla(t_win *w, t_eleme_chunks *chunks, char **errmsg)
 	if (!col_in_range(rgb255))
 		error_bad_color_range(&(chunks->color), errmsg);
 	else if (!vec3_in_range(novec, -1, 1))
-		error_bad_normal_range(&(chunks->novec), errmsg);
+		error_bad_normal_range(&(chunks->line), errmsg);
 	else if (vec3_iszero(novec))
 		error_normal_zero(&(chunks->novec), errmsg);
 	else
@@ -90,7 +90,7 @@ void	trans_cyl(t_win *w, t_eleme_chunks *chunks, char **errmsg)
 	if (!col_in_range(rgb255))
 		error_bad_color_range(&(chunks->color), errmsg);
 	else if (!vec3_in_range(novec, -1, 1))
-		error_bad_normal_range(&(chunks->novec), errmsg);
+		error_bad_normal_range(&(chunks->line), errmsg);
 	else if (vec3_iszero(novec))
 		error_normal_zero(&(chunks->novec), errmsg);
 	else if (h_and_d->e[0] <= 0)

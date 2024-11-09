@@ -107,8 +107,11 @@ void	win_free(t_win w)
 	point_free(w.size);
 	point_free(w.lu);
 	point_free(w.rd);
-	ambil_free(w.ambient);
-	camer_free(w.camera);
-	light_free(w.light);
+	if (w.ambient != NULL)
+		ambil_free(w.ambient);
+	if (w.camera != NULL)
+		camer_free(w.camera);
+	if (w.light != NULL)
+		light_free(w.light);
 	eleme_free(w.eleme);
 }

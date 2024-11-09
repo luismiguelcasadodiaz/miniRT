@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 13:07:33 by luicasad          #+#    #+#              #
-#    Updated: 2024/11/08 23:14:23 by luicasad         ###   ########.fr        #
+#    Updated: 2024/11/09 18:05:55 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -510,7 +510,7 @@ profile:
 	callgrind_annotate
 
 leaks:
-	valgrind -s --tool=memcheck --leak-check=full ./$(MINRT) scenes/one_plane_v.rt
+	valgrind -s --tool=memcheck --leak-check=full ./$(MINRT) scenes/sabado.rt
 
 .PHONY: all bonus test clean fclean re rebonus norma profile leaks
 

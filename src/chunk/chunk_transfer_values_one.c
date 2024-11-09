@@ -28,7 +28,7 @@ void	trans_amb(t_win *w, t_eleme_chunks *chunks, char **errmsg)
 	ambil = ft_atof(chunks->ambil);
 	if (!col_in_range(rgb255))
 		error_bad_color_range(&(chunks->color), errmsg);
-	else if (!(0 <= ambil & ambil <= 1))
+	else if (!((0 <= ambil) & (ambil <= 1)))
 		error_bad_ambil(chunks->ambil, errmsg);
 	else
 		w->ambient = ambil_set(ambil, rgb255);
@@ -51,10 +51,10 @@ void	trans_cam(t_win *w, t_eleme_chunks *chunks, char **errmsg)
         ft_atof(chunks->novec.param[Z]));
 	fview = ft_atof(chunks->fview);
 	if (!vec3_in_range(novec, -1, 1))
-		error_bad_normal_range(&(chunks->novec), errmsg);
+		error_bad_normal_range(&(chunks->line), errmsg);
 	else if (vec3_iszero(novec))
 		error_normal_zero(&(chunks->novec), errmsg);
-	else if (!(0 <= fview & fview <= 180))
+	else if (!((0 <= fview) & (fview <= 180)))
 		error_bad_fview(chunks->fview, errmsg);
 	else 
 		w->camera = camer_set(center, novec, (double) fview, w->size);
@@ -74,10 +74,10 @@ void	trans_lig(t_win *w, t_eleme_chunks *chunks, char **errmsg)
 	vec3_init_values(center, ft_atof(chunks->coor.param[X]), ft_atof(chunks->coor.param[Y]),
         ft_atof(chunks->coor.param[Z]));
 	lbrig = ft_atof(chunks->lbrig);
-	if (!(0 <= lbrig & lbrig <= 1))
+	if (!((0 <= lbrig) & (lbrig <= 1)))
 		error_bad_lbrig(chunks->fview, errmsg);
 	else 
-		w->light = light_set(center, (double) lbrig);
+		light_add(&w->light, light_set(center, (double) lbrig));
 	vec3_free(center);
 }
 
@@ -97,7 +97,7 @@ void	trans_lig_bonus(t_win *w, t_eleme_chunks *chunks, char **errmsg)
 	lbrig = ft_atof(chunks->lbrig);
 	if (!col_in_range(rgb255))
 		error_bad_color_range(&(chunks->color), errmsg);
-	else if (!(0 <= lbrig & lbrig <= 1))
+	else if (!((0 <= lbrig) & (lbrig <= 1)))
 		error_bad_lbrig(chunks->fview, errmsg);
 	else 
 		w->light =  light_set_bonus(center, (double) lbrig, rgb255);

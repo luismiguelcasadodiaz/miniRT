@@ -50,6 +50,7 @@ int	ray_color(t_ray	*self, t_color color_start, t_color color_end, t_eleme *o)
 		col_init_with_1(normalized_color, 0.5 * (1 + vec3_get_x(normal)),
 			0.5 * (1 + vec3_get_y(normal)), 0.5 * (1 + vec3_get_z(normal)));
 		mlx_color = col_get_mlx_color(normalized_color);
+		mlx_color = col_get_mlx_color(rec->hit_obj->color);
 		vec3_free(normal);
 		col_free(normalized_color);
 		//point_free(rec->p);

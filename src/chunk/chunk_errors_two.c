@@ -50,8 +50,8 @@ void	error_bad_normal_range(t_chunk *chunks, char **errmsg)
 {
    char    *aux;
 
-    aux = ft_strjoin("The normal for  ", chunks->param[0]);
-    *errmsg = ft_strjoin(aux, " has the coordeantes out of range [-1, 1].");
+    aux = ft_strjoin("The normal for ", chunks->param[0]);
+    *errmsg = ft_strjoin(aux, " has the coordnates out of range [-1, 1].");
     free(aux);
 }
 

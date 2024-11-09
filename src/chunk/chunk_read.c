@@ -20,12 +20,14 @@
 void	chunk_treat_line(char *line, char **errmsg, t_win *w)
 {
 	t_eleme_chunks	*chunks;
+	char			*trimmed_line;
 
+	trimmed_line = ft_strtrim(line, " \n");
 	chunks = (t_eleme_chunks *)malloc(sizeof(t_eleme_chunks));
-	printf("La linea >%s< tiene %ld cars\n", line, ft_strlen(line));
-	if (ft_strlen(line) != 1)
+	printf("La linea >%s< tiene %ld cars\n", trimmed_line, ft_strlen(trimmed_line));
+	if (ft_strlen(trimmed_line) != 1)
 	{
-		ft_split_minrt(line, ' ', &(chunks->line));
+		ft_split_minrt(trimmed_line, ' ', &(chunks->line));
 		chunk_print(&(chunks->line));
 		if (ft_strlen(chunks->line.param[0]) == 1)
 			treat_one_letter_command(chunks, errmsg, w);
@@ -37,6 +39,7 @@ void	chunk_treat_line(char *line, char **errmsg, t_win *w)
 		de_allocate(chunks->line.param, chunks->line.num);
 	}
 	free(chunks);
+	free(trimmed_line);
 }
 
 void	chunk_read(char *filename, char **errmsg, t_win *w)
@@ -57,6 +60,8 @@ void	chunk_read(char *filename, char **errmsg, t_win *w)
 		line = get_next_line(fd);
 		if (line == NULL)
 			end_file = 1;
+		else if (ft_strlen(line) == 1)
+			printf("El descriptor de escenas tiene lineas vacías\n");	
 		else
 			chunk_treat_line(line, errmsg, w);
 		free(line);

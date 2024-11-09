@@ -59,7 +59,7 @@ void	treat_amb(t_eleme_chunks *chunks, char **errmsg, t_win *w)
 		else
 		{
 			chunks->ambil = chunks->line.param[A_AMBI];
-			trans_sph(w, chunks, errmsg);
+			trans_amb(w, chunks, errmsg);
 		}
 		de_allocate(chunks->color.param, chunks->color.num);
     }
@@ -80,8 +80,8 @@ void	treat_cam(t_eleme_chunks *chunks, char **errmsg, t_win *w)
             error_bad_normal_num_argu(&(chunks->novec), errmsg);
         else
         {
-		chunks->fview = chunks->line.param[C_FVIE];
-		trans_cam(w, chunks, errmsg);
+			chunks->fview = chunks->line.param[C_FVIE];
+			trans_cam(w, chunks, errmsg);
     	}
 		de_allocate(chunks->coor.param, chunks->coor.num);
 		de_allocate(chunks->novec.param, chunks->novec.num);
@@ -90,7 +90,7 @@ void	treat_cam(t_eleme_chunks *chunks, char **errmsg, t_win *w)
 // THis funtion changes in the bonus to the one commented below
 void	treat_lig(t_eleme_chunks *chunks, char **errmsg, t_win *w)
 {
-    if (chunks->line.num != 3)
+    if (chunks->line.num != 4)
         error_bad_number_argumen(&(chunks->line), errmsg);
     else
     {

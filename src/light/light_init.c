@@ -42,11 +42,18 @@ t_light	*light_new(void)
 
 void	light_free(t_light *self)
 {
-	if (self->coor)
-		vec3_free(self->coor);
-	if (self->color)
-		col_free(self->color);
+	while (self)
+	{
+		if (self->coor)
+			vec3_free(self->coor);
+		if (self->color)
+			col_free(self->color);
+		if (self->next)
+			light_free(self->next);
+		break;
+	}
 	free(self);
+	
 }
 
 void	light_init(t_light *self)
@@ -63,6 +70,7 @@ t_light	*light_set(t_vec3 *coor, double lbrig)
 	self = light_new();
 	light_set_coord(self, coor);
 	light_set_lbrig(self, lbrig);
+	self->next = NULL;
 	return (self);
 }
 
@@ -74,5 +82,6 @@ t_light	*light_set_bonus(t_vec3 *coor, double lbrig, t_color *rgb255)
 	light_set_coord(self, coor);
 	light_set_lbrig(self, lbrig);
 	light_set_color(self, rgb255);
+	self->next = NULL;
 	return (self);
 }
