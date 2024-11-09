@@ -15,6 +15,7 @@
 
 void	camer_print(t_camer	*self)
 {
+	printf("-------------------------------------------\n");
 	printf("id                       = CAMERA\n");
 	printf("coor                     = ");
 	vec3_print(self->coor);

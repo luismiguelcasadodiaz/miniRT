@@ -26,6 +26,7 @@ t_ambil			*ambil_new(void);
 t_ambil			*ambil_set(double lambi, t_color *rgb_255);
 void			ambil_init(t_ambil *self);
 void			ambil_free(t_ambil *self);
+
 // ambil_setters_one.c
 void			ambil_set_color(t_ambil *self, t_color *color);
 void			ambil_set_lambi(t_ambil *self, double lambi);

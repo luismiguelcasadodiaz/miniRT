@@ -17,8 +17,8 @@ void	error_bad_letter_command(t_chunk *chunks, char **errmsg)
 {
     char    *aux;
 
-    aux = ft_strjoin("El elemento ", chunks->param[0]);
-    *errmsg = ft_strjoin(aux, " no es correcto.");
+    aux = ft_strjoin("The element ", chunks->param[0]);
+    *errmsg = ft_strjoin(aux, " is incorrect.");
     free(aux);
 }
 
@@ -26,8 +26,8 @@ void	error_bad_number_argumen(t_chunk *chunks, char **errmsg)
 {
     char    *aux;
 
-    aux = ft_strjoin("El elemento ", chunks->param[0]);
-    *errmsg = ft_strjoin(aux, " tiene un número incorrecto de parámetros.");
+    aux = ft_strjoin("The element ", chunks->param[0]);
+    *errmsg = ft_strjoin(aux, " has a wrong params number.");
     free(aux);
 }
 
@@ -35,8 +35,8 @@ void	error_bad_color_num_argu(t_chunk *chunks, char **errmsg)
 {
     char    *aux;
 
-    aux = ft_strjoin("El color tiene ", ft_itoa(chunks->num));
-    *errmsg = ft_strjoin(aux, " parámetros. Deben de ser tres.");
+    aux = ft_strjoin("RGB Color definition has ", ft_itoa(chunks->num));
+    *errmsg = ft_strjoin(aux, " parameters. Must be 3.");
     free(aux);
 }
 
@@ -44,8 +44,8 @@ void	error_bad_point_num_argu(t_chunk *chunks, char **errmsg)
 {
     char    *aux;
 
-    aux = ft_strjoin("La coordenada tiene ", ft_itoa(chunks->num));
-    *errmsg = ft_strjoin(aux, " parámetros. Deben de ser tres.");
+    aux = ft_strjoin("The coordinate definition has ", ft_itoa(chunks->num));
+    *errmsg = ft_strjoin(aux, " parámeter. Must be 3.");
     free(aux);
 }
 
@@ -53,8 +53,8 @@ void	error_bad_color_range(t_chunk *chunks, char **errmsg)
 {
     char    *aux;
 
-    aux = ft_strjoin("El color tiene ", ft_itoa(chunks->num));
-    *errmsg = ft_strjoin(aux, " parámetros. Deben de ser tres.");
+    aux = ft_strjoin("Values defining color ", ft_itoa(chunks->num));
+    *errmsg = ft_strjoin(aux, " are wrong. expected range is [0..255].");
     free(aux);
 }
 

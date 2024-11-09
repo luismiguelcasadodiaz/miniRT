@@ -26,3 +26,14 @@ void	light_set_lbrig(t_light *self, double lbrig)
 {
 	self->lbrig = lbrig;
 }
+
+void	light_add(t_light **self, t_light *new)
+{
+	if (*self == NULL)
+		*self = new;
+	else
+	{
+		new->next = *self;
+		*self = new;
+	}
+}

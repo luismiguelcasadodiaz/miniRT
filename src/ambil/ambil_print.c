@@ -15,6 +15,7 @@
 
 void	ambil_print(t_ambil	*self)
 {
+	printf("-------------------------------------------\n");
 	printf("id                       = AMBIL\n");
 	printf("color                    = ");
 	col_print(self->color);

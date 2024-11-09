@@ -56,7 +56,17 @@ void	light_init(t_light *self)
 	light_set_lbrig(self, 0.0);
 }
 
-t_light	*light_new_lig(t_vec3 *coor, double lbrig, t_color *rgb255)
+t_light	*light_set(t_vec3 *coor, double lbrig)
+{
+	t_light	*self;
+
+	self = light_new();
+	light_set_coord(self, coor);
+	light_set_lbrig(self, lbrig);
+	return (self);
+}
+
+t_light	*light_set_bonus(t_vec3 *coor, double lbrig, t_color *rgb255)
 {
 	t_light	*self;
 

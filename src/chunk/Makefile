@@ -64,8 +64,10 @@ SRCS	=	chunk_read.c \
 			chunk_treatments_one.c \
 			chunk_treatments_two.c \
 			chunk_transfer_values_one.c \
+			chunk_transfer_values_two.c \
 			chunk_errors_one.c \
 			chunk_errors_two.c \
+			chunk_errors_three.c \
 			chunk_print.c
 
 #chunk_init.c \
