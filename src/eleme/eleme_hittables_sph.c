@@ -64,7 +64,7 @@ static void	set_hitrecord(t_hitrecord *re, double ro, t_eleme *s, t_ray *ra)
 	point_free(p);
 }
 
-bool	hit_sphere(t_eleme *slf, t_ray *ray, t_interval *ran, t_hitrecord *rec)
+bool	hit_sphere(t_hit_args *data)
 {
 	double	a;
 	double	b;
@@ -72,17 +72,17 @@ bool	hit_sphere(t_eleme *slf, t_ray *ray, t_interval *ran, t_hitrecord *rec)
 	double	discriminant_root;
 	double	root;
 
-	discriminant = calc_discriminant(slf, ray, &a, &b);
+	discriminant = calc_discriminant(data->self, data->ray, &a, &b);
 	if (discriminant < 0)
 		return (false);
 	discriminant_root = sqrt(discriminant);
 	root = (b - discriminant_root) / a;
-	if (!interval_sorrounds(ran, root))
+	if (!interval_sorrounds(data->ran, root))
 	{
 		root = (b + discriminant_root) / a;
-		if (!interval_sorrounds(ran, root))
+		if (!interval_sorrounds(data->ran, root))
 			return (false);
 	}
-	set_hitrecord(rec, root, slf, ray);
+	set_hitrecord(data->rec, root, data->self, data->ray);
 	return (true);
 }

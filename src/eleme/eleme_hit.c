@@ -16,29 +16,32 @@
 #include "hitrecord.h"
 #include <stdbool.h>
 
-bool	eleme_hit(t_eleme *e, t_ray *r, t_interval *i, t_hitrecord *c)
+bool	eleme_hit(t_hit_args *data)
 {
-	t_hitrecord	*tem_rec;
 	bool		hit_anything;
-	t_interval	*interval_aux;
-	t_eleme		*aux;
+	t_hit_args	*tem_data;
 
-	tem_rec = hitrecord_new();
-	interval_aux = interval_new();
-	interval_init(interval_aux, interval_get_min(i), interval_get_max(i));
+	
+	tem_data = (t_hit_args *)malloc(sizeof(t_hit_args));
+	tem_data->rec = hitrecord_new();
+	tem_data->ran = interval_new();
+	interval_init(tem_data->ran, interval_get_min(data->ran), interval_get_max(data->ran));
 	hit_anything = false;
-	aux = e;
-	while (aux)
+
+	tem_data->ray = data->ray;
+	tem_data->self = data->self;
+	while (tem_data->self)
 	{
-		if ((*aux->hit)(aux, r, interval_aux, tem_rec))
+		if ((*tem_data->self->hit)(tem_data))
 		{
 			hit_anything = true;
-			interval_init(interval_aux, interval_get_min(i), tem_rec->t);
-			hitrecord_copy(c, tem_rec);
+			interval_init(tem_data->ran, interval_get_min(data->ran), tem_data->rec->t);
+			hitrecord_copy(data->rec, tem_data->rec);
 		}
-		aux = aux->next;
+		tem_data->self = tem_data->self->next;
 	}
-	hitrecord_free(tem_rec);
-	interval_free(interval_aux);
+	hitrecord_free(tem_data->rec);
+	interval_free(tem_data->ran);
+	free(tem_data);
 	return (hit_anything);
 }

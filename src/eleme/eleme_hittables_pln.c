@@ -50,30 +50,30 @@ static bool	lies_within_planar_shape(t_eleme *self, t_point *p)
 // d comes form novec (normal) dotted with coor(point in plane)
 // t, the distance to the impact point has to be inside de interval ran
 // p is the impact point at t distance
-bool	hit_plane(t_eleme *self, t_ray *ray, t_interval *ran, t_hitrecord *rec)
+bool	hit_plane(t_hit_args *data)
 {
 	double	denom;
 	double	d;
 	double	t;
 	t_point	*p;
 
-	denom = vec3_dot(self->novec, ray->dir);
+	denom = vec3_dot(data->self->novec, data->ray->dir);
 	if (fabs(denom) < 1e-8)
 		return (false);
-	d = vec3_dot(self->novec, self->coor);
-	t = (d - vec3_dot(self->novec, ray->orig)) / denom;
-	if (!interval_contains(ran, t))
+	d = vec3_dot(data->self->novec, data->self->coor);
+	t = (d - vec3_dot(data->self->novec, data->ray->orig)) / denom;
+	if (!interval_contains(data->ran, t))
 		return (false);
-	p = ray_at(ray, t);
+	p = ray_at(data->ray, t);
 	//if (!lies_within_planar_shape(self, p))
 	//{
 	//	point_free(p);
 	//	return (false);
 	//}
-	hitrecord_set_t(rec, t);
-	hitrecord_set_point(rec, p);
+	hitrecord_set_t(data->rec, t);
+	hitrecord_set_point(data->rec, p);
 	point_free(p);
-	hitrecord_set_hit_obj(rec, self);
-	hitrecord_face_normal(rec, ray, self->novec);
+	hitrecord_set_hit_obj(data->rec, data->self);
+	hitrecord_face_normal(data->rec, data->ray, data->self->novec);
 	return (true);
 }

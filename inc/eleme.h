@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+ /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   eleme.h                                            :+:      :+:    :+:   */
@@ -38,9 +38,24 @@ enum e_fix
 typedef struct s_ray		t_ray;
 typedef struct s_eleme		t_eleme;
 typedef struct s_hitrecord	t_hitrecord;
+typedef struct s_interval	t_interval;
 
-typedef bool				(*t_hitfp)(t_eleme *self, t_ray *r,
-	t_interval *range, t_hitrecord *rec);
+typedef struct s_hit_args
+{
+	t_eleme *self;
+	t_ray *ray;
+	t_interval *ran; 
+	t_hitrecord *rec;
+} t_hit_args;
+
+//typedef bool				(*t_hitfp)(t_eleme *self, t_ray *r,
+//	t_interval *range, t_hitrecord *rec);
+typedef bool				(*t_hitfp)(t_hit_args *data);
+
+
+/*define signature for a single argument function pointer*/
+typedef void	(*t_vec3fp)(t_vec3 *result, const t_vec3 *u, const t_vec3 *v);
+
 /* ************************************************************************** */
 /*  *next (8): pointer to next element                                        */
 /*  *coor (8): sphere/culinder center or plane point or                       */
@@ -75,7 +90,7 @@ t_eleme			*eleme_new(void);
 void			eleme_init(t_eleme *self);
 void			eleme_free(t_eleme *self);
 void			eleme_add(t_eleme **self, t_eleme *new);
-bool			eleme_hit(t_eleme *e, t_ray *r, t_interval *i, t_hitrecord *c);
+bool			eleme_hit(t_hit_args *data);
 // eleme_setters_one.c
 void			eleme_set_ident(t_eleme *self, enum e_eleme id);
 void			eleme_set_diame(t_eleme *self, double d);
@@ -115,10 +130,10 @@ t_eleme			*eleme_new_pla(t_vec3 *coor, t_vec3 *novec, t_color *rgb255);
 t_eleme			*eleme_new_cyl(t_vec3 *coor, t_vec3 *novec,
 					t_vec3 *dim, t_color *rgb_255);
 // eleme_hittables_sph.c
-bool	hit_sphere(t_eleme *slf, t_ray *ray, t_interval *ran, t_hitrecord *rec);
+bool	hit_sphere(t_hit_args *data);
 // eleme_hittables_pln.c
-bool	hit_plane(t_eleme *self, t_ray *ray, t_interval *ran, t_hitrecord *rec);
+bool	hit_plane(t_hit_args *data);
 // eleme_hittables_cyl.c
-bool 	hit_cyl(t_eleme *self, t_ray *ray, t_interval *ran, t_hitrecord *rec);
+bool 	hit_cyl(t_hit_args *data);
 
 #endif
