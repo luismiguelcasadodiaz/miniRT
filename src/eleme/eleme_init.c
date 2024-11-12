@@ -57,5 +57,3 @@ void	eleme_add(t_eleme **self, t_eleme *new)
 		*self = new;
 	}
 }
-
-

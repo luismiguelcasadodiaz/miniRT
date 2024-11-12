@@ -12,34 +12,34 @@
 
 #include "interval.h"
 
-double	interval_size(t_interval *self)
+double	int_size(t_interval *self)
 {
-	return (interval_get_max(self) - interval_get_min(self));
+	return (int_get_max(self) - int_get_min(self));
 }
 
-bool	interval_contains(t_interval *self, double x)
+bool	int_contains(t_interval *self, double x)
 {
-	return (interval_get_min(self) <= x && x <= interval_get_max(self));
+	return (int_get_min(self) <= x && x <= int_get_max(self));
 }
 
-bool	interval_sorrounds(t_interval *self, double x)
+bool	int_sorrounds(t_interval *self, double x)
 {
-	return (interval_get_min(self) < x && x < interval_get_max(self));
+	return (int_get_min(self) < x && x < int_get_max(self));
 }
 
-void	interval_expand(t_interval *self, double delta)
+void	intexpand(t_interval *self, double delta)
 {
-	interval_set_min(self, (interval_get_min(self) - (delta / 2.0)));
-	interval_set_max(self, (interval_get_max(self) + (delta / 2.0)));
+	int_set_min(self, (int_get_min(self) - (delta / 2.0)));
+	int_set_max(self, (int_get_max(self) + (delta / 2.0)));
 }
 
-double	interval_clamp(t_interval *self, double x)
+double	int_clamp(t_interval *self, double x)
 {
 	double	min;
 	double	max;
 
-	min = interval_get_min(self);
-	max = interval_get_max(self);
+	min = int_get_min(self);
+	max = int_get_max(self);
 	if (x < min)
 		return (min);
 	if (max < x)

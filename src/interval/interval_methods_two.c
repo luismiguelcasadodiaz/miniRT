@@ -13,14 +13,14 @@
 #include "interval.h"
 #include <stdio.h>
 
-void	interval_copy(t_interval *dest, t_interval *orig)
+void	int_copy(t_interval *dest, t_interval *orig)
 {
-	interval_set_min(dest, interval_get_min(orig));
-	interval_set_max(dest, interval_get_max(orig));
+	int_set_min(dest, int_get_min(orig));
+	int_set_max(dest, int_get_max(orig));
 }
 
-void	interval_print(t_interval *self)
+void	int_print(t_interval *self)
 {
-	printf("[%1.4e .. %1.4e]\n", interval_get_min(self),
-		interval_get_max(self));
+	printf("[%1.4e .. %1.4e]\n", int_get_min(self),
+		int_get_max(self));
 }

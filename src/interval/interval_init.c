@@ -14,29 +14,29 @@
 #include <stdlib.h>
 #define DBL_MAX 1.7976931348623157E+308 
 
-t_interval	*interval_new(void)
+t_interval	*int_new(void)
 {
 	t_interval	*self;
 
 	self = (t_interval *)malloc(sizeof(t_interval));
 	if (!self)
 		return (NULL);
-	interval_set_min(self, 0);
-	interval_set_max(self, 0);
+	int_set_min(self, 0);
+	int_set_max(self, 0);
 	return (self);
 }
 
-void	interval_free(t_interval *self)
+void	int_free(t_interval *self)
 {
-	interval_set_min(self, 0);
-	interval_set_max(self, 0);
+	int_set_min(self, 0);
+	int_set_max(self, 0);
 	free(self);
 }
 
-void	interval_init(t_interval *self, double min, double max)
+void	int_init(t_interval *self, double min, double max)
 {
-	interval_set_min(self, min);
-	interval_set_max(self, max);
+	int_set_min(self, min);
+	int_set_max(self, max);
 }
 
 /* tested with .....
@@ -61,15 +61,15 @@ void	interval_init(t_interval *self, double min, double max)
 */
 
 // +infinity .. - infinity
-void	interval_init_empty(t_interval *self)
+void	int_init_empty(t_interval *self)
 {
-	interval_set_min(self, DBL_MAX);
-	interval_set_max(self, -DBL_MAX);
+	int_set_min(self, DBL_MAX);
+	int_set_max(self, -DBL_MAX);
 }
 
 // -infinity .. +infinity
-void	interval_init_universe(t_interval *self)
+void	int_init_universe(t_interval *self)
 {
-	interval_set_min(self, -DBL_MAX);
-	interval_set_max(self, DBL_MAX);
+	int_set_min(self, -DBL_MAX);
+	int_set_max(self, DBL_MAX);
 }

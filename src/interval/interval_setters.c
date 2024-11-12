@@ -12,12 +12,12 @@
 
 #include "interval.h"
 
-void	interval_set_min(t_interval *self, double min)
+void	int_set_min(t_interval *self, double min)
 {
 	self->min = min;
 }
 
-void	interval_set_max(t_interval *self, double max)
+void	int_set_max(t_interval *self, double max)
 {
 	self->max = max;
 }

@@ -21,13 +21,11 @@ bool	eleme_hit(t_hit_args *data)
 	bool		hit_anything;
 	t_hit_args	*tem_data;
 
-	
 	tem_data = (t_hit_args *)malloc(sizeof(t_hit_args));
 	tem_data->rec = hitrecord_new();
-	tem_data->ran = interval_new();
-	interval_init(tem_data->ran, interval_get_min(data->ran), interval_get_max(data->ran));
+	tem_data->ran = int_new();
+	int_init(tem_data->ran, int_get_min(data->ran), int_get_max(data->ran));
 	hit_anything = false;
-
 	tem_data->ray = data->ray;
 	tem_data->self = data->self;
 	while (tem_data->self)
@@ -35,13 +33,13 @@ bool	eleme_hit(t_hit_args *data)
 		if ((*tem_data->self->hit)(tem_data))
 		{
 			hit_anything = true;
-			interval_init(tem_data->ran, interval_get_min(data->ran), tem_data->rec->t);
+			int_init(tem_data->ran, int_get_min(data->ran), tem_data->rec->t);
 			hitrecord_copy(data->rec, tem_data->rec);
 		}
 		tem_data->self = tem_data->self->next;
 	}
 	hitrecord_free(tem_data->rec);
-	interval_free(tem_data->ran);
+	int_free(tem_data->ran);
 	free(tem_data);
 	return (hit_anything);
 }

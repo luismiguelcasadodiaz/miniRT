@@ -77,10 +77,10 @@ bool	hit_sphere(t_hit_args *data)
 		return (false);
 	discriminant_root = sqrt(discriminant);
 	root = (b - discriminant_root) / a;
-	if (!interval_sorrounds(data->ran, root))
+	if (!int_sorrounds(data->ran, root))
 	{
 		root = (b + discriminant_root) / a;
-		if (!interval_sorrounds(data->ran, root))
+		if (!int_sorrounds(data->ran, root))
 			return (false);
 	}
 	set_hitrecord(data->rec, root, data->self, data->ray);

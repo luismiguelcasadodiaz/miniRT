@@ -62,14 +62,9 @@ bool	hit_plane(t_hit_args *data)
 		return (false);
 	d = vec3_dot(data->self->novec, data->self->coor);
 	t = (d - vec3_dot(data->self->novec, data->ray->orig)) / denom;
-	if (!interval_contains(data->ran, t))
+	if (!int_contains(data->ran, t))
 		return (false);
 	p = ray_at(data->ray, t);
-	//if (!lies_within_planar_shape(self, p))
-	//{
-	//	point_free(p);
-	//	return (false);
-	//}
 	hitrecord_set_t(data->rec, t);
 	hitrecord_set_point(data->rec, p);
 	point_free(p);
@@ -77,3 +72,9 @@ bool	hit_plane(t_hit_args *data)
 	hitrecord_face_normal(data->rec, data->ray, data->self->novec);
 	return (true);
 }
+	//p = ray_at(data->ray, t);
+	//if (!lies_within_planar_shape(self, p))
+	//{
+	//	point_free(p);
+	//	return (false);
+	//}

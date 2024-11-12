@@ -37,27 +37,30 @@ int	ray_color(t_ray	*self, t_color color_start, t_color color_end, t_eleme *o)
 	int			mlx_color;
 	t_vec3		*normal;
 	t_color		*normalized_color;
-	t_hitrecord	*rec;
-	t_interval	*range;
+	t_hit_args	*data;
 
-	rec = hitrecord_new();
-	range = interval_new();
-	interval_init(range, 0, __DBL_MAX__);
-	if (eleme_hit(o, self, range, rec))
+	data=(t_hit_args *)malloc(sizeof(t_hit_args));
+	data->rec = hitrecord_new();
+	data->ran = int_new();
+	int_init(data->ran, 0, __DBL_MAX__);
+	data->self = o;
+	data->ray = self;
+	if (eleme_hit(data))
 	{
-		normal = get_normal(self, hitrecord_get_t(rec));
+		normal = get_normal(data->ray, hitrecord_get_t(data->rec));
 		normalized_color = col_new();
 		col_init_with_1(normalized_color, 0.5 * (1 + vec3_get_x(normal)),
 			0.5 * (1 + vec3_get_y(normal)), 0.5 * (1 + vec3_get_z(normal)));
 		mlx_color = col_get_mlx_color(normalized_color);
-		mlx_color = col_get_mlx_color(rec->hit_obj->color);
+		mlx_color = col_get_mlx_color(data->rec->hit_obj->color);
 		vec3_free(normal);
 		col_free(normalized_color);
 		//point_free(rec->p);
 	}
 	else
 		mlx_color = col_lerp(&color_start, &color_end, self->dir);
-	hitrecord_free(rec);
-	interval_free(range);
+	hitrecord_free(data->rec);
+	int_free(data->ran);
+	free(data);
 	return (mlx_color);
 }

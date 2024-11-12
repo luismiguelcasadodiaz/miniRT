@@ -12,12 +12,12 @@
 
 #include "interval.h"
 
-double	interval_get_min(t_interval *self)
+double	int_get_min(t_interval *self)
 {
 	return (self->min);
 }
 
-double	interval_get_max(t_interval *self)
+double	int_get_max(t_interval *self)
 {
 	return (self->max);
 }
