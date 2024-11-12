@@ -36,7 +36,8 @@ void	camer_set_vport(t_camer *self, double the_vp_h, t_point *size)
 
 void	camer_set_cacen(t_camer *self)
 {
-	point_init(self->cacen, 0, 0, 0);
+	point_init(self->cacen, self->coor->e[0],
+		self->coor->e[1], self->coor->e[2]);
 }
 
 /*

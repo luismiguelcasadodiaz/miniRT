@@ -133,7 +133,8 @@ t_eleme			*eleme_new_cyl(t_vec3 *coor, t_vec3 *novec,
 bool	hit_sphere(t_hit_args *data);
 // eleme_hittables_pln.c
 bool	hit_plane(t_hit_args *data);
-// eleme_hittables_cyl.c
+// eleme_hittables_cyl_one.c
 bool 	hit_cyl(t_hit_args *data);
-
+// eleme_hittables_cyl_one.c
+int	calc_body(t_hit_args *data, double disc, double half_b, double a);
 #endif

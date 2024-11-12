@@ -69,7 +69,8 @@ SRCS	=	eleme_new.c \
       		eleme_setters_two.c \
 			eleme_hittables_sph.c \
 			eleme_hittables_pln.c \
-			eleme_hittables_cyl.c \
+			eleme_hittables_cyl_one.c \
+			eleme_hittables_cyl_two.c \
 			eleme_new_object.c \
 			eleme_print.c
 
