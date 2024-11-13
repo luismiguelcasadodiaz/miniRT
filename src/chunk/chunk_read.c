@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_get_next_line.c                               :+:      :+:    :+:   */
+/*   chunk_read.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 13:17:32 by luicasad          #+#    #+#             */
-/*   Updated: 2024/10/30 23:36:00 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/11/13 17:43:00 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	chunk_treat_line(char *line, char **errmsg, t_win *w)
 
 	trimmed_line = ft_strtrim(line, " \n");
 	chunks = (t_eleme_chunks *)malloc(sizeof(t_eleme_chunks));
-	printf("La linea >%s< tiene %ld cars\n", trimmed_line, ft_strlen(trimmed_line));
+	printf("lin>%s< tiene %ld cars\n", trimmed_line, ft_strlen(trimmed_line));
 	if (ft_strlen(trimmed_line) != 1)
 	{
 		ft_split_minrt(trimmed_line, ' ', &(chunks->line));
@@ -33,9 +33,8 @@ void	chunk_treat_line(char *line, char **errmsg, t_win *w)
 			treat_one_letter_command(chunks, errmsg, w);
 		else if (ft_strlen(chunks->line.param[0]) == 2)
 			treat_two_letter_command(chunks, errmsg, w);
-		else	
+		else
 			error_bad_letter_command(&(chunks->line), errmsg);
-		
 		de_allocate(chunks->line.param, chunks->line.num);
 	}
 	free(chunks);
@@ -61,11 +60,10 @@ void	chunk_read(char *filename, char **errmsg, t_win *w)
 		if (line == NULL)
 			end_file = 1;
 		else if (ft_strlen(line) == 1)
-			printf("El descriptor de escenas tiene lineas vacías\n");	
+			printf("El descriptor de escenas tiene lineas vacías\n");
 		else
 			chunk_treat_line(line, errmsg, w);
 		free(line);
 	}
 	close(fd);
 }
-

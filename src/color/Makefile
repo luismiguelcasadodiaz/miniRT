@@ -68,7 +68,8 @@ SRCS	=	col_create.c \
       		col_setters255.c \
       		col_setters1.c \
 			col_print.c \
-			col_copy_values.c
+			col_copy_values.c \
+			col_in_range.c
 
 # Generate a list of object files by replacing .c with .o
 #

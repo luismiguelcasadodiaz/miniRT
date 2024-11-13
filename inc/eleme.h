@@ -1,4 +1,4 @@
- /* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   eleme.h                                            :+:      :+:    :+:   */
@@ -6,7 +6,7 @@
 /*   By: luicasad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 16:56:43 by luicasad          #+#    #+#             */
-/*   Updated: 2024/10/21 17:16:45 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/11/13 18:34:01 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,19 +42,19 @@ typedef struct s_interval	t_interval;
 
 typedef struct s_hit_args
 {
-	t_eleme *self;
-	t_ray *ray;
-	t_interval *ran; 
-	t_hitrecord *rec;
-} t_hit_args;
+	t_eleme		*self;
+	t_ray		*ray;
+	t_interval	*ran;
+	t_hitrecord	*rec;
+}	t_hit_args;
 
 //typedef bool				(*t_hitfp)(t_eleme *self, t_ray *r,
 //	t_interval *range, t_hitrecord *rec);
 typedef bool				(*t_hitfp)(t_hit_args *data);
 
-
-/*define signature for a single argument function pointer*/
-typedef void	(*t_vec3fp)(t_vec3 *result, const t_vec3 *u, const t_vec3 *v);
+/*define signature for a three argument function pointer*/
+typedef void				(*t_vec3fp)(t_vec3 *result, const t_vec3 *u,
+										const t_vec3 *v);
 
 /* ************************************************************************** */
 /*  *next (8): pointer to next element                                        */
@@ -82,7 +82,6 @@ typedef struct s_eleme
 	double			h;
 	enum e_eleme	id;
 }	t_eleme;
-
 
 // eleme_new.c
 t_eleme			*eleme_new(void);
@@ -119,22 +118,17 @@ t_vec3			*eleme_get_v(t_eleme *self);
 // eleme_show.c
 void			eleme_print(t_eleme *self);
 
-// eleme_fix_elements.c
-
-//t_eleme			*eleme_new_cam(t_vec3 *coor, t_vec3 *novec, double fview);
-//t_eleme			*eleme_new_lig(t_vec3 *coor, double lbrig);
-//t_eleme			*eleme_new_lig_bonus(t_vec3 *coor, double lbrig, t_color *rgb255);
 // eleme_new_objesc.c
 t_eleme			*eleme_new_sph(t_vec3 *c, double d, t_color *rgb255);
 t_eleme			*eleme_new_pla(t_vec3 *coor, t_vec3 *novec, t_color *rgb255);
 t_eleme			*eleme_new_cyl(t_vec3 *coor, t_vec3 *novec,
 					t_vec3 *dim, t_color *rgb_255);
 // eleme_hittables_sph.c
-bool	hit_sphere(t_hit_args *data);
+bool			hit_sphere(t_hit_args *data);
 // eleme_hittables_pln.c
-bool	hit_plane(t_hit_args *data);
+bool			hit_plane(t_hit_args *data);
 // eleme_hittables_cyl_one.c
-bool 	hit_cyl(t_hit_args *data);
+bool			hit_cyl(t_hit_args *data);
 // eleme_hittables_cyl_one.c
-int	calc_body(t_hit_args *data, double disc, double half_b, double a);
+int				calc_body(t_hit_args *dat, double dis, double hlf_b, double a);
 #endif

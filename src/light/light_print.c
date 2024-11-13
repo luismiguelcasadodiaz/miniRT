@@ -29,3 +29,14 @@ void	light_print(t_light	*self)
 		break ;
 	}
 }
+
+void	light_add(t_light **self, t_light *new)
+{
+	if (*self == NULL)
+		*self = new;
+	else
+	{
+		new->next = *self;
+		*self = new;
+	}
+}

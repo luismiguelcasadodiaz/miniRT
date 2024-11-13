@@ -6,7 +6,7 @@
 /*   By: luicasad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 18:30:53 by luicasad          #+#    #+#             */
-/*   Updated: 2024/10/31 18:50:54 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/11/13 16:58:09 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -162,8 +162,8 @@ void	ft_split_minrt(char const *s, char c, t_chunk *chunks)
 {
 	if ((!s && !c) || (!s && c))
 	{
-			chunks->num = 0;
-			chunks->param = NULL;
+		chunks->num = 0;
+		chunks->param = NULL;
 	}
 	else
 	{
@@ -179,5 +179,3 @@ void	ft_split_minrt(char const *s, char c, t_chunk *chunks)
 		}
 	}
 }
-
-

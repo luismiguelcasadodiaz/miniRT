@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 13:11:26 by luicasad          #+#    #+#             */
-/*   Updated: 2024/10/19 12:42:25 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/11/13 18:09:03 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ray_color(t_ray	*self, t_color color_start, t_color color_end, t_eleme *o)
 	t_color		*normalized_color;
 	t_hit_args	*data;
 
-	data=(t_hit_args *)malloc(sizeof(t_hit_args));
+	data = (t_hit_args *)malloc(sizeof(t_hit_args));
 	data->rec = hitrecord_new();
 	data->ran = int_new();
 	int_init(data->ran, 0, __DBL_MAX__);

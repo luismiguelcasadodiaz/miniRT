@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 01:03:05 by luicasad          #+#    #+#             */
-/*   Updated: 2024/05/02 11:35:00 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/11/13 18:40:24 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LIBFT_H
@@ -48,7 +48,7 @@ int		ft_toupper(int c);
 char	*ft_strtoupper(char *str);
 char	**ft_split(char const *s, char c);
 char	**ft_split_pipex(char const *s, char c);
-void 	ft_split_minrt(char const *s, char c, t_chunk *chunks);
+void	ft_split_minrt(char const *s, char c, t_chunk *chunks);
 char	**allocate(size_t rows);
 char	**de_allocate(char **table, size_t allocated_rows);
 char	*ft_itoa(int n);

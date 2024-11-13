@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 21:16:02 by luicasad          #+#    #+#             */
-/*   Updated: 2024/10/13 01:00:48 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/11/13 18:21:28 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,11 @@
 void	hitrecord_set_point(t_hitrecord *self, t_point *the_p)
 {
 	point_copy_values(self->p, the_p);
-	//point_free(the_p);
 }
 
 void	hitrecord_set_normal(t_hitrecord *self, t_vec3 *the_normal)
 {
 	vec3_copy_values(self->normal, the_normal);
-	//vec3_free(the_normal);
 }
 
 void	hitrecord_set_t(t_hitrecord *self, double the_t)

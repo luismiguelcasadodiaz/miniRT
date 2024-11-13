@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 19:30:52 by luicasad          #+#    #+#             */
-/*   Updated: 2024/10/19 19:36:26 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/11/13 18:20:59 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ void	hitrecord_face_normal(t_hitrecord *self, t_ray *ray, t_vec3 *norm)
 	hitrecord_set_normal(self, norm);
 }
 
-void		hitrecord_reverse_normal(t_hitrecord *self)
+void	hitrecord_reverse_normal(t_hitrecord *self)
 {
 	vec3_negate(self->normal, self->normal);
 }
 
-void		hitrecord_unit_normal(t_hitrecord * self)
+void	hitrecord_unit_normal(t_hitrecord *self)
 {
 	vec3_unit_vector(self->normal, self->normal);
 }

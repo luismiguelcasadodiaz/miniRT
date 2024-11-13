@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*																			*/
 /*														:::	  ::::::::   */
-/*   module.c                                           :+:      :+:    :+:   */
+/*   vec3_module.c                                      :+:      :+:    :+:   */
 /*													+:+ +:+		 +:+	 */
 /*   By: luicasad <luicasad@student.42.fr>		  +#+  +:+	   +#+		*/
 /*												+#+#+#+#+#+   +#+		   */
 /*   Created: 2024/09/07 12:47:07 by luicasad		  #+#	#+#			 */
-/*   Updated: 2024/09/12 12:27:34 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/11/13 17:58:47 by luicasad         ###   ########.fr       */
 /*																			*/
 /* ************************************************************************** */
 #include "vec3.h"
@@ -31,9 +31,9 @@ void	vec3_unit_vector(t_vec3 *result, const t_vec3 *v)
 void	vec3_random(t_vec3	*s, float min, float max)
 {
 	vec3_init_values(s,
-			ft_rand(min, max), 
-			ft_rand(min, max),
-			ft_rand(min, max));
+		ft_rand(min, max),
+		ft_rand(min, max),
+		ft_rand(min, max));
 }
 
 // randomly generates a non parallelel vector to normal

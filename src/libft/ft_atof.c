@@ -6,7 +6,7 @@
 /*   By: luicasad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 10:35:43 by luicasad          #+#    #+#             */
-/*   Updated: 2024/11/01 10:35:54 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/11/13 16:57:07 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,14 +51,14 @@ static int	my_isspace(int c)
 float	ft_atof(const char *s)
 {
 	float	entera;
-    float   decimal;
+	float	decimal;
 	int		len;
 	int		idx;
 	short	sign;
 
 	sign = 1;
 	entera = 0;
-    decimal = 0;
+	decimal = 0;
 	len = ft_strlen(s);
 	idx = 0;
 	while ((my_isspace(s[idx])) && idx <= len)
@@ -67,11 +67,11 @@ float	ft_atof(const char *s)
 		sign -= 2 * (s[idx++] == '-');
 	while (ft_isdigit(s[idx]))
 		entera = entera * 10 + (s[idx++] - '0');
-    if ((s[idx] == '.') || (s[idx] == ','))
-    {
-        idx++;
-        while (ft_isdigit(s[idx]) && (idx <= len))
-		    decimal = decimal / 10.0 + (s[idx++] - '0');
-    }
-   	return ((entera + decimal / 10 ) * sign);
+	if ((s[idx] == '.') || (s[idx] == ','))
+	{
+		idx++;
+		while (ft_isdigit(s[idx]) && (idx <= len))
+			decimal = decimal / 10.0 + (s[idx++] - '0');
+	}
+	return ((entera + decimal / 10) * sign);
 }

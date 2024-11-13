@@ -6,7 +6,7 @@
 /*   By: luicasad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 08:24:08 by luicasad          #+#    #+#             */
-/*   Updated: 2024/11/01 08:26:22 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/11/13 18:37:25 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef CHUNK_H
@@ -37,8 +37,10 @@ typedef struct s_eleme_chunks
 void	chunk_read(char *filename, char **errmsg, t_win *w);
 void	chunk_treat_line(char *line, char **errmsg, t_win *w);	
 // chunk_treatments_one.c
-void	treat_one_letter_command(t_eleme_chunks *chunks, char **errmsg, t_win *w);
-void	treat_two_letter_command(t_eleme_chunks *chunks, char **errmsg, t_win *w);
+void	treat_one_letter_command(t_eleme_chunks *chunks,
+			char **errmsg, t_win *w);
+void	treat_two_letter_command(t_eleme_chunks *chunks,
+			char **errmsg, t_win *w);
 void	treat_amb(t_eleme_chunks *chunks, char **errmsg, t_win *w);
 void	treat_cam(t_eleme_chunks *chunks, char **errmsg, t_win *w);
 void	treat_lig(t_eleme_chunks *chunks, char **errmsg, t_win *w);
@@ -48,15 +50,15 @@ void	treat_pla(t_eleme_chunks *chunks, char **errmsg, t_win *w);
 void	treat_cyl(t_eleme_chunks *chunks, char **errmsg, t_win *w);
 
 // chunk_transfer_values_one.c
-void	trans_amb(t_win *w, t_eleme_chunks *chunks, char ** errmsg);
-void	trans_cam(t_win *w, t_eleme_chunks *chunks, char ** errmsg);
-void	trans_lig(t_win *w, t_eleme_chunks *chunks, char ** errmsg);
-void	trans_lig_bonus(t_win *w, t_eleme_chunks *chunks, char ** errmsg);
+void	trans_amb(t_win *w, t_eleme_chunks *chunks, char **errmsg);
+void	trans_cam(t_win *w, t_eleme_chunks *chunks, char **errmsg);
+void	trans_lig(t_win *w, t_eleme_chunks *chunks, char **errmsg);
+void	trans_lig_bonus(t_win *w, t_eleme_chunks *chunks, char **errmsg);
 
 // chunk_transfer_values_two.c
-void	trans_sph(t_win *w, t_eleme_chunks *chunks, char ** errmsg);
-void	trans_pla(t_win *w, t_eleme_chunks *chunks, char ** errmsg);
-void	trans_cyl(t_win *w, t_eleme_chunks *chunks, char ** errmsg);
+void	trans_sph(t_win *w, t_eleme_chunks *chunks, char **errmsg);
+void	trans_pla(t_win *w, t_eleme_chunks *chunks, char **errmsg);
+void	trans_cyl(t_win *w, t_eleme_chunks *chunks, char **errmsg);
 
 // chunk_errors_one.c
 void	error_bad_letter_command(t_chunk *chunks, char **errmsg);

@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   chunk_print.c                                      :+:      :+:    :+:   */
+/*   col_in_range.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luicasad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/01 09:11:26 by luicasad          #+#    #+#             */
-/*   Updated: 2024/11/13 17:12:19 by luicasad         ###   ########.fr       */
+/*   Created: 2024/11/13 18:04:01 by luicasad          #+#    #+#             */
+/*   Updated: 2024/11/13 18:05:03 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "chunk.h"
-#include <stdlib.h>
-#include <stdio.h>
-/* chunk_print() prints line by line each chunk member*/
-void	chunk_print(t_chunk *chunks)
-{
-	size_t	i;
+#include "color.h"
 
-	i = 0;
-	printf("This chunk has %ld elements\n", chunks->num);
-	while (i < chunks->num)
-		printf("%s\n", chunks->param[i++]);
+int	col_in_range(t_color *self)
+{
+	int	result;
+
+	result = ((0 <= self->rgb->e[0]) && (self->rgb->e[0] <= 1));
+	result = result && ((0 <= self->rgb->e[1]) && (self->rgb->e[1] <= 1));
+	result = result && ((0 <= self->rgb->e[2]) && (self->rgb->e[2] <= 1));
+	return (result);
 }

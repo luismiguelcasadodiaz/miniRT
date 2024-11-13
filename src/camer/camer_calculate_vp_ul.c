@@ -6,11 +6,12 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 11:09:47 by luicasad          #+#    #+#             */
-/*   Updated: 2024/10/02 20:35:46 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/11/13 20:43:17 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "camer.h"
+#include <math.h>
 
 /* ************************************************************************** */
 /* vp_x kcamera center - (0, 0, focal_lenge) - vp_y/2 -vp_y/	              */
@@ -63,4 +64,117 @@ void	camer_calculate_background_colors(t_camer *w)
 	w->color_end = col_new();
 	col_init_with_1(w->color_start, 1.0, 1.0, 1.0);
 	col_init_with_1(w->color_end, 0.5, 0.7, 1.0);
+}
+
+void	camer_calc_image_height(t_camer *self)
+{
+	int	aux;
+
+	aux = (int)(self->image_width / self->aspect_ratio);
+	if (aux < 1)
+		self->image_height = 1;
+	else
+		self->image_height = aux;
+}
+
+void	camer_calc_pixel_samples_scale(t_camer *self)
+{
+	self->pixel_samples_scale = 1.0 / self->samples_per_pixel;
+}
+
+void	camer_calc_theta(t_camer *self)
+{
+	self->theta = (self->vfov * M_PI) / 180.0;
+}
+
+void	camer_calc_h(t_camer *self)
+{
+	self->h = tan(self->theta / 2);
+}
+
+void	camer_calc_viewport_height(t_camer *self)
+{
+	self->viewport_height = 2 * self->h * self->focus_dist;
+}
+
+void	camer_calc_vierport_width(t_camer *self)
+{
+	self->viewport_width = self->viewport_height
+		* (double)(self->image_width / self->image_height);
+}
+
+void	camer_calc_w(t_camer *self)
+{
+	t_vec3	aux;
+
+	vec3_sub(&aux, self->lookfrom, self->lookat);
+	vec3_unit_vector(self->w, &aux);
+}
+
+void	camer_calc_u(t_camer *self)
+{
+	t_vec3	aux;
+
+	vec3_cross(&aux, self->vup, self->w);
+	vec3_unit_vector(self->u, &aux);
+}
+
+void	camer_calc_v(t_camer *self)
+{
+	vec3_cross(self->v, self->w, self->u);
+}
+
+void	camer_calc_viewport_u(t_camer *self)
+{
+	vec3_mul(self->vp_u, self->u, self->viewport_width);
+}
+
+void	camer_calc_viewport_v(t_camer *self)
+{
+	t_vec3	aux;
+
+	vec3_negate(&aux, self->v);
+	vec3_mul(self->vp_v, &aux, self->viewport_height);
+}
+
+void	camer_calc_pixel_delta_u(t_camer *self)
+{
+	vec3_div(self->pd_u, self->vp_u, self->image_width);
+}
+
+void	camer_calc_pixel_delta_v(t_camer *self)
+{
+	vec3_div(self->pd_v, self->vp_v, self->image_height);
+}
+
+//viewport_upper_left = center - (focus_dist * w) - viewport_u/2 - viewport_v/2;
+void	camer_calc_viewport_upper_left(t_camer *self)
+{
+	t_vec3	aux_u;
+	t_vec3	aux_v;
+	t_vec3	aux_w;
+	t_vec3	suma;
+
+	vec3_div(&aux_u, self->vp_u, 2);
+	vec3_div(&aux_v, self->vp_v, 2);
+	vec3_mul(&aux_w, self->w, self->focus_dist);
+	vec3_add(&suma, &aux_u, &aux_v);
+	vec3_add(&suma, &suma, &aux_w);
+	vec3_sub(self->vp_ul, self->center, &suma);
+}
+
+void	camer_calc_pixel00_loc(t_camer *self)
+{
+}
+
+void	camer_calc_defocus_radius(t_camer *self)
+{
+}
+
+void	camer_calc_defocus_disk_u(t_camer *self)
+{
+}
+
+void	camer_calv_defocus_disk_v(t_camer *self)
+{
 }

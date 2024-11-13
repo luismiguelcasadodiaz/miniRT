@@ -36,7 +36,6 @@ void	col_free(t_color *self);
 void	col_init_with_255(t_color *self, int r, int g, int b);
 void	col_init_with_1(t_color *self, double r, double g, double b);
 void	col_create_mlx_color(t_color *self);
-int		col_in_range(t_color *self);
 //int		col_create_mlx_color_with_double(t_vec3 *the_rgb, double the_t);
 //int		col_create_mlx_color_with_int(int t, int r, int g, int b);
 
@@ -62,6 +61,7 @@ void	col_set_r_1(t_color *self, double value);
 void	col_set_g_1(t_color *self, double value);
 void	col_set_b_1(t_color *self, double value);
 
+int		col_in_range(t_color *self);
 int		col_lerp(t_color *start, t_color *end, t_vec3 *direction);
 void	col_print(t_color *self);
 void	col_copy_values(t_color *dest, t_color *orig);

@@ -6,7 +6,7 @@
 /*   By: luicasad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 19:16:32 by luicasad          #+#    #+#             */
-/*   Updated: 2024/10/23 19:24:22 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/11/13 16:58:59 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ float	ft_rand_mp1(void)
 // this is way i cast rand to float
 float	ft_rand(float min, float max)
 {
-	float result;
-	double ale;
+	float	result;
+	double	ale;
 
 	ale = (double)rand();
-	result = min + (max - min) * (ale/ RAND_MAX);
+	result = min + (max - min) * (ale / RAND_MAX);
 	return (result);
 }

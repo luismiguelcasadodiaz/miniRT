@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 11:49:06 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/14 10:32:00 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/11/13 18:08:04 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "color.h"
@@ -52,14 +52,3 @@ void	col_init_with_1(t_color *self, double r, double g, double b)
 	self->t = 0;
 	col_create_mlx_color(self);
 }
-
-int	col_in_range(t_color *self)
-{
-	int	result;
-
-	result  = ((0 <= self->rgb->e[0]) && (self->rgb->e[0] <= 1));
-	result  = result  && ((0 <= self->rgb->e[1]) && (self->rgb->e[1] <= 1));
-	result  = result  && ((0 <= self->rgb->e[2]) && (self->rgb->e[2] <= 1));
-	return (result);
-}
-

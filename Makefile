@@ -460,8 +460,6 @@ re: fclean all
 rebonus : fclean bonus
 
 norma:
-	@echo "$(GREEN)============ CHECKING NORME $(MINRT) ==============$(DEF_COLOR)"
-	norminette $(SRCDIR_MINRT) 
 	@echo "$(ORANGE)========== CHECKING NORME $(BONUS) ==============$(DEF_COLOR)"
 	norminette $(SRCDIR_BONUS)
 #	@echo "$(MAGENTA)========== CHECKING NORME $(TESTS) ==============$(DEF_COLOR)"
@@ -482,8 +480,6 @@ norma:
 	$(MAKE) -C $(SRCDIR_COLOR)  norma
 	@echo "$(MID_GRAY)========== CHECKING NORME $(SRCDIR_POINT) ==============$(DEF_COLOR)"
 	$(MAKE) -C $(SRCDIR_POINT)  norma
-	@echo "$(DARK_GREEN)========== CHECKING NORME $(SRCDIR_RAY) ==============$(DEF_COLOR)"
-	$(MAKE) -C $(SRCDIR_RAY)  norma
 	@echo "$(DARK_YELLOW)========== CHECKING NORME $(SRCDIR_ELEME) ==============$(DEF_COLOR)"
 	$(MAKE) -C $(SRCDIR_ELEME)  norma
 	@echo "$(DARK_CYAN)========== CHECKING NORME $(SRCDIR_CAMER) ==============$(DEF_COLOR)"
@@ -501,9 +497,13 @@ norma:
 	@echo "$(DARK_GREEN)========== CHECKING NORME $(SRCDIR_INTERVAL) ==============$(DEF_COLOR)"
 	$(MAKE) -C $(SRCDIR_INTERVAL)  norma
 	@echo "$(GREEN)============ CHECKING NORME $(INCDIR) ==============$(DEF_COLOR)"
-	norminette $(INCDIR)
+	$(MAKE) -C $(SRCDIR_RAY)  norma
+	@echo "$(GREEN)============ CHECKING NORME $(MINRT) ==============$(DEF_COLOR)"
+	norminette $(SRCDIR_MINRT) 
 	@echo "$(RED)========== CHECKING NORME $(SRCDIR_MLIBX) ==============$(DEF_COLOR)"
 	$(MAKE) -C $(SRCDIR_MLIBX)  norma
+	norminette $(INCDIR)
+	@echo "$(DARK_GREEN)========== CHECKING NORME $(SRCDIR_RAY) ==============$(DEF_COLOR)"
 
 profile:
 	valgrind --tool=callgrind ./$(MINRT) scenes/spheres.rt
