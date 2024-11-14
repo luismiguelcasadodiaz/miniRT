@@ -78,6 +78,7 @@ typedef struct s_img
 /* lu   : left upper coordinate                                               */
 /* rd   : right down coordinate                                               */
 /* ************************************************************************** */
+typedef struct s_camer t_camer;
 
 typedef struct s_win
 {

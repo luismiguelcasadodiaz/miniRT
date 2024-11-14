@@ -64,14 +64,7 @@ static void	set_init_values_win(t_win *w, char *title)
 	point_init(w->rd, WINDOW_W, height, 0);
 	set_init_values_img(w);
 	w->ray_direction = vec3_new();
-	//w->ambient = ambil_new();
-	//coor = vec3_new();
-	//vec3_init_values(coor, 0, 0, 0);
-	//w->camera = camer_set(coor, coor, 0.0, w->size);
-	//camer_print(w->camera);
-	//vec3_free(coor);
-	//w->light = light_new();
-	//win_world_create(&w->eleme);
+
 }
 
 t_win	win_init(char *title)

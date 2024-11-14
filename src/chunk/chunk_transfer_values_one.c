@@ -54,7 +54,7 @@ void	trans_cam(t_win *w, t_eleme_chunks *chunks, char **errmsg)
 	else if (!((0 <= fview) & (fview <= 180)))
 		error_bad_fview(chunks->fview, errmsg);
 	else
-		w->camera = camer_set(center, novec, (double) fview, w->size);
+		w->camera = camer_set(center, novec, (double) fview, w);
 	vec3_free(novec);
 	vec3_free(center);
 }

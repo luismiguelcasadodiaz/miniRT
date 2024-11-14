@@ -40,6 +40,32 @@ void	camer_set_cacen(t_camer *self)
 		self->coor->e[1], self->coor->e[2]);
 }
 
+void	camer_s_aspect_ratio(t_camer *self, double dato)
+{
+	self->aspect_ratio = dato;
+}
+
+void	camer_s_image_width(t_camer *self, int dato)
+{
+	self->image_width = dato;
+}
+
+void	camer_s_samples_per_pixel(t_camer *self, int dato)
+{
+	self->samples_per_pixel = dato;
+}
+
+void	camer_s_max_depth(t_camer *self, int dato)
+{
+	self->max_depth = dato;
+}
+
+void	camer_s_vfov(t_camer *self, float hfov, t_point *size)
+{
+	self->vfov = hfov * (size->e[0] / size->e[1]);
+}
+
+
 /*
 void	camer_set_isize(t_camer *self, double win_w, double aspect_ratio)
 {

@@ -65,7 +65,11 @@ SRCS	=	camer_init.c \
 			camer_new.c \
       		camer_getters_one.c \
       		camer_setters_one.c \
-			camer_calculate_vp_ul.c \
+			camer_calculate_one.c \
+			camer_calculate_two.c \
+			camer_calculate_thr.c \
+			camer_calculate_fou.c \
+			camer_calculate_fiv.c \
 			camer_print.c
 
 # Generate a list of object files by replacing .c with .o
