@@ -14,6 +14,7 @@
 
 void	camer_free(t_camer *self)
 {
+	/*
 	if (self->coor)
 		vec3_free(self->coor);
 	if (self->novec)
@@ -43,5 +44,6 @@ void	camer_free(t_camer *self)
 		col_free(self->color_start);
 	if (self->color_end)
 		col_free(self->color_end);
+		*/
 	free(self);
 }

@@ -14,15 +14,15 @@
 
 t_vec3	*camer_get_coord(t_camer *self)
 {
-	return (self->coor);
+	return (&self->coor);
 }
 
 t_vec3	*camer_get_novec(t_camer *self)
 {
-	return (self->novec);
+	return (&self->novec);
 }
 
 double	camer_get_fview(t_camer *self)
 {
-	return (self->fview);
+	return (self->hfov);
 }

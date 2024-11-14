@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "camer.h"
-
+/*
 static void	try_alloc_cacen(t_camer *self)
 {
 	self->cacen = point_new();
@@ -47,7 +47,7 @@ static void	try_alloc_novec(t_camer *self)
 		self = NULL;
 	}
 }
-
+*/
 t_camer	*camer_new(void)
 {
 	t_camer	*self;
@@ -55,6 +55,7 @@ t_camer	*camer_new(void)
 	self = (t_camer *)malloc(sizeof(t_camer));
 	if (!self)
 		return (NULL);
+	/*
 	self->coor = vec3_new();
 	if (!self->coor)
 	{
@@ -70,5 +71,6 @@ t_camer	*camer_new(void)
 	try_alloc_cacen(self);
 	if (!self)
 		return (NULL);
+		*/
 	return (self);
 }

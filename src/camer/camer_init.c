@@ -31,14 +31,14 @@ t_camer	*camer_set(t_vec3 *coor, t_vec3 *novec, double fview, t_win *w)
 	camer_s_novec(self, novec);
 	camer_s_fview(self, fview);
 
-	camer_s_aspect_ratio(self, ASPECT_RATIO_H / ASPECT_RATIO_W);
-	camer_s_image_width(self, WINDOW_W);
-	camer_s_samples_per_pixel(self, 10);
-	camer_s_max_depth(self, 10);
-	camer_s_vfov(self, self->hfov, w->size);
+	// camer_s_aspect_ratio(self, ASPECT_RATIO_H / ASPECT_RATIO_W);
+	// camer_s_image_width(self, WINDOW_W);
+	// camer_s_samples_per_pixel(self, 10);
+	// camer_s_max_depth(self, 10);
+	// camer_s_vfov(self, self->hfov, w->size);
 
-	camer_s_vport(self, VIEW_PORT_H, w->size);
-	camer_s_cacen(self);
+	// camer_s_vport(self, VIEW_PORT_H, w->size);
+	// camer_s_cacen(self);
 	camer_calc_vp_and_pd(self, w->size);
 	camer_calc_vp_ul(self);
 	camer_calc_pix00(self);
