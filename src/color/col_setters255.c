@@ -13,19 +13,19 @@
 
 void	col_set_r_255(t_color *self, int value)
 {
-	vec3_set_x(self->rgb, (double)(value / 255.0));
+	vec3_set_x(&self->rgb, (double)(value / 255.0));
 	col_create_mlx_color(self);
 }
 
 void	col_set_g_255(t_color *self, int value)
 {
-	vec3_set_y(self->rgb, (double)(value / 255.0));
+	vec3_set_y(&self->rgb, (double)(value / 255.0));
 	col_create_mlx_color(self);
 }
 
 void	col_set_b_255(t_color *self, int value)
 {
-	vec3_set_z(self->rgb, (double)(value / 255.0));
+	vec3_set_z(&self->rgb, (double)(value / 255.0));
 	col_create_mlx_color(self);
 }
 

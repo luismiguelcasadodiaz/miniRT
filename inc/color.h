@@ -23,7 +23,7 @@
 /* ************************************************************************** */
 typedef struct s_color
 {
-	t_vec3	*rgb;
+	t_vec3	rgb;
 	int		t;
 	int		mlx_color;
 }	t_color;

@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 13:07:33 by luicasad          #+#    #+#              #
-#    Updated: 2024/11/09 18:05:55 by luicasad         ###   ########.fr        #
+#    Updated: 2024/11/17 19:51:01 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -223,6 +223,8 @@ SRCS_MINRT	= 	miniRT.c \
 				win_h_expose.c \
 				win_pixel_put.c \
 				draw_fractal.c \
+				is_scene2.c \
+				is_scene3.c \
 				is_scene4.c \
 				is_white.c \
 
@@ -507,11 +509,11 @@ norma:
 	@echo "$(DARK_GREEN)========== CHECKING NORME $(SRCDIR_RAY) ==============$(DEF_COLOR)"
 
 profile:
-	valgrind --tool=callgrind ./$(MINRT) scenes/spheres.rt
+	valgrind --tool=callgrind ./$(MINRT) scenes/one_sphere.rt
 	callgrind_annotate
 
 leaks:
-	valgrind -s --tool=memcheck --leak-check=full ./$(MINRT) scenes/sabado.rt
+	valgrind -s --tool=memcheck --leak-check=full ./$(MINRT) scenes/one_sphere.rt
 
 .PHONY: all bonus test clean fclean re rebonus norma profile leaks
 

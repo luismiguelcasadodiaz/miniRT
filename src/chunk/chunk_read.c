@@ -50,7 +50,7 @@ void	chunk_read(char *filename, char **errmsg, t_win *w)
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
 	{
-		printf("Problems opening <%s> file \n", filename);
+		error_bad_file(filename, errmsg);
 		return ;
 	}
 	end_file = 0;
@@ -66,4 +66,6 @@ void	chunk_read(char *filename, char **errmsg, t_win *w)
 		free(line);
 	}
 	close(fd);
+	if (!*errmsg && (!w->camera || !w->ambient || !w->light))
+		error_bad_scene(filename, errmsg);
 }

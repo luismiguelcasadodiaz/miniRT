@@ -50,3 +50,14 @@ void	vec3_u_v_from_n(t_vec3 *n, t_vec3 *u, t_vec3 *v)
 		vec3_cross(v, n, u);
 	}
 }
+
+void	vec3_sample_square(t_vec3 *n)
+{
+	float	min;
+	float	max;
+
+	min = -0.5;
+	max = 0.5;
+	vec3_init_values(n, ft_rand(min, max), ft_rand(min, max), 0);
+}
+

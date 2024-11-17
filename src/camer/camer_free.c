@@ -40,6 +40,7 @@ void	camer_free(t_camer *self)
 		vec3_free(self->vp_ul);
 	if (self->pixel00)
 		vec3_free(self->pixel00);
+	
 	if (self->color_start)
 		col_free(self->color_start);
 	if (self->color_end)

@@ -77,6 +77,8 @@ void	error_normal_zero(t_chunk *chunks, char **errmsg);
 void	error_bad_ambil(char *ambil, char **errmsg);
 void	error_bad_fview(char *fview, char **errmsg);
 void	error_bad_lbrig(char *lbrig, char **errmsg);
+void	error_bad_file(char *fname, char **errmsg);
+void	error_bad_scene(char *fname, char **errmsg);
 
 // chunk_print.c
 void	chunk_print(t_chunk *chunks);

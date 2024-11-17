@@ -19,7 +19,7 @@
 # define WINDOW_W 1000
 
 # define ASPECT_RATIO_W 16.0
-# define ASPECT_RATIO_H 9.0
+# define ASPECT_RATIO_H 16.0
 
 # define BLACK 0x00000000
 # define RED   0x00FF0000

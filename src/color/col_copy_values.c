@@ -14,7 +14,7 @@
 
 void	col_copy_values(t_color *dest, t_color *ori)
 {
-	vec3_copy_values(dest->rgb, ori->rgb);
+	vec3_copy_values(&dest->rgb, &ori->rgb);
 	dest->t = ori->t;
 	dest->mlx_color = ori->mlx_color;
 }

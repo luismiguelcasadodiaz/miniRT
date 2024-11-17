@@ -18,17 +18,17 @@ double	col_get_t_1(t_color *self)
 
 double	col_get_r_1(t_color *self)
 {
-	return (self->rgb->e[0]);
+	return (self->rgb.e[0]);
 }
 
 double	col_get_g_1(t_color *self)
 {
-	return (self->rgb->e[1]);
+	return (self->rgb.e[1]);
 }
 
 double	col_get_b_1(t_color *self)
 {
-	return (self->rgb->e[2]);
+	return (self->rgb.e[2]);
 }
 
 /*

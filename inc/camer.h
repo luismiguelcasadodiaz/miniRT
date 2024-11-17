@@ -28,11 +28,13 @@ typedef struct s_camer
 	t_vec3		coor;
 	t_vec3		novec;
 	double		hfov;
+	double		vfov;	
 	double		aspect_ratio;
 	int			image_width;
+	int			image_height;
 	int			samples_per_pixel;
 	int			max_depth;
-	double		vfov;
+
 	t_point		lookfrom;
 	t_point		lookat;
 	t_vec3		vup;
@@ -40,7 +42,7 @@ typedef struct s_camer
 	double		focus_dist;
 	double		defocus_radius;
 	t_point		vport;
-	int			image_height;
+
 	double		pixel_samples_scale;
 	t_point		center;
 	t_point		pixel00_loc;
@@ -72,17 +74,20 @@ void			camer_free(t_camer *self);
 // camer_setters_one.c
 void			camer_s_coord(t_camer *self, t_vec3 *coor);
 void			camer_s_novec(t_camer *self, t_vec3 *novec);
-void			camer_s_fview(t_camer *self, double fview);
+void			camer_s_hfov(t_camer *self, double hfov);
 void			camer_s_vport(t_camer *self, double the_vp_h, t_point *size);
-/*
+
 //void			camer_set_isize(t_camer *self, double win_w, double asp_ratio);
 void			camer_s_cacen(t_camer *self);
+void			camer_s_vup(t_camer *self, double x, double y, double z);
 void			camer_s_aspect_ratio(t_camer *self, double dato);
 void			camer_s_image_width(t_camer *self, int dato);
 void			camer_s_samples_per_pixel(t_camer *self, int dato);
 void			camer_s_max_depth(t_camer *self, int dato);
 void			camer_s_vfov(t_camer *self, float hfov, t_point *size);
-*/
+void			camer_s_defocus_angle(t_camer *self, double angle);
+void			camer_s_focus_dist(t_camer *self, double dist);
+
 // camer_getters_one.c
 t_vec3			camer_g_coord(t_camer *self);
 t_vec3			camer_g_novec(t_camer *self);
@@ -97,7 +102,7 @@ void			camer_calc_pix00(t_camer *self);
 void			camer_calc_background_colors(t_camer *w);
 void			camer_calc_image_height(t_camer *self);
 
-/*
+
 //camer_calculate_two.c
 void			camer_calc_pixel_samples_scale(t_camer *self);
 void			camer_calc_theta(t_camer *self);
@@ -119,6 +124,6 @@ void			camer_calc_defocus_radius(t_camer *self);
 //camer_calculate_fiv.c
 void			camer_calc_defocus_disk_u(t_camer *self);
 void			camer_calc_defocus_disk_v(t_camer *self);
-*/
+
 
 #endif

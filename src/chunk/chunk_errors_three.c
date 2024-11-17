@@ -41,7 +41,20 @@ void	error_bad_lbrig(char *lbrig, char **errmsg)
 	free(aux);
 }
 
-void	error_not_implemented(char *proc, char **errmsg)
+void	error_bad_file(char *fname, char **errmsg)
 {
-	*errmsg = ft_strjoin(proc, " No está iimplementado");
+	char	*aux;
+
+	aux = ft_strjoin("The file  ", fname);
+	*errmsg = ft_strjoin(aux, " does not open.");
+	free(aux);
+}
+
+void	error_bad_scene(char *fname, char **errmsg)
+{
+	char	*aux;
+
+	aux = ft_strjoin("Scene  ", fname);
+	*errmsg = ft_strjoin(aux, " without camera, ambience or light points");
+	free(aux);
 }

@@ -33,7 +33,7 @@ static int	col_create_mlx_color_with_double(t_vec3 *the_rgb, double the_t)
 
 void	col_create_mlx_color(t_color *self)
 {
-	self->mlx_color = col_create_mlx_color_with_double(self->rgb, self->t);
+	self->mlx_color = col_create_mlx_color_with_double(&self->rgb, self->t);
 }
 
 // to use when color are in range 0 .. 255
@@ -48,7 +48,7 @@ void	col_init_with_255(t_color *self, int r, int g, int b)
 // to use when colors are in range 0.0 .. 1.0
 void	col_init_with_1(t_color *self, double r, double g, double b)
 {
-	vec3_init_values(self->rgb, r, g, b);
+	vec3_init_values(&self->rgb, r, g, b);
 	self->t = 0;
 	col_create_mlx_color(self);
 }

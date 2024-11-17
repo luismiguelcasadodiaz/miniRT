@@ -16,7 +16,7 @@
 /* ************************************************************************** */
 /* vp_x kcamera center - (0, 0, focal_lenge) - vp_y/2 -vp_y/	              */
 /* ************************************************************************** */
-void	camer_calculate_vp_and_pd(t_camer *self, t_point *size)
+void	camer_calc_vp_and_pd(t_camer *self, t_point *size)
 {
 	vec3_init_values(&self->vp_u, self->vport.e[0], 0, 0);
 	vec3_init_values(&self->vp_v, 0, -self->vport.e[1], 0);
@@ -27,7 +27,7 @@ void	camer_calculate_vp_and_pd(t_camer *self, t_point *size)
 /* ************************************************************************** */
 /* vp_ul = camera center - (0, 0, focal_lenge) - vp_y/2 -vp_y/	              */
 /* ************************************************************************** */
-void	camer_calculate_vp_ul(t_camer *w)
+void	camer_calc_vp_ul(t_camer *w)
 {
 	t_vec3	aux;
 
@@ -43,17 +43,18 @@ void	camer_calculate_vp_ul(t_camer *w)
 /* ************************************************************************** */
 /* pixel00  = view port Upper lef + 0.5 *(pixel delta x + pixel delta y)      */
 /* ************************************************************************** */
-void	camer_calculate_pix00(t_camer *w)
+void	camer_calc_pix00(t_camer *w)
 {
 	vec3_add(&w->pixel00_loc, &w->pd_u, &w->pd_v);
 	vec3_div(&w->pixel00_loc, &w->pixel00_loc, 2);
 	vec3_add(&w->pixel00_loc, &w->pixel00_loc, &w->vp_ul);
 }
 
-void	camer_calculate_background_colors(t_camer *w)
+void	camer_calc_background_colors(t_camer *self)
 {
-	col_init_with_1(&w->color_start, 1.0, 1.0, 1.0);
-	col_init_with_1(&w->color_end, 0.5, 0.7, 1.0);
+
+	col_init_with_1(&self->color_start, 1.0, 1.0, 1.0);
+	col_init_with_1(&self->color_end, 0.5, 0.7, 1.0);
 }
 
 void	camer_calc_image_height(t_camer *self)

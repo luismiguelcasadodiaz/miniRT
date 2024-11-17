@@ -15,10 +15,10 @@
 
 void	camer_calc_defocus_disk_u(t_camer *self)
 {
-	vec3_mul(self->defocus_disk_u, self->u, self->defocus_radius);
+	vec3_mul(&self->defocus_disk_u, &self->u, self->defocus_radius);
 }
 
 void	camer_calc_defocus_disk_v(t_camer *self)
 {
-	vec3_mul(self->defocus_disk_v, self->v, self->defocus_radius);
+	vec3_mul(&self->defocus_disk_v, &self->v, self->defocus_radius);
 }
