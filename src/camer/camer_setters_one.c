@@ -20,7 +20,6 @@ void	camer_s_coord(t_camer *self, t_vec3 *coor)
 void	camer_s_novec(t_camer *self, t_vec3 *novec)
 {
 	vec3_copy_values(&self->novec, novec);
-	vec3_copy_values(&self->lookat, novec);
 }
 
 void	camer_s_hfov(t_camer *self, double hfov)
@@ -39,6 +38,7 @@ void	camer_s_cacen(t_camer *self)
 {
 	point_init(&self->lookfrom, self->coor.e[0],
 		self->coor.e[1], self->coor.e[2]);
+	vec3_add(&self->lookat, &self->lookfrom, &self->novec);
 }
 
 void	camer_s_vup(t_camer *self, double x, double y, double z)
@@ -66,9 +66,10 @@ void	camer_s_max_depth(t_camer *self, int dato)
 	self->max_depth = dato;
 }
 
-void	camer_s_vfov(t_camer *self, float hfov, t_point *size)
+void	 camer_s_vfov(t_camer *self, float hfov, t_point *size)
 {
 	self->vfov = hfov * (size->e[1] / size->e[0]);
+	self->vfov = hfov;
 }
 
 void			camer_s_defocus_angle(t_camer *self, double angle)

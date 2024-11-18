@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 13:07:33 by luicasad          #+#    #+#              #
-#    Updated: 2024/11/17 19:51:01 by luicasad         ###   ########.fr        #
+#    Updated: 2024/11/18 16:59:23 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -200,6 +200,7 @@ LLIBS 			+= -l$(LOADLIBVEC3)
 LLIBS 			+= -l$(LOADLIBGETNL)
 LLIBS 			+= -l$(LOADLIBFT)
 LLIBS 			+= -L$(LIBSYS) $(LOADLIBSYS) 
+LLIBS			+= -L$(LIBDIR) -l$(LOADLIBMLIBX)
 
 #LLIBS	+= -L/usr/include/../lib -lXext -lX11 -lm -lbsd
 

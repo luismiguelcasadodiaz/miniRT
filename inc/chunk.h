@@ -80,6 +80,9 @@ void	error_bad_lbrig(char *lbrig, char **errmsg);
 void	error_bad_file(char *fname, char **errmsg);
 void	error_bad_scene(char *fname, char **errmsg);
 
+// chunk_errors_four.c
+void	error_more_than_one(char *object, char **errmsg);
+
 // chunk_print.c
 void	chunk_print(t_chunk *chunks);
 #endif

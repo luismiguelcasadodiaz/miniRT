@@ -68,6 +68,7 @@ SRCS	=	chunk_read.c \
 			chunk_errors_one.c \
 			chunk_errors_two.c \
 			chunk_errors_three.c \
+			chunk_errors_four.c \
 			chunk_print.c
 
 #chunk_init.c \

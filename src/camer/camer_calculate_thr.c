@@ -19,6 +19,7 @@ void	camer_calc_w(t_camer *self)
 
 	vec3_sub(&aux, &self->lookfrom, &self->lookat);
 	vec3_unit_vector(&self->w, &aux);
+	//vec3_unit_vector(&self->w, &self->novec);
 }
 
 void	camer_calc_u(t_camer *self)
