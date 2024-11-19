@@ -17,9 +17,11 @@ void	camer_calc_w(t_camer *self)
 {
 	t_vec3	aux;
 
-	vec3_sub(&aux, &self->lookfrom, &self->lookat);
-	vec3_unit_vector(&self->w, &aux);
-	//vec3_unit_vector(&self->w, &self->novec);
+	//vec3_sub(&aux, &self->lookfrom, &self->lookat);
+	//vec3_unit_vector(&self->w, &aux);
+	vec3_unit_vector(&aux, &self->novec);
+	vec3_negate(&self->w, &aux);
+
 }
 
 void	camer_calc_u(t_camer *self)

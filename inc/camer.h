@@ -38,9 +38,9 @@ typedef struct s_camer
 	t_point		lookfrom;
 	t_point		lookat;
 	t_vec3		vup;
-	double		defocus_angle;
-	double		focus_dist;
-	double		defocus_radius;
+	//double		defocus_angle;
+	//double		focus_dist;
+	//double		defocus_radius;
 	t_point		vport;
 
 	double		pixel_samples_scale;
@@ -51,8 +51,8 @@ typedef struct s_camer
 	t_vec3		u;
 	t_vec3		v;
 	t_vec3		w;
-	t_vec3		defocus_disk_u;
-	t_vec3		defocus_disk_v;	
+	//t_vec3		defocus_disk_u;
+	//t_vec3		defocus_disk_v;	
 	t_vec3		vp_u;
 	t_vec3		vp_v;
 	t_vec3		vp_ul;
@@ -85,8 +85,9 @@ void			camer_s_image_width(t_camer *self, int dato);
 void			camer_s_samples_per_pixel(t_camer *self, int dato);
 void			camer_s_max_depth(t_camer *self, int dato);
 void			camer_s_vfov(t_camer *self, float hfov, t_point *size);
-void			camer_s_defocus_angle(t_camer *self, double angle);
-void			camer_s_focus_dist(t_camer *self, double dist);
+//void			camer_s_defocus_angle(t_camer *self, double angle);
+//void			camer_s_focus_dist(t_camer *self, double dist);
+void			camer_s_focal_length(t_camer *self, double dist);
 
 // camer_getters_one.c
 t_vec3			camer_g_coord(t_camer *self);
@@ -120,10 +121,10 @@ void			camer_calc_pixel_delta_u(t_camer *self);
 void			camer_calc_pixel_delta_v(t_camer *self);
 void			camer_calc_viewport_upper_left(t_camer *self);
 void			camer_calc_pixel00_loc(t_camer *self);
-void			camer_calc_defocus_radius(t_camer *self);
+//void			camer_calc_defocus_radius(t_camer *self);
 //camer_calculate_fiv.c
-void			camer_calc_defocus_disk_u(t_camer *self);
-void			camer_calc_defocus_disk_v(t_camer *self);
+//void			camer_calc_defocus_disk_u(t_camer *self);
+//void			camer_calc_defocus_disk_v(t_camer *self);
 
 
 #endif

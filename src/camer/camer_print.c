@@ -28,9 +28,9 @@ void	camer_print(t_camer	*self)
 	printf("Image heigth             = %d\n", self->image_height);
 	printf("samples per pixel        = %d\n", self->samples_per_pixel);
 	printf("Max depth                = %d\n", self->max_depth);
-	printf("Defocus angel            = %f\n", self->defocus_angle);
+	/*printf("Defocus angel            = %f\n", self->defocus_angle);
 	printf("Focus disctance          = %f\n", self->focus_dist);
-	printf("Defocus radius           = %f\n", self->defocus_radius);
+	printf("Defocus radius           = %f\n", self->defocus_radius);*/
 	printf("Pixel sample scales      = %f\n", self->pixel_samples_scale);
 	printf("Focal length             = %f\n", self->focal_lenght);
 	printf("theta                    = %f\n", self->theta);
@@ -59,10 +59,10 @@ void	camer_print(t_camer	*self)
 	vec3_print(&self->v);
 	printf("w                        = ");
 	vec3_print(&self->w);
-	printf("defocus disk u           = ");
+	/*printf("defocus disk u           = ");
 	vec3_print(&self->defocus_disk_u);
 	printf("defocus disk u           = ");
-	vec3_print(&self->defocus_disk_v);
+	vec3_print(&self->defocus_disk_v);*/
 	printf("vp_x                     = ");
 	vec3_print(&self->vp_u);
 	printf("vp_y                     = ");

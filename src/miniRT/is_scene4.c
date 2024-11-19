@@ -44,6 +44,7 @@ static void	win_calculate_ray_dir(t_win *w, int x, int y)
 	vec3_init_values(&aux, w->camera->lookfrom.e[0],
 		w->camera->lookfrom.e[1], w->camera->lookfrom.e[2]);
 	vec3_sub(w->ray_direction, w->ray_direction, &aux);
+	//vec3_sub(w->ray_direction, &aux, w->ray_direction);
 }
 /*
 static void	world_destroy(t_win *w)

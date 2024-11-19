@@ -43,8 +43,8 @@ break main.c:
 #break win_create_world.c:41
 #break hitrecord_init.c:43
 #break chunk_treatments_two.c:91
-break chunk_transfer_values_one.c:83
+break camer_init.c:47
 #break chunk_read.c:27
 #break ft_atof.c:64
 #reak ft_split_minrt.c:170
-run  scenes/cylindres.rt
+run  scenes/one_sphere.rt

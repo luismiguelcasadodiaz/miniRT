@@ -30,11 +30,11 @@ void	camer_calc_h(t_camer *self)
 
 void	camer_calc_viewport_height(t_camer *self)
 {
-	self->viewport_height = 2 * self->h * self->focus_dist;
+	self->viewport_height = 2 * self->h * self->focal_lenght;
 }
 
 void	camer_calc_vierport_width(t_camer *self)
 {
 	self->viewport_width = self->viewport_height
-		* (double)(self->image_width / self->image_height);
+		* ((double)self->image_width / self->image_height);
 }
