@@ -16,7 +16,7 @@
 # define INITIAL_ZOOM 1
 # define ZOOM_FACTOR 1.05
 # define MAX_ITERATIONS 2
-# define WINDOW_W 400
+# define WINDOW_W 1000
 
 # define ASPECT_RATIO_W 16.0
 # define ASPECT_RATIO_H 9.0
