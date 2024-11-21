@@ -1,0 +1,4 @@
+chunk_print.o: chunk_print.c ../../inc/chunk.h ../../inc/miniRT.h \
+  ../../inc/point.h ../../inc/vec3.h ../../inc/color.h ../../inc/ray.h \
+  ../../inc/eleme.h ../../inc/hitrecord.h ../../inc/interval.h \
+  ../../inc/camer.h ../../inc/ambil.h ../../inc/light.h

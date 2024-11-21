@@ -68,8 +68,7 @@ void	draw_image4(t_win *w)
 		{
 			win_calculate_ray_dir(w, wx0, wy0);
 			ray_init(r, &w->camera->lookfrom, w->ray_direction);
-			mlx_color = ray_color(r, w->camera->color_start,
-					w->camera->color_end, w->eleme);
+			mlx_color = ray_color(r, w);
 			win_pixel_put(*w, wx0, wy0, mlx_color);
 			wx0++;
 		}

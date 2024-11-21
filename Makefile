@@ -224,8 +224,6 @@ SRCS_MINRT	= 	miniRT.c \
 				win_h_expose.c \
 				win_pixel_put.c \
 				draw_fractal.c \
-				is_scene2.c \
-				is_scene3.c \
 				is_scene4.c \
 				is_white.c \
 

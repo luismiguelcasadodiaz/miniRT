@@ -17,7 +17,9 @@ void	ambil_print(t_ambil	*self)
 {
 	printf("-------------------------------------------\n");
 	printf("id                       = AMBIL\n");
-	printf("color                    = ");
+	printf("Ambient light color      = ");
 	col_print(self->color);
-	printf("ligth ambient            = %f\n", self->lambi);
+	printf("Ambient light ratio      = %f\n", self->lambi);
+	printf("Ambient light            = ");
+	col_print(self->ambient);
 }

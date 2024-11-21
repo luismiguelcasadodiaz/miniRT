@@ -47,4 +47,6 @@ break camer_init.c:47
 #break chunk_read.c:27
 #break ft_atof.c:64
 #reak ft_split_minrt.c:170
-run  scenes/one_sphere.rt
+break is_scene4.c:71 if ((wy0 == 300) && (wx0 ==600))
+break ray_color.c:51
+run  scenes/one_plane_v.rt

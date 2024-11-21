@@ -40,9 +40,9 @@ void	col_create_mlx_color(t_color *self)
 void	col_init_with_255(t_color *self, int r, int g, int b)
 {
 	col_init_with_1(self,
-		(double)(r / 255.0),
-		(double)(g / 255.0),
-		(double)(b / 255.0));
+		((double)r / 255.0),
+		((double)g / 255.0),
+		((double)b / 255.0));
 }
 
 // to use when colors are in range 0.0 .. 1.0

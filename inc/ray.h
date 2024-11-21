@@ -17,8 +17,10 @@
 # include "vec3.h"
 # include "color.h"
 # include "eleme.h"
+# include "miniRT.h"
 
 typedef struct s_eleme	t_eleme;
+typedef struct s_win t_win;
 
 typedef struct s_ray
 {
@@ -34,6 +36,6 @@ void	ray_set_orig(t_ray *self, t_point *the_point);
 void	ray_set_dir(t_ray *self, t_vec3 *the_dir);
 t_point	*ray_get_orig(t_ray *self);
 t_vec3	*ray_get_dir(t_ray *self);
-int		ray_color(t_ray *self, t_color start, t_color end, t_eleme *o);
+int		ray_color(t_ray *self, t_win *w);
 t_point	*ray_at(t_ray *self, double t);
 #endif

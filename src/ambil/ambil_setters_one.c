@@ -15,9 +15,16 @@
 void	ambil_set_color(t_ambil *self, t_color *color)
 {
 	col_copy_values(self->color, color);
+	col_scale(self->ambient, self->color, self->lambi);
 }
 
 void	ambil_set_lambi(t_ambil *self, double lambi)
 {
 	self->lambi = lambi;
+	col_scale(self->ambient, self->color, self->lambi);
+}
+
+void	ambil_set_ambient(t_ambil *self)
+{
+	col_scale(self->ambient, self->color, self->lambi);
 }

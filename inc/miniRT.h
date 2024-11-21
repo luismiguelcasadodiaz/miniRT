@@ -79,6 +79,7 @@ typedef struct s_img
 /* rd   : right down coordinate                                               */
 /* ************************************************************************** */
 typedef struct s_camer t_camer;
+typedef struct s_eleme t_eleme;
 
 typedef struct s_win
 {
