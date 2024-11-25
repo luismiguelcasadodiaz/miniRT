@@ -64,7 +64,8 @@ SRCS	=	ray_init.c \
       		ray_getters.c \
       		ray_setters.c \
 			ray_at.c \
-			ray_color.c
+			ray_color.c \
+			ray_shadow.c 
 
 # Generate a list of object files by replacing .c with .o
 #

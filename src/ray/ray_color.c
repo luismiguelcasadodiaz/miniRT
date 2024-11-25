@@ -50,10 +50,15 @@ int	ray_color(t_ray	*self, t_win *w)
 	{
 		normal = get_normal(data->ray, hitrecord_get_t(data->rec));
 		//normalized_color = col_new();
-		col_init_with_1(&normalized_color, vec3_get_x(&data->self->color->rgb), vec3_get_y(&data->self->color->rgb),vec3_get_z(&data->self->color->rgb));
+		col_init_with_1(&normalized_color, 
+			vec3_get_x(&data->self->color->rgb), 
+			vec3_get_y(&data->self->color->rgb),
+			vec3_get_z(&data->self->color->rgb));
 		// col_init_with_1(normalized_color, 0.5 * (1 + vec3_get_x(normal)),
 		// 	0.5 * (1 + vec3_get_y(normal)), 0.5 * (1 + vec3_get_z(normal)));
-		col_add(&normalized_color, data->self->color, w->ambient->ambient);	
+		ray_shadow(data, w);
+		col_add(&normalized_color, data->self->color, data->shadow);
+		col_add(&normalized_color, &normalized_color, w->ambient->ambient);
 		mlx_color = col_get_mlx_color(&normalized_color);
 		//mlx_color = col_get_mlx_color(data->rec->hit_obj->color);
 		vec3_free(normal);
