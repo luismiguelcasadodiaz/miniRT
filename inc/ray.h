@@ -21,6 +21,7 @@
 
 typedef struct s_eleme	t_eleme;
 typedef struct s_win t_win;
+typedef struct s_hit_args t_hit_args;
 
 typedef struct s_ray
 {

@@ -47,9 +47,6 @@ typedef struct s_hit_args
 	t_interval	*ran;
 	t_hitrecord	*rec;
 	t_color		*shadow_col;
-	t_ray		shadow_ray;
-	t_interval	shadow_ran;
-	t_hitrecord	shadow_rec;
 }	t_hit_args;
 
 //typedef bool				(*t_hitfp)(t_eleme *self, t_ray *r,

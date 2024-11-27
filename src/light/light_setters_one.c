@@ -15,10 +15,13 @@
 t_light	*light_set(t_vec3 *coor, double lbrig)
 {
 	t_light	*self;
+	t_color	rgb255;
 
+	col_init_with_255(&rgb255, 255, 255, 255);
 	self = light_new();
 	light_set_coord(self, coor);
 	light_set_lbrig(self, lbrig);
+	light_set_color(self, &rgb255);
 	self->next = NULL;
 	return (self);
 }

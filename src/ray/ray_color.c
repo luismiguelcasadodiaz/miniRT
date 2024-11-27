@@ -46,6 +46,7 @@ int	ray_color(t_ray	*self, t_win *w)
 	int_init(data->ran, 0, __DBL_MAX__);
 	data->self = w->eleme;
 	data->ray = self;
+	data->shadow_col = col_new();
 	if (eleme_hit(data))
 	{
 		normal = get_normal(data->ray, hitrecord_get_t(data->rec));
@@ -54,10 +55,10 @@ int	ray_color(t_ray	*self, t_win *w)
 			vec3_get_x(&data->self->color->rgb), 
 			vec3_get_y(&data->self->color->rgb),
 			vec3_get_z(&data->self->color->rgb));
-		// col_init_with_1(normalized_color, 0.5 * (1 + vec3_get_x(normal)),
-		// 	0.5 * (1 + vec3_get_y(normal)), 0.5 * (1 + vec3_get_z(normal)));
+		col_init_with_1(&normalized_color, 0.5 * (1 + vec3_get_x(normal)),
+			0.5 * (1 + vec3_get_y(normal)), 0.5 * (1 + vec3_get_z(normal)));
 		ray_shadow(data, w);
-		col_add(&normalized_color, data->self->color, data->shadow);
+		col_add(&normalized_color, &normalized_color, data->shadow_col);
 		col_add(&normalized_color, &normalized_color, w->ambient->ambient);
 		mlx_color = col_get_mlx_color(&normalized_color);
 		//mlx_color = col_get_mlx_color(data->rec->hit_obj->color);
@@ -69,6 +70,7 @@ int	ray_color(t_ray	*self, t_win *w)
 		mlx_color = col_lerp(&w->camera->color_start, &w->camera->color_end, self->dir);
 	hitrecord_free(data->rec);
 	int_free(data->ran);
+	col_free(data->shadow_col);
 	free(data);
 	return (mlx_color);
 }
