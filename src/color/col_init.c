@@ -24,10 +24,15 @@ static int	col_create_mlx_color_with_double(t_vec3 *the_rgb, double the_t)
 	int	b_int;
 	int	t_int;
 
-	r_int = (int)(254.999 * vec3_get_x(the_rgb));
-	g_int = (int)(254.999 * vec3_get_y(the_rgb));
-	b_int = (int)(254.999 * vec3_get_z(the_rgb));
-	t_int = (int)(254.999 * the_t);
+	// r_int = (int)(254.999 * vec3_get_x(the_rgb));
+	// g_int = (int)(254.999 * vec3_get_y(the_rgb));
+	// b_int = (int)(254.999 * vec3_get_z(the_rgb));
+	// t_int = (int)(254.999 * the_t);
+	r_int = (int)(255 * vec3_get_x(the_rgb));
+	g_int = (int)(255 * vec3_get_y(the_rgb));
+	b_int = (int)(255 * vec3_get_z(the_rgb));
+	t_int = (int)(255 * the_t);
+	
 	return (col_create_mlx_color_with_int(t_int, r_int, g_int, b_int));
 }
 
