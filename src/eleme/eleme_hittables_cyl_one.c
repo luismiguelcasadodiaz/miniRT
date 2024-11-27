@@ -31,7 +31,7 @@ static	double	get_t(t_hit_args *data, double denom, t_vec3fp vec3_func,
 	t_vec3		half_height;
 	double		t;
 
-	vec3_scale(&half_height, data->self->novec, data->self->d / 2.0);
+	vec3_scale(&half_height, data->self->novec, data->self->h / 2.0);
 	vec3_func(center, data->self->coor, &half_height);
 	t = (vec3_dot(data->self->novec, center)
 			- vec3_dot(data->self->novec, data->ray->orig));

@@ -23,6 +23,7 @@ void	eleme_set_novec(t_eleme *self, t_vec3 *novec)
 	double	n_dot_n;
 	t_vec3	*w;
 
+	vec3_unit_vector(novec, novec);
 	vec3_copy_values(self->novec, novec);
 	if (!vec3_iszero(novec))
 	{
