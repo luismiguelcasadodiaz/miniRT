@@ -13,7 +13,6 @@
 #include "chunk.h"
 #include "libft.h"
 
-
 void	error_more_than_one(char *object, char **errmsg)
 {
 	char	*aux;
@@ -22,4 +21,3 @@ void	error_more_than_one(char *object, char **errmsg)
 	*errmsg = ft_strjoin(aux, ". That does not follows the mandatory subject.");
 	free(aux);
 }
-

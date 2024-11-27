@@ -32,7 +32,8 @@ void	camer_calc_vp_ul(t_camer *w)
 	t_vec3	aux;
 
 	vec3_init_values(&aux, 0, 0, FOCAL_LENGTH);
-	vec3_init_values(&w->vp_ul, w->lookfrom.e[0], w->lookfrom.e[1], w->lookfrom.e[2]);
+	vec3_init_values(&w->vp_ul, w->lookfrom.e[0], w->lookfrom.e[1],
+		w->lookfrom.e[2]);
 	vec3_sub(&w->vp_ul, &w->vp_ul, &aux);
 	vec3_div(&aux, &w->vp_u, 2);
 	vec3_sub(&w->vp_ul, &w->vp_ul, &aux);
@@ -52,7 +53,6 @@ void	camer_calc_pix00(t_camer *w)
 
 void	camer_calc_background_colors(t_camer *self)
 {
-
 	col_init_with_1(&self->color_start, 1.0, 1.0, 1.0);
 	col_init_with_1(&self->color_end, 0.5, 0.7, 1.0);
 }

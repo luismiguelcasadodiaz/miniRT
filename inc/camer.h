@@ -76,13 +76,15 @@ void			camer_s_coord(t_camer *self, t_vec3 *coor);
 void			camer_s_novec(t_camer *self, t_vec3 *novec);
 void			camer_s_hfov(t_camer *self, double hfov);
 void			camer_s_vport(t_camer *self, double the_vp_h, t_point *size);
-
 //void			camer_set_isize(t_camer *self, double win_w, double asp_ratio);
+
+// camer_setters_two.c
 void			camer_s_cacen(t_camer *self);
 void			camer_s_vup(t_camer *self, double x, double y, double z);
 void			camer_s_aspect_ratio(t_camer *self, double dato);
 void			camer_s_image_width(t_camer *self, int dato);
 void			camer_s_samples_per_pixel(t_camer *self, int dato);
+// camer_setters_three.c
 void			camer_s_max_depth(t_camer *self, int dato);
 void			camer_s_vfov(t_camer *self, float hfov, t_point *size);
 //void			camer_s_defocus_angle(t_camer *self, double angle);

@@ -65,6 +65,8 @@ SRCS	=	camer_init.c \
 			camer_new.c \
       		camer_getters_one.c \
       		camer_setters_one.c \
+      		camer_setters_two.c \
+      		camer_setters_three.c \
 			camer_calculate_one.c \
 			camer_calculate_two.c \
 			camer_calculate_thr.c \

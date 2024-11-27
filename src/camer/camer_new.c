@@ -55,22 +55,5 @@ t_camer	*camer_new(void)
 	self = (t_camer *)malloc(sizeof(t_camer));
 	if (!self)
 		return (NULL);
-	/*
-	self->coor = vec3_new();
-	if (!self->coor)
-	{
-		free(self);
-		return (NULL);
-	}
-	try_alloc_novec(self);
-	if (!self)
-		return (NULL);
-	try_alloc_vport(self);
-	if (!self)
-		return (NULL);
-	try_alloc_cacen(self);
-	if (!self)
-		return (NULL);
-		*/
 	return (self);
 }

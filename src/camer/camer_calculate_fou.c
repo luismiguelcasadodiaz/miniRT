@@ -23,7 +23,8 @@ void	camer_calc_pixel_delta_v(t_camer *self)
 	vec3_div(&self->pd_v, &self->vp_v, self->image_height);
 }
 
-//viewport_upper_left = center - (focal_lenght * w) - viewport_u/2 - viewport_v/2;
+//viewport_upper_left = 
+//                 center - (focal_lenght * w) - viewport_u/2 - viewport_v/2;
 void	camer_calc_viewport_upper_left(t_camer *self)
 {
 	t_vec3	aux_u;

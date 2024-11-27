@@ -62,6 +62,7 @@ HEADS		=	-I$(INCDIR)
 HEADER	=	vec3.h
 SRCS	=	vec3_init.c \
       		vec3_module.c \
+			vec3_random.c \
       		vec3_setters.c \
       		vec3_getters.c \
       		vec3_addition.c \

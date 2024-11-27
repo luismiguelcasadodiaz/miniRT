@@ -13,14 +13,8 @@
 #include "camer.h"
 #include <stdio.h>
 
-void	camer_print(t_camer	*self)
+static void	print_help_one(t_camer	*self)
 {
-	printf("-------------------------------------------\n");
-	printf("id                       = CAMERA\n");
-	printf("coor                     = ");
-	vec3_print(&self->coor);
-	printf("novec                    = ");
-	vec3_print(&self->novec);
 	printf("Horizontal Field of view = %f\n", self->hfov);
 	printf("Vertical   Field of view = %f\n", self->vfov);
 	printf("Aspect ratio             = %f\n", self->aspect_ratio);
@@ -28,9 +22,6 @@ void	camer_print(t_camer	*self)
 	printf("Image heigth             = %d\n", self->image_height);
 	printf("samples per pixel        = %d\n", self->samples_per_pixel);
 	printf("Max depth                = %d\n", self->max_depth);
-	/*printf("Defocus angel            = %f\n", self->defocus_angle);
-	printf("Focus disctance          = %f\n", self->focus_dist);
-	printf("Defocus radius           = %f\n", self->defocus_radius);*/
 	printf("Pixel sample scales      = %f\n", self->pixel_samples_scale);
 	printf("Focal length             = %f\n", self->focal_lenght);
 	printf("theta                    = %f\n", self->theta);
@@ -45,8 +36,12 @@ void	camer_print(t_camer	*self)
 	vec3_print(&self->vup);
 	printf("Viewport                 = ");
 	point_print(&self->vport);
+}
+
+static void	print_help_two(t_camer	*self)
+{
 	printf("Center                   = ");
-	point_print(&self->center),
+	point_print(&self->center);
 	printf("pixel00                  = ");
 	point_print(&self->pixel00_loc);
 	printf("pd_x                     = ");
@@ -59,10 +54,6 @@ void	camer_print(t_camer	*self)
 	vec3_print(&self->v);
 	printf("w                        = ");
 	vec3_print(&self->w);
-	/*printf("defocus disk u           = ");
-	vec3_print(&self->defocus_disk_u);
-	printf("defocus disk u           = ");
-	vec3_print(&self->defocus_disk_v);*/
 	printf("vp_x                     = ");
 	vec3_print(&self->vp_u);
 	printf("vp_y                     = ");
@@ -74,3 +65,23 @@ void	camer_print(t_camer	*self)
 	printf("Color End                = ");
 	col_print(&self->color_end);
 }
+
+void	camer_print(t_camer	*self)
+{
+	printf("-------------------------------------------\n");
+	printf("id                       = CAMERA\n");
+	printf("coor                     = ");
+	vec3_print(&self->coor);
+	printf("novec                    = ");
+	vec3_print(&self->novec);
+	print_help_one(self);
+	print_help_two(self);
+}
+
+	/*printf("defocus disk u           = ");
+	vec3_print(&self->defocus_disk_u);
+	printf("defocus disk u           = ");
+	vec3_print(&self->defocus_disk_v);*/
+	/*printf("Defocus angel            = %f\n", self->defocus_angle);
+	printf("Focus disctance          = %f\n", self->focus_dist);
+	printf("Defocus radius           = %f\n", self->defocus_radius);*/
