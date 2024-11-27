@@ -16,3 +16,11 @@ Turner Whitted : [**An Improved illumination model for shaded display**](https:/
 |cross|110|109|109|109|97|
 
 According to this table of times in millisecond, array of doubles passed by referencia cd  float have a better performance.
+
+
+
+![Screenshot from 2024-11-21 20-31-08](https://github.com/user-attachments/assets/e7dd71f9-68cc-409b-80dc-2df4eb43a378)
+![Screenshot from 2024-11-21 20-45-43](https://github.com/user-attachments/assets/e95d39af-acd9-4221-abf0-22fb00936df7)
+
+
+
