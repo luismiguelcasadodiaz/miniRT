@@ -30,6 +30,6 @@ We tested it with nine images, changing ambient light intensity from 0.1 to 0.9 
 
 ![Screenshot from 2024-11-21 20-45-43](https://github.com/user-attachments/assets/dde7d562-05f3-4f3c-8ae0-9cf25a68f606)
 
-
+h
 
 
