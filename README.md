@@ -32,4 +32,4 @@ We tested it with nine images, changing ambient light intensity from 0.1 to 0.9 
 
 h
 
-
+q
