@@ -59,7 +59,7 @@ int	ray_color(t_ray	*self, t_win *w)
 			0.5 * (1 + vec3_get_y(normal)), 0.5 * (1 + vec3_get_z(normal)));
 		ray_shadow(data, w);
 		col_add(&normalized_color, &normalized_color, data->shadow_col);
-		col_add(&normalized_color, &normalized_color, w->ambient->ambient);
+		//col_add(&normalized_color, &normalized_color, w->ambient->ambient);
 		mlx_color = col_get_mlx_color(&normalized_color);
 		//mlx_color = col_get_mlx_color(data->rec->hit_obj->color);
 		vec3_free(normal);
@@ -67,7 +67,8 @@ int	ray_color(t_ray	*self, t_win *w)
 		//point_free(rec->p);
 	}
 	else
-		mlx_color = col_lerp(&w->camera->color_start, &w->camera->color_end, self->dir);
+		mlx_color = col_lerp(w, self->dir);
+		//mlx_color = col_lerp(&w->camera->color_start, &w->camera->color_end, self->dir);
 	hitrecord_free(data->rec);
 	int_free(data->ran);
 	col_free(data->shadow_col);
