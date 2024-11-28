@@ -20,9 +20,9 @@ According to this table of times in milliseconds, an array of doubles passed by 
 
 
 ## Ambient light
-An ambient light must influence the object's color.
+An ambient light **must NOT influence** the object's color.
 
-We tested it with nine images, changing ambient light intensity from 0.1 to 0.9 in 0.1 steps. First, we tested  with a plane. Second, we tested with a sphere
+In the first approach, We tested it with nine images, changing ambient light intensity from 0.1 to 0.9 in 0.1 steps. First, we tested  with a plane. Second, we tested with a sphere
 
 
 ![Screenshot from 2024-11-21 20-31-08](https://github.com/user-attachments/assets/c0787ff9-4004-4a14-a4cb-07822e26ee19)
@@ -30,6 +30,16 @@ We tested it with nine images, changing ambient light intensity from 0.1 to 0.9 
 
 ![Screenshot from 2024-11-21 20-45-43](https://github.com/user-attachments/assets/dde7d562-05f3-4f3c-8ae0-9cf25a68f606)
 
-h
 
-q
+However, the discussion with 42 peers showed our approach was wrong. We change it to impact only the background color.
+
+
+Starting with a black background color, increasing blue ambient light intensity produces this image.
+
+![Blue_ambient_light](https://github.com/user-attachments/assets/bb216abd-bbb3-4c7b-8593-22f24e8ab4e7)
+
+Testing with red ambient light, we got.
+
+![Red_ambient_light](https://github.com/user-attachments/assets/3bf48351-2d54-4f55-a90e-a86467299ed8)
+
+
