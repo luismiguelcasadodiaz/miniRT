@@ -36,18 +36,28 @@
 # ./miniRT scenes/red_pl_blue_ambient_08.rt &
 # ./miniRT scenes/red_pl_blue_ambient_09.rt &
 
-# ./miniRT scenes/green_sp_blue_ambien_01.rt &
-# ./miniRT scenes/green_sp_blue_ambien_02.rt &
-# ./miniRT scenes/green_sp_blue_ambien_03.rt &
-# ./miniRT scenes/green_sp_blue_ambien_04.rt &
-# ./miniRT scenes/green_sp_blue_ambien_05.rt &
-# ./miniRT scenes/green_sp_blue_ambien_06.rt &
-# ./miniRT scenes/green_sp_blue_ambien_07.rt &
-# ./miniRT scenes/green_sp_blue_ambien_08.rt &
-# ./miniRT scenes/green_sp_blue_ambien_09.rt &
+./miniRT scenes/green_sp_blue_ambien_01.rt &
+./miniRT scenes/green_sp_blue_ambien_02.rt &
+./miniRT scenes/green_sp_blue_ambien_03.rt &
+./miniRT scenes/green_sp_blue_ambien_04.rt &
+./miniRT scenes/green_sp_blue_ambien_05.rt &
+./miniRT scenes/green_sp_blue_ambien_06.rt &
+./miniRT scenes/green_sp_blue_ambien_07.rt &
+./miniRT scenes/green_sp_blue_ambien_08.rt &
+./miniRT scenes/green_sp_blue_ambien_09.rt &
 
-./miniRT scenes/only_spheres_amb_white_01.rt &
-./miniRT scenes/only_spheres_amb_white_03.rt &
-./miniRT scenes/only_spheres_amb_white_05.rt &
-./miniRT scenes/only_spheres_amb_white_07.rt &
-./miniRT scenes/only_spheres_amb_white_09.rt &
+./miniRT scenes/green_sp_red_ambien_01.rt &
+./miniRT scenes/green_sp_red_ambien_02.rt &
+./miniRT scenes/green_sp_red_ambien_03.rt &
+./miniRT scenes/green_sp_red_ambien_04.rt &
+./miniRT scenes/green_sp_red_ambien_05.rt &
+./miniRT scenes/green_sp_red_ambien_06.rt &
+./miniRT scenes/green_sp_red_ambien_07.rt &
+./miniRT scenes/green_sp_red_ambien_08.rt &
+./miniRT scenes/green_sp_red_ambien_09.rt &
+
+# ./miniRT scenes/only_spheres_amb_white_01.rt &
+# ./miniRT scenes/only_spheres_amb_white_03.rt &
+# ./miniRT scenes/only_spheres_amb_white_05.rt &
+# ./miniRT scenes/only_spheres_amb_white_07.rt &
+# ./miniRT scenes/only_spheres_amb_white_09.rt &
