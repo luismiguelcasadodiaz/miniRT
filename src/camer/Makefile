@@ -48,7 +48,7 @@ vpath %.a $(LIBDIR)
 #                               COMPILER SETUP                                 #
 # ============================================================================ #
 CC		=	cc
-CFLAGS		=  -g -Wall -Wextra -Werror ##-fsanitize=address -fno-omit-frame-pointer
+CFLAGS		=  -g -Wall -Wextra -Werror #-fsanitize=address -fno-omit-frame-pointer
 HEADS		=	-I$(INCDIR)
 # From 4.4.3 The Function wildcard gnu make manual....
 # Althought wildcard exparnds automaticaly in rules
@@ -65,7 +65,13 @@ SRCS	=	camer_init.c \
 			camer_new.c \
       		camer_getters_one.c \
       		camer_setters_one.c \
-			camer_calculate_vp_ul.c \
+      		camer_setters_two.c \
+      		camer_setters_three.c \
+			camer_calculate_one.c \
+			camer_calculate_two.c \
+			camer_calculate_thr.c \
+			camer_calculate_fou.c \
+			camer_calculate_fiv.c \
 			camer_print.c
 
 # Generate a list of object files by replacing .c with .o

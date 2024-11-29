@@ -12,13 +12,13 @@
 
 #include "eleme.h"
 
-t_eleme	*eleme_new_amb(double lambi, t_color *rgb255)
+t_eleme	*eleme_new_amb(double ambil, t_color *rgb255)
 {
 	t_eleme	*self;
 
 	self = eleme_new();
 	eleme_set_ident(self, AMBIENT);
-	eleme_set_lambi(self, lambi);
+	eleme_set_lambi(self, ambil);
 	eleme_set_color(self, rgb255);
 	return (self);
 }

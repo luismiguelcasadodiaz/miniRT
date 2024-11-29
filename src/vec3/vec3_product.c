@@ -20,7 +20,8 @@ void	vec3_mul(t_vec3 *result, const t_vec3 *u, double t)
 
 void	vec3_div(t_vec3 *result, const t_vec3 *v, double t)
 {
-	vec3_scale(result, v, 1.0 / t);
+	if (t != 0.0)
+		vec3_scale(result, v, 1.0 / t);
 }
 
 void	vec3_scale(t_vec3 *result, const t_vec3 *v, double t)

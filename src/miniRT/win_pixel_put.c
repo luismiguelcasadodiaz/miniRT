@@ -21,5 +21,5 @@ void	win_pixel_put(t_win w, int x, int y, int color)
 	offset_y = y * w.img.line_length;
 	offset_x = x * (w.img.bits_per_pixel / 8);
 	dst = w.img.addr + offset_y + offset_x;
-	*(unsigned int *)dst = color;
+	*(unsigned int *)dst = (unsigned int)color;
 }

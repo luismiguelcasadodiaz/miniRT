@@ -19,6 +19,8 @@ typedef struct s_ambil
 {
 	t_color			*color;
 	double			lambi;
+	t_color			*ambient;
+
 }	t_ambil;
 
 // ambil_init.c
@@ -26,12 +28,15 @@ t_ambil			*ambil_new(void);
 t_ambil			*ambil_set(double lambi, t_color *rgb_255);
 void			ambil_init(t_ambil *self);
 void			ambil_free(t_ambil *self);
+
 // ambil_setters_one.c
 void			ambil_set_color(t_ambil *self, t_color *color);
 void			ambil_set_lambi(t_ambil *self, double lambi);
+void			ambil_set_ambient(t_ambil *self);
 // ambil_getters_one.c
 t_color			*ambil_get_color(t_ambil *self);
 double			ambil_get_lambi(t_ambil *self);
+t_color			*ambil_get_ambient(t_ambil *self);
 
 // ambil_show.c
 void			ambil_print(t_ambil *self);

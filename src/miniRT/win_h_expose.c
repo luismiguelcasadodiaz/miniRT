@@ -16,6 +16,7 @@
 
 int	win_h_expose(t_win *w)
 {
+	show_data(*w);
 	draw_fractal(*w);
 	return (0);
 }

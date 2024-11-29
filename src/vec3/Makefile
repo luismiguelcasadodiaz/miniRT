@@ -48,7 +48,7 @@ vpath %.a $(LIBDIR)
 #                               COMPILER SETUP                                 #
 # ============================================================================ #
 CC		=	cc
-CFLAGS		=  -g -Wall -Wextra -Werror ##-fsanitize=address -fno-omit-frame-pointer
+CFLAGS		=  -g -Wall -Wextra -Werror #-fsanitize=address -fno-omit-frame-pointer
 HEADS		=	-I$(INCDIR)
 # From 4.4.3 The Function wildcard gnu make manual....
 # Althought wildcard exparnds automaticaly in rules
@@ -62,6 +62,7 @@ HEADS		=	-I$(INCDIR)
 HEADER	=	vec3.h
 SRCS	=	vec3_init.c \
       		vec3_module.c \
+			vec3_random.c \
       		vec3_setters.c \
       		vec3_getters.c \
       		vec3_addition.c \

@@ -15,10 +15,28 @@
 
 void	light_print(t_light	*self)
 {
-	printf("id                       = LIGHT\n");
-	printf("coor                     = ");
-	vec3_print(self->coor);
-	printf("color                    = ");
-	col_print(self->color);
-	printf("light brightness         = %f\n", self->lbrig);
+	while (self != NULL)
+	{
+		printf("-------------------------------------------\n");
+		printf("id                       = LIGHT\n");
+		printf("coor                     = ");
+		vec3_print(self->coor);
+		printf("color                    = ");
+		col_print(self->color);
+		printf("light brightness         = %f\n", self->lbrig);
+		if (self->next != NULL)
+			light_print(self->next);
+		break ;
+	}
+}
+
+void	light_add(t_light **self, t_light *new)
+{
+	if (*self == NULL)
+		*self = new;
+	else
+	{
+		new->next = *self;
+		*self = new;
+	}
 }

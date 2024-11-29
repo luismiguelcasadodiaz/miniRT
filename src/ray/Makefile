@@ -48,7 +48,7 @@ vpath %.a $(LIBDIR)
 #                               COMPILER SETUP                                 #
 # ============================================================================ #
 CC		=	cc
-CFLAGS		=  -g -Wall -Wextra -Werror ##-fsanitize=address -fno-omit-frame-pointer
+CFLAGS		=  -g -Wall -Wextra -Werror #-fsanitize=address -fno-omit-frame-pointer
 HEADS		=	-I$(INCDIR)
 # From 4.4.3 The Function wildcard gnu make manual....
 # Althought wildcard exparnds automaticaly in rules
@@ -64,7 +64,8 @@ SRCS	=	ray_init.c \
       		ray_getters.c \
       		ray_setters.c \
 			ray_at.c \
-			ray_color.c
+			ray_color.c \
+			ray_shadow.c 
 
 # Generate a list of object files by replacing .c with .o
 #

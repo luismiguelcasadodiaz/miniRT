@@ -15,12 +15,20 @@ Turner Whitted : [**An Improved illumination model for shaded display**](https:/
 |dots | 39|39|38|38|36|
 |cross|110|109|109|109|97|
 
-According to this table of times in millisecond, array of doubles passed by referencia cd  float have a better performance.
+
+According to this table of times in milliseconds, an array of doubles passed by reference cd  float performs better.
 
 
 
-![Screenshot from 2024-11-21 20-31-08](https://github.com/user-attachments/assets/e7dd71f9-68cc-409b-80dc-2df4eb43a378)
-![Screenshot from 2024-11-21 20-45-43](https://github.com/user-attachments/assets/e95d39af-acd9-4221-abf0-22fb00936df7)
+## Ambient light
+An ambient light must influence the object's color.
 
+We tested it with nine images, changing ambient light intensity from 0.1 to 0.9 in 0.1 steps. First, we tested  with a plane. Second, we tested with a sphere
+
+
+![Screenshot from 2024-11-21 20-31-08](https://github.com/user-attachments/assets/c0787ff9-4004-4a14-a4cb-07822e26ee19)
+
+
+![Screenshot from 2024-11-21 20-45-43](https://github.com/user-attachments/assets/dde7d562-05f3-4f3c-8ae0-9cf25a68f606)
 
 

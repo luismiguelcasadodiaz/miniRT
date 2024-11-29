@@ -18,13 +18,7 @@ t_color	*col_new(void)
 	self = (t_color *)malloc(sizeof(t_color));
 	if (!self)
 		return (NULL);
-	self->rgb = vec3_new();
-	if (!self->rgb)
-	{
-		free(self);
-		return (NULL);
-	}
-	vec3_init(self->rgb);
+	vec3_init(&self->rgb);
 	self->t = 0;
 	col_init_with_1(self, 0.0, 0.0, 0.0);
 	return (self);
@@ -32,6 +26,13 @@ t_color	*col_new(void)
 
 void	col_free(t_color *self)
 {
-	vec3_free(self->rgb);
 	free(self);
 }
+	/*self->rgb = vec3_new();
+	if (!self->rgb)
+	{
+		free(self);
+		return (NULL);
+	}*/
+
+	//vec3_free(self->rgb);

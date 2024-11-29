@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 12:46:50 by luicasad          #+#    #+#             */
-/*   Updated: 2024/10/03 20:19:18 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/10/29 21:50:23 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "miniRT.h"
@@ -34,38 +34,24 @@
 
 static void	win_calculate_ray_dir(t_win *w, int x, int y)
 {
-	t_vec3	*aux;
+	t_vec3	aux;
 
-	aux = vec3_new();
-	vec3_mul(aux, w->camera->pd_x, x);
-	vec3_copy_values(w->ray_direction, w->camera->pixel00);
-	vec3_add(w->ray_direction, w->ray_direction, aux);
-	vec3_mul(aux, w->camera->pd_y, y);
-	vec3_add(w->ray_direction, w->ray_direction, aux);
-	vec3_init_values(aux, w->camera->cacen->e[0],
-		w->camera->cacen->e[1], w->camera->cacen->e[2]);
-	vec3_sub(w->ray_direction, w->ray_direction, aux);
-	vec3_free(aux);
+	vec3_mul(&aux, &w->camera->pd_u, x);
+	vec3_copy_values(w->ray_direction, &w->camera->pixel00_loc);
+	vec3_add(w->ray_direction, w->ray_direction, &aux);
+	vec3_mul(&aux, &w->camera->pd_v, y);
+	vec3_add(w->ray_direction, w->ray_direction, &aux);
+	vec3_init_values(&aux, w->camera->lookfrom.e[0],
+		w->camera->lookfrom.e[1], w->camera->lookfrom.e[2]);
+	vec3_sub(w->ray_direction, w->ray_direction, &aux);
+	//vec3_sub(w->ray_direction, &aux, w->ray_direction);
 }
-
+/*
 static void	world_destroy(t_win *w)
 {
 	eleme_free(w->eleme);
 }
-
-static void	world_create(t_win *w)
-{
-	t_vec3	center;
-	t_color	*rgb255;
-
-	rgb255 = col_new();
-	vec3_init_values(&center, 0, 0, -1);
-	col_init_with_255(rgb255, 255, 0, 0);
-	w->eleme = eleme_new_sph(&center, 0.5, rgb255);
-	eleme_print(w->eleme);
-	col_free(rgb255);
-}
-
+*/
 void	draw_image4(t_win *w)
 {
 	int			wx0;
@@ -73,18 +59,16 @@ void	draw_image4(t_win *w)
 	int			mlx_color;
 	t_ray		*r;
 
-	world_create(w);
 	r = ray_new();
-	wy0 = w->lu->e[1];
+	wy0 = (int)w->lu->e[1];
 	while (wy0 <= w->rd->e[1])
 	{
-		wx0 = w->lu->e[0];
+		wx0 = (int)w->lu->e[0];
 		while (wx0 <= w->rd->e[0])
 		{
 			win_calculate_ray_dir(w, wx0, wy0);
-			ray_init(r, w->camera->cacen, w->ray_direction);
-			mlx_color = ray_color(r, *w->camera->color_start,
-					*w->camera->color_end, w->eleme);
+			ray_init(r, &w->camera->lookfrom, w->ray_direction);
+			mlx_color = ray_color(r, w);
 			win_pixel_put(*w, wx0, wy0, mlx_color);
 			wx0++;
 		}
@@ -92,5 +76,5 @@ void	draw_image4(t_win *w)
 	}
 	mlx_put_image_to_window(w->mlx_ptr, w->win_ptr, w->img.img_ptr, 0, 0);
 	ray_free(r);
-	world_destroy(w);
+	//world_destroy(w);
 }

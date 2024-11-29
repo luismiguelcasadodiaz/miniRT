@@ -6,13 +6,15 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 10:28:52 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/16 15:52:55 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/10/30 23:37:27 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx.h"
 #include <stdlib.h>
+#include <stdio.h>
 #include "miniRT.h"
+#include "chunk.h"
 
 /* ************************************************************************** */
 /**
@@ -39,13 +41,26 @@
 int	main(int argc, char **argv)
 {
 	t_win	w;
+	char	*errmsg;
 
+	errmsg = NULL;
 	if (argc != 2)
 	{
 		show_usage();
 		return (0);
 	}
 	w = win_init(argv[1]);
+	chunk_read(argv[1], &errmsg, &w);
+	if (errmsg)
+	{
+		win_free(w);
+		printf("Error\n%s\n", errmsg);
+		exit (1);
+	}
+	eleme_print(w.eleme);
+	camer_print(w.camera);
+	ambil_print(w.ambient);
+	light_print(w.light);
 	mlx_hook(w.win_ptr, ON_KEYDOWN, (1L << 0), &win_h_key_down, &w);
 	mlx_hook(w.win_ptr, ON_KEYUP, 0L, &win_h_key_up, &w);
 	mlx_hook(w.win_ptr, ON_EXPOSE, 0L, &win_h_expose, &w);

@@ -26,3 +26,13 @@ void	eleme_set_heigh(t_eleme *self, double h)
 {
 	self->h = h;
 }
+
+void	eleme_set_hit(t_eleme *self, t_hitfp func)
+{
+	*self->hit = *func;
+}
+
+void	eleme_set_w(t_eleme *self, t_vec3 *w)
+{
+	vec3_copy_values(self->w, w);
+}

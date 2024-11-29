@@ -6,13 +6,15 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 01:03:05 by luicasad          #+#    #+#             */
-/*   Updated: 2024/05/02 11:35:00 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/11/13 18:40:24 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stdlib.h>
 # include <errno.h>
+
+typedef struct s_chunk	t_chunk;
 
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
@@ -39,12 +41,14 @@ char	*ft_strrchr(const char *s, int c);
 char	*ft_strtrim(char const *s, char const *set);
 int		ft_atoi(const char *nptr);
 long	ft_atol(const char *nptr);
+float	ft_atof(const char *nptr);
 void	*ft_calloc(size_t nmemb, size_t size);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 char	*ft_strtoupper(char *str);
 char	**ft_split(char const *s, char c);
 char	**ft_split_pipex(char const *s, char c);
+void	ft_split_minrt(char const *s, char c, t_chunk *chunks);
 char	**allocate(size_t rows);
 char	**de_allocate(char **table, size_t allocated_rows);
 char	*ft_itoa(int n);
@@ -71,4 +75,5 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+float	ft_rand(float min, float max);
 #endif /* LIBFT_H */

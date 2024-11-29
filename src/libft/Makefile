@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2024/09/12 13:30:02 by luicasad         ###   ########.fr        #
+#    Updated: 2024/10/31 19:05:01 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #MAKEFLAGS += rR
@@ -48,7 +48,7 @@ vpath %.a $(LIBDIR)
 #                               COMPILER SETUP                                 #
 # ============================================================================ #
 CC		=	cc
-CFLAGS		=  -g -Wall -Wextra -Werror ##-fsanitize=address -fno-omit-frame-pointer
+CFLAGS		=  -g -Wall -Wextra -Werror #-fsanitize=address -fno-omit-frame-pointer
 HEADS		=	-I$(INCDIR)
 # From 4.4.3 The Function wildcard gnu make manual....
 # Althought wildcard exparnds automaticaly in rules
@@ -81,6 +81,7 @@ SRCS	=	ft_isalnum.c \
       	ft_strtoupper.c \
 		ft_atoi.c \
 		ft_atol.c \
+		ft_atof.c \
       	ft_strtrim.c \
       	ft_strncmp.c \
       	ft_calloc.c \
@@ -92,6 +93,7 @@ SRCS	=	ft_isalnum.c \
 		ft_split_mem.c \
       	ft_split.c \
 		ft_split_pipex.c \
+		ft_split_minrt.c \
       	ft_itoa.c \
       	ft_putchar_fd.c \
       	ft_putbits_fd.c \
@@ -110,7 +112,8 @@ SRCS	=	ft_isalnum.c \
 		ft_lstclear_bonus.c \
 		ft_lstiter_bonus.c \
 		ft_msb.c \
-		ft_bit.c
+		ft_bit.c \
+		ft_rand.c
 
 # Generate a list of object files by replacing .c with .o
 #

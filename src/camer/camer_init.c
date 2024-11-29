@@ -22,19 +22,52 @@
 }
 */
 
-t_camer	*camer_set(t_vec3 *coor, t_vec3 *novec, double fview, t_point *size)
+void	camer_set_help(t_camer	*self)
+{
+	camer_calc_viewport_height(self);
+	camer_calc_vierport_width(self);
+	camer_calc_w(self);
+	camer_calc_u(self);
+	camer_calc_v(self);
+	camer_calc_viewport_u(self);
+	camer_calc_viewport_v(self);
+	camer_calc_pixel_delta_u(self);
+	camer_calc_pixel_delta_v(self);
+	camer_calc_viewport_upper_left(self);
+	camer_calc_pixel00_loc(self);
+	camer_calc_background_colors(self);
+}
+
+t_camer	*camer_set(t_vec3 *coor, t_vec3 *novec, double fview, t_win *w)
 {
 	t_camer	*self;
 
 	self = camer_new();
-	camer_set_coord(self, coor);
-	camer_set_novec(self, novec);
-	camer_set_fview(self, fview);
-	camer_set_vport(self, VIEW_PORT_H, size);
-	camer_set_cacen(self);
-	camer_calculate_vp_and_pd(self, size);
-	camer_calculate_vp_ul(self);
-	camer_calculate_pix00(self);
-	camer_calculate_background_colors(self);
+	camer_s_coord(self, coor);
+	camer_s_novec(self, novec);
+	camer_s_hfov(self, fview);
+	camer_s_aspect_ratio(self, ASPECT_RATIO_W / ASPECT_RATIO_H);
+	camer_s_image_width(self, WINDOW_W);
+	camer_calc_image_height(self);
+	camer_s_samples_per_pixel(self, 10);
+	camer_s_max_depth(self, 10);
+	camer_s_vfov(self, self->hfov, w->size);
+	camer_calc_pixel_samples_scale(self);
+	camer_s_cacen(self);
+	camer_s_vup(self, 0, 1, 0);
+	camer_s_focal_length(self, 1);
+	camer_calc_theta(self);
+	camer_calc_h(self);
+	camer_set_help(self);
 	return (self);
 }
+
+	// camer_calc_defocus_radius(self);
+	// camer_calc_defocus_disk_u(self);
+	// camer_calc_defocus_disk_v(self);
+	// camer_s_defocus_angle(self, 0);
+	// camer_s_focus_dist(self, 10);
+	//camer_s_vport(self, VIEW_PORT_H, w->size);
+	//camer_calc_vp_and_pd(self, w->size);
+	//camer_calc_vp_ul(self);
+	//camer_calc_pix00(self);

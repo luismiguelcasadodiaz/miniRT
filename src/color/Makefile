@@ -48,7 +48,7 @@ vpath %.a $(LIBDIR)
 #                               COMPILER SETUP                                 #
 # ============================================================================ #
 CC		=	cc
-CFLAGS		=  -g -Wall -Wextra -Werror ##-fsanitize=address -fno-omit-frame-pointer
+CFLAGS		=  -g -Wall -Wextra -Werror #-fsanitize=address -fno-omit-frame-pointer
 HEADS		=	-I$(INCDIR)
 # From 4.4.3 The Function wildcard gnu make manual....
 # Althought wildcard exparnds automaticaly in rules
@@ -68,7 +68,9 @@ SRCS	=	col_create.c \
       		col_setters255.c \
       		col_setters1.c \
 			col_print.c \
-			col_copy_values.c
+			col_copy_values.c \
+			col_in_range.c \
+			col_math.c
 
 # Generate a list of object files by replacing .c with .o
 #

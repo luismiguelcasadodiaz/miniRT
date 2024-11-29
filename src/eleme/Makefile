@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2024/10/01 19:16:13 by luicasad         ###   ########.fr        #
+#    Updated: 2024/10/22 01:07:25 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #MAKEFLAGS += rR
@@ -48,7 +48,7 @@ vpath %.a $(LIBDIR)
 #                               COMPILER SETUP                                 #
 # ============================================================================ #
 CC		=	cc
-CFLAGS		=  -g -Wall -Wextra -Werror ##-fsanitize=address -fno-omit-frame-pointer
+CFLAGS		=  -g -Wall -Wextra -Werror #-fsanitize=address -fno-omit-frame-pointer
 HEADS		=	-I$(INCDIR)
 # From 4.4.3 The Function wildcard gnu make manual....
 # Althought wildcard exparnds automaticaly in rules
@@ -60,12 +60,18 @@ HEADS		=	-I$(INCDIR)
 # So I must explicitly enumerate files for the project.
 
 HEADER	=	eleme.h
-SRCS	=	eleme_init.c \
+SRCS	=	eleme_new.c \
+			eleme_init.c \
+			eleme_hit.c \
       		eleme_getters_one.c \
       		eleme_getters_two.c \
       		eleme_setters_one.c \
       		eleme_setters_two.c \
-			eleme_hitables.c \
+			eleme_hittables_sph.c \
+			eleme_hittables_pln.c \
+			eleme_hittables_cyl_one.c \
+			eleme_hittables_cyl_two.c \
+			eleme_new_object.c \
 			eleme_print.c
 
 # Generate a list of object files by replacing .c with .o

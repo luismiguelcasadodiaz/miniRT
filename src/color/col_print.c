@@ -15,7 +15,7 @@
 
 void	col_print(t_color *self)
 {
-	vec3_print(self->rgb);
-	printf(" mlx_color = %d ", self->mlx_color);
-	printf("transparency = %d ", self->t);
+	printf(" mlx_color = %9d ", self->mlx_color);
+	printf("transparency = %3d rgb =", self->t);
+	vec3_print(&self->rgb);
 }

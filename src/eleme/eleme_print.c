@@ -6,7 +6,7 @@
 /*   By: luicasad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 17:32:35 by luicasad          #+#    #+#             */
-/*   Updated: 2024/10/01 19:15:22 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/10/22 23:32:36 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,27 @@ static char	*translate_e_eleme(enum e_eleme id)
 
 void	eleme_print(t_eleme	*self)
 {
-	printf("id                       = %s\n", translate_e_eleme(self->id));
-	printf("coor                     = ");
-	vec3_print(self->coor);
-	printf("novec                    = ");
-	vec3_print(self->novec);
-	printf("color                    = ");
-	col_print(self->color);
-	printf("diameter                 = %f\n", self->d);
-	printf("height                   = %f\n", self->h);
+	while (self != NULL)
+	{
+		printf("-------------------------------------------\n");
+		printf("id                       = %s\n", translate_e_eleme(self->id));
+		printf("coor                     = ");
+		vec3_print(self->coor);
+		printf("novec                    = ");
+		vec3_print(self->novec);
+		printf("u                        = ");
+		if (self->u != NULL)
+			vec3_print(self->u);
+		printf("v                        = ");
+		if (self->v != NULL)
+			vec3_print(self->v);
+		printf("color                    = ");
+		col_print(self->color);
+		printf("diameter                 = %f\n", self->d);
+		printf("height                   = %f\n", self->h);
+		printf("hit function             = %pF\n", self->hit);
+		if (self->next != NULL)
+			eleme_print(self->next);
+		break ;
+	}
 }

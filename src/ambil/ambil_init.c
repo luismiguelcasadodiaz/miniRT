@@ -25,6 +25,13 @@ t_ambil	*ambil_new(void)
 		free(self);
 		self = NULL;
 	}
+	self->ambient = col_new();
+	if (!self->ambient)
+	{
+		col_free(self->color);
+		free(self);
+		self = NULL;
+	}
 	return (self);
 }
 
@@ -32,6 +39,8 @@ void	ambil_free(t_ambil *self)
 {
 	if (self->color)
 		col_free(self->color);
+	if (self->ambient)
+		col_free(self->ambient);
 	free(self);
 }
 
@@ -48,5 +57,6 @@ t_ambil	*ambil_set(double lambi, t_color *rgb255)
 	self = ambil_new();
 	ambil_set_lambi(self, lambi);
 	ambil_set_color(self, rgb255);
+	ambil_set_ambient(self);
 	return (self);
 }
