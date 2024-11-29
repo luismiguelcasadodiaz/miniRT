@@ -15,6 +15,7 @@ Turner Whitted : [**An Improved illumination model for shaded display**](https:/
 |dots | 39|39|38|38|36|
 |cross|110|109|109|109|97|
 
+
 According to this table of times in milliseconds, an array of doubles passed by reference cd  float performs better.
 
 
@@ -30,6 +31,4 @@ We tested it with nine images, changing ambient light intensity from 0.1 to 0.9 
 
 ![Screenshot from 2024-11-21 20-45-43](https://github.com/user-attachments/assets/dde7d562-05f3-4f3c-8ae0-9cf25a68f606)
 
-h
 
-q
