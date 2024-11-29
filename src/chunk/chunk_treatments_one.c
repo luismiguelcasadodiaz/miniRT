@@ -54,7 +54,7 @@ void	treat_amb(t_eleme_chunks *chunks, char **errmsg, t_win *w)
 		error_bad_number_argumen(&(chunks->line), errmsg);
 	else
 	{
-		ft_split_minrt(chunks->line.param[A_COLO], ',', &(chunks->color));
+		ft_split_minrt(chunks->line.param[A_COLO], ",", &(chunks->color));
 		if (chunks->color.num != 3)
 			error_bad_color_num_argu(&(chunks->color), errmsg);
 		else
@@ -72,8 +72,8 @@ void	treat_cam(t_eleme_chunks *chunks, char **errmsg, t_win *w)
 		error_bad_number_argumen(&(chunks->line), errmsg);
 	else
 	{
-		ft_split_minrt(chunks->line.param[C_COOR], ',', &(chunks->coor));
-		ft_split_minrt(chunks->line.param[C_NOVE], ',', &(chunks->novec));
+		ft_split_minrt(chunks->line.param[C_COOR], ",", &(chunks->coor));
+		ft_split_minrt(chunks->line.param[C_NOVE], ",", &(chunks->novec));
 		if (chunks->coor.num != 3)
 			error_bad_point_num_argu(&(chunks->coor), errmsg);
 		else if (chunks->novec.num != 3)
@@ -95,7 +95,7 @@ void	treat_lig(t_eleme_chunks *chunks, char **errmsg, t_win *w)
 		error_bad_number_argumen(&(chunks->line), errmsg);
 	else
 	{
-		ft_split_minrt(chunks->line.param[L_COOR], ',', &(chunks->coor));
+		ft_split_minrt(chunks->line.param[L_COOR], ",", &(chunks->coor));
 		if (chunks->coor.num != 3)
 			error_bad_point_num_argu(&(chunks->coor), errmsg);
 		else

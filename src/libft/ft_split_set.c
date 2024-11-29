@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split_minrt.c                                   :+:      :+:    :+:   */
+/*   ft_split_set.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luicasad <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 18:30:53 by luicasad          #+#    #+#             */
-/*   Updated: 2024/11/13 16:58:09 by luicasad         ###   ########.fr       */
+/*   Created: 2024/11/29 18:32:52 by luicasad          #+#    #+#             */
+/*   Updated: 2024/11/29 18:49:32 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
-#include "chunk.h"
 
 static int	char_in_set(char c, char *set)
 {
@@ -22,8 +22,10 @@ static int	char_in_set(char c, char *set)
 	}
 	return (0);
 }
+
 /* ************************************************************************** */
-/* word_count(), counts chunks of chars in 's' between a separation char 'c'. */
+/* word_count(), counts chunks of chars in 's' between a separation char      */
+/* found in a set of char 'set'                                               */
 /*                                                                            */
 /* GETS                                                                       */
 /*  s : the string to find the chunks in.                                     */
@@ -168,24 +170,17 @@ static char	**split(char const *s, char *set, char **result)
 /* With this in main is not necessary propagate to the called functions the   */
 /* table size. that helps me to nest wordcount call inside allocate function. */
 /*                                                                            */
-void	ft_split_minrt(char const *s, char *set, t_chunk *chunks)
+char	**ft_split_set(char const *s, char *set)
 {
+	char	**result;
+
 	if ((!s && !set) || (!s && set))
-	{
-		chunks->num = 0;
-		chunks->param = NULL;
-	}
-	else
-	{
-		chunks->num = word_count(s, set);
-		chunks->param = allocate(chunks->num);
-		if (chunks->param == NULL)
-			chunks->num = 0;
-		else
-		{
-			chunks->param = split(s, set, chunks->param);
-			if (chunks->param == NULL)
-				chunks->num = 0;
-		}
-	}
+		return (NULL);
+	result = allocate(word_count(s, set));
+	if (result == NULL)
+		return (NULL);
+	result = split(s, set, result);
+	if (result == NULL)
+		return (NULL);
+	return (result);
 }
