@@ -200,7 +200,7 @@ LLIBS 			+= -l$(LOADLIBVEC3)
 LLIBS 			+= -l$(LOADLIBGETNL)
 LLIBS 			+= -l$(LOADLIBFT)
 LLIBS 			+= -L$(LIBSYS) $(LOADLIBSYS) 
-LLIBS			+= -L$(LIBDIR) -l$(LOADLIBMLIBX)
+#LLIBS			+= -L$(LIBDIR) -l$(LOADLIBMLIBX)
 
 #LLIBS	+= -L/usr/include/../lib -lXext -lX11 -lm -lbsd
 
@@ -387,7 +387,8 @@ makelibinterval:
     rm -f $@.$$$$
 
 # .......................... targets construction ............................ #
-$(MINRT): Makefile  $(OBJS_MINRT) -l$(LOADLIBMLIBX) 
+$(MINRT): Makefile  $(OBJS_MINRT) $(NAMELIBMLIBX) -l$(LOADLIBMLIBX) 
+	cp $(SRCDIR_MLIBX)$(NAMELIBMLIBX) $(LIBDIR)
 	@echo "$(GREEN)========== GATHERING MINIRT OBJECTS =============$(DEF_COLOR)"
 	$(CC) $(LFLGS) $(OBJS_MINRT) -o $@ $(LLIBS) $(FRAMEWORKS)
 
@@ -422,11 +423,21 @@ $(NAME): $(OBJ)
 show:
 	@printf "UNAME		: $(UNAME)\n"
 	@printf "NAME  		: $(NAME)\n"
-	@printf "CC		: $(CC)\n"
-	@printf "CFLAGS		: $(CFLAGS)\n"
-	@printf "LFLAGS		: $(LFLAGS)\n"
-	@printf "SRC		:\n	$(SRC)\n"
-	@printf "OBJ		:\n	$(OBJ)\n"
+	@printf "CC    		: $(CC)\n"
+	@printf "CFLAGS		: $(CFLGS)\n"
+	@printf "LFLAGS		: $(LFLGS)\n"
+	@printf "WFLAGS		: $(WRNFL)\n"
+	@printf "SRC		: $(SRC)\n"
+	@printf "OBJ		: $(OBJ)\n"
+	@printf "MINRT		: $(MINRT)\n"
+	@printf "BONUS		: $(BONUS)\n"
+	@printf "TESTS		: $(TESTS)\n"
+	@printf "OBJDIR		: $(OBJDIR)\n"
+	@printf "INCDIR		: $(INCDIR)\n"
+	@printf "LIBDIR		: $(LIBDIR)\n"
+	@printf "LIBSYS		: $(LIBSYS)\n"
+	@printf "OBJS_MINRT : $(OBJS_MINRT)\n"
+
 
 clean:
 	rm -f $(NAME) $(OBJ)
