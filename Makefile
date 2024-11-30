@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 13:07:33 by luicasad          #+#    #+#              #
-#    Updated: 2024/11/18 16:59:23 by luicasad         ###   ########.fr        #
+#    Updated: 2024/11/30 12:10:22 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -519,7 +519,7 @@ norma:
 	@echo "$(DARK_GREEN)========== CHECKING NORME $(SRCDIR_RAY) ==============$(DEF_COLOR)"
 
 profile:
-	valgrind --tool=callgrind ./$(MINRT) scenes/one_sphere.rt
+	valgrind --tool=callgrind ./$(MINRT) scenes/profile/19.rt
 	callgrind_annotate
 
 leaks:

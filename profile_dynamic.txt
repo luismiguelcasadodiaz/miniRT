@@ -1,0 +1,1509 @@
+tests object patha -L./lib/ -lmlx  -lray -lchunk -leleme -linterval -lhittable -lhitrecord -lray -lcamer -lambil -llight -lcolor -lpoint -lvec3 -lgetnl -lft -L/usr/include/../lib  -lXext -lX11 -lm -lbsd 
+valgrind --tool=callgrind ./miniRT scenes/profile/19.rt
+lin>C 0,0,0 0.0,0,-1 120< tiene 20 cars
+This chunk has 4 elements
+C
+0,0,0
+0.0,0,-1
+120
+lin>A 0.2 0,0,200< tiene 13 cars
+This chunk has 3 elements
+A
+0.2
+0,0,200
+lin>L -40.0,50.0,0 0.6 10,0,233< tiene 27 cars
+This chunk has 4 elements
+L
+-40.0,50.0,0
+0.6
+10,0,233
+El descriptor de escenas tiene lineas vacías
+lin>sp -1.0,0.0,-1.0  2   0,0,255< tiene 29 cars
+This chunk has 4 elements
+sp
+-1.0,0.0,-1.0
+2
+0,0,255
+lin>sp  1.0,0.0,-1.0  2   255,0,0< tiene 29 cars
+This chunk has 4 elements
+sp
+1.0,0.0,-1.0
+2
+255,0,0
+===============================
+window size:	(500, 281)
+img :	(500, 281)
+bpp =(32)
+ll=(2000)
+ addr=()
+===============================
+callgrind_annotate
+Reading data from 'callgrind.out.17724'...
+--------------------------------------------------------------------------------
+Profile data file 'callgrind.out.17724' (creator: callgrind-3.22.0)
+--------------------------------------------------------------------------------
+I1 cache: 
+D1 cache: 
+LL cache: 
+Timerange: Basic block 0 - 273858452
+Trigger: Program termination
+Profiled target:  ./miniRT scenes/profile/19.rt (PID 17724, part 1)
+Events recorded:  Ir
+Events shown:     Ir
+Event sort order: Ir
+Thresholds:       99
+Include dirs:     
+User annotated:   
+Auto-annotation:  on
+
+--------------------------------------------------------------------------------
+Ir                     
+--------------------------------------------------------------------------------
+1,635,719,238 (100.0%)  PROGRAM TOTALS
+
+--------------------------------------------------------------------------------
+Ir                    file:function
+--------------------------------------------------------------------------------
+264,070,371 (16.14%)  ./malloc/./malloc/malloc.c:_int_free [/usr/lib/x86_64-linux-gnu/libc.so.6]
+190,379,789 (11.64%)  ./malloc/./malloc/malloc.c:malloc [/usr/lib/x86_64-linux-gnu/libc.so.6]
+118,456,576 ( 7.24%)  ./malloc/./malloc/malloc.c:free [/usr/lib/x86_64-linux-gnu/libc.so.6]
+ 54,041,582 ( 3.30%)  ./malloc/./malloc/malloc.c:_int_malloc [/usr/lib/x86_64-linux-gnu/libc.so.6]
+ 37,110,784 ( 2.27%)  src/vec3/vec3_init.c:vec3_init [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+ 35,032,320 ( 2.14%)  src/eleme/eleme_hittables_sph.c:calc_discriminant [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+ 34,924,020 ( 2.14%)  src/vec3/vec3_addition.c:vec3_sub [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+ 34,519,826 ( 2.11%)  src/vec3/vec3_module.c:vec3_length_squared [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+ 31,119,305 ( 1.90%)  src/eleme/eleme_hit.c:eleme_hit [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+ 27,902,200 ( 1.71%)  src/color/col_init.c:col_create_mlx_color_with_double [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+ 23,959,309 ( 1.46%)  src/vec3/vec3_init.c:vec3_free [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+ 23,826,984 ( 1.46%)  src/eleme/eleme_hittables_sph.c:hit_sphere [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+ 23,569,858 ( 1.44%)  ./nptl/./nptl/pthread_mutex_lock.c:pthread_mutex_lock@@GLIBC_2.2.5 [/usr/lib/x86_64-linux-gnu/libc.so.6]
+ 23,035,728 ( 1.41%)  src/vec3/vec3_product.c:vec3_scale [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+ 22,741,200 ( 1.39%)  src/vec3/vec3_addition.c:vec3_add [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+ 22,203,027 ( 1.36%)  ???:0x000000000000be60 [/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0]
+ 21,837,233 ( 1.34%)  src/interval/interval_setters.c:int_set_max [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+ 21,837,233 ( 1.34%)  src/interval/interval_setters.c:int_set_min [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+ 21,370,632 ( 1.31%)  src/vec3/vec3_product.c:vec3_dot [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+ 21,101,044 ( 1.29%)  src/ray/ray_shadow.c:ray_shadow [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+ 21,047,508 ( 1.29%)  src/ray/ray_color.c:ray_color [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+ 17,808,860 ( 1.09%)  src/interval/interval_init.c:int_init [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+ 17,329,185 ( 1.06%)  src/vec3/vec3_init.c:vec3_new [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+ 15,342,825 ( 0.94%)  src/point/point_init.c:point_new [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+ 14,651,540 ( 0.90%)  ./nptl/./nptl/pthread_mutex_unlock.c:pthread_mutex_unlock@@GLIBC_2.2.5 [/usr/lib/x86_64-linux-gnu/libc.so.6]
+ 14,231,880 ( 0.87%)  src/hitrecord/hitrecord_init.c:hitrecord_new [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+ 13,684,500 ( 0.84%)  src/hitrecord/hitrecord_init.c:hitrecord_free [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+ 13,253,545 ( 0.81%)  src/color/col_init.c:col_create_mlx_color [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+ 13,253,545 ( 0.81%)  src/color/col_init.c:col_create_mlx_color_with_int [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+ 13,085,300 ( 0.80%)  src/vec3/vec3_init.c:vec3_init_values [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+ 12,691,773 ( 0.78%)  ./malloc/./malloc/arena.c:free
+ 12,150,252 ( 0.74%)  src/miniRT/is_scene4.c:win_calculate_ray_dir [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+ 12,108,807 ( 0.74%)  src/vec3/vec3_product.c:vec3_div [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+ 12,042,360 ( 0.74%)  src/interval/interval_init.c:int_new [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+ 11,494,980 ( 0.70%)  src/interval/interval_init.c:int_free [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+ 11,252,060 ( 0.69%)  src/vec3/vec3_init.c:vec3_copy_values [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+ 10,920,068 ( 0.67%)  ???:0x000000000000c830 [/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0]
+ 10,532,750 ( 0.64%)  src/eleme/eleme_hittables_sph.c:calc_normal [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+ 10,374,700 ( 0.63%)  src/color/col_init.c:col_init_with_1 [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+  9,895,701 ( 0.60%)  src/miniRT/is_scene4.c:draw_image4 [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+  9,794,884 ( 0.60%)  src/point/point_init.c:point_free [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+  9,189,645 ( 0.56%)  ???:_XReply [/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0]
+  8,919,638 ( 0.55%)  src/ray/ray_at.c:ray_at [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+  8,636,855 ( 0.53%)  src/eleme/eleme_hittables_sph.c:set_hitrecord [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+  8,426,200 ( 0.52%)  src/hitrecord/hitrecord_init.c:hitrecord_copy [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+  8,415,777 ( 0.51%)  ???:0x000000000000b780 [/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0]
+  8,188,134 ( 0.50%)  ???:0x000000000010a4f0 [???]
+  8,188,086 ( 0.50%)  ???:0x000000000010a560 [???]
+  7,698,968 ( 0.47%)  src/vec3/vec3_getters.c:vec3_get_x [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+  7,698,968 ( 0.47%)  src/vec3/vec3_getters.c:vec3_get_y [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+  7,698,968 ( 0.47%)  src/vec3/vec3_getters.c:vec3_get_z [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+  7,579,422 ( 0.46%)  src/interval/interval_methods.c:int_sorrounds [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+  7,373,215 ( 0.45%)  src/hitrecord/hitrecord_methods.c:hitrecord_face_normal [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+  7,097,057 ( 0.43%)  ???:0x000000000000ce00 [/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0]
+  6,961,332 ( 0.43%)  ???:0x0000000000040a00 [/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0]
+  6,922,818 ( 0.42%)  src/color/col_math.c:col_add [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+  6,889,176 ( 0.42%)  ./gmon/../sysdeps/x86_64/_mcount.S:mcount [/usr/lib/x86_64-linux-gnu/libc.so.6]
+  6,821,648 ( 0.42%)  src/interval/interval_getters.c:int_get_min [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+  6,781,632 ( 0.41%)  src/vec3/vec3_product.c:vec3_mul [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+  6,415,129 ( 0.39%)  ???:xcb_poll_for_event [/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0]
+  5,914,394 ( 0.36%)  ???:_XSend [/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0]
+  5,825,952 ( 0.36%)  src/ray/ray_color.c:get_normal [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+  5,823,598 ( 0.36%)  ???:0x0000000000040bc0 [/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0]
+  5,693,673 ( 0.35%)  src/color/col_math.c:col_scale [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+  5,279,326 ( 0.32%)  src/vec3/vec3_module.c:vec3_length [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+  5,200,186 ( 0.32%)  src/vec3/vec3_module.c:vec3_unit_vector [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+  5,189,932 ( 0.32%)  ???:0x00000000000277b0 [/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0]
+  4,944,870 ( 0.30%)  src/miniRT/win_pixel_put.c:win_pixel_put [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+  4,367,276 ( 0.27%)  ./socket/../sysdeps/unix/sysv/linux/recvmsg.c:recvmsg [/usr/lib/x86_64-linux-gnu/libc.so.6]
+  4,186,230 ( 0.26%)  ./nptl/./nptl/pthread_cond_signal.c:pthread_cond_signal@@GLIBC_2.3.2 [/usr/lib/x86_64-linux-gnu/libc.so.6]
+  3,875,224 ( 0.24%)  src/interval/interval_getters.c:int_get_max [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+  3,821,685 ( 0.23%)  ???:0x0000000000040930 [/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0]
+  3,814,614 ( 0.23%)  src/ray/ray_init.c:ray_init [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+  3,477,905 ( 0.21%)  ./math/./math/w_sqrt_compat.c:sqrt [/usr/lib/x86_64-linux-gnu/libm.so.6]
+  3,457,430 ( 0.21%)  ???:xcb_wait_for_reply64 [/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0]
+  3,442,634 ( 0.21%)  src/ray/ray_init.c:ray_new [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+  3,390,960 ( 0.21%)  src/color/col_create.c:col_new [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+  3,159,825 ( 0.19%)  src/hitrecord/hitrecord_setters.c:hitrecord_set_normal [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+  3,159,825 ( 0.19%)  src/hitrecord/hitrecord_setters.c:hitrecord_set_point [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+  3,139,385 ( 0.19%)  ./nptl/./nptl/pthread_cond_broadcast.c:pthread_cond_broadcast@@GLIBC_2.3.2 [/usr/lib/x86_64-linux-gnu/libc.so.6]
+  2,949,170 ( 0.18%)  src/point/point_init.c:point_copy_values [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+  2,638,942 ( 0.16%)  ???:0x0000000000040da0 [/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0]
+  2,548,644 ( 0.16%)  ???:0x0000000000027170 [/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0]
+  2,515,771 ( 0.15%)  src/ray/ray_init.c:ray_free [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+  2,456,162 ( 0.15%)  ???:xcb_poll_for_reply64 [/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0]
+  2,317,205 ( 0.14%)  src/hitrecord/hitrecord_setters.c:hitrecord_set_front_face [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+  2,317,205 ( 0.14%)  src/hitrecord/hitrecord_setters.c:hitrecord_set_hit_obj [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+  2,317,205 ( 0.14%)  src/hitrecord/hitrecord_setters.c:hitrecord_set_t [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+  2,093,970 ( 0.13%)  ???:0x000000000000bcf0 [/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0]
+  2,086,743 ( 0.13%)  ./math/../sysdeps/ieee754/dbl-64/e_sqrt.c:__sqrt_finite@GLIBC_2.15 [/usr/lib/x86_64-linux-gnu/libm.so.6]
+  2,047,380 ( 0.13%)  ???:0x000000000000bc80 [/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0]
+  2,002,000 ( 0.12%)  ???:0x000000000000cc10 [/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0]
+  1,968,336 ( 0.12%)  ./gmon/./gmon/mcount.c:__mcount_internal [/usr/lib/x86_64-linux-gnu/libc.so.6]
+  1,773,876 ( 0.11%)  ???:XSync [/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0]
+  1,729,045 ( 0.11%)  ???:0x0000000000027100 [/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0]
+  1,728,886 ( 0.11%)  ???:xcb_writev [/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0]
+  1,685,344 ( 0.10%)  ./string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:__memcpy_avx_unaligned_erms [/usr/lib/x86_64-linux-gnu/libc.so.6]
+  1,685,240 ( 0.10%)  src/eleme/eleme_getters_one.c:eleme_get_diame [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+  1,685,240 ( 0.10%)  src/eleme/eleme_getters_two.c:eleme_get_coord [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+  1,685,240 ( 0.10%)  src/hitrecord/hitrecord_getters.c:hitrecord_get_point [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+  1,685,240 ( 0.10%)  src/ray/ray_getters.c:ray_get_dir [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+  1,637,512 ( 0.10%)  ???:_XEventsQueued [/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0]
+  1,588,896 ( 0.10%)  ./math/../sysdeps/x86_64/fpu/s_fmax.S:fmax [/usr/lib/x86_64-linux-gnu/libm.so.6]
+  1,554,135 ( 0.10%)  src/color/col_create.c:col_free [/home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/miniRT]
+  1,546,422 ( 0.09%)  ???:xcb_poll_for_queued_event [/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0]
+  1,455,792 ( 0.09%)  ./nptl/./nptl/pthread_cond_destroy.c:pthread_cond_destroy@@GLIBC_2.3.2 [/usr/lib/x86_64-linux-gnu/libc.so.6]
+  1,391,162 ( 0.09%)  ???:0x000000000010a790 [???]
+  1,319,766 ( 0.08%)  ???:_XGetRequest [/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0]
+  1,274,035 ( 0.08%)  ???:XPending [/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0]
+  1,273,820 ( 0.08%)  ???:0x000000000003d6a0 [/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0]
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: src/hitrecord/hitrecord_methods.c
+--------------------------------------------------------------------------------
+Ir                 
+
+-- line 8 ----------------------------------------
+        .           /*   Created: 2024/10/19 19:30:52 by luicasad          #+#    #+#             */
+        .           /*   Updated: 2024/11/13 18:20:59 by luicasad         ###   ########.fr       */
+        .           /*                                                                            */
+        .           /* ************************************************************************** */
+        .           
+        .           #include "hitrecord.h"
+        .           
+        .           void	hitrecord_face_normal(t_hitrecord *self, t_ray *ray, t_vec3 *norm)
+1,474,585 ( 0.09%)  {
+        .           	int	front_face;
+        .           
+2,738,515 ( 0.17%)  	front_face = (vec3_dot(ray_get_dir(ray), norm) < 0);
+5,055,720 ( 0.31%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_product.c:vec3_dot (210,655x)
+1,685,240 ( 0.10%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/ray/ray_getters.c:ray_get_dir (210,655x)
+  421,310 ( 0.03%)  	if (!front_face)
+      290 ( 0.00%)  		vec3_negate(norm, norm);
+    1,682 ( 0.00%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_addition.c:vec3_negate (58x)
+1,053,275 ( 0.06%)  	hitrecord_set_front_face(self, front_face);
+2,317,205 ( 0.14%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/hitrecord/hitrecord_setters.c:hitrecord_set_front_face (210,655x)
+1,053,275 ( 0.06%)  	hitrecord_set_normal(self, norm);
+7,372,925 ( 0.45%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/hitrecord/hitrecord_setters.c:hitrecord_set_normal (210,655x)
+  631,965 ( 0.04%)  }
+        .           
+        .           void	hitrecord_reverse_normal(t_hitrecord *self)
+        .           {
+        .           	vec3_negate(self->normal, self->normal);
+        .           }
+        .           
+        .           void	hitrecord_unit_normal(t_hitrecord *self)
+        .           {
+-- line 32 ----------------------------------------
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: src/interval/interval_methods.c
+--------------------------------------------------------------------------------
+Ir                 
+
+-- line 18 ----------------------------------------
+        .           }
+        .           
+        .           bool	int_contains(t_interval *self, double x)
+        .           {
+        .           	return (int_get_min(self) <= x && x <= int_get_max(self));
+        .           }
+        .           
+        .           bool	int_sorrounds(t_interval *self, double x)
+2,210,166 ( 0.14%)  {
+4,632,534 ( 0.28%)  	return (int_get_min(self) < x && x < int_get_max(self));
+2,946,888 ( 0.18%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/interval/interval_getters.c:int_get_min (368,361x)
+1,685,704 ( 0.10%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/interval/interval_getters.c:int_get_max (210,713x)
+  736,722 ( 0.05%)  }
+        .           
+        .           void	intexpand(t_interval *self, double delta)
+        .           {
+        .           	int_set_min(self, (int_get_min(self) - (delta / 2.0)));
+        .           	int_set_max(self, (int_get_max(self) + (delta / 2.0)));
+        .           }
+        .           
+        .           double	int_clamp(t_interval *self, double x)
+-- line 36 ----------------------------------------
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: src/vec3/vec3_addition.c
+--------------------------------------------------------------------------------
+Ir                 
+
+-- line 7 ----------------------------------------
+        .           /*                                                +#+#+#+#+#+   +#+           */
+        .           /*   Created: 2024/09/12 12:31:45 by luicasad          #+#    #+#             */
+        .           /*   Updated: 2024/11/13 18:00:24 by luicasad         ###   ########.fr       */
+        .           /*                                                                            */
+        .           /* ************************************************************************** */
+        .           #include "vec3.h"
+        .           
+        .           void	vec3_add(t_vec3 *result, const t_vec3 *u, const t_vec3 *v)
+4,548,240 ( 0.28%)  {
+5,306,280 ( 0.32%)  	result->e[0] = u->e[0] + v->e[0];
+5,306,280 ( 0.32%)  	result->e[1] = u->e[1] + v->e[1];
+5,306,280 ( 0.32%)  	result->e[2] = u->e[2] + v->e[2];
+2,274,120 ( 0.14%)  }
+        .           
+        .           void	vec3_sub(t_vec3 *result, const t_vec3 *u, const t_vec3 *v)
+6,984,804 ( 0.43%)  {
+8,148,938 ( 0.50%)  	result->e[0] = u->e[0] - v->e[0];
+8,148,938 ( 0.50%)  	result->e[1] = u->e[1] - v->e[1];
+8,148,938 ( 0.50%)  	result->e[2] = u->e[2] - v->e[2];
+3,492,402 ( 0.21%)  }
+        .           
+        .           void	vec3_negate(t_vec3 *result, const t_vec3 *u)
+      300 ( 0.00%)  {
+      420 ( 0.00%)  	result->e[0] -= u->e[0];
+      420 ( 0.00%)  	result->e[1] -= u->e[1];
+      420 ( 0.00%)  	result->e[2] -= u->e[2];
+      180 ( 0.00%)  }
+        .           
+        .           int	vec3_iszero(t_vec3 *v)
+       12 ( 0.00%)  {
+       72 ( 0.00%)  	if ((v->e[0] == 0) && (v->e[1] == 0) && (v->e[2] == 0))
+        4 ( 0.00%)  		return (1);
+        1 ( 0.00%)  	return (0);
+        6 ( 0.00%)  }
+        .           
+        .           int	vec3_in_range(t_vec3 *self, float min, float max)
+        6 ( 0.00%)  {
+        .           	int	result;
+        .           
+       15 ( 0.00%)  	result = ((min <= self->e[0]) && (self->e[0] <= max));
+       17 ( 0.00%)  	result = result && ((min <= self->e[1]) && (self->e[1] <= max));
+       17 ( 0.00%)  	result = result && ((min <= self->e[2]) && (self->e[2] <= max));
+        1 ( 0.00%)  	return (result);
+        2 ( 0.00%)  }
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: src/interval/interval_setters.c
+--------------------------------------------------------------------------------
+Ir                 
+
+-- line 8 ----------------------------------------
+        .           /*   Created: 2024/10/18 21:00:30 by luicasad          #+#    #+#             */
+        .           /*   Updated: 2024/10/18 21:02:29 by luicasad         ###   ########.fr       */
+        .           /*                                                                            */
+        .           /* ************************************************************************** */
+        .           
+        .           #include "interval.h"
+        .           
+        .           void	int_set_min(t_interval *self, double min)
+9,926,015 ( 0.61%)  {
+5,955,609 ( 0.36%)  	self->min = min;
+5,955,609 ( 0.36%)  }
+        .           
+        .           void	int_set_max(t_interval *self, double max)
+9,926,015 ( 0.61%)  {
+5,955,609 ( 0.36%)  	self->max = max;
+5,955,609 ( 0.36%)  }
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: src/ray/ray_init.c
+--------------------------------------------------------------------------------
+Ir                 
+
+-- line 11 ----------------------------------------
+        .           /* ************************************************************************** */
+        .           
+        .           #include "ray.h"
+        .           #include "point.h"
+        .           #include "vec3.h"
+        .           #include <stdlib.h>
+        .           
+        .           t_ray	*ray_new(void)
+  529,636 ( 0.03%)  {
+        .           	t_ray	*self;
+        .           
+  397,227 ( 0.02%)  	self = (t_ray *)malloc(sizeof(t_ray));
+6,223,223 ( 0.38%)  => ???:0x000000000010a4f0 (132,409x)
+  264,818 ( 0.02%)  	if (!self)
+        .           		return (NULL);
+  397,227 ( 0.02%)  	self->orig = point_new();
+10,327,902 ( 0.63%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/point/point_init.c:point_new (132,409x)
+  529,636 ( 0.03%)  	if (!self->orig)
+        .           	{
+        .           		free(self);
+        .           		return (NULL);
+        .           	}
+  397,227 ( 0.02%)  	self->dir = vec3_new();
+10,328,047 ( 0.63%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_init.c:vec3_new (132,409x)
+  529,636 ( 0.03%)  	if (!self->dir)
+        .           	{
+        .           		point_free(self->orig);
+        .           		free(self);
+        .           		return (NULL);
+        .           	}
+  132,409 ( 0.01%)  	return (self);
+  264,818 ( 0.02%)  }
+        .           
+        .           void	ray_init(t_ray *self, t_point *the_orig, t_vec3 *the_dir)
+  847,692 ( 0.05%)  {
+1,271,538 ( 0.08%)  	*self->orig = *the_orig;
+1,271,538 ( 0.08%)  	*self->dir = *the_dir;
+  423,846 ( 0.03%)  }
+        .           
+        .           void	ray_free(t_ray *self)
+  662,045 ( 0.04%)  {
+  529,636 ( 0.03%)  	point_free(self->orig);
+17,213,170 ( 1.05%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/point/point_init.c:point_free (132,409x)
+  529,636 ( 0.03%)  	vec3_free(self->dir);
+15,756,671 ( 0.96%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_init.c:vec3_free (132,409x)
+  397,227 ( 0.02%)  	free(self);
+14,300,172 ( 0.87%)  => ???:0x000000000010a560 (132,409x)
+  397,227 ( 0.02%)  }
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: src/vec3/vec3_init.c
+--------------------------------------------------------------------------------
+Ir                  
+
+-- line 10 ----------------------------------------
+         .           /*																			*/
+         .           /* ************************************************************************** */
+         .           
+         .           #include "vec3.h"
+         .           #include <stdio.h>
+         .           #include <stdlib.h>
+         .           
+         .           t_vec3	*vec3_new(void)
+ 4,621,116 ( 0.28%)  {
+         .           	t_vec3	*self;
+         .           
+ 3,465,837 ( 0.21%)  	self = (t_vec3 *)malloc(sizeof(t_vec3));
+85,945,734 ( 5.25%)  => ???:0x000000000010a4f0 (1,155,279x)
+ 2,310,558 ( 0.14%)  	if (!self)
+         .           		return (NULL);
+ 3,465,837 ( 0.21%)  	vec3_init(self);
+18,484,464 ( 1.13%)  => src/vec3/vec3_init.c:vec3_init (1,155,279x)
+ 1,155,279 ( 0.07%)  	return (self);
+ 2,310,558 ( 0.14%)  }
+         .           
+         .           void	vec3_free(t_vec3 *self)
+10,890,595 ( 0.67%)  {
+ 6,534,357 ( 0.40%)  	free(self);
+216,772,361 (13.25%)  => ???:0x000000000010a560 (2,178,119x)
+ 6,534,357 ( 0.40%)  }
+         .           
+         .           // Constructor por defecto
+         .           void	vec3_init(t_vec3 *v)
+ 9,277,696 ( 0.57%)  {
+ 6,958,272 ( 0.43%)  	v->e[0] = 0;
+ 6,958,272 ( 0.43%)  	v->e[1] = 0;
+ 6,958,272 ( 0.43%)  	v->e[2] = 0;
+ 6,958,272 ( 0.43%)  }
+         .           
+         .           // Constructor con parámetros
+         .           void	vec3_init_values(t_vec3 *v, double e0, double e1, double e2)
+ 4,820,900 ( 0.29%)  {
+ 2,066,100 ( 0.13%)  	v->e[0] = e0;
+ 2,066,100 ( 0.13%)  	v->e[1] = e1;
+ 2,066,100 ( 0.13%)  	v->e[2] = e2;
+ 2,066,100 ( 0.13%)  }
+         .           
+         .           void	vec3_copy_values(t_vec3 *dest, t_vec3 *orig)
+ 2,813,015 ( 0.17%)  {
+ 2,250,412 ( 0.14%)  	dest->e[0] = orig->e[0];
+ 2,250,412 ( 0.14%)  	dest->e[1] = orig->e[1];
+ 2,250,412 ( 0.14%)  	dest->e[2] = orig->e[2];
+ 1,687,809 ( 0.10%)  }
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: src/hitrecord/hitrecord_setters.c
+--------------------------------------------------------------------------------
+Ir                 
+
+-- line 8 ----------------------------------------
+        .           /*   Created: 2024/10/12 21:16:02 by luicasad          #+#    #+#             */
+        .           /*   Updated: 2024/11/13 18:21:28 by luicasad         ###   ########.fr       */
+        .           /*                                                                            */
+        .           /* ************************************************************************** */
+        .           
+        .           #include "hitrecord.h"
+        .           
+        .           void	hitrecord_set_point(t_hitrecord *self, t_point *the_p)
+1,263,930 ( 0.08%)  {
+1,263,930 ( 0.08%)  	point_copy_values(self->p, the_p);
+7,162,270 ( 0.44%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/point/point_init.c:point_copy_values (210,655x)
+  631,965 ( 0.04%)  }
+        .           
+        .           void	hitrecord_set_normal(t_hitrecord *self, t_vec3 *the_normal)
+1,263,930 ( 0.08%)  {
+1,263,930 ( 0.08%)  	vec3_copy_values(self->normal, the_normal);
+4,213,100 ( 0.26%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_init.c:vec3_copy_values (210,655x)
+  631,965 ( 0.04%)  }
+        .           
+        .           void	hitrecord_set_t(t_hitrecord *self, double the_t)
+1,053,275 ( 0.06%)  {
+  631,965 ( 0.04%)  	self->t = the_t;
+  631,965 ( 0.04%)  }
+        .           
+        .           void	hitrecord_set_front_face(t_hitrecord *self, int the_front_face)
+1,053,275 ( 0.06%)  {
+  631,965 ( 0.04%)  	self->front_face = the_front_face;
+  631,965 ( 0.04%)  }
+        .           
+        .           void	hitrecord_set_hit_obj(t_hitrecord *self, void *the_hit_obj)
+1,053,275 ( 0.06%)  {
+  631,965 ( 0.04%)  	self->hit_obj = the_hit_obj;
+  631,965 ( 0.04%)  }
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: src/eleme/eleme_hit.c
+--------------------------------------------------------------------------------
+Ir                 
+
+-- line 12 ----------------------------------------
+        .           
+        .           #include "eleme.h"
+        .           #include "ray.h"
+        .           #include "interval.h"
+        .           #include "hitrecord.h"
+        .           #include <stdbool.h>
+        .           
+        .           bool	eleme_hit(t_hit_args *data)
+1,642,140 ( 0.10%)  {
+        .           	bool		hit_anything;
+        .           	t_hit_args	*tem_data;
+        .           
+  821,070 ( 0.05%)  	tem_data = (t_hit_args *)malloc(sizeof(t_hit_args));
+12,863,430 ( 0.79%)  => ???:0x000000000010a4f0 (273,690x)
+  821,070 ( 0.05%)  	tem_data->rec = hitrecord_new();
+85,582,029 ( 5.23%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/hitrecord/hitrecord_init.c:hitrecord_new (273,690x)
+  821,070 ( 0.05%)  	tem_data->ran = int_new();
+24,905,935 ( 1.52%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/interval/interval_init.c:int_new (273,690x)
+4,379,040 ( 0.27%)  	int_init(tem_data->ran, int_get_min(data->ran), int_get_max(data->ran));
+11,494,980 ( 0.70%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/interval/interval_init.c:int_init (273,690x)
+2,189,520 ( 0.13%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/interval/interval_getters.c:int_get_min (273,690x)
+2,189,520 ( 0.13%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/interval/interval_getters.c:int_get_max (273,690x)
+  273,690 ( 0.02%)  	hit_anything = false;
+1,094,760 ( 0.07%)  	tem_data->ray = data->ray;
+1,094,760 ( 0.07%)  	tem_data->self = data->self;
+3,557,970 ( 0.22%)  	while (tem_data->self)
+        .           	{
+4,926,420 ( 0.30%)  		if ((*tem_data->self->hit)(tem_data))
+338,595,678 (20.70%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/eleme/eleme_hittables_sph.c:hit_sphere (547,380x)
+        .           		{
+  210,655 ( 0.01%)  			hit_anything = true;
+3,159,825 ( 0.19%)  			int_init(tem_data->ran, int_get_min(data->ran), tem_data->rec->t);
+8,847,510 ( 0.54%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/interval/interval_init.c:int_init (210,655x)
+1,685,240 ( 0.10%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/interval/interval_getters.c:int_get_min (210,655x)
+1,474,585 ( 0.09%)  			hitrecord_copy(data->rec, tem_data->rec);
+8,426,200 ( 0.52%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/hitrecord/hitrecord_init.c:hitrecord_copy (210,655x)
+        .           		}
+2,736,900 ( 0.17%)  		tem_data->self = tem_data->self->next;
+        .           	}
+1,094,760 ( 0.07%)  	hitrecord_free(tem_data->rec);
+92,868,204 ( 5.68%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/hitrecord/hitrecord_init.c:hitrecord_free (273,690x)
+1,094,760 ( 0.07%)  	int_free(tem_data->ran);
+38,360,247 ( 2.35%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/interval/interval_init.c:int_free (273,690x)
+  821,070 ( 0.05%)  	free(tem_data);
+23,811,030 ( 1.46%)  => ???:0x000000000010a560 (273,690x)
+  273,690 ( 0.02%)  	return (hit_anything);
+  821,070 ( 0.05%)  }
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: src/point/point_init.c
+--------------------------------------------------------------------------------
+Ir                 
+
+-- line 9 ----------------------------------------
+        .           /*   Updated: 2024/10/12 22:54:00 by luicasad         ###   ########.fr       */
+        .           /*                                                                            */
+        .           /* ************************************************************************** */
+        .           
+        .           #include "point.h"
+        .           #include <stdlib.h>
+        .           
+        .           t_point	*point_new(void)
+4,091,420 ( 0.25%)  {
+        .           	t_point	*self;
+        .           
+3,068,565 ( 0.19%)  	self = (t_point *)malloc(sizeof(t_point));
+70,981,321 ( 4.34%)  => ???:0x000000000010a4f0 (1,022,855x)
+2,045,710 ( 0.13%)  	if (!self)
+        .           		return (NULL);
+3,068,565 ( 0.19%)  	vec3_init(self);
+16,365,680 ( 1.00%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_init.c:vec3_init (1,022,855x)
+1,022,855 ( 0.06%)  	return (self);
+2,045,710 ( 0.13%)  }
+        .           
+        .           void	point_free(t_point *self)
+4,452,220 ( 0.27%)  {
+2,671,332 ( 0.16%)  	vec3_free(self);
+98,385,763 ( 6.01%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_init.c:vec3_free (890,444x)
+2,671,332 ( 0.16%)  }
+        .           
+        .           void	point_init(t_point *self, double the_x, double the_y, double the_z)
+       32 ( 0.00%)  {
+       36 ( 0.00%)  	vec3_init_values(self, the_x, the_y, the_z);
+       76 ( 0.00%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_init.c:vec3_init_values (4x)
+       12 ( 0.00%)  }
+        .           
+        .           void	point_copy_values(t_point *dest, t_point *ori)
+1,263,930 ( 0.08%)  {
+1,053,275 ( 0.06%)  	vec3_copy_values((t_vec3 *)dest, (t_vec3 *)ori);
+4,213,100 ( 0.26%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_init.c:vec3_copy_values (210,655x)
+  631,965 ( 0.04%)  }
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: src/color/col_math.c
+--------------------------------------------------------------------------------
+Ir               
+
+-- line 7 ----------------------------------------
+      .           /*                                                +#+#+#+#+#+   +#+           */
+      .           /*   Created: 2024/11/21 17:56:33 by luicasad          #+#    #+#             */
+      .           /*   Updated: 2024/11/27 20:03:30 by luicasad         ###   ########.fr       */
+      .           /*                                                                            */
+      .           /* ************************************************************************** */
+      .           #include "color.h"
+      .           
+      .           void	col_add(t_color *result, t_color *c1, t_color *c2)
+988,974 ( 0.06%)  {
+988,974 ( 0.06%)  	result->rgb.e[0] = c1->rgb.e[0] + c2->rgb.e[0];
+706,410 ( 0.04%)  	if (result->rgb.e[0] > 1)
+      .           		result->rgb.e[0] = 1;
+988,974 ( 0.06%)  	result->rgb.e[1] = c1->rgb.e[1] + c2->rgb.e[1];
+706,410 ( 0.04%)  	if (result->rgb.e[1] > 1)
+      .           		result->rgb.e[1] = 1;
+988,974 ( 0.06%)  	result->rgb.e[2] = c1->rgb.e[2] + c2->rgb.e[2];
+706,410 ( 0.04%)  	if (result->rgb.e[2] > 1)
+      .           		result->rgb.e[2] = 1;
+423,846 ( 0.03%)  	col_create_mlx_color(result);
+14,410,764 ( 0.88%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/color/col_init.c:col_create_mlx_color (141,282x)
+423,846 ( 0.03%)  }
+      .           
+      .           void	col_scale(t_color *result, t_color *c1, double scale)
+926,877 ( 0.06%)  {
+662,055 ( 0.04%)  	result->rgb.e[0] = c1->rgb.e[0] * scale;
+662,055 ( 0.04%)  	if (result->rgb.e[0] > 1)
+      .           		result->rgb.e[0] = 1;
+662,055 ( 0.04%)  	result->rgb.e[1] = c1->rgb.e[1] * scale;
+662,055 ( 0.04%)  	if (result->rgb.e[1] > 1)
+      .           		result->rgb.e[1] = 1;
+662,055 ( 0.04%)  	result->rgb.e[2] = c1->rgb.e[2] * scale;
+662,055 ( 0.04%)  	if (result->rgb.e[2] > 1)
+      .           		result->rgb.e[2] = 1;
+397,233 ( 0.02%)  	col_create_mlx_color(result);
+13,505,922 ( 0.83%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/color/col_init.c:col_create_mlx_color (132,411x)
+397,233 ( 0.02%)  }
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: src/color/col_create.c
+--------------------------------------------------------------------------------
+Ir               
+
+-- line 7 ----------------------------------------
+      .           /*                                                +#+#+#+#+#+   +#+           */
+      .           /*   Created: 2024/02/06 11:49:06 by luicasad          #+#    #+#             */
+      .           /*   Updated: 2024/09/14 08:51:22 by luicasad         ###   ########.fr       */
+      .           /*                                                                            */
+      .           /* ************************************************************************** */
+      .           #include "color.h"
+      .           
+      .           t_color	*col_new(void)
+565,160 ( 0.03%)  {
+      .           	t_color	*self;
+      .           
+423,870 ( 0.03%)  	self = (t_color *)malloc(sizeof(t_color));
+6,641,065 ( 0.41%)  => ???:0x000000000010a4f0 (141,290x)
+282,580 ( 0.02%)  	if (!self)
+      .           		return (NULL);
+423,870 ( 0.03%)  	vec3_init(&self->rgb);
+2,260,640 ( 0.14%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_init.c:vec3_init (141,290x)
+282,580 ( 0.02%)  	self->t = 0;
+989,030 ( 0.06%)  	col_init_with_1(self, 0.0, 0.0, 0.0);
+20,628,340 ( 1.26%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/color/col_init.c:col_init_with_1 (141,290x)
+141,290 ( 0.01%)  	return (self);
+282,580 ( 0.02%)  }
+      .           
+      .           void	col_free(t_color *self)
+706,425 ( 0.04%)  {
+423,855 ( 0.03%)  	free(self);
+12,291,795 ( 0.75%)  => ???:0x000000000010a560 (141,285x)
+423,855 ( 0.03%)  }
+      .           	/*self->rgb = vec3_new();
+      .           	if (!self->rgb)
+      .           	{
+      .           		free(self);
+      .           		return (NULL);
+      .           	}*/
+      .           
+      .           	//vec3_free(self->rgb);-- line 38 ----------------------------------------
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: src/interval/interval_getters.c
+--------------------------------------------------------------------------------
+Ir                 
+
+-- line 8 ----------------------------------------
+        .           /*   Created: 2024/10/18 21:03:33 by luicasad          #+#    #+#             */
+        .           /*   Updated: 2024/10/18 21:05:14 by luicasad         ###   ########.fr       */
+        .           /*                                                                            */
+        .           /* ************************************************************************** */
+        .           
+        .           #include "interval.h"
+        .           
+        .           double	int_get_min(t_interval *self)
+3,410,824 ( 0.21%)  {
+1,705,412 ( 0.10%)  	return (self->min);
+1,705,412 ( 0.10%)  }
+        .           
+        .           double	int_get_max(t_interval *self)
+1,937,612 ( 0.12%)  {
+  968,806 ( 0.06%)  	return (self->max);
+  968,806 ( 0.06%)  }
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: src/eleme/eleme_getters_two.c
+--------------------------------------------------------------------------------
+Ir               
+
+-- line 8 ----------------------------------------
+      .           /*   Created: 2024/09/16 17:32:53 by luicasad          #+#    #+#             */
+      .           /*   Updated: 2024/10/01 19:22:26 by luicasad         ###   ########.fr       */
+      .           /*                                                                            */
+      .           /* ************************************************************************** */
+      .           
+      .           #include "eleme.h"
+      .           
+      .           t_vec3	*eleme_get_coord(t_eleme *self)
+842,620 ( 0.05%)  {
+421,310 ( 0.03%)  	return (self->coor);
+421,310 ( 0.03%)  }
+      .           
+      .           t_vec3	*eleme_get_novec(t_eleme *self)
+      .           {
+      .           	return (self->novec);
+      .           }
+      .           
+      .           t_color	*eleme_get_color(t_eleme *self)
+      .           {
+-- line 26 ----------------------------------------
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: src/vec3/vec3_getters.c
+--------------------------------------------------------------------------------
+Ir                 
+
+-- line 8 ----------------------------------------
+        .           /*   Created: 2024/09/12 12:37:41 by luicasad          #+#    #+#             */
+        .           /*   Updated: 2024/09/14 09:15:46 by luicasad         ###   ########.fr       */
+        .           /*                                                                            */
+        .           /* ************************************************************************** */
+        .           
+        .           #include "vec3.h"
+        .           
+        .           double	vec3_get_x(const t_vec3 *v)
+3,849,484 ( 0.24%)  {
+1,924,742 ( 0.12%)  	return (v->e[0]);
+1,924,742 ( 0.12%)  }
+        .           
+        .           double	vec3_get_y(const t_vec3 *v)
+3,849,484 ( 0.24%)  {
+1,924,742 ( 0.12%)  	return (v->e[1]);
+1,924,742 ( 0.12%)  }
+        .           
+        .           double	vec3_get_z(const t_vec3 *v)
+3,849,484 ( 0.24%)  {
+1,924,742 ( 0.12%)  	return (v->e[2]);
+1,924,742 ( 0.12%)  }
+        .           
+        .           double	vec3_get_i(const t_vec3 *v, int i)
+        .           {
+        .           	return (v->e[i]);
+        .           }
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: src/interval/interval_init.c
+--------------------------------------------------------------------------------
+Ir                 
+
+-- line 10 ----------------------------------------
+        .           /*                                                                            */
+        .           /* ************************************************************************** */
+        .           
+        .           #include "interval.h"
+        .           #include <stdlib.h>
+        .           #define DBL_MAX 1.7976931348623157E+308 
+        .           
+        .           t_interval	*int_new(void)
+2,189,520 ( 0.13%)  {
+        .           	t_interval	*self;
+        .           
+1,642,140 ( 0.10%)  	self = (t_interval *)malloc(sizeof(t_interval));
+25,727,005 ( 1.57%)  => ???:0x000000000010a4f0 (547,380x)
+1,094,760 ( 0.07%)  	if (!self)
+        .           		return (NULL);
+2,736,900 ( 0.17%)  	int_set_min(self, 0);
+6,021,180 ( 0.37%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/interval/interval_setters.c:int_set_min (547,380x)
+2,736,900 ( 0.17%)  	int_set_max(self, 0);
+6,021,180 ( 0.37%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/interval/interval_setters.c:int_set_max (547,380x)
+  547,380 ( 0.03%)  	return (self);
+1,094,760 ( 0.07%)  }
+        .           
+        .           void	int_free(t_interval *self)
+2,736,900 ( 0.17%)  {
+2,736,900 ( 0.17%)  	int_set_min(self, 0);
+6,021,180 ( 0.37%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/interval/interval_setters.c:int_set_min (547,380x)
+2,736,900 ( 0.17%)  	int_set_max(self, 0);
+6,021,180 ( 0.37%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/interval/interval_setters.c:int_set_max (547,380x)
+1,642,140 ( 0.10%)  	free(self);
+53,183,175 ( 3.25%)  => ???:0x000000000010a560 (547,380x)
+1,642,140 ( 0.10%)  }
+        .           
+        .           void	int_init(t_interval *self, double min, double max)
+6,233,101 ( 0.38%)  {
+4,452,215 ( 0.27%)  	int_set_min(self, min);
+9,794,873 ( 0.60%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/interval/interval_setters.c:int_set_min (890,443x)
+4,452,215 ( 0.27%)  	int_set_max(self, max);
+9,794,873 ( 0.60%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/interval/interval_setters.c:int_set_max (890,443x)
+2,671,329 ( 0.16%)  }
+        .           
+        .           /* tested with .....
+        .           
+        .           	printf(" DBL_MAX %lf\n\n", DBL_MAX);
+        .           	printf(" DBL_MIN %lf\n\n", DBL_MIN);
+        .           	printf("-DBL_MAX %lf\n\n", -DBL_MAX);
+        .           
+        .            DBL_MAX  179769313486231570814527423731704356798070567525844996598917476803157
+-- line 48 ----------------------------------------
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: src/vec3/vec3_product.c
+--------------------------------------------------------------------------------
+Ir                  
+
+-- line 7 ----------------------------------------
+         .           /*                                                +#+#+#+#+#+   +#+           */
+         .           /*   Created: 2024/09/12 12:28:35 by luicasad          #+#    #+#             */
+         .           /*   Updated: 2024/09/16 16:23:36 by luicasad         ###   ########.fr       */
+         .           /*                                                                            */
+         .           /* ************************************************************************** */
+         .           #include "vec3.h"
+         .           
+         .           void	vec3_mul(t_vec3 *result, const t_vec3 *u, double t)
+ 1,695,408 ( 0.10%)  {
+ 1,412,840 ( 0.09%)  	result->e[0] = u->e[0] * t;
+ 1,412,840 ( 0.09%)  	result->e[1] = u->e[1] * t;
+ 1,412,840 ( 0.09%)  	result->e[2] = u->e[2] * t;
+   847,704 ( 0.05%)  }
+         .           
+         .           void	vec3_div(t_vec3 *result, const t_vec3 *v, double t)
+ 3,390,471 ( 0.21%)  {
+ 2,906,118 ( 0.18%)  	if (t != 0.0)
+ 4,359,159 ( 0.27%)  		vec3_scale(result, v, 1.0 / t);
+11,624,424 ( 0.71%)  => src/vec3/vec3_product.c:vec3_scale (484,351x)
+ 1,453,059 ( 0.09%)  }
+         .           
+         .           void	vec3_scale(t_vec3 *result, const t_vec3 *v, double t)
+ 5,758,932 ( 0.35%)  {
+ 4,799,110 ( 0.29%)  	result->e[0] = t * v->e[0];
+ 4,799,110 ( 0.29%)  	result->e[1] = t * v->e[1];
+ 4,799,110 ( 0.29%)  	result->e[2] = t * v->e[2];
+ 2,879,466 ( 0.18%)  }
+         .           
+         .           double	vec3_dot(const t_vec3 *u, const t_vec3 *v)
+ 4,452,215 ( 0.27%)  {
+15,137,531 ( 0.93%)  	return (u->e[0] * v->e[0] + u->e[1] * v->e[1] + u->e[2] * v->e[2]);
+ 1,780,886 ( 0.11%)  }
+         .           
+         .           void	vec3_cross(t_vec3 *result, const t_vec3 *u, const t_vec3 *v)
+        14 ( 0.00%)  {
+        24 ( 0.00%)  	vec3_init_values(result,
+        38 ( 0.00%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_init.c:vec3_init_values (2x)
+        20 ( 0.00%)  		u->e[1] * v->e[2] - u->e[2] * v->e[1],
+        20 ( 0.00%)  		u->e[2] * v->e[0] - u->e[0] * v->e[2],
+        20 ( 0.00%)  		u->e[0] * v->e[1] - u->e[1] * v->e[0]);
+         6 ( 0.00%)  }
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: src/eleme/eleme_getters_one.c
+--------------------------------------------------------------------------------
+Ir               
+
+-- line 13 ----------------------------------------
+      .           #include "eleme.h"
+      .           
+      .           enum e_eleme	eleme_get_ident(t_eleme *self)
+      .           {
+      .           	return (self->id);
+      .           }
+      .           
+      .           double	eleme_get_diame(t_eleme *self)
+842,620 ( 0.05%)  {
+421,310 ( 0.03%)  	return (self->d);
+421,310 ( 0.03%)  }
+      .           
+      .           double	eleme_get_heigh(t_eleme *self)
+      .           {
+      .           	return (self->h);
+      .           }
+      .           
+      .           t_hitfp	*eleme_get_hit(t_eleme *self)
+      .           {
+-- line 31 ----------------------------------------
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: src/hitrecord/hitrecord_getters.c
+--------------------------------------------------------------------------------
+Ir               
+
+-- line 8 ----------------------------------------
+      .           /*   Created: 2024/10/12 21:18:11 by luicasad          #+#    #+#             */
+      .           /*   Updated: 2024/10/12 21:26:42 by luicasad         ###   ########.fr       */
+      .           /*                                                                            */
+      .           /* ************************************************************************** */
+      .           
+      .           #include "hitrecord.h"
+      .           
+      .           t_point	*hitrecord_get_point(t_hitrecord *self)
+842,620 ( 0.05%)  {
+421,310 ( 0.03%)  	return (self->p);
+421,310 ( 0.03%)  }
+      .           
+      .           t_vec3	*hitrecord_get_normal(t_hitrecord *self)
+      .           {
+      .           	return (self->normal);
+      .           }
+      .           
+      .           double	hitrecord_get_t(t_hitrecord *self)
+529,632 ( 0.03%)  {
+264,816 ( 0.02%)  	return (self->t);
+264,816 ( 0.02%)  }
+      .           
+      .           int	hitrecord_get_front_face(t_hitrecord *self)
+      .           {
+      .           	return (self->front_face);
+      .           }
+      .           
+      .           void	*hitrecord_get_hit_obj(t_hitrecord *self)
+      .           {
+-- line 36 ----------------------------------------
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: src/miniRT/is_scene4.c
+--------------------------------------------------------------------------------
+Ir                 
+
+-- line 28 ----------------------------------------
+        .           /******************************************************************************/
+        .           /* Ray Directio = pixel center . camera center                                */
+        .           /* pixel center = P00 + x * pd_x + y * pd_y                                   */
+        .           /*                                                                            */
+        .           /* Ray Direction = P00 + x * pd_x + y * pd_y - camera center                  */
+        .           /******************************************************************************/
+        .           
+        .           static void	win_calculate_ray_dir(t_win *w, int x, int y)
+1,554,102 ( 0.10%)  {
+3,814,614 ( 0.23%)  => ./gmon/../sysdeps/x86_64/_mcount.S:mcount (141,282x)
+        .           	t_vec3	aux;
+        .           
+1,554,102 ( 0.10%)  	vec3_mul(&aux, &w->camera->pd_u, x);
+3,390,768 ( 0.21%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_product.c:vec3_mul (141,282x)
+1,130,256 ( 0.07%)  	vec3_copy_values(w->ray_direction, &w->camera->pixel00_loc);
+2,825,640 ( 0.17%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_init.c:vec3_copy_values (141,282x)
+1,130,256 ( 0.07%)  	vec3_add(w->ray_direction, w->ray_direction, &aux);
+4,238,460 ( 0.26%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_addition.c:vec3_add (141,282x)
+1,554,102 ( 0.10%)  	vec3_mul(&aux, &w->camera->pd_v, y);
+3,390,768 ( 0.21%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_product.c:vec3_mul (141,282x)
+1,130,256 ( 0.07%)  	vec3_add(w->ray_direction, w->ray_direction, &aux);
+4,238,460 ( 0.26%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_addition.c:vec3_add (141,282x)
+1,554,102 ( 0.10%)  	vec3_init_values(&aux, w->camera->lookfrom.e[0],
+2,684,358 ( 0.16%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_init.c:vec3_init_values (141,282x)
+  565,128 ( 0.03%)  		w->camera->lookfrom.e[1], w->camera->lookfrom.e[2]);
+1,130,256 ( 0.07%)  	vec3_sub(w->ray_direction, w->ray_direction, &aux);
+4,238,460 ( 0.26%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_addition.c:vec3_sub (141,282x)
+  847,692 ( 0.05%)  }
+        .           
+        .           /*
+        .           static void	world_destroy(t_win *w)
+        .           {
+        .           	eleme_free(w->eleme);
+        .           }
+        .           */
+        .           void	draw_image4(t_win *w)
+        7 ( 0.00%)  {
+       27 ( 0.00%)  => ./gmon/../sysdeps/x86_64/_mcount.S:mcount (1x)
+        .           	int			wx0;
+        .           	int			wy0;
+        .           	int			mlx_color;
+        .           	t_ray		*r;
+        .           
+        2 ( 0.00%)  	r = ray_new();
+      229 ( 0.00%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/ray/ray_init.c:ray_new (1x)
+        5 ( 0.00%)  	wy0 = (int)w->lu->e[1];
+    1,982 ( 0.00%)  	while (wy0 <= w->rd->e[1])
+        .           	{
+    1,410 ( 0.00%)  		wx0 = (int)w->lu->e[0];
+  991,230 ( 0.06%)  		while (wx0 <= w->rd->e[0])
+        .           		{
+  847,692 ( 0.05%)  			win_calculate_ray_dir(w, wx0, wy0);
+40,971,780 ( 2.50%)  => src/miniRT/is_scene4.c:win_calculate_ray_dir (141,282x)
+1,271,538 ( 0.08%)  			ray_init(r, &w->camera->lookfrom, w->ray_direction);
+3,814,614 ( 0.23%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/ray/ray_init.c:ray_init (141,282x)
+  847,692 ( 0.05%)  			mlx_color = ray_color(r, w);
+1,366,566,395 (83.55%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/ray/ray_color.c:ray_color (141,282x)
+5,792,562 ( 0.35%)  			win_pixel_put(*w, wx0, wy0, mlx_color);
+8,759,484 ( 0.54%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/miniRT/win_pixel_put.c:win_pixel_put (141,282x)
+  141,282 ( 0.01%)  			wx0++;
+        .           		}
+      282 ( 0.00%)  		wy0++;
+        .           	}
+       10 ( 0.00%)  	mlx_put_image_to_window(w->mlx_ptr, w->win_ptr, w->img.img_ptr, 0, 0);
+      586 ( 0.00%)  => ???:mlx_put_image_to_window (1x)
+        3 ( 0.00%)  	ray_free(r);
+      376 ( 0.00%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/ray/ray_init.c:ray_free (1x)
+        4 ( 0.00%)  }
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: src/ray/ray_color.c
+--------------------------------------------------------------------------------
+Ir                 
+
+-- line 12 ----------------------------------------
+        .           
+        .           #include "ray.h"
+        .           #include "eleme.h"
+        .           #include "hitrecord.h"
+        .           #include "miniRT.h"
+        .           #include <math.h>
+        .           
+        .           static	t_vec3	*get_normal(t_ray *self, double t)
+  794,448 ( 0.05%)  {
+        .           	t_vec3	*vec3_0_0_minus1;
+        .           	t_vec3	*ray_at_t;
+        .           	t_vec3	*normal;
+        .           
+  264,816 ( 0.02%)  	vec3_0_0_minus1 = vec3_new();
+10,327,824 ( 0.63%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_init.c:vec3_new (132,408x)
+1,059,264 ( 0.06%)  	vec3_init_values(vec3_0_0_minus1, 0, 0, -1);
+2,515,752 ( 0.15%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_init.c:vec3_init_values (132,408x)
+  794,448 ( 0.05%)  	ray_at_t = ray_at(self, t);
+20,920,464 ( 1.28%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/ray/ray_at.c:ray_at (132,408x)
+  794,448 ( 0.05%)  	vec3_sub(ray_at_t, ray_at_t, vec3_0_0_minus1);
+3,972,240 ( 0.24%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_addition.c:vec3_sub (132,408x)
+  264,816 ( 0.02%)  	normal = vec3_new();
+10,327,824 ( 0.63%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_init.c:vec3_new (132,408x)
+  662,040 ( 0.04%)  	vec3_unit_vector(normal, ray_at_t);
+15,094,512 ( 0.92%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_module.c:vec3_unit_vector (132,408x)
+  397,224 ( 0.02%)  	vec3_free(ray_at_t);
+12,975,984 ( 0.79%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_init.c:vec3_free (132,408x)
+  397,224 ( 0.02%)  	vec3_free(vec3_0_0_minus1);
+12,975,984 ( 0.79%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_init.c:vec3_free (132,408x)
+  132,408 ( 0.01%)  	return (normal);
+  264,816 ( 0.02%)  }
+        .           
+        .           int	ray_color(t_ray	*self, t_win *w)
+1,554,102 ( 0.10%)  {
+        .           	int			mlx_color;
+        .           	t_vec3		*normal;
+        .           	t_color		normalized_color;
+        .           	t_hit_args	*data;
+        .           
+  423,846 ( 0.03%)  	data = (t_hit_args *)malloc(sizeof(t_hit_args));
+6,640,254 ( 0.41%)  => ???:0x000000000010a4f0 (141,282x)
+  423,846 ( 0.03%)  	data->rec = hitrecord_new();
+32,353,578 ( 1.98%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/hitrecord/hitrecord_init.c:hitrecord_new (141,282x)
+  423,846 ( 0.03%)  	data->ran = int_new();
+12,856,662 ( 0.79%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/interval/interval_init.c:int_new (141,282x)
+1,130,256 ( 0.07%)  	int_init(data->ran, 0, __DBL_MAX__);
+5,933,844 ( 0.36%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/interval/interval_init.c:int_init (141,282x)
+  565,128 ( 0.03%)  	data->self = w->eleme;
+  423,846 ( 0.03%)  	data->ray = self;
+  423,846 ( 0.03%)  	data->shadow_col = col_new();
+32,918,706 ( 2.01%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/color/col_create.c:col_new (141,282x)
+  706,410 ( 0.04%)  	if (eleme_hit(data))
+382,867,625 (23.41%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/eleme/eleme_hit.c:eleme_hit (141,282x)
+        .           	{
+1,456,488 ( 0.09%)  		normal = get_normal(data->ray, hitrecord_get_t(data->rec));
+94,936,536 ( 5.80%)  => src/ray/ray_color.c:get_normal (132,408x)
+1,059,264 ( 0.06%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/hitrecord/hitrecord_getters.c:hitrecord_get_t (132,408x)
+1,986,120 ( 0.12%)  		col_init_with_1(&normalized_color,
+19,331,568 ( 1.18%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/color/col_init.c:col_init_with_1 (132,408x)
+1,059,264 ( 0.06%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_getters.c:vec3_get_x (132,408x)
+1,059,264 ( 0.06%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_getters.c:vec3_get_y (132,408x)
+1,059,264 ( 0.06%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_getters.c:vec3_get_z (132,408x)
+  397,224 ( 0.02%)  			vec3_get_x(&data->self->color->rgb),
+  397,224 ( 0.02%)  			vec3_get_y(&data->self->color->rgb),
+  397,224 ( 0.02%)  			vec3_get_z(&data->self->color->rgb));
+2,912,976 ( 0.18%)  		col_init_with_1(&normalized_color, 0.5 * (1 + vec3_get_x(normal)),
+19,331,568 ( 1.18%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/color/col_init.c:col_init_with_1 (132,408x)
+1,059,264 ( 0.06%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_getters.c:vec3_get_x (132,408x)
+1,324,080 ( 0.08%)  			0.5 * (1 + vec3_get_y(normal)), 0.5 * (1 + vec3_get_z(normal)));
+1,059,264 ( 0.06%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_getters.c:vec3_get_y (132,408x)
+1,059,264 ( 0.06%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_getters.c:vec3_get_z (132,408x)
+  662,040 ( 0.04%)  		ray_shadow(data, w);
+591,284,712 (36.15%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/ray/ray_shadow.c:ray_shadow (132,408x)
+  926,856 ( 0.06%)  		col_add(&normalized_color, &normalized_color, data->shadow_col);
+19,993,608 ( 1.22%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/color/col_math.c:col_add (132,408x)
+        .           		//col_add(&normalized_color, &normalized_color, w->ambient->ambient);
+  529,632 ( 0.03%)  		mlx_color = col_get_mlx_color(&normalized_color);
+1,059,264 ( 0.06%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/color/col_getters255.c:col_get_mlx_color (132,408x)
+        .           		//mlx_color = col_get_mlx_color(data->rec->hit_obj->color);
+  529,632 ( 0.03%)  		vec3_free(normal);
+15,756,552 ( 0.96%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_init.c:vec3_free (132,408x)
+        .           	}
+        .           	else
+   62,118 ( 0.00%)  		mlx_color = col_lerp(w, self->dir);
+4,925,070 ( 0.30%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/color/col_lerp.c:col_lerp (8,874x)
+  565,128 ( 0.03%)  	hitrecord_free(data->rec);
+50,630,094 ( 3.10%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/hitrecord/hitrecord_init.c:hitrecord_free (141,282x)
+  565,128 ( 0.03%)  	int_free(data->ran);
+21,147,228 ( 1.29%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/interval/interval_init.c:int_free (141,282x)
+  565,128 ( 0.03%)  	col_free(data->shadow_col);
+13,845,636 ( 0.85%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/color/col_create.c:col_free (141,282x)
+  423,846 ( 0.03%)  	free(data);
+12,291,534 ( 0.75%)  => ???:0x000000000010a560 (141,282x)
+  141,282 ( 0.01%)  	return (mlx_color);
+1,130,256 ( 0.07%)  }
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: src/ray/ray_at.c
+--------------------------------------------------------------------------------
+Ir                 
+
+-- line 8 ----------------------------------------
+        .           /*   Created: 2024/09/21 14:27:47 by luicasad          #+#    #+#             */
+        .           /*   Updated: 2024/10/03 20:25:16 by luicasad         ###   ########.fr       */
+        .           /*                                                                            */
+        .           /* ************************************************************************** */
+        .           
+        .           #include "ray.h"
+        .           
+        .           t_point	*ray_at(t_ray *self, double t)
+2,058,378 ( 0.13%)  {
+        .           	t_point	*t_times_dir;
+        .           
+  686,126 ( 0.04%)  	t_times_dir = point_new();
+26,759,059 ( 1.64%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/point/point_init.c:point_new (343,063x)
+2,744,504 ( 0.17%)  	vec3_scale(t_times_dir, self->dir, t);
+8,233,512 ( 0.50%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_product.c:vec3_scale (343,063x)
+2,401,441 ( 0.15%)  	vec3_add(t_times_dir, self->orig, t_times_dir);
+10,291,890 ( 0.63%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_addition.c:vec3_add (343,063x)
+  343,063 ( 0.02%)  	return (t_times_dir);
+  686,126 ( 0.04%)  }
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: src/vec3/vec3_module.c
+--------------------------------------------------------------------------------
+Ir                  
+
+-- line 9 ----------------------------------------
+         .           /*   Updated: 2024/11/13 17:58:47 by luicasad         ###   ########.fr       */
+         .           /*																			*/
+         .           /* ************************************************************************** */
+         .           #include "vec3.h"
+         .           #include "stdlib.h"
+         .           #include "libft.h"
+         .           
+         .           double	vec3_length_squared(const t_vec3 *v)
+ 6,003,448 ( 0.37%)  {
+25,514,654 ( 1.56%)  	return (v->e[0] * v->e[0] + v->e[1] * v->e[1] + v->e[2] * v->e[2]);
+ 3,001,724 ( 0.18%)  }
+         .           
+         .           double	vec3_length(const t_vec3 *v)
+ 2,030,510 ( 0.12%)  {
+ 2,436,612 ( 0.15%)  	return (sqrt(vec3_length_squared(v)));
+ 9,340,346 ( 0.57%)  => src/vec3/vec3_module.c:vec3_length_squared (406,102x)
+ 4,061,020 ( 0.25%)  => ???:0x000000000010a790 (406,102x)
+   812,204 ( 0.05%)  }
+         .           
+         .           void	vec3_unit_vector(t_vec3 *result, const t_vec3 *v)
+ 1,642,164 ( 0.10%)  {
+ 2,736,940 ( 0.17%)  	vec3_div(result, v, vec3_length(v));
+13,410,940 ( 0.82%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_product.c:vec3_div (273,694x)
+12,589,924 ( 0.77%)  => src/vec3/vec3_module.c:vec3_length (273,694x)
+   821,082 ( 0.05%)  }
+         .           
+         .           // randomly generates a non parallelel vector to normal
+         .           // with product co
+         .           void	vec3_u_v_from_n(t_vec3 *n, t_vec3 *u, t_vec3 *v)
+         .           {
+         .           	if (!vec3_iszero(n))
+         .           	{
+         .           		vec3_unit_vector(n, n);
+-- line 37 ----------------------------------------
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: src/ray/ray_getters.c
+--------------------------------------------------------------------------------
+Ir               
+
+-- line 13 ----------------------------------------
+      .           #include "ray.h"
+      .           
+      .           t_point	*ray_get_orig(t_ray *self)
+      .           {
+      .           	return (self->orig);
+      .           }
+      .           
+      .           t_vec3	*ray_get_dir(t_ray *self)
+842,620 ( 0.05%)  {
+421,310 ( 0.03%)  	return (self->dir);
+421,310 ( 0.03%)  }
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: src/color/col_init.c
+--------------------------------------------------------------------------------
+Ir                 
+
+-- line 8 ----------------------------------------
+        .           /*   Created: 2024/02/06 11:49:06 by luicasad          #+#    #+#             */
+        .           /*   Updated: 2024/11/13 18:08:04 by luicasad         ###   ########.fr       */
+        .           /*                                                                            */
+        .           /* ************************************************************************** */
+        .           #include "color.h"
+        .           #include <stdlib.h>
+        .           
+        .           static int	col_create_mlx_color_with_int(int t, int r, int g, int b)
+4,882,885 ( 0.30%)  {
+6,975,550 ( 0.43%)  	return (t << 24 | r << 16 | g << 8 | b);
+1,395,110 ( 0.09%)  }
+        .           
+        .           static int	col_create_mlx_color_with_double(t_vec3 *the_rgb, double the_t)
+4,185,330 ( 0.26%)  {
+        .           	int	r_int;
+        .           	int	g_int;
+        .           	int	b_int;
+        .           	int	t_int;
+        .           
+4,882,885 ( 0.30%)  	r_int = (int)(255 * vec3_get_x(the_rgb));
+5,580,440 ( 0.34%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_getters.c:vec3_get_x (697,555x)
+4,882,885 ( 0.30%)  	g_int = (int)(255 * vec3_get_y(the_rgb));
+5,580,440 ( 0.34%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_getters.c:vec3_get_y (697,555x)
+4,882,885 ( 0.30%)  	b_int = (int)(255 * vec3_get_z(the_rgb));
+5,580,440 ( 0.34%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_getters.c:vec3_get_z (697,555x)
+3,487,775 ( 0.21%)  	t_int = (int)(255 * the_t);
+4,185,330 ( 0.26%)  	return (col_create_mlx_color_with_int(t_int, r_int, g_int, b_int));
+13,253,545 ( 0.81%)  => src/color/col_init.c:col_create_mlx_color_with_int (697,555x)
+1,395,110 ( 0.09%)  }
+        .           
+        .           void	col_create_mlx_color(t_color *self)
+3,487,775 ( 0.21%)  {
+7,673,105 ( 0.47%)  	self->mlx_color = col_create_mlx_color_with_double(&self->rgb, self->t);
+57,897,065 ( 3.54%)  => src/color/col_init.c:col_create_mlx_color_with_double (697,555x)
+2,092,665 ( 0.13%)  }
+        .           
+        .           // to use when color are in range 0 .. 255
+        .           void	col_init_with_255(t_color *self, int r, int g, int b)
+       32 ( 0.00%)  {
+       56 ( 0.00%)  	col_init_with_1(self,
+      584 ( 0.00%)  => src/color/col_init.c:col_init_with_1 (4x)
+        8 ( 0.00%)  		((double)r / 255.0),
+        8 ( 0.00%)  		((double)g / 255.0),
+        8 ( 0.00%)  		((double)b / 255.0));
+       12 ( 0.00%)  }
+        .           
+        .           // to use when colors are in range 0.0 .. 1.0
+        .           void	col_init_with_1(t_color *self, double r, double g, double b)
+3,319,904 ( 0.20%)  {
+3,734,892 ( 0.23%)  	vec3_init_values(&self->rgb, r, g, b);
+7,884,772 ( 0.48%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_init.c:vec3_init_values (414,988x)
+  829,976 ( 0.05%)  	self->t = 0;
+1,244,964 ( 0.08%)  	col_create_mlx_color(self);
+42,328,776 ( 2.59%)  => src/color/col_init.c:col_create_mlx_color (414,988x)
+1,244,964 ( 0.08%)  }
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: src/eleme/eleme_hittables_sph.c
+--------------------------------------------------------------------------------
+Ir                 
+
+-- line 23 ----------------------------------------
+        .           
+        .           An additional simplification to calculate the quadratic solution comes wiht a
+        .           variable substitution.
+        .           let's imaginde b = -2h. 
+        .           then what was b = -2d*oc becomes -2h = -2d*oc and h= d*oc
+        .           
+        .           */
+        .           static double	calc_discriminant(t_eleme *o, t_ray *r, double *a, double *b)
+6,021,180 ( 0.37%)  {
+        .           	double	c;
+        .           	t_vec3	oc;
+        .           	double	radio;
+        .           
+2,736,900 ( 0.17%)  	radio = o->d / 2.0;
+4,379,040 ( 0.27%)  	vec3_sub(&oc, o->coor, r->orig);
+16,421,400 ( 1.00%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_addition.c:vec3_sub (547,380x)
+3,831,660 ( 0.23%)  	*a = vec3_length_squared(r->dir);
+12,589,740 ( 0.77%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_module.c:vec3_length_squared (547,380x)
+4,926,420 ( 0.30%)  	*b = vec3_dot(r->dir, &oc);
+13,137,120 ( 0.80%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_product.c:vec3_dot (547,380x)
+5,473,800 ( 0.33%)  	c = vec3_length_squared(&oc) - (radio * radio);
+12,589,740 ( 0.77%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_module.c:vec3_length_squared (547,380x)
+4,926,420 ( 0.30%)  	return (((*b * *b) - (*a * c)));
+2,736,900 ( 0.17%)  }
+        .           
+        .           static	void	calc_normal(t_eleme *self, t_ray *ray, t_hitrecord *rec)
+1,685,240 ( 0.10%)  {
+        .           	t_vec3	*normal;
+        .           
+  421,310 ( 0.03%)  	normal = vec3_new();
+48,076,508 ( 2.94%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_init.c:vec3_new (210,655x)
+2,738,515 ( 0.17%)  	vec3_sub(normal, hitrecord_get_point(rec), eleme_get_coord(self));
+6,319,650 ( 0.39%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_addition.c:vec3_sub (210,655x)
+1,685,240 ( 0.10%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/hitrecord/hitrecord_getters.c:hitrecord_get_point (210,655x)
+1,685,240 ( 0.10%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/eleme/eleme_getters_two.c:eleme_get_coord (210,655x)
+2,949,170 ( 0.18%)  	vec3_div(normal, normal, eleme_get_diame(self) / 2);
+10,322,095 ( 0.63%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_product.c:vec3_div (210,655x)
+1,685,240 ( 0.10%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/eleme/eleme_getters_one.c:eleme_get_diame (210,655x)
+1,263,930 ( 0.08%)  	hitrecord_face_normal(rec, ray, normal);
+23,805,987 ( 1.46%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/hitrecord/hitrecord_methods.c:hitrecord_face_normal (210,655x)
+  631,965 ( 0.04%)  	vec3_free(normal);
+23,159,923 ( 1.42%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_init.c:vec3_free (210,655x)
+  842,620 ( 0.05%)  }
+        .           
+        .           static void	set_hitrecord(t_hitrecord *re, double ro, t_eleme *s, t_ray *ra)
+1,685,240 ( 0.10%)  {
+        .           	t_point	*p;
+        .           
+1,053,275 ( 0.06%)  	hitrecord_set_t(re, ro);
+2,317,205 ( 0.14%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/hitrecord/hitrecord_setters.c:hitrecord_set_t (210,655x)
+1,263,930 ( 0.08%)  	p = ray_at(ra, ro);
+33,283,635 ( 2.03%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/ray/ray_at.c:ray_at (210,655x)
+1,053,275 ( 0.06%)  	hitrecord_set_point(re, p);
+10,322,095 ( 0.63%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/hitrecord/hitrecord_setters.c:hitrecord_set_point (210,655x)
+1,263,930 ( 0.08%)  	calc_normal(s, ra, re);
+127,272,633 ( 7.78%)  => src/eleme/eleme_hittables_sph.c:calc_normal (210,655x)
+1,053,275 ( 0.06%)  	hitrecord_set_hit_obj(re, s);
+2,317,205 ( 0.14%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/hitrecord/hitrecord_setters.c:hitrecord_set_hit_obj (210,655x)
+  631,965 ( 0.04%)  	point_free(p);
+25,741,942 ( 1.57%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/point/point_init.c:point_free (210,655x)
+  631,965 ( 0.04%)  }
+        .           
+        .           bool	hit_sphere(t_hit_args *data)
+4,379,040 ( 0.27%)  {
+        .           	double	a;
+        .           	double	b;
+        .           	double	discriminant;
+        .           	double	discriminant_root;
+        .           	double	root;
+        .           
+5,473,800 ( 0.33%)  	discriminant = calc_discriminant(data->self, data->ray, &a, &b);
+89,770,320 ( 5.49%)  => src/eleme/eleme_hittables_sph.c:calc_discriminant (547,380x)
+1,642,140 ( 0.10%)  	if (discriminant < 0)
+  515,802 ( 0.03%)  		return (false);
+1,447,395 ( 0.09%)  	discriminant_root = sqrt(discriminant);
+2,894,790 ( 0.18%)  => ???:0x000000000010a790 (289,479x)
+1,447,395 ( 0.09%)  	root = (b - discriminant_root) / a;
+2,605,311 ( 0.16%)  	if (!int_sorrounds(data->ran, root))
+10,317,483 ( 0.63%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/interval/interval_methods.c:int_sorrounds (289,479x)
+        .           	{
+  394,410 ( 0.02%)  		root = (b + discriminant_root) / a;
+  709,938 ( 0.04%)  		if (!int_sorrounds(data->ran, root))
+1,894,531 ( 0.12%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/interval/interval_methods.c:int_sorrounds (78,882x)
+  157,648 ( 0.01%)  			return (false);
+        .           	}
+2,106,550 ( 0.13%)  	set_hitrecord(data->rec, root, data->self, data->ray);
+209,891,570 (12.83%)  => src/eleme/eleme_hittables_sph.c:set_hitrecord (210,655x)
+  210,655 ( 0.01%)  	return (true);
+2,736,900 ( 0.17%)  }
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: src/miniRT/win_pixel_put.c
+--------------------------------------------------------------------------------
+Ir                 
+
+-- line 8 ----------------------------------------
+        .           /*   Created: 2024/02/05 19:54:06 by luicasad          #+#    #+#             */
+        .           /*   Updated: 2024/09/12 13:15:06 by luicasad         ###   ########.fr       */
+        .           /*                                                                            */
+        .           /* ************************************************************************** */
+        .           
+        .           #include "miniRT.h"
+        .           
+        .           void	win_pixel_put(t_win w, int x, int y, int color)
+1,130,256 ( 0.07%)  {
+3,814,614 ( 0.23%)  => ./gmon/../sysdeps/x86_64/_mcount.S:mcount (141,282x)
+        .           	char	*dst;
+        .           	int		offset_y;
+        .           	int		offset_x;
+        .           
+  565,128 ( 0.03%)  	offset_y = y * w.img.line_length;
+1,271,538 ( 0.08%)  	offset_x = x * (w.img.bits_per_pixel / 8);
+1,130,256 ( 0.07%)  	dst = w.img.addr + offset_y + offset_x;
+  423,846 ( 0.03%)  	*(unsigned int *)dst = (unsigned int)color;
+  423,846 ( 0.03%)  }
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: src/ray/ray_shadow.c
+--------------------------------------------------------------------------------
+Ir                 
+
+-- line 12 ----------------------------------------
+        .           
+        .           #include "ray.h"
+        .           #include "eleme.h"
+        .           #include "hitrecord.h"
+        .           #include "miniRT.h"
+        .           #include <math.h>
+        .           
+        .           void	ray_shadow(t_hit_args *data, t_win *w)
+1,191,672 ( 0.07%)  {
+        .           	t_vec3		offset;
+        .           	double		distance_to_light;
+        .           	double		light_inte;
+        .           	double		attenuation;
+        .           	t_hit_args	*shadow_data;
+        .           
+  397,224 ( 0.02%)  	shadow_data = (t_hit_args *)malloc(sizeof(t_hit_args));
+6,223,176 ( 0.38%)  => ???:0x000000000010a4f0 (132,408x)
+  397,224 ( 0.02%)  	shadow_data->rec = hitrecord_new();
+30,321,432 ( 1.85%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/hitrecord/hitrecord_init.c:hitrecord_new (132,408x)
+  397,224 ( 0.02%)  	shadow_data->ran = int_new();
+12,049,128 ( 0.74%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/interval/interval_init.c:int_new (132,408x)
+  397,224 ( 0.02%)  	shadow_data->ray = ray_new();
+30,321,577 ( 1.85%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/ray/ray_init.c:ray_new (132,408x)
+1,059,264 ( 0.06%)  	int_init(shadow_data->ran, 0, __DBL_MAX__);
+5,561,136 ( 0.34%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/interval/interval_init.c:int_init (132,408x)
+  529,632 ( 0.03%)  	shadow_data->self = w->eleme;
+1,588,896 ( 0.10%)  	vec3_sub(shadow_data->ray->dir, w->light->coor, data->rec->p);
+3,972,240 ( 0.24%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_addition.c:vec3_sub (132,408x)
+  926,856 ( 0.06%)  	distance_to_light = vec3_length(shadow_data->ray->dir);
+6,090,768 ( 0.37%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_module.c:vec3_length (132,408x)
+1,191,672 ( 0.07%)  	vec3_unit_vector(shadow_data->ray->dir, shadow_data->ray->dir);
+15,094,512 ( 0.92%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_module.c:vec3_unit_vector (132,408x)
+1,191,672 ( 0.07%)  	vec3_scale(&offset, data->rec->normal, 0.01);
+3,177,792 ( 0.19%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_product.c:vec3_scale (132,408x)
+1,324,080 ( 0.08%)  	vec3_add(shadow_data->ray->orig, data->rec->p, &offset);
+3,972,240 ( 0.24%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_addition.c:vec3_add (132,408x)
+1,059,264 ( 0.06%)  	int_init(shadow_data->ran, 0.001, distance_to_light);
+5,561,136 ( 0.34%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/interval/interval_init.c:int_init (132,408x)
+1,986,120 ( 0.12%)  	light_inte = fmax(0, vec3_dot(data->rec->normal, shadow_data->ray->dir));
+3,177,792 ( 0.19%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_product.c:vec3_dot (132,408x)
+1,059,264 ( 0.06%)  => ???:0x000000000010a610 (132,408x)
+  662,040 ( 0.04%)  	if (eleme_hit(shadow_data))
+300,071,203 (18.34%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/eleme/eleme_hit.c:eleme_hit (132,408x)
+  312,988 ( 0.02%)  		light_inte *= 0.1;
+1,191,672 ( 0.07%)  	attenuation = w->light->lbrig / (distance_to_light * distance_to_light);
+  397,224 ( 0.02%)  	light_inte *= attenuation;
+  794,448 ( 0.05%)  	light_inte = fmax(0, light_inte);
+1,059,264 ( 0.06%)  => ???:0x000000000010a610 (132,408x)
+1,324,080 ( 0.08%)  	col_scale(data->shadow_col, w->light->color, light_inte);
+19,199,160 ( 1.17%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/color/col_math.c:col_scale (132,408x)
+  529,632 ( 0.03%)  	int_free(shadow_data->ran);
+17,213,040 ( 1.05%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/interval/interval_init.c:int_free (132,408x)
+  529,632 ( 0.03%)  	hitrecord_free(shadow_data->rec);
+44,753,904 ( 2.74%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/hitrecord/hitrecord_init.c:hitrecord_free (132,408x)
+  529,632 ( 0.03%)  	ray_free(shadow_data->ray);
+49,785,408 ( 3.04%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/ray/ray_init.c:ray_free (132,408x)
+  397,224 ( 0.02%)  	free(shadow_data);
+11,519,496 ( 0.70%)  => ???:0x000000000010a560 (132,408x)
+  794,448 ( 0.05%)  }
+
+--------------------------------------------------------------------------------
+-- Auto-annotated source: src/hitrecord/hitrecord_init.c
+--------------------------------------------------------------------------------
+Ir                 
+
+-- line 9 ----------------------------------------
+        .           /*   Updated: 2024/10/22 23:36:37 by luicasad         ###   ########.fr       */
+        .           /*                                                                            */
+        .           /* ************************************************************************** */
+        .           
+        .           #include "hitrecord.h"
+        .           #include <stdlib.h>
+        .           
+        .           t_hitrecord	*hitrecord_new(void)
+2,189,520 ( 0.13%)  {
+        .           	t_hitrecord	*self;
+        .           
+1,642,140 ( 0.10%)  	self = (t_hitrecord *)malloc(sizeof(t_hitrecord));
+25,727,005 ( 1.57%)  => ???:0x000000000010a4f0 (547,380x)
+1,094,760 ( 0.07%)  	if (!self)
+        .           		return (NULL);
+1,642,140 ( 0.10%)  	self->p = point_new();
+65,602,196 ( 4.01%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/point/point_init.c:point_new (547,380x)
+2,189,520 ( 0.13%)  	if (!self->p)
+        .           	{
+        .           		free(self);
+        .           		return (NULL);
+        .           	}
+1,642,140 ( 0.10%)  	self->normal = vec3_new();
+42,695,958 ( 2.61%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_init.c:vec3_new (547,380x)
+2,189,520 ( 0.13%)  	if (!self->normal)
+        .           	{
+        .           		point_free(self->p);
+        .           		free(self);
+        .           		return (NULL);
+        .           	}
+  547,380 ( 0.03%)  	return (self);
+1,094,760 ( 0.07%)  }
+        .           
+        .           void	hitrecord_free(t_hitrecord *self)
+2,736,900 ( 0.17%)  {
+1,094,760 ( 0.07%)  	if (self)
+        .           	{
+2,189,520 ( 0.13%)  		if (self->p != NULL)
+2,189,520 ( 0.13%)  			point_free(self->p);
+65,225,535 ( 3.99%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/point/point_init.c:point_free (547,380x)
+2,189,520 ( 0.13%)  		vec3_free(self->normal);
+61,720,107 ( 3.77%)  => /home/lcasado/Documents/coding/c/42/cc/circle5/miniRT/src/vec3/vec3_init.c:vec3_free (547,380x)
+1,642,140 ( 0.10%)  		free(self);
+47,622,060 ( 2.91%)  => ???:0x000000000010a560 (547,380x)
+        .           	}
+1,642,140 ( 0.10%)  }
+        .           
+        .           void	hitrecord_init(t_hitrecord *self)
+        .           {
+        .           	point_init(self->p, 0.0, 0.0, 0.0);
+        .           	vec3_init_values(self->normal, 0.0, 0.0, 0.0);
+        .           	self->t = 0.0;
+        .           	self->front_face = 0;
+        .           	self->hit_obj = NULL;
+        .           }
+        .           
+        .           void	hitrecord_copy(t_hitrecord *dest, t_hitrecord *ori)
+1,053,275 ( 0.06%)  {
+2,106,550 ( 0.13%)  	*dest->p = *ori->p;
+2,106,550 ( 0.13%)  	*dest->normal = *ori->normal;
+  842,620 ( 0.05%)  	dest->t = ori->t;
+  842,620 ( 0.05%)  	dest->front_face = ori->front_face;
+  842,620 ( 0.05%)  	dest->hit_obj = ori->hit_obj;
+  631,965 ( 0.04%)  }
+        .           	//*dest->mat = *ori->mat;
+
+--------------------------------------------------------------------------------
+The following files chosen for auto-annotation could not be found:
+--------------------------------------------------------------------------------
+  ./gmon/../sysdeps/x86_64/_mcount.S
+  ./gmon/./gmon/mcount.c
+  ./malloc/./malloc/arena.c
+  ./malloc/./malloc/malloc.c
+  ./math/../sysdeps/ieee754/dbl-64/e_sqrt.c
+  ./math/../sysdeps/x86_64/fpu/s_fmax.S
+  ./math/./math/w_sqrt_compat.c
+  ./nptl/./nptl/pthread_cond_broadcast.c
+  ./nptl/./nptl/pthread_cond_destroy.c
+  ./nptl/./nptl/pthread_cond_signal.c
+  ./nptl/./nptl/pthread_mutex_lock.c
+  ./nptl/./nptl/pthread_mutex_unlock.c
+  ./socket/../sysdeps/unix/sysv/linux/recvmsg.c
+  ./string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S
+
+--------------------------------------------------------------------------------
+Ir                   
+--------------------------------------------------------------------------------
+773,119,997 (47.26%)  events annotated
+

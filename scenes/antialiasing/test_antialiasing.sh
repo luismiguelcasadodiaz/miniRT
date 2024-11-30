@@ -1,0 +1,9 @@
+../miniRT 19__10.rt &
+../miniRT 19__110.rt &
+../miniRT 19__130.rt &
+../miniRT 19__150.rt &
+../miniRT 19__170.rt &
+../miniRT 19__30.rt &
+../miniRT 19__50.rt &
+../miniRT 19__70.rt &
+../miniRT 19__90.rt &
