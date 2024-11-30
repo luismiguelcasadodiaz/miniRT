@@ -15,7 +15,8 @@
 
 # include "vec3.h"
 # include <stdlib.h>
-# 
+
+typedef struct s_win	t_win;
 
 /* ************************************************************************** */
 /* rgb is made of doubles. keeps colors in range 0 .. 1                       */
@@ -63,7 +64,7 @@ void	col_set_g_1(t_color *self, double value);
 void	col_set_b_1(t_color *self, double value);
 
 int		col_in_range(t_color *self);
-int		col_lerp(t_color *start, t_color *end, t_vec3 *direction);
+int		col_lerp(t_win *w, t_vec3 *direction);
 void	col_print(t_color *self);
 void	col_copy_values(t_color *dest, t_color *orig);
 

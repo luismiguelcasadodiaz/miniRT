@@ -212,7 +212,6 @@ HEADER_iRT	=	miniRT.h
 SRCS_MINRT	= 	miniRT.c \
 				show_usage.c \
 				show_data.c \
-				win_create_world.c \
 				win_init.c \
 				win_h_key_down.c \
 				win_h_key_up.c \
@@ -230,6 +229,7 @@ SRCS_MINRT	= 	miniRT.c \
 #				is_scene1.c \
 #				is_scene2.c \
 #				is_scene3.c \
+#				win_create_world.c \
 
 HEADER_BON	=	miniRT_bonus.h
 SRCS_BONUS	 =	miniRT_bonus.c \
