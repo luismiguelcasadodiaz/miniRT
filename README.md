@@ -19,7 +19,6 @@ Turner Whitted : [**An Improved illumination model for shaded display**](https:/
 According to this table of times in milliseconds, an array of doubles passed by reference cd  float performs better.
 
 
-
 ## Ambient light
 An ambient light **must NOT influence** the object's color.
 
@@ -33,5 +32,14 @@ In the first approach, We tested it with nine images, changing ambient light int
 
 
 However, the discussion with 42 peers showed our approach was wrong. We change it to impact only the background color.
+
+
+Starting with a black background color, increasing blue ambient light intensity produces this image.
+
+![Blue_ambient_light](https://github.com/user-attachments/assets/bb216abd-bbb3-4c7b-8593-22f24e8ab4e7)
+
+Testing with red ambient light, we got.
+
+![Red_ambient_light](https://github.com/user-attachments/assets/3bf48351-2d54-4f55-a90e-a86467299ed8)
 
 
