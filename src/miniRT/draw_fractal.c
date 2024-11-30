@@ -20,4 +20,3 @@ void	draw_fractal(t_win w)
 	draw_image4(&w);
 	return ;
 }
-

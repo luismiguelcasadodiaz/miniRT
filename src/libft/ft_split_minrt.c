@@ -6,14 +6,14 @@
 /*   By: luicasad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 18:30:53 by luicasad          #+#    #+#             */
-/*   Updated: 2024/11/13 16:58:09 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/11/30 09:35:12 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 #include "chunk.h"
 
 static int	char_in_set(char c, char *set)
-{	
+{
 	while (*set)
 	{
 		if (c == *set)

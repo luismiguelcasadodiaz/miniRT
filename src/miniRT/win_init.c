@@ -48,7 +48,6 @@ static void	set_init_values_img(t_win *w)
 static void	set_init_values_win(t_win *w, char *title)
 {
 	int		height;
-	//t_vec3	*coor;
 
 	height = (int)(WINDOW_W * ASPECT_RATIO_H / ASPECT_RATIO_W);
 	if (height < 1.0)
@@ -64,7 +63,6 @@ static void	set_init_values_win(t_win *w, char *title)
 	point_init(w->rd, WINDOW_W, height, 0);
 	set_init_values_img(w);
 	w->ray_direction = vec3_new();
-
 }
 
 t_win	win_init(char *title)
