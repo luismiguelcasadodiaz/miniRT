@@ -31,8 +31,8 @@ void	treat_sph(t_eleme_chunks *chunks, char **errmsg, t_win *w)
 		error_bad_number_argumen(&(chunks->line), errmsg);
 	else
 	{
-		ft_split_minrt(chunks->line.param[SP_CENT], ',', &(chunks->coor));
-		ft_split_minrt(chunks->line.param[SP_COLO], ',', &chunks->color);
+		ft_split_minrt(chunks->line.param[SP_CENT], ",", &(chunks->coor));
+		ft_split_minrt(chunks->line.param[SP_COLO], ",", &chunks->color);
 		if (chunks->coor.num != 3)
 			error_bad_point_num_argu(&(chunks->coor), errmsg);
 		else if (chunks->color.num != 3)
@@ -53,9 +53,9 @@ void	treat_pla(t_eleme_chunks *chunks, char **errmsg, t_win *w)
 		error_bad_number_argumen(&(chunks->line), errmsg);
 	else
 	{
-		ft_split_minrt(chunks->line.param[PL_CENT], ',', &(chunks->coor));
-		ft_split_minrt(chunks->line.param[PL_VECT], ',', &(chunks->novec));
-		ft_split_minrt(chunks->line.param[PL_COLO], ',', &(chunks->color));
+		ft_split_minrt(chunks->line.param[PL_CENT], ",", &(chunks->coor));
+		ft_split_minrt(chunks->line.param[PL_VECT], ",", &(chunks->novec));
+		ft_split_minrt(chunks->line.param[PL_COLO], ",", &(chunks->color));
 		if (chunks->coor.num != 3)
 			error_bad_point_num_argu(&(chunks->coor), errmsg);
 		else if (chunks->novec.num != 3)
@@ -76,9 +76,9 @@ void	treat_cyl(t_eleme_chunks *chunks, char **errmsg, t_win *w)
 		error_bad_number_argumen(&(chunks->line), errmsg);
 	else
 	{
-		ft_split_minrt(chunks->line.param[CY_CENT], ',', &chunks->coor);
-		ft_split_minrt(chunks->line.param[CY_VECT], ',', &chunks->novec);
-		ft_split_minrt(chunks->line.param[CY_COLO], ',', &chunks->color);
+		ft_split_minrt(chunks->line.param[CY_CENT], ",", &chunks->coor);
+		ft_split_minrt(chunks->line.param[CY_VECT], ",", &chunks->novec);
+		ft_split_minrt(chunks->line.param[CY_COLO], ",", &chunks->color);
 		if (chunks->coor.num != 3)
 			error_bad_point_num_argu(&(chunks->coor), errmsg);
 		else if (chunks->novec.num != 3)

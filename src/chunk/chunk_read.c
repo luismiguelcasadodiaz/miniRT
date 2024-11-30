@@ -27,7 +27,7 @@ void	chunk_treat_line(char *line, char **errmsg, t_win *w)
 	printf("lin>%s< tiene %ld cars\n", trimmed_line, ft_strlen(trimmed_line));
 	if (ft_strlen(trimmed_line) != 1)
 	{
-		ft_split_minrt(trimmed_line, ' ', &(chunks->line));
+		ft_split_minrt(trimmed_line, " \t", &(chunks->line));
 		chunk_print(&(chunks->line));
 		if (ft_strlen(chunks->line.param[0]) == 1)
 			treat_one_letter_command(chunks, errmsg, w);

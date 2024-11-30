@@ -12,6 +12,17 @@
 #include "libft.h"
 #include "chunk.h"
 
+static int	char_in_set(char c, char *set)
+{	
+	while (*set)
+	{
+		if (c == *set)
+			return (1);
+		set++;
+	}
+	return (0);
+}
+
 /* ************************************************************************** */
 /* word_count(), counts chunks of chars in 's' between a separation char 'c'. */
 /*                                                                            */
@@ -36,7 +47,7 @@
 /*  `counter = 0`. if s = "" it not enters into de while then returns zero    */
 /*                                                                            */
 /* ************************************************************************** */
-static size_t	word_count(char const *s, char c)
+static size_t	word_count(char const *s, char *set)
 {
 	size_t	counter;
 	short	in_word;
@@ -45,7 +56,7 @@ static size_t	word_count(char const *s, char c)
 	in_word = 0;
 	while (*s)
 	{
-		if (*s == c)
+		if (char_in_set(*s, set))
 			in_word = 0;
 		else if (!in_word)
 		{
@@ -83,7 +94,7 @@ static size_t	word_count(char const *s, char c)
 /*                                                                            */
 /*     second while advances if separators. Finds word init.                  */
 /*                                                                            */
-static char	**split(char const *s, char c, char **result)
+static char	**split(char const *s, char *set, char **result)
 {
 	size_t	i;
 	size_t	j;
@@ -95,7 +106,7 @@ static char	**split(char const *s, char c, char **result)
 	while (s[i] != '\0')
 	{
 		j = i;
-		while (s[j] != '\0' && s[j] != c)
+		while (s[j] != '\0' && !char_in_set(s[j], set))
 			j++;
 		if (j != i)
 		{
@@ -104,7 +115,7 @@ static char	**split(char const *s, char c, char **result)
 				return (de_allocate(result, word_counter));
 			result[word_counter++] = buf;
 		}
-		while (s[j] != '\0' && s[j] == c)
+		while (s[j] != '\0' && char_in_set(s[j], set))
 			j++;
 		i = j;
 	}
@@ -158,22 +169,22 @@ static char	**split(char const *s, char c, char **result)
 /* With this in main is not necessary propagate to the called functions the   */
 /* table size. that helps me to nest wordcount call inside allocate function. */
 /*                                                                            */
-void	ft_split_minrt(char const *s, char c, t_chunk *chunks)
+void	ft_split_minrt(char const *s, char *set, t_chunk *chunks)
 {
-	if ((!s && !c) || (!s && c))
+	if ((!s && !set) || (!s && set))
 	{
 		chunks->num = 0;
 		chunks->param = NULL;
 	}
 	else
 	{
-		chunks->num = word_count(s, c);
+		chunks->num = word_count(s, set);
 		chunks->param = allocate(chunks->num);
 		if (chunks->param == NULL)
 			chunks->num = 0;
 		else
 		{
-			chunks->param = split(s, c, chunks->param);
+			chunks->param = split(s, set, chunks->param);
 			if (chunks->param == NULL)
 				chunks->num = 0;
 		}

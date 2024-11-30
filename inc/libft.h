@@ -48,7 +48,7 @@ int		ft_toupper(int c);
 char	*ft_strtoupper(char *str);
 char	**ft_split(char const *s, char c);
 char	**ft_split_pipex(char const *s, char c);
-void	ft_split_minrt(char const *s, char c, t_chunk *chunks);
+void	ft_split_minrt(char const *s, char *set, t_chunk *chunks);
 char	**allocate(size_t rows);
 char	**de_allocate(char **table, size_t allocated_rows);
 char	*ft_itoa(int n);
