@@ -52,7 +52,7 @@ static void	world_destroy(t_win *w)
 	eleme_free(w->eleme);
 }
 */
-void	draw_image4(t_win *w)
+void	camera_render(t_win *w)
 {
 	int			wx0;
 	int			wy0;

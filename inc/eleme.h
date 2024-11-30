@@ -40,6 +40,7 @@ typedef struct s_eleme		t_eleme;
 typedef struct s_hitrecord	t_hitrecord;
 typedef struct s_interval	t_interval;
 
+
 typedef struct s_hit_args
 {
 	t_eleme		*self;

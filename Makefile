@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 13:07:33 by luicasad          #+#    #+#              #
-#    Updated: 2024/11/30 12:10:22 by luicasad         ###   ########.fr        #
+#    Updated: 2024/11/30 13:53:05 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -210,6 +210,7 @@ LLIBS 			+= -L$(LIBSYS) $(LOADLIBSYS)
 
 HEADER_iRT	=	miniRT.h
 SRCS_MINRT	= 	miniRT.c \
+				camera_render.c \
 				show_usage.c \
 				show_data.c \
 				win_init.c \
@@ -222,14 +223,15 @@ SRCS_MINRT	= 	miniRT.c \
 				win_h_destroy.c \
 				win_h_expose.c \
 				win_pixel_put.c \
-				draw_fractal.c \
-				is_scene4.c \
-				is_white.c \
+
+
 
 #				is_scene1.c \
 #				is_scene2.c \
 #				is_scene3.c \
 #				win_create_world.c \
+#				draw_fractal.c \
+				is_white.c \
 
 HEADER_BON	=	miniRT_bonus.h
 SRCS_BONUS	 =	miniRT_bonus.c \
