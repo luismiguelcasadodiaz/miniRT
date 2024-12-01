@@ -14,18 +14,17 @@
 #include "miniRT.h"
 
 //int	col_lerp(t_color *start, t_color *end, t_vec3 *dir)
-int	col_lerp(t_win *w, t_vec3 *dir)
+t_color	col_lerp(t_win *w, t_vec3 *dir)
 {
 	t_vec3	unit_direction;
 	t_color	color;
-	int		mlx_color;
 
 	col_init_with_1(&color, 0.0, 0.0, 0.0);
 	vec3_unit_vector(&unit_direction, dir);
 	col_add(&color, &w->camera->color_start, w->ambient->ambient);
 	col_create_mlx_color(&color);
-	mlx_color = color.mlx_color;
-	return (mlx_color);
+	//mlx_color = color.mlx_color;
+	return (color);
 }
 	//t_vec3	aux2;
 	//double	a;

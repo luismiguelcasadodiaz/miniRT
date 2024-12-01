@@ -64,7 +64,7 @@ void	col_set_g_1(t_color *self, double value);
 void	col_set_b_1(t_color *self, double value);
 
 int		col_in_range(t_color *self);
-int		col_lerp(t_win *w, t_vec3 *direction);
+t_color		col_lerp(t_win *w, t_vec3 *direction);
 void	col_print(t_color *self);
 void	col_copy_values(t_color *dest, t_color *orig);
 
