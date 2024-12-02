@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "miniRT.h"
-#include "mlx.h"
+#include "../minilibx/mlx.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include "libft.h"

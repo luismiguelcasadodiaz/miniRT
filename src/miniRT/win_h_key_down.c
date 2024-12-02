@@ -13,7 +13,7 @@
 #include "keys_ubuntu_home.h"
 #include "miniRT.h"
 #include <stdio.h>
-#include "mlx.h"
+#include "../minilibx/mlx.h"
 /*
 static void	arrows(int keysym, t_win *w)
 {

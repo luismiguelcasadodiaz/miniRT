@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   win_h_expose.c                                     :+:      :+:    :+:   */
+/*   mlx_destroy_display.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+        */
+/*   By: mg <mg@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/14 11:42:08 by luicasad          #+#    #+#             */
-/*   Updated: 2024/02/14 11:43:26 by luicasad         ###   ########.fr       */
+/*   Created: 2020/10/03 18:56:35 by mg                #+#    #+#             */
+/*   Updated: 2020/10/04 01:55:35 by mg               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
-#include "../minilibx/mlx.h"
-#include <stdlib.h>
+#include "mlx_int.h"
 
-int	win_h_expose(t_win *w)
+int	mlx_destroy_display(t_xvar *xvar)
 {
-	camera_render(w);
-	return (0);
+	XCloseDisplay(xvar->display);
 }

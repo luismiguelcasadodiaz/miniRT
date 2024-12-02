@@ -13,7 +13,7 @@
 #include "miniRT.h"
 #include <stdlib.h>
 
-#include "mlx.h"
+#include "../minilibx/mlx.h"
 
 int	win_h_not_event(t_win *w)
 {

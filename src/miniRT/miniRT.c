@@ -6,11 +6,11 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 10:28:52 by luicasad          #+#    #+#             */
-/*   Updated: 2024/10/30 23:37:27 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/12/02 14:07:40 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
+#include "../minilibx/mlx.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include "miniRT.h"

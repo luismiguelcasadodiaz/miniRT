@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 13:07:33 by luicasad          #+#    #+#              #
-#    Updated: 2024/12/02 12:44:38 by luicasad         ###   ########.fr        #
+#    Updated: 2024/12/02 14:12:49 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,8 @@ SRCDIR_GETNL		= ./src/getnl/
 SRCDIR_CHUNK		= ./src/chunk/
 #SRCDIR_SPHERE		= ./src/sphere/
 #SRCDIR_FTCOMPLEX	= ./src/compl/
-SRCDIR_MLIBX		= ./src/minilibx-linux/
+#SRCDIR_MLIBX		= ./src/minilibx-linux/
+SRCDIR_MLIBX		= ./src/minilibx/
 
 OBJDIR 			= ./obj/
 INCDIR 			= ./inc/
@@ -519,8 +520,7 @@ norma:
 	norminette $(INCDIR)
 	@echo "$(RED)========== CHECKING NORME $(SRCDIR_MLIBX) ==============$(DEF_COLOR)"
 	#$(MAKE) -C $(SRCDIR_MLIBX)  norma
-	norminette $(SRCDIR_MLIBX)
-	@echo "$(RED)========== CHECKING NORME $(SRCDIR_MLIBX) ==============$(DEF_COLOR)"
+	#norminette $(SRCDIR_MLIBX)
 
 profile:
 	valgrind --tool=callgrind ./$(MINRT) scenes/profile/19.rt
