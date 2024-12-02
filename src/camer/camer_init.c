@@ -49,7 +49,7 @@ t_camer	*camer_set(t_vec3 *coor, t_vec3 *novec, double fview, t_win *w)
 	camer_s_aspect_ratio(self, ASPECT_RATIO_W / ASPECT_RATIO_H);
 	camer_s_image_width(self, WINDOW_W);
 	camer_calc_image_height(self);
-	camer_s_samples_per_pixel(self, 10);
+	camer_s_samples_per_pixel(self, 20);
 	camer_s_max_depth(self, 10);
 	camer_s_vfov(self, self->hfov, w->size);
 	camer_calc_pixel_samples_scale(self);

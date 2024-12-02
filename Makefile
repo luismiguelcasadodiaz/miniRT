@@ -210,6 +210,7 @@ LLIBS 			+= -L$(LIBSYS) $(LOADLIBSYS)
 
 HEADER_iRT	=	miniRT.h
 SRCS_MINRT	= 	miniRT.c \
+				camera_render.c \
 				show_usage.c \
 				show_data.c \
 				win_init.c \
@@ -223,13 +224,14 @@ SRCS_MINRT	= 	miniRT.c \
 				win_h_expose.c \
 				win_pixel_put.c \
 				draw_fractal.c \
-				is_scene4.c \
-
+#				is_scene4.c \
 #				is_scene1.c \
 #				is_scene2.c \
 #				is_scene3.c \
 #				win_create_world.c \
 #				is_white.c \
+#				draw_fractal.c \
+				is_white.c \
 
 HEADER_BON	=	miniRT_bonus.h
 SRCS_BONUS	 =	miniRT_bonus.c \
@@ -507,21 +509,21 @@ norma:
 	$(MAKE) -C $(SRCDIR_HITRECORD)  norma
 	@echo "$(YELLOW)========== CHECKING NORME $(SRCDIR_HITRECORD) ==============$(DEF_COLOR)"
 	$(MAKE) -C $(SRCDIR_HITTABLE)  norma
-#	@echo "$(MID_GRAY)========== CHECKING NORME $(SRCDIR_SPHERE) ==============$(DEF_COLOR)"
-#	$(MAKE) -C $(SRCDIR_SPHERE)  norma
 	@echo "$(DARK_GREEN)========== CHECKING NORME $(SRCDIR_INTERVAL) ==============$(DEF_COLOR)"
 	$(MAKE) -C $(SRCDIR_INTERVAL)  norma
-	@echo "$(GREEN)============ CHECKING NORME $(INCDIR) ==============$(DEF_COLOR)"
+	@echo "$(DARK_GREEN)========== CHECKING NORME $(SRCDIR_RAY) ==============$(DEF_COLOR)"
 	$(MAKE) -C $(SRCDIR_RAY)  norma
 	@echo "$(GREEN)============ CHECKING NORME $(MINRT) ==============$(DEF_COLOR)"
 	norminette $(SRCDIR_MINRT) 
-	@echo "$(RED)========== CHECKING NORME $(SRCDIR_MLIBX) ==============$(DEF_COLOR)"
-	$(MAKE) -C $(SRCDIR_MLIBX)  norma
+	@echo "$(GREEN)============ CHECKING NORME $(INCDIR) ==============$(DEF_COLOR)"
 	norminette $(INCDIR)
-	@echo "$(DARK_GREEN)========== CHECKING NORME $(SRCDIR_RAY) ==============$(DEF_COLOR)"
+	@echo "$(RED)========== CHECKING NORME $(SRCDIR_MLIBX) ==============$(DEF_COLOR)"
+	#$(MAKE) -C $(SRCDIR_MLIBX)  norma
+	norminette $(SRCDIR_MLIBX)
+	@echo "$(RED)========== CHECKING NORME $(SRCDIR_MLIBX) ==============$(DEF_COLOR)"
 
 profile:
-	valgrind --tool=callgrind ./$(MINRT) scenes/one_sphere.rt
+	valgrind --tool=callgrind ./$(MINRT) scenes/profile/19.rt
 	callgrind_annotate
 
 leaks:

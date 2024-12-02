@@ -43,3 +43,10 @@ Testing with red ambient light, we got.
 ![Red_ambient_light](https://github.com/user-attachments/assets/3bf48351-2d54-4f55-a90e-a86467299ed8)
 
 
+![Blue_red_balls_Without_Antialiasing](https://github.com/user-attachments/assets/ae08081b-dee2-4785-80c0-0fba88d6eb5b)
+
+
+![Blue_red_balls_With_20_Antialiasing](https://github.com/user-attachments/assets/b4fa9e51-1ad3-4098-b882-48136166e657)
+
+
+![Antialiasing comparison](https://github.com/user-attachments/assets/984d284a-55a3-41bd-82d8-3d84b576f51e)

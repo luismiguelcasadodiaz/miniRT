@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 19:47:24 by luicasad          #+#    #+#             */
-/*   Updated: 2024/10/30 23:28:37 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/12/02 11:59:16 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ typedef struct s_img
 /* lu   : left upper coordinate                                               */
 /* rd   : right down coordinate                                               */
 /* ************************************************************************** */
-typedef struct s_camer t_camer;
-typedef struct s_eleme t_eleme;
+typedef struct s_camer	t_camer;
+typedef struct s_eleme	t_eleme;
 
 typedef struct s_win
 {
@@ -109,12 +109,9 @@ int		win_h_expose(t_win *data);
 int		win_h_destroy(t_win *data);
 void	win_pixel_put(t_win w, int x, int y, int color);
 void	win_world_create(t_eleme **eleme);
-void	draw_fractal(t_win w);
-void	draw_square_2(t_win w, t_point upper_left, t_point lower_right);
-void	draw_image1(t_win w);
-void	draw_image2(t_win *w);
-void	draw_image3(t_win *w);
-void	draw_image4(t_win *w);
+//void	draw_fractal(t_win w);
+//void	draw_square_2(t_win w, t_point upper_left, t_point lower_right);
+void	camera_render(t_win *w);
 void	show_usage(void);
 void	show_data(t_win w);
 

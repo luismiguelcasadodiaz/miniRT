@@ -6,7 +6,7 @@
 /*   By: luicasad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 16:56:43 by luicasad          #+#    #+#             */
-/*   Updated: 2024/10/19 17:57:50 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/12/02 11:55:02 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include "point.h"
 # include "miniRT.h"
 
-typedef struct s_win t_win;
+typedef struct s_win	t_win;
 /* vport: viewport. a point with x= width & y = heigth                        */
 /* cc   : camera center. a point with x= width & y = heigth                   */
 /* color_start & color_end: scene background                                  */
@@ -105,7 +105,6 @@ void			camer_calc_pix00(t_camer *self);
 void			camer_calc_background_colors(t_camer *w);
 void			camer_calc_image_height(t_camer *self);
 
-
 //camer_calculate_two.c
 void			camer_calc_pixel_samples_scale(t_camer *self);
 void			camer_calc_theta(t_camer *self);
@@ -127,6 +126,5 @@ void			camer_calc_pixel00_loc(t_camer *self);
 //camer_calculate_fiv.c
 //void			camer_calc_defocus_disk_u(t_camer *self);
 //void			camer_calc_defocus_disk_v(t_camer *self);
-
 
 #endif

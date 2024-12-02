@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_scene4.c                                        :+:      :+:    :+:   */
+/*   camera_render.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 12:46:50 by luicasad          #+#    #+#             */
-/*   Updated: 2024/10/29 21:50:23 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/12/01 14:12:35 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "miniRT.h"
@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include "vec3.h"
 #include "color.h"
+#include "libft.h"
 
 /*static int	make_my_color(t_point *size, int x, int y)
 {
@@ -36,23 +37,39 @@ static void	win_calculate_ray_dir(t_win *w, int x, int y)
 {
 	t_vec3	aux;
 
-	vec3_mul(&aux, &w->camera->pd_u, x);
+	vec3_mul(&aux, &w->camera->pd_u, ((double)x + (double)ft_rand(-0.5, 0.5)));
 	vec3_copy_values(w->ray_direction, &w->camera->pixel00_loc);
 	vec3_add(w->ray_direction, w->ray_direction, &aux);
-	vec3_mul(&aux, &w->camera->pd_v, y);
+	vec3_mul(&aux, &w->camera->pd_v, ((double)y + (double)ft_rand(-0.5, 0.5)));
 	vec3_add(w->ray_direction, w->ray_direction, &aux);
 	vec3_init_values(&aux, w->camera->lookfrom.e[0],
 		w->camera->lookfrom.e[1], w->camera->lookfrom.e[2]);
 	vec3_sub(w->ray_direction, w->ray_direction, &aux);
 }
 
-/*
-static void	world_destroy(t_win *w)
+//para promediar, hay que sumar los colores sin limite. por eso uso vec3_add
+static int	antialiasing(t_win *w, int x, int y, t_ray *r)
 {
-	eleme_free(w->eleme);
+	int		sample;
+	t_color	color;
+	t_color	one_color;
+
+	col_init_with_1(&color, 0, 0, 0);
+	sample = 0;
+	while (sample < w->camera->samples_per_pixel)
+	{
+		win_calculate_ray_dir(w, x, y);
+		ray_init(r, &w->camera->lookfrom, w->ray_direction);
+		one_color = ray_color(r, w);
+		vec3_add(&color.rgb, &color.rgb, &one_color.rgb);
+		sample++;
+	}
+	col_scale(&color, &color, (1.0 / w->camera->samples_per_pixel));
+	return (col_get_mlx_color(&color));
 }
-*/
-void	draw_image4(t_win *w)
+
+// For each image's (x,y) calculates the world's coordinate's color 
+void	camera_render(t_win *w)
 {
 	int			wx0;
 	int			wy0;
@@ -63,12 +80,11 @@ void	draw_image4(t_win *w)
 	wy0 = (int)w->lu->e[1];
 	while (wy0 <= w->rd->e[1])
 	{
+		fprintf(stderr, "\rScanlines remaining: %d ", (int)w->rd->e[1] - wy0);
 		wx0 = (int)w->lu->e[0];
 		while (wx0 <= w->rd->e[0])
 		{
-			win_calculate_ray_dir(w, wx0, wy0);
-			ray_init(r, &w->camera->lookfrom, w->ray_direction);
-			mlx_color = ray_color(r, w);
+			mlx_color = antialiasing(w, wx0, wy0, r);
 			win_pixel_put(*w, wx0, wy0, mlx_color);
 			wx0++;
 		}

@@ -62,7 +62,7 @@ static void	calculate_shift(int x, int y, t_win *w)
 */
 int	win_h_mouse_down(int button, int x, int y, t_win *w)
 {
-	draw_fractal(*w);
+	camera_render(w);
 	printf("dowm (%d, %d) button %d \n", x, y, button);
 	return (0);
 }
@@ -71,19 +71,19 @@ int	win_h_mouse_down(int button, int x, int y, t_win *w)
 		w->zoom++;
 		w->scale *= ZOOM_FACTOR;
 		calculate_shift(x, y, w);
-		draw_fractal(*w);
+		camera_render(*w);
 	}
 	else if (button == MOUSE_SCROLL_UP)
 	{
 		w->zoom--;
 		w->scale *= (1 / ZOOM_FACTOR);
 		calculate_shift(x, y, w);
-		draw_fractal(*w);
+		camera_render(*w);
 	}
 	else if (button == MOUSE_BUTTON_LEFT)
 	{
 		w->md = point_set(x, y);
-		draw_fractal(*w);
+		camera_render(*w);
 	}
 */
 	//printf("dowm (%d, %d) button %d zoom %d \n", x, y, button, w->zoom);
