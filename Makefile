@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 13:07:33 by luicasad          #+#    #+#              #
-#    Updated: 2024/11/18 16:59:23 by luicasad         ###   ########.fr        #
+#    Updated: 2024/12/02 10:49:02 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,7 +66,7 @@ OBJDIR 			= ./obj/
 INCDIR 			= ./inc/
 LIBDIR			= ./lib/
 LIBSYS			= /usr/include/../lib 
-LOADLIBSYS		= -lXext -lX11 -lm -lbsd
+LOADLIBSYS		= -lXext -lX11 -lm -lbsd -lmlx
 REQUIRED_DIRS	= $(OBJDIR) $(INCDIR) $(LIBDIR)
 vpath %.a $(LIBDIR)
 # ============================================================================ #
@@ -224,12 +224,12 @@ SRCS_MINRT	= 	miniRT.c \
 				win_pixel_put.c \
 				draw_fractal.c \
 				is_scene4.c \
-				is_white.c \
 
 #				is_scene1.c \
 #				is_scene2.c \
 #				is_scene3.c \
 #				win_create_world.c \
+#				is_white.c \
 
 HEADER_BON	=	miniRT_bonus.h
 SRCS_BONUS	 =	miniRT_bonus.c \
@@ -323,6 +323,7 @@ $(NAMELIBINTERVAL): makelibinterval  $(LIBDIR)$(NAMELIBINTERVAL)
 
 makelibmlibx: 
 	$(MAKE) -C $(SRCDIR_MLIBX)
+	@echo "voy a copiar"
 	cp $(SRCDIR_MLIBX)$(NAMELIBMLIBX) $(LIBDIR)
 
 makelibft:
@@ -387,7 +388,8 @@ makelibinterval:
     rm -f $@.$$$$
 
 # .......................... targets construction ............................ #
-$(MINRT): Makefile  $(OBJS_MINRT) $(NAMELIBMLIBX) -l$(LOADLIBMLIBX) 
+#$(MINRT): Makefile  $(OBJS_MINRT) $(NAMELIBMLIBX) -l$(LOADLIBMLIBX) 
+$(MINRT): Makefile  $(OBJS_MINRT) $(NAMELIBMLIBX)
 	cp $(SRCDIR_MLIBX)$(NAMELIBMLIBX) $(LIBDIR)
 	@echo "$(GREEN)========== GATHERING MINIRT OBJECTS =============$(DEF_COLOR)"
 	$(CC) $(LFLGS) $(OBJS_MINRT) -o $@ $(LLIBS) $(FRAMEWORKS)
