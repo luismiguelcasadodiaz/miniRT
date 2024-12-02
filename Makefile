@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 13:07:33 by luicasad          #+#    #+#              #
-#    Updated: 2024/11/30 13:53:05 by luicasad         ###   ########.fr        #
+#    Updated: 2024/12/02 11:03:12 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -389,7 +389,8 @@ makelibinterval:
     rm -f $@.$$$$
 
 # .......................... targets construction ............................ #
-$(MINRT): Makefile  $(OBJS_MINRT) $(NAMELIBMLIBX) -l$(LOADLIBMLIBX) 
+#$(MINRT): Makefile  $(OBJS_MINRT) $(NAMELIBMLIBX) -l$(LOADLIBMLIBX) 
+$(MINRT): Makefile  $(OBJS_MINRT) $(NAMELIBMLIBX)
 	cp $(SRCDIR_MLIBX)$(NAMELIBMLIBX) $(LIBDIR)
 	@echo "$(GREEN)========== GATHERING MINIRT OBJECTS =============$(DEF_COLOR)"
 	$(CC) $(LFLGS) $(OBJS_MINRT) -o $@ $(LLIBS) $(FRAMEWORKS)
