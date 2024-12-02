@@ -6,7 +6,7 @@
 /*   By: luicasad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 16:56:43 by luicasad          #+#    #+#             */
-/*   Updated: 2024/11/13 18:34:01 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/12/02 12:01:48 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ typedef struct s_ray		t_ray;
 typedef struct s_eleme		t_eleme;
 typedef struct s_hitrecord	t_hitrecord;
 typedef struct s_interval	t_interval;
-
 
 typedef struct s_hit_args
 {
@@ -133,4 +132,11 @@ bool			hit_plane(t_hit_args *data);
 bool			hit_cyl(t_hit_args *data);
 // eleme_hittables_cyl_one.c
 int				calc_body(t_hit_args *dat, double dis, double hlf_b, double a);
+
+// hit_args_init.c
+
+t_hit_args		*hit_args_new_l(void);
+void			hit_args_free_l(t_hit_args *self);
+t_hit_args		*hit_args_new_s(void);
+void			hit_args_free_s(t_hit_args *self);
 #endif

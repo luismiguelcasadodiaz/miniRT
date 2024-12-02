@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 19:47:24 by luicasad          #+#    #+#             */
-/*   Updated: 2024/10/30 23:28:37 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/12/02 11:59:16 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ typedef struct s_img
 /* lu   : left upper coordinate                                               */
 /* rd   : right down coordinate                                               */
 /* ************************************************************************** */
-typedef struct s_camer t_camer;
-typedef struct s_eleme t_eleme;
+typedef struct s_camer	t_camer;
+typedef struct s_eleme	t_eleme;
 
 typedef struct s_win
 {

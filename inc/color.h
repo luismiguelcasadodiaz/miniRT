@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 12:33:42 by luicasad          #+#    #+#             */
-/*   Updated: 2024/09/20 20:41:14 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/12/02 11:55:50 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,12 @@ void	col_set_g_1(t_color *self, double value);
 void	col_set_b_1(t_color *self, double value);
 
 int		col_in_range(t_color *self);
-t_color		col_lerp(t_win *w, t_vec3 *direction);
+t_color	col_lerp(t_win *w, t_vec3 *direction);
 void	col_print(t_color *self);
 void	col_copy_values(t_color *dest, t_color *orig);
 
 //col_math.c (aritmetic operations)
 void	col_add(t_color *result, t_color *c1, t_color *c2);
-void    col_scale(t_color *result, t_color *c1, double scale);
+void	col_scale(t_color *result, t_color *c1, double scale);
 
 #endif

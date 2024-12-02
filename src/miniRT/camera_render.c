@@ -37,10 +37,10 @@ static void	win_calculate_ray_dir(t_win *w, int x, int y)
 {
 	t_vec3	aux;
 
-	vec3_mul(&aux, &w->camera->pd_u, ((float)x + ft_rand(-0.5, 0.5)));
+	vec3_mul(&aux, &w->camera->pd_u, ((double)x + (double)ft_rand(-0.5, 0.5)));
 	vec3_copy_values(w->ray_direction, &w->camera->pixel00_loc);
 	vec3_add(w->ray_direction, w->ray_direction, &aux);
-	vec3_mul(&aux, &w->camera->pd_v, ((float)y + ft_rand(-0.5, 0.5)));
+	vec3_mul(&aux, &w->camera->pd_v, ((double)y + (double)ft_rand(-0.5, 0.5)));
 	vec3_add(w->ray_direction, w->ray_direction, &aux);
 	vec3_init_values(&aux, w->camera->lookfrom.e[0],
 		w->camera->lookfrom.e[1], w->camera->lookfrom.e[2]);

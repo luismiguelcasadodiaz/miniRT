@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 13:07:33 by luicasad          #+#    #+#              #
-#    Updated: 2024/12/02 11:03:12 by luicasad         ###   ########.fr        #
+#    Updated: 2024/12/02 11:53:09 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -508,18 +508,18 @@ norma:
 	$(MAKE) -C $(SRCDIR_HITRECORD)  norma
 	@echo "$(YELLOW)========== CHECKING NORME $(SRCDIR_HITRECORD) ==============$(DEF_COLOR)"
 	$(MAKE) -C $(SRCDIR_HITTABLE)  norma
-#	@echo "$(MID_GRAY)========== CHECKING NORME $(SRCDIR_SPHERE) ==============$(DEF_COLOR)"
-#	$(MAKE) -C $(SRCDIR_SPHERE)  norma
 	@echo "$(DARK_GREEN)========== CHECKING NORME $(SRCDIR_INTERVAL) ==============$(DEF_COLOR)"
 	$(MAKE) -C $(SRCDIR_INTERVAL)  norma
-	@echo "$(GREEN)============ CHECKING NORME $(INCDIR) ==============$(DEF_COLOR)"
+	@echo "$(DARK_GREEN)========== CHECKING NORME $(SRCDIR_RAY) ==============$(DEF_COLOR)"
 	$(MAKE) -C $(SRCDIR_RAY)  norma
 	@echo "$(GREEN)============ CHECKING NORME $(MINRT) ==============$(DEF_COLOR)"
 	norminette $(SRCDIR_MINRT) 
-	@echo "$(RED)========== CHECKING NORME $(SRCDIR_MLIBX) ==============$(DEF_COLOR)"
-	$(MAKE) -C $(SRCDIR_MLIBX)  norma
+	@echo "$(GREEN)============ CHECKING NORME $(INCDIR) ==============$(DEF_COLOR)"
 	norminette $(INCDIR)
-	@echo "$(DARK_GREEN)========== CHECKING NORME $(SRCDIR_RAY) ==============$(DEF_COLOR)"
+	@echo "$(RED)========== CHECKING NORME $(SRCDIR_MLIBX) ==============$(DEF_COLOR)"
+	#$(MAKE) -C $(SRCDIR_MLIBX)  norma
+	norminette $(SRCDIR_MLIBX)
+	@echo "$(RED)========== CHECKING NORME $(SRCDIR_MLIBX) ==============$(DEF_COLOR)"
 
 profile:
 	valgrind --tool=callgrind ./$(MINRT) scenes/profile/19.rt
