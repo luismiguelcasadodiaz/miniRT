@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 19:47:24 by luicasad          #+#    #+#             */
-/*   Updated: 2024/12/02 11:59:16 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/12/02 14:23:06 by maria-nm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # define INITIAL_ZOOM 1
 # define ZOOM_FACTOR 1.05
 # define MAX_ITERATIONS 2
-# define WINDOW_W 500
+# define WINDOW_W 800
 
 # define ASPECT_RATIO_W 16.0
 # define ASPECT_RATIO_H 9.0
