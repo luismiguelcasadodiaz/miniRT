@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 13:07:33 by luicasad          #+#    #+#              #
-#    Updated: 2024/12/02 10:49:02 by luicasad         ###   ########.fr        #
+#    Updated: 2024/12/02 12:44:38 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -223,7 +223,7 @@ SRCS_MINRT	= 	miniRT.c \
 				win_h_destroy.c \
 				win_h_expose.c \
 				win_pixel_put.c \
-				draw_fractal.c \
+#				draw_fractal.c \
 #				is_scene4.c \
 #				is_scene1.c \
 #				is_scene2.c \
@@ -527,7 +527,7 @@ profile:
 	callgrind_annotate
 
 leaks:
-	valgrind -s --tool=memcheck --leak-check=full ./$(MINRT) scenes/one_sphere.rt
+	valgrind -s --error-limit=no --tool=memcheck --leak-check=full ./$(MINRT) scenes/one_sphere.rt
 
 .PHONY: all bonus test clean fclean re rebonus norma profile leaks
 
