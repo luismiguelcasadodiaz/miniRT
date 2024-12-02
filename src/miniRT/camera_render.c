@@ -54,6 +54,12 @@ static int	antialiasing(t_win *w, int x, int y, t_ray *r)
 	t_color	color;
 	t_color	one_color;
 
+	color.rgb.e[0] = 0.0;
+	color.rgb.e[1] = 0.0;
+	color.rgb.e[2] = 0.0;
+	color.mlx_color = 0;
+	color.t = 0;
+
 	col_init_with_1(&color, 0, 0, 0);
 	sample = 0;
 	while (sample < w->camera->samples_per_pixel)

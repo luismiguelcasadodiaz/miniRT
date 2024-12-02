@@ -55,5 +55,16 @@ t_camer	*camer_new(void)
 	self = (t_camer *)malloc(sizeof(t_camer));
 	if (!self)
 		return (NULL);
+	vec3_init(&self->coor);
+	vec3_init(&self->novec);
+	vec3_init(&self->pd_u);
+	vec3_init(&self->pd_v);
+	vec3_init(&self->u);
+	vec3_init(&self->v);
+	vec3_init(&self->w);
+	vec3_init(&self->vp_u);
+	vec3_init(&self->vp_v);
+	vec3_init(&self->vp_ul);
+	self->samples_per_pixel = 1;
 	return (self);
 }
