@@ -57,4 +57,8 @@ void	vec3_u_v_from_n(t_vec3 *n, t_vec3 *u, t_vec3 *v);
 // module functions (vec3_random.c)
 void	vec3_sample_square(t_vec3 *n);
 void	vec3_random(t_vec3 *random, float min, float max);
+void	vec3_inside_unit_sphere(t_vec3 *r);
+void	vec3_nius(t_vec3 *r);
+void	vec3_random_on_hemisphere(t_vec3 *normal, t_vec3 *result);
+
 #endif

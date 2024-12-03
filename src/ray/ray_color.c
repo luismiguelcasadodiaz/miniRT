@@ -16,6 +16,7 @@
 #include "miniRT.h"
 #include <math.h>
 
+/*
 static	t_vec3	*get_normal(t_ray *self, double t)
 {
 	t_vec3	*vec3_0_0_minus1;
@@ -32,12 +33,21 @@ static	t_vec3	*get_normal(t_ray *self, double t)
 	vec3_free(vec3_0_0_minus1);
 	return (normal);
 }
+*/
 
-t_color	ray_color(t_ray	*self, t_win *w)
+t_color	ray_color(t_ray	*self, int depth, t_win *w)
 {
-	t_vec3		*normal;
+	//t_vec3		*normal;
+	t_vec3		direction;
 	t_color		normalized_color;
 	t_hit_args	*data;
+	t_ray		*ray_diffuse;
+
+	if (depth <= 0)
+	{
+		col_init_with_1(&normalized_color, 0, 0, 0);
+		return (normalized_color);
+	}
 
 	data = hit_args_new_l();
 	int_init(data->ran, 0, __DBL_MAX__);
@@ -45,15 +55,24 @@ t_color	ray_color(t_ray	*self, t_win *w)
 	data->ray = self;
 	if (eleme_hit(data))
 	{
-		normal = get_normal(data->ray, hitrecord_get_t(data->rec));
-		col_init_with_1(&normalized_color,
-			vec3_get_x(&data->rec->hit_obj->color->rgb),
-			vec3_get_y(&data->rec->hit_obj->color->rgb),
-			vec3_get_z(&data->rec->hit_obj->color->rgb));
-		ray_shadow(data, w);
-		col_add(&normalized_color, &normalized_color, data->shadow_col);
-		col_add(&normalized_color, &normalized_color, w->ambient->ambient);
-		vec3_free(normal);
+		//difuse version
+		vec3_random_on_hemisphere(data->rec->normal, &direction);
+		ray_diffuse = ray_new();
+		ray_init(ray_diffuse, data->rec->p, &direction);
+		normalized_color = ray_color(ray_diffuse, depth - 1, w);
+		col_scale(&normalized_color, &normalized_color, 0.9);
+		ray_free(ray_diffuse);
+		return (normalized_color);
+		//Antialiasing version
+		// normal = get_normal(data->ray, hitrecord_get_t(data->rec));
+		// col_init_with_1(&normalized_color,
+		// 	vec3_get_x(&data->rec->hit_obj->color->rgb),
+		// 	vec3_get_y(&data->rec->hit_obj->color->rgb),
+		// 	vec3_get_z(&data->rec->hit_obj->color->rgb));
+		// ray_shadow(data, w);
+		// col_add(&normalized_color, &normalized_color, data->shadow_col);
+		// col_add(&normalized_color, &normalized_color, w->ambient->ambient);
+		// vec3_free(normal);
 	}
 	else
 		normalized_color = col_lerp(w, self->dir);
