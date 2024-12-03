@@ -21,6 +21,7 @@ t_hit_args	*hit_args_new_s(void)
 	self->rec = hitrecord_new();
 	self->ran = int_new();
 	self->ray = ray_new();
+	return (self);
 }
 
 void	hit_args_free_s(t_hit_args *self)
@@ -39,6 +40,7 @@ t_hit_args	*hit_args_new_l(void)
 	self->rec = hitrecord_new();
 	self->ran = int_new();
 	self->shadow_col = col_new();
+	return (self);
 }
 
 void	hit_args_free_l(t_hit_args *self)
