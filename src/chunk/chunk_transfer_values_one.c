@@ -40,14 +40,18 @@ void	trans_cam(t_win *w, t_eleme_chunks *chunks, char **errmsg)
 {
 	t_vec3	*center;
 	t_vec3	*novec;
-	float	fview;
+	float	fview, a, b, c;
 
 	center = vec3_new();
 	novec = vec3_new();
 	vec3_init_values(center, ft_atof(chunks->coor.param[X]),
 		ft_atof(chunks->coor.param[Y]), ft_atof(chunks->coor.param[Z]));
-	vec3_init_values(novec, ft_atof(chunks->novec.param[X]),
-		ft_atof(chunks->novec.param[Y]), ft_atof(chunks->novec.param[Z]));
+	a = ft_atof(chunks->novec.param[X]);
+	b = ft_atof(chunks->novec.param[Y]);
+	c = ft_atof(chunks->novec.param[Z]);
+	vec3_init_values(novec, a, b, c);
+	//vec3_init_values(novec, ft_atof(chunks->novec.param[X]),
+	//	ft_atof(chunks->novec.param[Y]), ft_atof(chunks->novec.param[Z]));
 	fview = ft_atof(chunks->fview);
 	if (!vec3_in_range(novec, -1, 1))
 		error_bad_normal_range(&(chunks->line), errmsg);

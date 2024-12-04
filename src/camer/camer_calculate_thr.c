@@ -46,6 +46,7 @@ void	camer_calc_viewport_v(t_camer *self)
 {
 	t_vec3	aux;
 
+	vec3_init(&aux);
 	vec3_negate(&aux, &self->v);
 	vec3_mul(&self->vp_v, &aux, self->viewport_height);
 }

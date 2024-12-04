@@ -52,11 +52,13 @@ float	ft_atof(const char *s)
 {
 	float	entera;
 	float	decimal;
+	float	scale;
 	int		len;
 	int		idx;
 	short	sign;
 
 	sign = 1;
+	scale = 10;
 	entera = 0;
 	decimal = 0;
 	len = ft_strlen(s);
@@ -71,7 +73,10 @@ float	ft_atof(const char *s)
 	{
 		idx++;
 		while (ft_isdigit(s[idx]) && (idx <= len))
-			decimal = decimal / 10.0 + (s[idx++] - '0');
+		{
+			scale = scale / 10;
+			decimal = decimal  + (s[idx++] - '0') * scale;
+		}
 	}
 	return ((entera + decimal / 10) * sign);
 }

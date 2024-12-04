@@ -57,6 +57,8 @@ int	main(int argc, char **argv)
 		printf("Error\n%s\n", errmsg);
 		exit (1);
 	}
+	camer_print(w.camera);
+	eleme_print(w.eleme);
 	mlx_hook(w.win_ptr, ON_KEYDOWN, (1L << 0), &win_h_key_down, &w);
 	mlx_hook(w.win_ptr, ON_KEYUP, 0L, &win_h_key_up, &w);
 	mlx_hook(w.win_ptr, ON_EXPOSE, 0L, &win_h_expose, &w);
@@ -66,8 +68,8 @@ int	main(int argc, char **argv)
 	win_free(w);
 	return (0);
 }
-	// eleme_print(w.eleme);
-	// camer_print(w.camera);
+	//eleme_print(w.eleme);
+	//camer_print(w.camera);
 	// ambil_print(w.ambient);
 	// light_print(w.light);
 /* At home with UBUNTU

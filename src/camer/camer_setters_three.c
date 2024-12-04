@@ -21,6 +21,7 @@ void	camer_s_max_depth(t_camer *self, int dato)
 void	camer_s_vfov(t_camer *self, float hfov, t_point *size)
 {
 	self->vfov = hfov * (size->e[1] / size->e[0]);
+	self->vfov = hfov;
 }
 
 /*
