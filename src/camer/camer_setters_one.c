@@ -18,8 +18,9 @@ void	camer_s_coord(t_camer *self, t_vec3 *coor)
 
 void	camer_s_novec(t_camer *self, t_vec3 *novec)
 {
-	t_vec3 novec_unit;
+	t_vec3	novec_unit;
 
+	vec3_init(&novec_unit);
 	vec3_unit_vector(&novec_unit, novec);
 	vec3_copy_values(&self->novec, &novec_unit);
 }

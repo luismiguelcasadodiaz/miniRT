@@ -16,7 +16,7 @@
 int	win_h_key_up(int keysym, t_win *data)
 {
 	if (data->win_ptr == NULL)
-		printf("NULL POINTER");
-	printf("Key_up: %d\n", keysym);
+		printf("%d, NULL POINTER", keysym);
 	return (0);
 }
+//	printf("Key_up: %d\n", keysym);
