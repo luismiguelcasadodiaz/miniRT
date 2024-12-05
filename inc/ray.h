@@ -37,7 +37,8 @@ void	ray_set_orig(t_ray *self, t_point *the_point);
 void	ray_set_dir(t_ray *self, t_vec3 *the_dir);
 t_point	*ray_get_orig(t_ray *self);
 t_vec3	*ray_get_dir(t_ray *self);
-t_color	ray_color(t_ray *self, t_win *w);
+//t_color	ray_color(t_ray *self, t_win *w);
+t_color	ray_color(t_ray	*self, t_win *w, int depth);
 t_point	*ray_at(t_ray *self, double t);
 void	ray_shadow(t_hit_args *data, t_win *w);
 #endif

@@ -47,8 +47,10 @@ break main.c:
 #break chunk_read.c:27
 #break ft_atof.c:64
 #reak ft_split_minrt.c:170
-break camer_init.c:46
-#break is_scene4.c:71 if ((wy0 == 300) && (wx0 ==600))
+#break camer_init.c:46
+#break camera_render.c:93 if ((wy0 == 300) && (wx0 ==400))
+break ray_color.c:128
+#break camera_render.c:69
 #break ray_shadow.c:48
 #break ray_color.c:52
-run  scenes/MANDATORY/test_cuadrado.rt
+run  scenes/M/cubo_esfera_luz.rt
