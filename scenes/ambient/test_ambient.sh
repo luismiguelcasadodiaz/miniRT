@@ -1,4 +1,3 @@
-../../miniRT  &
 ../../miniRT green_sp_blue_ambien_01.rt &
 ../../miniRT green_sp_blue_ambien_02.rt &
 ../../miniRT green_sp_blue_ambien_03.rt &
