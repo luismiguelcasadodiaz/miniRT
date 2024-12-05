@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "camer.h"
+#include <math.h>
 
 void	camer_s_max_depth(t_camer *self, int dato)
 {
@@ -39,5 +40,9 @@ void			camer_s_focus_dist(t_camer *self, double dist)
 
 void	camer_s_focal_length(t_camer *self, double dist)
 {
+	double	aux;
+
+	aux = 2 * tan( self->theta / 2.0);
 	self->focal_lenght = dist * vec3_length(&self->coor);
+	self->focal_lenght = self->viewport_height / aux;
 }

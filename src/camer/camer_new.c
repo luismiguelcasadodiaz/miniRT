@@ -66,5 +66,8 @@ t_camer	*camer_new(void)
 	vec3_init(&self->vp_v);
 	vec3_init(&self->vp_ul);
 	self->samples_per_pixel = 1;
+	self->viewport_height = 0;
+	self->viewport_width = 0;
+	self->focal_lenght = 1;
 	return (self);
 }

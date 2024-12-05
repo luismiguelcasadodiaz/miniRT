@@ -55,9 +55,11 @@ t_camer	*camer_set(t_vec3 *coor, t_vec3 *novec, double fview, t_win *w)
 	camer_calc_pixel_samples_scale(self);
 	camer_s_cacen(self);
 	camer_s_vup(self, 0, 1, 0);
-	camer_s_focal_length(self, 1);
 	camer_calc_theta(self);
 	camer_calc_h(self);
+	camer_calc_viewport_height(self);
+	camer_calc_vierport_width(self);
+	camer_s_focal_length(self, 1);
 	camer_set_help(self);
 	return (self);
 }
