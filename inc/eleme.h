@@ -118,7 +118,7 @@ t_vec3			*eleme_get_v(t_eleme *self);
 
 // eleme_show.c
 void			eleme_print(t_eleme *self);
-
+t_vec3			eleme_average_coor(t_eleme *self);
 // eleme_new_objesc.c
 t_eleme			*eleme_new_sph(t_vec3 *c, double d, t_color *rgb255);
 t_eleme			*eleme_new_pla(t_vec3 *coor, t_vec3 *novec, t_color *rgb255);

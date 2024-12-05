@@ -52,3 +52,22 @@ void	eleme_print(t_eleme	*self)
 		break ;
 	}
 }
+
+t_vec3	eleme_average_coor(t_eleme *self)
+{
+	t_eleme	*aux;
+	t_vec3	average;
+	int		num_elements;
+
+	num_elements = 0;
+	aux = self;
+	vec3_init(&average);
+	while (aux != NULL)
+	{
+		vec3_add(&average, &average, aux->coor);
+		num_elements++;
+		aux = aux->next;
+	}
+	vec3_scale(&average, &average, num_elements);
+	return (average);
+}

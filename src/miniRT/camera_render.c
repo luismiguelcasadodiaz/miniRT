@@ -77,6 +77,7 @@ void	camera_render(t_win *w)
 	t_ray		*r;
 
 	r = ray_new();
+	camer_s_focal_length_ave(w);
 	wy0 = (int)w->lu->e[1];
 	while (wy0 <= w->rd->e[1])
 	{
