@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 13:07:33 by luicasad          #+#    #+#              #
-#    Updated: 2024/12/02 14:12:49 by luicasad         ###   ########.fr        #
+#    Updated: 2024/12/09 19:21:00 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,7 @@ SRCDIR_ELEME		= ./src/eleme/
 SRCDIR_CAMER		= ./src/camer/
 SRCDIR_LIGHT		= ./src/light/
 SRCDIR_AMBIL		= ./src/ambil/
-SRCDIR_HITTABLE		= ./src/hittable/
+#SRCDIR_HITTABLE		= ./src/hittable/
 SRCDIR_HITRECORD	= ./src/hitrecord/
 SRCDIR_INTERVAL		= ./src/interval/
 SRCDIR_GETNL		= ./src/getnl/
@@ -130,9 +130,9 @@ NAMELIBHITRECORD	= libhitrecord.a
 PATH_HITRECORD 		= $(addprefix $(SRCDIR_HITRECORD), $(NAMELIBHITRECORD))
 LOADLIBHITRECORD   	= hitrecord
 
-NAMELIBHITTABLE		= libhittable.a
-PATH_HITTABLE  		= $(addprefix $(SRCDIR_HITTABLE), $(NAMELIBHITTABLE))
-LOADLIBHITTABLE    	= hittable
+#NAMELIBHITTABLE		= libhittable.a
+#PATH_HITTABLE  		= $(addprefix $(SRCDIR_HITTABLE), $(NAMELIBHITTABLE))
+#LOADLIBHITTABLE    	= hittable
 
 #NAMELIBSPHERE	 	= libsphere.a
 #PATH_SPHERE  		= $(addprefix $(SRCDIR_SPHERE), $(NAMELIBSPHERE))
@@ -169,7 +169,7 @@ MYLIBS			= $(NAMELIBMLIBX)
 MYLIBS			+= $(NAMELIBCHUNK)
 MYLIBS			+= $(NAMELIBRAY)
 MYLIBS			+= $(NAMELIBINTERVAL)
-MYLIBS			+= $(NAMELIBHITTABLE)
+#MYLIBS			+= $(NAMELIBHITTABLE)
 MYLIBS			+= $(NAMELIBHITRECORD)
 MYLIBS			+= $(NAMELIBCAMER)
 MYLIBS			+= $(NAMELIBAMBIL)
@@ -186,7 +186,7 @@ LLIBS 			+= -l$(LOADLIBRAY)
 LLIBS 			+= -l$(LOADLIBCHUNK)
 LLIBS 			+= -l$(LOADLIBELEME)
 LLIBS 			+= -l$(LOADLIBINTERVAL)
-LLIBS 			+= -l$(LOADLIBHITTABLE)
+#LLIBS 			+= -l$(LOADLIBHITTABLE)
 LLIBS 			+= -l$(LOADLIBHITRECORD)
 LLIBS 			+= -l$(LOADLIBRAY)
 LLIBS 			+= -l$(LOADLIBCAMER)
@@ -316,7 +316,7 @@ $(NAMELIBCAMER): makelibcamer  $(LIBDIR)$(NAMELIBCAMER)
 $(NAMELIBAMBIL): makelibambil  $(LIBDIR)$(NAMELIBAMBIL)
 $(NAMELIBLIGHT): makeliblight  $(LIBDIR)$(NAMELIBLIGHT)
 $(NAMELIBHITRECORD): makelibhitrecord  $(LIBDIR)$(NAMELIBHITRECORD)
-$(NAMELIBHITTABLE): makelibhittable  $(LIBDIR)$(NAMELIBHITTABLE)
+#$(NAMELIBHITTABLE): makelibhittable  $(LIBDIR)$(NAMELIBHITTABLE)
 $(NAMELIBINTERVAL): makelibinterval  $(LIBDIR)$(NAMELIBINTERVAL)
 #$(NAMELIBSPHERE): makelibshpere  $(LIBDIR)$(NAMELIBSPHERE)
 #$(NAMELIBPRINTF): makelibftprintf  $(LIBDIR)$(NAMELIBPRINTF)
@@ -455,7 +455,7 @@ clean:
 	$(MAKE) -C $(SRCDIR_AMBIL) clean
 	$(MAKE) -C $(SRCDIR_LIGHT) clean
 	$(MAKE) -C $(SRCDIR_HITRECORD) clean
-	$(MAKE) -C $(SRCDIR_HITTABLE) clean
+#	$(MAKE) -C $(SRCDIR_HITTABLE) clean
 	$(MAKE) -C $(SRCDIR_INTERVAL) clean
 #	$(MAKE) -C $(SRCDIR_SPHERE) clean
 #	$(MAKE) -C $(SRCDIR_PRINT) clean
