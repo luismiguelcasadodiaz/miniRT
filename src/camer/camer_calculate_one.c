@@ -53,7 +53,7 @@ void	camer_calc_pix00(t_camer *w)
 
 void	camer_calc_background_colors(t_camer *self)
 {
-	col_init_with_1(&self->color_start, 0.5, 0.7, 0.5);
+	col_init_with_1(&self->color_start, 0.1, 0.8, 0.3);
 	col_init_with_1(&self->color_end, 0.0, 0.0, 0.0);
 }
 

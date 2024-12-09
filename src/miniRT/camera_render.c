@@ -66,7 +66,7 @@ static int	antialiasing(t_win *w, int x, int y, t_ray *r)
 	{
 		win_calculate_ray_dir(w, x, y);
 		ray_init(r, &w->camera->lookfrom, w->ray_direction);
-		one_color = ray_color(r, w, 50);
+		one_color = ray_color(r, w, 3);
 		vec3_add(&color.rgb, &color.rgb, &one_color.rgb);
 		sample++;
 	}

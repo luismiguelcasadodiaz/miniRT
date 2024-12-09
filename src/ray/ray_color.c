@@ -97,7 +97,8 @@ bool lambertian_scatter(t_color *base_color, const t_ray *r_in, const t_hitrecor
     ray_init(scattered, rec->p, &scatter_direction);
 
     // Aplicar color del material (usamos base_color para simular albedo)
-    *attenuation = *base_color;
+    //*attenuation = *base_color;
+    col_copy_values(attenuation,base_color);
     return true;
 }
 
@@ -133,25 +134,32 @@ t_color	ray_color(t_ray	*self, t_win *w, int depth)
 			vec3_get_y(&data->rec->hit_obj->color->rgb),
 			vec3_get_z(&data->rec->hit_obj->color->rgb));
 		// Agregar dispersión lambertiana
-        // t_ray *scattered;
-		// scattered = ray_new();
-        // t_color attenuation;
-        // if (lambertian_scatter(&normalized_color, self, data->rec, &attenuation, scattered)) {
-        //     // Calcular el color del rayo dispersado recursivamente
-        //     data->ray = scattered;
-		// 	t_color scattered_color = ray_color(scattered, w, depth - 1);
+        t_ray *scattered;
+		scattered = ray_new();
+        t_color attenuation;
+        if (lambertian_scatter(&normalized_color, self, data->rec, &attenuation, scattered)) {
+            // Calcular el color del rayo dispersado recursivamente
+            //data->ray = scattered;
+			t_color scattered_color = ray_color(scattered, w, depth - 1);
 
-        //     // Aplicar la atenuación (albedo)
-        //     scattered_color = color_multiply(&scattered_color, &attenuation);
+            // Aplicar la atenuación (albedo)
+            scattered_color = color_multiply(&scattered_color, &attenuation);
 
-        //     // Sumar el color dispersado al color base
-        //     col_add(&normalized_color, &normalized_color, &scattered_color);
-        // }
-		// data->ray = self;
-		ray_shadow(data, w);
-		col_add(&normalized_color, &normalized_color, data->shadow_col);
-		col_add(&normalized_color, &normalized_color, w->ambient->ambient);
+            // Sumar el color dispersado al color base
+            col_add(&normalized_color, &normalized_color, &scattered_color);
+            ray_shadow(data, w);
+		    col_add(&normalized_color, &normalized_color, data->shadow_col);
+		    hit_args_free_l(data);
+	        return (normalized_color);
+        }
+        else{
+            // data->ray = self;
+            ray_shadow(data, w);
+            col_add(&normalized_color, &normalized_color, data->shadow_col);
+            hit_args_free_l(data);
+	        return (normalized_color);
 		//ray_free(scattered);
+        }
 		vec3_free(normal);
 	}
 	else
