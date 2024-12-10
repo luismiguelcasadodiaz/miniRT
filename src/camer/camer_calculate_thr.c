@@ -25,9 +25,7 @@ void	camer_calc_u(t_camer *self)
 {
 	t_vec3	aux;
 
-	aux.e[0] = 0;
-	aux.e[1] = 0;
-	aux.e[2] = 0;
+	vec3_init(&aux);
 	vec3_cross(&aux, &self->vup, &self->w);
 	vec3_unit_vector(&self->u, &aux);
 }

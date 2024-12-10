@@ -47,7 +47,67 @@ static int	my_isspace(int c)
 /*    from the sing. if sign exists, skip it (idx++).                         */
 /* 3. evaluate all consecutive digits                                         */
 /* 4. retunr total times sign (+/- 1)                                         */
-/*                                                                            */
+/*                                    
+
+
+                                        */
+static float	ft_decimal(const char *s, int *idx, int len)
+{
+	float	scale;
+	float	decimal;
+
+	scale = 1;
+	decimal = 0;
+	if ((s[*idx] == '.') || (s[*idx] == ','))
+	{
+		(*idx)++;
+		while (ft_isdigit(s[*idx]) && (*idx <= len))
+		{
+			scale = scale / 10.0;
+			decimal = decimal + (s[(*idx)++] - '0') * scale;
+		}
+	}
+	return (decimal);
+}
+
+static float	ft_entera(const char *s, int *idx)
+{
+	float	entera;
+
+	entera = 0;
+	while (ft_isdigit(s[*idx]))
+		entera = entera * 10 + (s[(*idx)++] - '0');
+	return (entera);
+}
+
+static short	ft_sign(const char *s, int *idx, int len)
+{
+	short	sign;
+
+	sign = 1;
+	while ((my_isspace(s[*idx])) && *idx <= len)
+		(*idx)++;
+	if ((s[*idx] == '-') || (s[*idx] == '+'))
+		sign -= 2 * (s[(*idx)++] == '-');
+	return (sign);
+}
+
+float	ft_atof(const char *s)
+{
+	int		len;
+	int		idx;
+	short	sign;
+	float	entera;
+	float	decimal;
+
+	len = ft_strlen(s);
+	idx = 0;
+	sign = ft_sign(s, &idx, len);
+	entera = ft_entera(s, &idx);
+	decimal = ft_decimal(s, &idx, len);
+	return ((entera + decimal) * sign);
+}
+/*
 float	ft_atof(const char *s)
 {
 	float	entera;
@@ -80,3 +140,4 @@ float	ft_atof(const char *s)
 	}
 	return ((entera + decimal / 10) * sign);
 }
+*/

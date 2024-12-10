@@ -16,8 +16,6 @@
 //int	col_lerp(t_color *start, t_color *end, t_vec3 *dir)
 t_color	col_lerp(t_win *w, t_vec3 *dir)
 {
-	// version fondo plano
-	
 	t_vec3	unit_direction;
 	t_color	color;
 

@@ -39,5 +39,11 @@ void			camer_s_focus_dist(t_camer *self, double dist)
 
 void	camer_s_focal_length(t_camer *self, double dist)
 {
-	self->focal_lenght = dist * vec3_length(&self->coor);
+	double aux;
+
+	aux = vec3_length(&self->coor);
+	if (aux != 0)
+		self->focal_lenght = dist * aux;
+	else
+		self->focal_lenght = dist;
 }

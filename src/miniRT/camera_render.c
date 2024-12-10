@@ -54,12 +54,6 @@ static int	antialiasing(t_win *w, int x, int y, t_ray *r)
 	t_color	color;
 	t_color	one_color;
 
-	color.rgb.e[0] = 0.0;
-	color.rgb.e[1] = 0.0;
-	color.rgb.e[2] = 0.0;
-	color.mlx_color = 0;
-	color.t = 0;
-
 	col_init_with_1(&color, 0, 0, 0);
 	sample = 0;
 	while (sample < w->camera->samples_per_pixel)
@@ -86,7 +80,6 @@ void	camera_render(t_win *w)
 	wy0 = (int)w->lu->e[1];
 	while (wy0 <= w->rd->e[1])
 	{
-		fprintf(stderr, "\rScanlines remaining: %d ", (int)w->rd->e[1] - wy0);
 		wx0 = (int)w->lu->e[0];
 		while (wx0 <= w->rd->e[0])
 		{
@@ -99,3 +92,5 @@ void	camera_render(t_win *w)
 	mlx_put_image_to_window(w->mlx_ptr, w->win_ptr, w->img.img_ptr, 0, 0);
 	ray_free(r);
 }
+
+//fprintf(stderr, "\rScanlines remaining: %d ", (int)w->rd->e[1] - wy0);
