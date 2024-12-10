@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 13:07:33 by luicasad          #+#    #+#              #
-#    Updated: 2024/12/02 14:12:49 by luicasad         ###   ########.fr        #
+#    Updated: 2024/12/10 18:46:24 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,14 +53,10 @@ SRCDIR_ELEME		= ./src/eleme/
 SRCDIR_CAMER		= ./src/camer/
 SRCDIR_LIGHT		= ./src/light/
 SRCDIR_AMBIL		= ./src/ambil/
-SRCDIR_HITTABLE		= ./src/hittable/
 SRCDIR_HITRECORD	= ./src/hitrecord/
 SRCDIR_INTERVAL		= ./src/interval/
 SRCDIR_GETNL		= ./src/getnl/
 SRCDIR_CHUNK		= ./src/chunk/
-#SRCDIR_SPHERE		= ./src/sphere/
-#SRCDIR_FTCOMPLEX	= ./src/compl/
-#SRCDIR_MLIBX		= ./src/minilibx-linux/
 SRCDIR_MLIBX		= ./src/minilibx/
 
 OBJDIR 			= ./obj/
@@ -130,14 +126,6 @@ NAMELIBHITRECORD	= libhitrecord.a
 PATH_HITRECORD 		= $(addprefix $(SRCDIR_HITRECORD), $(NAMELIBHITRECORD))
 LOADLIBHITRECORD   	= hitrecord
 
-NAMELIBHITTABLE		= libhittable.a
-PATH_HITTABLE  		= $(addprefix $(SRCDIR_HITTABLE), $(NAMELIBHITTABLE))
-LOADLIBHITTABLE    	= hittable
-
-#NAMELIBSPHERE	 	= libsphere.a
-#PATH_SPHERE  		= $(addprefix $(SRCDIR_SPHERE), $(NAMELIBSPHERE))
-#LOADLIBSPHERE    	= sphere
-
 NAMELIBINTERVAL	 	= libinterval.a
 PATH_INTERVAL  		= $(addprefix $(SRCDIR_INTERVAL), $(NAMELIBINTERVAL))
 LOADLIBINTERVAL    	= interval
@@ -150,28 +138,12 @@ NAMELIBCHUNK	 	= libchunk.a
 PATH_CHUNK  		= $(addprefix $(SRCDIR_CHUNK), $(NAMELIBCHUNK))
 LOADLIBCHUNK    	= chunk
 
-#NAMELIBPRINTF 		= libftprintf.a
-#PATH_PRINT 			= $(addprefix $(SRCDIR_PRINT), $(NAMELIBPRINTF))
-#LOADLIBPRINTF 		= ftprintf
-
-#NAMELIBFTCOMPLEX 	= libftcomplex.a
-#PATH_FTCOMPLEX 		= $(addprefix $(SRCDIR_FTCOMPLEX), $(NAMELIBFTCOMPLEX))
-#LOADLIBFTCOMPLEX 	= ftcomplex
-
-
-#NAMELIBARGPA 		= libargpar.a
-#PATH_ARGPA 		= $(addprefix $(SRCDIR_ARGPA), $(NAMELIBARGPA))
-#LOADLIBARGPA 		= argpar
-#MYLIBS			= $(NAMELIBMLIBX) $(NAMELIBPRINTF) $(NAMELIBFTCOMPLEX) $(NAMELIBFT)
-#LLIBS 			= -L$(LIBDIR) -l$(LOADLIBMLIBX) -l$(LOADLIBPRINTF) -l$(LOADLIBFTCOMPLEX) -l$(LOADLIBFT)
 
 MYLIBS			= $(NAMELIBMLIBX)
 MYLIBS			+= $(NAMELIBCHUNK)
 MYLIBS			+= $(NAMELIBELEME)
-#MYLIBS			+= $(NAMELIBSPHERE)
 MYLIBS			+= $(NAMELIBRAY)
 MYLIBS			+= $(NAMELIBINTERVAL)
-MYLIBS			+= $(NAMELIBHITTABLE)
 MYLIBS			+= $(NAMELIBELEME)
 MYLIBS			+= $(NAMELIBHITRECORD)
 MYLIBS			+= $(NAMELIBCAMER)
@@ -187,9 +159,7 @@ LLIBS 			= -L$(LIBDIR) -l$(LOADLIBMLIBX)
 LLIBS 			+= -l$(LOADLIBRAY)
 LLIBS 			+= -l$(LOADLIBCHUNK)
 LLIBS 			+= -l$(LOADLIBELEME)
-#LLIBS 			+= -l$(LOADLIBSPHERE)
 LLIBS 			+= -l$(LOADLIBINTERVAL)
-LLIBS 			+= -l$(LOADLIBHITTABLE)
 LLIBS 			+= -l$(LOADLIBHITRECORD)
 LLIBS 			+= -l$(LOADLIBRAY)
 LLIBS 			+= -l$(LOADLIBCAMER)
@@ -201,7 +171,6 @@ LLIBS 			+= -l$(LOADLIBVEC3)
 LLIBS 			+= -l$(LOADLIBGETNL)
 LLIBS 			+= -l$(LOADLIBFT)
 LLIBS 			+= -L$(LIBSYS) $(LOADLIBSYS) 
-#LLIBS			+= -L$(LIBDIR) -l$(LOADLIBMLIBX)
 
 #LLIBS	+= -L/usr/include/../lib -lXext -lX11 -lm -lbsd
 
@@ -224,15 +193,6 @@ SRCS_MINRT	= 	miniRT.c \
 				win_h_destroy.c \
 				win_h_expose.c \
 				win_pixel_put.c \
-#				draw_fractal.c \
-#				is_scene4.c \
-#				is_scene1.c \
-#				is_scene2.c \
-#				is_scene3.c \
-#				win_create_world.c \
-#				is_white.c \
-#				draw_fractal.c \
-				is_white.c \
 
 HEADER_BON	=	miniRT_bonus.h
 SRCS_BONUS	 =	miniRT_bonus.c \
@@ -266,18 +226,6 @@ OBJS_TESTS = $(addprefix $(OBJDIR), $(SRCS_TESTS:.c=.o))
 DEPE_MINRT = $(addprefix $(OBJDIR), $(SRCS_MINRT:.c=.d))
 DEPE_BONUS = $(addprefix $(OBJDIR), $(SRCS_BONUS:.c=.d))
 DEPE_TESTS = $(addprefix $(OBJDIR), $(SRCS_TESTS:.c=.d))
-
-#$(info minrt source files $(SRCS_MINRT))
-#$(info minrt source paths $(FILE_MINRT))
-#$(info minrt object patha $(OBJS_MINRT))
-
-#$(info bonus source files $(SRCS_BONUS))
-#$(info bonus source paths $(FILE_BONUS))
-#$(info bonus object patha $(OBJS_BONUS))
-
-#$(info tests source files $(SRCS_TESTS))
-#$(info tests source paths $(FILE_TESTS))
-#$(info tests object patha $(OBJS_TESTS))
 
 $(info tests object patha $(LLIBS))
 
@@ -318,11 +266,7 @@ $(NAMELIBCAMER): makelibcamer  $(LIBDIR)$(NAMELIBCAMER)
 $(NAMELIBAMBIL): makelibambil  $(LIBDIR)$(NAMELIBAMBIL)
 $(NAMELIBLIGHT): makeliblight  $(LIBDIR)$(NAMELIBLIGHT)
 $(NAMELIBHITRECORD): makelibhitrecord  $(LIBDIR)$(NAMELIBHITRECORD)
-$(NAMELIBHITTABLE): makelibhittable  $(LIBDIR)$(NAMELIBHITTABLE)
 $(NAMELIBINTERVAL): makelibinterval  $(LIBDIR)$(NAMELIBINTERVAL)
-#$(NAMELIBSPHERE): makelibshpere  $(LIBDIR)$(NAMELIBSPHERE)
-#$(NAMELIBPRINTF): makelibftprintf  $(LIBDIR)$(NAMELIBPRINTF)
-#$(NAMELIBFTCOMPLEX): makelibftcomplex  $(LIBDIR)$(NAMELIBFTCOMPLEX)
 
 makelibmlibx: 
 	$(MAKE) -C $(SRCDIR_MLIBX)
@@ -371,15 +315,6 @@ makelibhittable:
 makelibinterval:
 	$(MAKE) -C $(SRCDIR_INTERVAL)
 
-#makelibsphere:
-#	$(MAKE) -C $(SRCDIR_SPHERE)
-
-#makelibftprintf:
-#	$(MAKE) -C $(SRCDIR_PRINT)
-
-#makelibftcomplex:
-#	$(MAKE) -C $(SRCDIR_FTCOMPLEX)
- 
 # ....................... dependencies construction .......................... #
 #for each c file create its dependency file 
 #READ GNU make  manual 4.14 Generating Prerequisites Automatically.
@@ -459,8 +394,6 @@ clean:
 	$(MAKE) -C $(SRCDIR_HITRECORD) clean
 	$(MAKE) -C $(SRCDIR_HITTABLE) clean
 	$(MAKE) -C $(SRCDIR_INTERVAL) clean
-#	$(MAKE) -C $(SRCDIR_SPHERE) clean
-#	$(MAKE) -C $(SRCDIR_PRINT) clean
 	$(MAKE) -C $(SRCDIR_GETNL) clean
 	$(MAKE) -C $(SRCDIR_CHUNK) clean
 	$(MAKE) -C $(SRCDIR_LIBFT) clean
@@ -480,12 +413,6 @@ rebonus : fclean bonus
 norma:
 	@echo "$(ORANGE)========== CHECKING NORME $(BONUS) ==============$(DEF_COLOR)"
 	norminette $(SRCDIR_BONUS)
-#	@echo "$(MAGENTA)========== CHECKING NORME $(TESTS) ==============$(DEF_COLOR)"
-#	norminette $(SRCDIR_TESTS)
-#	@echo "$(WHITE)========== CHECKING NORME $(SRCDIR_PRINT) ==============$(DEF_COLOR)"
-#	$(MAKE) -C $(SRCDIR_PRINT)  norma
-#	@echo "$(WHITE)========== CHECKING NORME $(SRCDIR_FTCOMPLEX) ==============$(DEF_COLOR)"
-#	$(MAKE) -C $(SRCDIR_FTCOMPLEX)  norma
 	@echo "$(DARK_GRAY)========== CHECKING NORME $(SRCDIR_LIBFT) ==============$(DEF_COLOR)"
 	$(MAKE) -C $(SRCDIR_LIBFT)  norma
 	@echo "$(YELLOW)========== CHECKING NORME $(SRCDIR_GETNL) ==============$(DEF_COLOR)"
@@ -506,10 +433,8 @@ norma:
 	$(MAKE) -C $(SRCDIR_AMBIL)  norma
 	@echo "$(DARK_BLACK)========== CHECKING NORME $(SRCDIR_LIGHT) ==============$(DEF_COLOR)"
 	$(MAKE) -C $(SRCDIR_LIGHT)  norma
-	@echo "$(DARK_BLUE)========== CHECKING NORME $(SRCDIR_HITTABLE) ==============$(DEF_COLOR)"
-	$(MAKE) -C $(SRCDIR_HITRECORD)  norma
 	@echo "$(YELLOW)========== CHECKING NORME $(SRCDIR_HITRECORD) ==============$(DEF_COLOR)"
-	$(MAKE) -C $(SRCDIR_HITTABLE)  norma
+	$(MAKE) -C $(SRCDIR_HITRECORD)  norma
 	@echo "$(DARK_GREEN)========== CHECKING NORME $(SRCDIR_INTERVAL) ==============$(DEF_COLOR)"
 	$(MAKE) -C $(SRCDIR_INTERVAL)  norma
 	@echo "$(DARK_GREEN)========== CHECKING NORME $(SRCDIR_RAY) ==============$(DEF_COLOR)"
