@@ -27,9 +27,9 @@ void	vec3_sub(t_vec3 *result, const t_vec3 *u, const t_vec3 *v)
 
 void	vec3_negate(t_vec3 *result, const t_vec3 *u)
 {
-	result->e[0] -= u->e[0];
-	result->e[1] -= u->e[1];
-	result->e[2] -= u->e[2];
+	result->e[0] = -1.0 * u->e[0];
+	result->e[1] = -1.0 * u->e[1];
+	result->e[2] = -1.0 * u->e[2];
 }
 
 int	vec3_iszero(t_vec3 *v)

@@ -54,7 +54,7 @@ void	chunk_read(char *filename, char **errmsg, t_win *w)
 		return ;
 	}
 	end_file = 0;
-	while (!end_file)
+	while (!end_file && !*errmsg) 
 	{
 		line = get_next_line(fd);
 		if (line == NULL)
