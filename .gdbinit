@@ -28,7 +28,7 @@ set detach-on-fork off
 # Set other breakpoint
 #break init.c:108
 #break init.c:117
-break main.c:
+break main
 #break win_init.c:75
 
 #break draw_fractal.c:21
@@ -49,8 +49,8 @@ break main.c:
 #reak ft_split_minrt.c:170
 #break camer_init.c:46
 #break camera_render.c:93 if ((wy0 == 300) && (wx0 ==400))
-break ray_color.c:164
+#break ray_color.c:164
 #break camera_render.c:69
 #break ray_shadow.c:48
 #break ray_color.c:52
-run  scenes/M/cubo_esfera_luz.rt
+#run  scenes/M/cylindre_vertical.rt
