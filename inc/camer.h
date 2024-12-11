@@ -124,6 +124,8 @@ void			camer_calc_pixel_delta_u(t_camer *self);
 void			camer_calc_pixel_delta_v(t_camer *self);
 void			camer_calc_viewport_upper_left(t_camer *self);
 void			camer_calc_pixel00_loc(t_camer *self);
+void			camer_calc_background_colors_ambil(t_camer *self,
+				t_color *ambil);
 //void			camer_calc_defocus_radius(t_camer *self);
 //camer_calculate_fiv.c
 //void			camer_calc_defocus_disk_u(t_camer *self);

@@ -66,6 +66,8 @@ void	chunk_read(char *filename, char **errmsg, t_win *w)
 	close(fd);
 	if (!*errmsg && (!w->camera || !w->ambient || !w->light))
 		error_bad_scene(filename, errmsg);
+	else
+		camer_calc_background_colors_ambil(w->camera, w->ambient->color);
 }
 
 /*if (ft_strlen(line) == 1)
