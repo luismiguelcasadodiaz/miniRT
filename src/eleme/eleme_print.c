@@ -64,8 +64,11 @@ t_vec3	eleme_average_coor(t_eleme *self)
 	vec3_init(&average);
 	while (aux != NULL)
 	{
-		vec3_add(&average, &average, aux->coor);
-		num_elements++;
+		if (aux->id != PLANE)
+		{	
+			vec3_add(&average, &average, aux->coor);
+			num_elements++;
+		}
 		aux = aux->next;
 	}
 	vec3_scale(&average, &average, num_elements);
