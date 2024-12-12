@@ -17,6 +17,14 @@
 #include <fcntl.h>
 #include <unistd.h>
 
+static void	final_check(t_win *w, char **errmsg, char *filename)
+{
+	if (!w->camera || !w->ambient || !w->light)
+		error_bad_scene(filename, errmsg);
+	else
+		camer_calc_background_colors_ambil(w->camera, w->ambient->color);
+}
+
 void	chunk_treat_line(char *line, char **errmsg, t_win *w)
 {
 	t_eleme_chunks	*chunks;
@@ -54,20 +62,19 @@ void	chunk_read(char *filename, char **errmsg, t_win *w)
 		return ;
 	}
 	end_file = 0;
-	while (!end_file)
+	while (!end_file && !*errmsg)
 	{
 		line = get_next_line(fd);
 		if (line == NULL)
 			end_file = 1;
-		else
+		else if (ft_strlen(line) != 1)
 			chunk_treat_line(line, errmsg, w);
 		free(line);
 	}
 	close(fd);
-	if (!*errmsg && (!w->camera || !w->ambient || !w->light))
-		error_bad_scene(filename, errmsg);
-	else
-		camer_calc_background_colors_ambil(w->camera, w->ambient->color);
+	if (*errmsg)
+		return ;
+	final_check(w, errmsg, filename);
 }
 
 /*if (ft_strlen(line) == 1)

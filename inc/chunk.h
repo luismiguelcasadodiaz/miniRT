@@ -54,6 +54,7 @@ void	trans_amb(t_win *w, t_eleme_chunks *chunks, char **errmsg);
 void	trans_cam(t_win *w, t_eleme_chunks *chunks, char **errmsg);
 void	trans_lig(t_win *w, t_eleme_chunks *chunks, char **errmsg);
 void	trans_lig_bonus(t_win *w, t_eleme_chunks *chunks, char **errmsg);
+float	trans_atof(char *s,char **errmsg);
 
 // chunk_transfer_values_two.c
 void	trans_sph(t_win *w, t_eleme_chunks *chunks, char **errmsg);
@@ -82,6 +83,7 @@ void	error_bad_scene(char *fname, char **errmsg);
 
 // chunk_errors_four.c
 void	error_more_than_one(char *object, char **errmsg);
+void	error_bad_float_txt(char *object, char **errmsg);
 
 // chunk_print.c
 void	chunk_print(t_chunk *chunks);
