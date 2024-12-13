@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 13:07:33 by luicasad          #+#    #+#              #
-#    Updated: 2024/12/10 18:46:24 by luicasad         ###   ########.fr        #
+#    Updated: 2024/12/09 19:21:00 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,7 @@ SRCDIR_ELEME		= ./src/eleme/
 SRCDIR_CAMER		= ./src/camer/
 SRCDIR_LIGHT		= ./src/light/
 SRCDIR_AMBIL		= ./src/ambil/
+#SRCDIR_HITTABLE		= ./src/hittable/
 SRCDIR_HITRECORD	= ./src/hitrecord/
 SRCDIR_INTERVAL		= ./src/interval/
 SRCDIR_GETNL		= ./src/getnl/
@@ -126,6 +127,14 @@ NAMELIBHITRECORD	= libhitrecord.a
 PATH_HITRECORD 		= $(addprefix $(SRCDIR_HITRECORD), $(NAMELIBHITRECORD))
 LOADLIBHITRECORD   	= hitrecord
 
+#NAMELIBHITTABLE		= libhittable.a
+#PATH_HITTABLE  		= $(addprefix $(SRCDIR_HITTABLE), $(NAMELIBHITTABLE))
+#LOADLIBHITTABLE    	= hittable
+
+#NAMELIBSPHERE	 	= libsphere.a
+#PATH_SPHERE  		= $(addprefix $(SRCDIR_SPHERE), $(NAMELIBSPHERE))
+#LOADLIBSPHERE    	= sphere
+
 NAMELIBINTERVAL	 	= libinterval.a
 PATH_INTERVAL  		= $(addprefix $(SRCDIR_INTERVAL), $(NAMELIBINTERVAL))
 LOADLIBINTERVAL    	= interval
@@ -141,10 +150,9 @@ LOADLIBCHUNK    	= chunk
 
 MYLIBS			= $(NAMELIBMLIBX)
 MYLIBS			+= $(NAMELIBCHUNK)
-MYLIBS			+= $(NAMELIBELEME)
 MYLIBS			+= $(NAMELIBRAY)
 MYLIBS			+= $(NAMELIBINTERVAL)
-MYLIBS			+= $(NAMELIBELEME)
+#MYLIBS			+= $(NAMELIBHITTABLE)
 MYLIBS			+= $(NAMELIBHITRECORD)
 MYLIBS			+= $(NAMELIBCAMER)
 MYLIBS			+= $(NAMELIBAMBIL)
@@ -154,12 +162,14 @@ MYLIBS			+= $(NAMELIBPOINT)
 MYLIBS			+= $(NAMELIBVEC3)
 MYLIBS			+= $(NAMELIBGETNL)
 MYLIBS			+= $(NAMELIBFT)
+MYLIBS			+= $(NAMELIBELEME)
 
 LLIBS 			= -L$(LIBDIR) -l$(LOADLIBMLIBX)
 LLIBS 			+= -l$(LOADLIBRAY)
 LLIBS 			+= -l$(LOADLIBCHUNK)
 LLIBS 			+= -l$(LOADLIBELEME)
 LLIBS 			+= -l$(LOADLIBINTERVAL)
+#LLIBS 			+= -l$(LOADLIBHITTABLE)
 LLIBS 			+= -l$(LOADLIBHITRECORD)
 LLIBS 			+= -l$(LOADLIBRAY)
 LLIBS 			+= -l$(LOADLIBCAMER)
@@ -170,6 +180,7 @@ LLIBS 			+= -l$(LOADLIBPOINT)
 LLIBS 			+= -l$(LOADLIBVEC3)
 LLIBS 			+= -l$(LOADLIBGETNL)
 LLIBS 			+= -l$(LOADLIBFT)
+LLIBS 			+= -l$(LOADLIBELEME)
 LLIBS 			+= -L$(LIBSYS) $(LOADLIBSYS) 
 
 #LLIBS	+= -L/usr/include/../lib -lXext -lX11 -lm -lbsd
@@ -266,6 +277,7 @@ $(NAMELIBCAMER): makelibcamer  $(LIBDIR)$(NAMELIBCAMER)
 $(NAMELIBAMBIL): makelibambil  $(LIBDIR)$(NAMELIBAMBIL)
 $(NAMELIBLIGHT): makeliblight  $(LIBDIR)$(NAMELIBLIGHT)
 $(NAMELIBHITRECORD): makelibhitrecord  $(LIBDIR)$(NAMELIBHITRECORD)
+#$(NAMELIBHITTABLE): makelibhittable  $(LIBDIR)$(NAMELIBHITTABLE)
 $(NAMELIBINTERVAL): makelibinterval  $(LIBDIR)$(NAMELIBINTERVAL)
 
 makelibmlibx: 
@@ -392,7 +404,7 @@ clean:
 	$(MAKE) -C $(SRCDIR_AMBIL) clean
 	$(MAKE) -C $(SRCDIR_LIGHT) clean
 	$(MAKE) -C $(SRCDIR_HITRECORD) clean
-	$(MAKE) -C $(SRCDIR_HITTABLE) clean
+#	$(MAKE) -C $(SRCDIR_HITTABLE) clean
 	$(MAKE) -C $(SRCDIR_INTERVAL) clean
 	$(MAKE) -C $(SRCDIR_GETNL) clean
 	$(MAKE) -C $(SRCDIR_CHUNK) clean

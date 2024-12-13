@@ -18,6 +18,7 @@
 # include "color.h"
 # include "point.h"
 # include "miniRT.h"
+# include "eleme.h"
 
 typedef struct s_win	t_win;
 /* vport: viewport. a point with x= width & y = heigth                        */
@@ -90,6 +91,7 @@ void			camer_s_vfov(t_camer *self, float hfov, t_point *size);
 //void			camer_s_defocus_angle(t_camer *self, double angle);
 //void			camer_s_focus_dist(t_camer *self, double dist);
 void			camer_s_focal_length(t_camer *self, double dist);
+void			camer_s_focal_length_ave(t_win *w);
 
 // camer_getters_one.c
 t_vec3			camer_g_coord(t_camer *self);
@@ -122,6 +124,8 @@ void			camer_calc_pixel_delta_u(t_camer *self);
 void			camer_calc_pixel_delta_v(t_camer *self);
 void			camer_calc_viewport_upper_left(t_camer *self);
 void			camer_calc_pixel00_loc(t_camer *self);
+void			camer_calc_background_colors_ambil(t_camer *self,
+				t_color *ambil);
 //void			camer_calc_defocus_radius(t_camer *self);
 //camer_calculate_fiv.c
 //void			camer_calc_defocus_disk_u(t_camer *self);

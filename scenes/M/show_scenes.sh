@@ -5,3 +5,4 @@
 ../../miniRT cil_vertical_esfera.rt &
 ../../miniRT cubo_cil_luz.rt &
 ../../miniRT iglus.rt &
+../../miniRT multi_spheres.rt &

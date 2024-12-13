@@ -27,7 +27,7 @@ typedef struct s_ray
 {
 	t_point	*orig;
 	t_vec3	*dir;
-	double	t_max;
+	//double	t_max;
 }	t_ray;
 
 t_ray	*ray_new(void);

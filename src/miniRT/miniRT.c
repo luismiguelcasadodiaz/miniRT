@@ -15,6 +15,7 @@
 #include <stdio.h>
 #include "miniRT.h"
 #include "chunk.h"
+#include "libft.h"
 
 /* ************************************************************************** */
 /**
@@ -38,13 +39,39 @@
 //https://03-jon-perez.gitbook.io/coding-library/c/minilibx
 //https://harm-smits.github.io/42docs/libs/minilibx
 
+
+// address memory of filename init minus address memory
+// os last point give me number of letters before the last  point
+// len minus number of letters till last point gives exension lenth
+static int	bad_file_extension(char **argv)
+{
+	int len;
+	char *last_point;
+	int pos;
+
+	len = (int)ft_strlen(argv[1]);
+	last_point = ft_strrchr(argv[1], '.');
+	pos = (int)(last_point - argv[1]);
+	if (len - pos != 3)
+	{
+		printf("The filename %s has not two letters extension\n", argv[1]);
+		return (1);
+	}
+	else if ((argv[1][len - 2] != 'r') || (argv[1][len - 1] != 't' ))
+	{
+		printf("Filename %s extension incorrect \n", argv[1]);
+		return (1);
+	}
+	return (0);
+}
+
 int	main(int argc, char **argv)
 {
 	t_win	w;
 	char	*errmsg;
 
 	errmsg = NULL;
-	if (argc != 2)
+	if ((argc != 2) || bad_file_extension(argv))
 	{
 		show_usage();
 		return (0);

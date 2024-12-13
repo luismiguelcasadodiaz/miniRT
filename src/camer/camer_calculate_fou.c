@@ -55,3 +55,15 @@ void	camer_calc_defocus_radius(t_camer *self)
 		* tan(((self->defocus_angle / 2) * M_PI) / 180);
 }
 */
+
+void	camer_calc_background_colors_ambil(t_camer *self, t_color *ambil)
+{
+	col_init_with_1(&self->color_start, 
+		ambil->rgb.e[0], 
+		ambil->rgb.e[1], 
+		ambil->rgb.e[2]);
+	col_init_with_1(&self->color_end, 
+		ambil->rgb.e[0], 
+		ambil->rgb.e[1], 
+		ambil->rgb.e[2]);
+}
