@@ -61,6 +61,17 @@ int	win_h_key_down(int keysym, t_win *w)
 		free(w->mlx_ptr);
 		exit (0);
 	}
+	if (keysym == KEY_A)
+		camer_u_hfov(w->camera, +10.0);
+	if (keysym == KEY_C)
+		camer_u_hfov(w->camera, -10.0);
+	if (keysym == KEY_R)
+		col_init_with_1(&w->camera->color_start, 0.9607, 0.4627, 0.5372);
+	if (keysym == KEY_G)
+		col_init_with_1(&w->camera->color_start, 0.584, 0.8588, 0.6588);
+	if (keysym == KEY_B)
+		col_init_with_1(&w->camera->color_start, 0.5, 0.7, 1.0);
+	camera_render(w);
 	return (0);
 }
 

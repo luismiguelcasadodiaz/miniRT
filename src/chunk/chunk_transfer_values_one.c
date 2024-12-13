@@ -83,12 +83,12 @@ void	trans_cam(t_win *w, t_eleme_chunks *chunks, char **errmsg)
 		error_bad_normal_range(&(chunks->line), errmsg);
 	else if (vec3_iszero(novec))
 		error_normal_zero(&(chunks->novec), errmsg);
-	else if (!((0 <= fview) & (fview <= 180)))
+	else if (!((HFOV_MIN <= fview) & (fview <= HFOV_MAX)))
 		error_bad_fview(chunks->fview, errmsg);
 	else if (w->camera != NULL)
 		error_more_than_one("camera", errmsg);
 	else
-		w->camera = camer_set(center, novec, (double) fview, w);
+		w->camera = camer_set(center, novec, (double) fview);
 	vec3_free(novec);
 	vec3_free(center);
 }

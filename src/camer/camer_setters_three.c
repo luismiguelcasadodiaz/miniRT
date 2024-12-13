@@ -18,10 +18,10 @@ void	camer_s_max_depth(t_camer *self, int dato)
 
 //self->vfov = hfov; hace una distorsion mayor que la 
 //configuracion actual.
-void	camer_s_vfov(t_camer *self, float hfov, t_point *size)
+//	self->vfov = hfov * (size->e[1] / size->e[0]);
+void	camer_s_vfov(t_camer *self)
 {
-	self->vfov = hfov * (size->e[1] / size->e[0]);
-	self->vfov = hfov;
+	self->vfov = self->hfov;
 }
 
 /*
