@@ -6,7 +6,7 @@
 /*   By: luicasad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 17:32:35 by luicasad          #+#    #+#             */
-/*   Updated: 2024/10/22 23:32:36 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/12/14 17:58:57 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ t_vec3	eleme_average_coor(t_eleme *self)
 	while (aux != NULL)
 	{
 		if (aux->id != PLANE)
-		{	
+		{
 			vec3_add(&average, &average, aux->coor);
 			num_elements++;
 		}

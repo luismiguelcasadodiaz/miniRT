@@ -6,7 +6,7 @@
 /*   By: luicasad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 08:24:08 by luicasad          #+#    #+#             */
-/*   Updated: 2024/11/13 18:37:25 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/12/14 17:16:27 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef CHUNK_H
@@ -36,6 +36,7 @@ typedef struct s_eleme_chunks
 // chunk_read.c
 void	chunk_read(char *filename, char **errmsg, t_win *w);
 void	chunk_treat_line(char *line, char **errmsg, t_win *w);	
+
 // chunk_treatments_one.c
 void	treat_one_letter_command(t_eleme_chunks *chunks,
 			char **errmsg, t_win *w);
@@ -44,6 +45,7 @@ void	treat_two_letter_command(t_eleme_chunks *chunks,
 void	treat_amb(t_eleme_chunks *chunks, char **errmsg, t_win *w);
 void	treat_cam(t_eleme_chunks *chunks, char **errmsg, t_win *w);
 void	treat_lig(t_eleme_chunks *chunks, char **errmsg, t_win *w);
+
 // chunk_treatments_two.c
 void	treat_sph(t_eleme_chunks *chunks, char **errmsg, t_win *w);
 void	treat_pla(t_eleme_chunks *chunks, char **errmsg, t_win *w);
@@ -54,7 +56,7 @@ void	trans_amb(t_win *w, t_eleme_chunks *chunks, char **errmsg);
 void	trans_cam(t_win *w, t_eleme_chunks *chunks, char **errmsg);
 void	trans_lig(t_win *w, t_eleme_chunks *chunks, char **errmsg);
 void	trans_lig_bonus(t_win *w, t_eleme_chunks *chunks, char **errmsg);
-float	trans_atof(char *s,char **errmsg);
+float	trans_atof(char *s, char **errmsg);
 
 // chunk_transfer_values_two.c
 void	trans_sph(t_win *w, t_eleme_chunks *chunks, char **errmsg);
@@ -67,6 +69,7 @@ void	error_bad_number_argumen(t_chunk *chunks, char **errmsg);
 void	error_bad_color_num_argu(t_chunk *chunks, char **errmsg);
 void	error_bad_point_num_argu(t_chunk *chunks, char **errmsg);
 void	error_bad_color_range(t_chunk *chunks, char **errmsg);
+
 // chunk_errors_two.c
 void	error_bad_diam(char *diam, char **errmsg, enum e_eleme obj);
 void	error_bad_heig(char *diam, char **errmsg, enum e_eleme obj);
@@ -87,4 +90,8 @@ void	error_bad_float_txt(char *object, char **errmsg);
 
 // chunk_print.c
 void	chunk_print(t_chunk *chunks);
+
+// chunk_init.c
+void	chunk_init_vec3(t_vec3 *v, t_chunk *d, char **errmsg);
+void	chunk_init_color(t_color *c, t_chunk *d);
 #endif

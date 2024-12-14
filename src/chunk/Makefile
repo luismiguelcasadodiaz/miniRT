@@ -6,7 +6,7 @@
 #    By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/21 18:16:38 by luicasad          #+#    #+#              #
-#    Updated: 2024/11/01 08:57:19 by luicasad         ###   ########.fr        #
+#    Updated: 2024/12/14 17:26:22 by luicasad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #MAKEFLAGS += rR
@@ -69,7 +69,8 @@ SRCS	=	chunk_read.c \
 			chunk_errors_two.c \
 			chunk_errors_three.c \
 			chunk_errors_four.c \
-			chunk_print.c
+			chunk_print.c \
+			chunk_init.c
 
 #chunk_init.c \
 #chunk_getters_one.c \

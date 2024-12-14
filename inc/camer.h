@@ -6,7 +6,7 @@
 /*   By: luicasad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 16:56:43 by luicasad          #+#    #+#             */
-/*   Updated: 2024/12/02 11:55:02 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/12/14 19:40:50 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ void			camer_calc_pixel_delta_v(t_camer *self);
 void			camer_calc_viewport_upper_left(t_camer *self);
 void			camer_calc_pixel00_loc(t_camer *self);
 void			camer_calc_background_colors_ambil(t_camer *self,
-				t_color *ambil);
+					t_color *ambil);
 //void			camer_calc_defocus_radius(t_camer *self);
 //camer_calculate_fiv.c
 //void			camer_calc_defocus_disk_u(t_camer *self);

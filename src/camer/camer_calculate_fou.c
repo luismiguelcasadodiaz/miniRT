@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   camer_calculate_vp_ul.c                            :+:      :+:    :+:   */
+/*   camer_calculate_fou.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 11:09:47 by luicasad          #+#    #+#             */
-/*   Updated: 2024/11/13 20:43:17 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/12/14 19:38:15 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,12 @@ void	camer_calc_defocus_radius(t_camer *self)
 
 void	camer_calc_background_colors_ambil(t_camer *self, t_color *ambil)
 {
-	col_init_with_1(&self->color_start, 
-		ambil->rgb.e[0], 
-		ambil->rgb.e[1], 
+	col_init_with_1(&self->color_start,
+		ambil->rgb.e[0],
+		ambil->rgb.e[1],
 		ambil->rgb.e[2]);
-	col_init_with_1(&self->color_end, 
-		ambil->rgb.e[0], 
-		ambil->rgb.e[1], 
+	col_init_with_1(&self->color_end,
+		ambil->rgb.e[0],
+		ambil->rgb.e[1],
 		ambil->rgb.e[2]);
 }

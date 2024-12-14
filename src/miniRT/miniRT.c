@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 10:28:52 by luicasad          #+#    #+#             */
-/*   Updated: 2024/12/02 14:07:40 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/12/14 19:40:12 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,14 @@
 //https://03-jon-perez.gitbook.io/coding-library/c/minilibx
 //https://harm-smits.github.io/42docs/libs/minilibx
 
-
 // address memory of filename init minus address memory
 // os last point give me number of letters before the last  point
 // len minus number of letters till last point gives exension lenth
 static int	bad_file_extension(char **argv)
 {
-	int len;
-	char *last_point;
-	int pos;
+	int		len;
+	char	*last_point;
+	int		pos;
 
 	len = (int)ft_strlen(argv[1]);
 	last_point = ft_strrchr(argv[1], '.');

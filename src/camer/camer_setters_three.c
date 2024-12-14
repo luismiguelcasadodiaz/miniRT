@@ -6,7 +6,7 @@
 /*   By: luicasad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 20:21:52 by luicasad          #+#    #+#             */
-/*   Updated: 2024/11/27 20:27:43 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/12/14 19:37:19 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "camer.h"
@@ -39,8 +39,8 @@ void			camer_s_focus_dist(t_camer *self, double dist)
 
 void	camer_s_focal_length(t_camer *self, double dist)
 {
-	double aux;
-	
+	double	aux;
+
 	aux = vec3_length(&self->coor);
 	if (aux != 0)
 		self->focal_lenght = dist * aux;
