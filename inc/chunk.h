@@ -55,13 +55,12 @@ void	treat_cyl(t_eleme_chunks *chunks, char **errmsg, t_win *w);
 void	trans_amb(t_win *w, t_eleme_chunks *chunks, char **errmsg);
 void	trans_cam(t_win *w, t_eleme_chunks *chunks, char **errmsg);
 void	trans_lig(t_win *w, t_eleme_chunks *chunks, char **errmsg);
-void	trans_lig_bonus(t_win *w, t_eleme_chunks *chunks, char **errmsg);
-float	trans_atof(char *s, char **errmsg);
 
 // chunk_transfer_values_two.c
 void	trans_sph(t_win *w, t_eleme_chunks *chunks, char **errmsg);
 void	trans_pla(t_win *w, t_eleme_chunks *chunks, char **errmsg);
 void	trans_cyl(t_win *w, t_eleme_chunks *chunks, char **errmsg);
+void	trans_lig_bonus(t_win *w, t_eleme_chunks *chunks, char **errmsg);
 
 // chunk_errors_one.c
 void	error_bad_letter_command(t_chunk *chunks, char **errmsg);
@@ -87,11 +86,16 @@ void	error_bad_scene(char *fname, char **errmsg);
 // chunk_errors_four.c
 void	error_more_than_one(char *object, char **errmsg);
 void	error_bad_float_txt(char *object, char **errmsg);
+void	error_bad_int_txt(char *object, char **errmsg);
 
 // chunk_print.c
 void	chunk_print(t_chunk *chunks);
 
 // chunk_init.c
+
+float	trans_atof(char *s, char **errmsg);
+int		trans_atoi(char *s, char **errmsg);
 void	chunk_init_vec3(t_vec3 *v, t_chunk *d, char **errmsg);
-void	chunk_init_color(t_color *c, t_chunk *d);
+void	chunk_init_color(t_color *c, t_chunk *d, char **errmsg);
+
 #endif

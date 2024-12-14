@@ -34,3 +34,14 @@ void	error_bad_float_txt(char *object, char **errmsg)
 	*errmsg = ft_strjoin(aux, "< does not describe correclty a float.");
 	free(aux);
 }
+
+void	error_bad_int_txt(char *object, char **errmsg)
+{
+	char	*aux;
+
+	if (*errmsg != NULL)
+		return ;
+	aux = ft_strjoin("The text >", object);
+	*errmsg = ft_strjoin(aux, "< does not describe correclty an integer.");
+	free(aux);
+}

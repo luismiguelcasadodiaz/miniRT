@@ -21,7 +21,7 @@ void	trans_sph(t_win *w, t_eleme_chunks *chunks, char **errmsg)
 	center = vec3_new();
 	rgb255 = col_new();
 	chunk_init_vec3(center, &chunks->coor, errmsg);
-	chunk_init_color(rgb255, &chunks->color);
+	chunk_init_color(rgb255, &chunks->color, errmsg);
 	diameter = trans_atof(chunks->diam, errmsg);
 	if (!col_in_range(rgb255))
 		error_bad_color_range(&(chunks->color), errmsg);
@@ -44,7 +44,7 @@ void	trans_pla(t_win *w, t_eleme_chunks *chunks, char **errmsg)
 	rgb255 = col_new();
 	chunk_init_vec3(center, &chunks->coor, errmsg);
 	chunk_init_vec3(novec, &chunks->novec, errmsg);
-	chunk_init_color(rgb255, &chunks->color);
+	chunk_init_color(rgb255, &chunks->color, errmsg);
 	if (!col_in_range(rgb255))
 		error_bad_color_range(&(chunks->color), errmsg);
 	else if (!vec3_in_range(novec, -1, 1))
@@ -96,7 +96,7 @@ void	trans_cyl(t_win *w, t_eleme_chunks *chunks, char **errmsg)
 		trans_atof(chunks->height, errmsg), 0.0);
 	chunk_init_vec3(center, &chunks->coor, errmsg);
 	chunk_init_vec3(novec, &chunks->novec, errmsg);
-	chunk_init_color(rgb255, &chunks->color);
+	chunk_init_color(rgb255, &chunks->color, errmsg);
 	if (!col_in_range(rgb255))
 		error_bad_color_range(&(chunks->color), errmsg);
 	else if (!vec3_in_range(novec, -1, 1))
