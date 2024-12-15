@@ -14,6 +14,8 @@
 # define CAMER_H
 # define VIEW_PORT_H 2.0
 # define FOCAL_LENGTH 1
+# define HFOV_MIN 0
+# define HFOV_MAX 180
 # include "vec3.h"
 # include "color.h"
 # include "point.h"
@@ -70,7 +72,7 @@ typedef struct s_camer
 t_camer			*camer_new(void);
 //void			camer_init(t_camer *self);
 t_camer			*camer_set(t_vec3 *coor, t_vec3 *novec,
-					double fview, t_win *w);
+					double fview);
 void			camer_free(t_camer *self);
 // camer_setters_one.c
 void			camer_s_coord(t_camer *self, t_vec3 *coor);
@@ -87,11 +89,15 @@ void			camer_s_image_width(t_camer *self, int dato);
 void			camer_s_samples_per_pixel(t_camer *self, int dato);
 // camer_setters_three.c
 void			camer_s_max_depth(t_camer *self, int dato);
-void			camer_s_vfov(t_camer *self, float hfov, t_point *size);
+void			camer_s_vfov(t_camer *self);
+//void			camer_s_vfov(t_camer *self, float hfov, t_point *size);
 //void			camer_s_defocus_angle(t_camer *self, double angle);
 //void			camer_s_focus_dist(t_camer *self, double dist);
 void			camer_s_focal_length(t_camer *self, double dist);
 void			camer_s_focal_length_ave(t_win *w);
+
+// camer_setters_four.c
+void	camer_u_hfov(t_camer *self,  double change);
 
 // camer_getters_one.c
 t_vec3			camer_g_coord(t_camer *self);

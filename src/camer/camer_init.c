@@ -38,7 +38,7 @@ void	camer_set_help(t_camer	*self)
 	camer_calc_background_colors(self);
 }
 
-t_camer	*camer_set(t_vec3 *coor, t_vec3 *novec, double fview, t_win *w)
+t_camer	*camer_set(t_vec3 *coor, t_vec3 *novec, double fview)
 {
 	t_camer	*self;
 
@@ -51,7 +51,7 @@ t_camer	*camer_set(t_vec3 *coor, t_vec3 *novec, double fview, t_win *w)
 	camer_calc_image_height(self);
 	camer_s_samples_per_pixel(self, 20);
 	camer_s_max_depth(self, 10);
-	camer_s_vfov(self, self->hfov, w->size);
+	camer_s_vfov(self);
 	camer_calc_pixel_samples_scale(self);
 	camer_s_cacen(self);
 	camer_s_vup(self, 0, 1, 0);

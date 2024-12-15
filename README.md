@@ -50,3 +50,51 @@ Testing with red ambient light, we got.
 
 
 ![Antialiasing comparison](https://github.com/user-attachments/assets/984d284a-55a3-41bd-82d8-3d84b576f51e)
+
+
+## Camera setup
+
+01.- self->coor=coor
+02.- self->novec= novec_unit
+03.- self->hfov = hfov;
+04.- self->aspect_ratio = ASPECT_RATIO_W / ASPECT_RATIO_H
+05.- self->image_width = WINDOW_W
+06.- self->image_height = self->image_width / self->aspect_ratio
+07.- self->samples_per_pixel = 20
+08.- self->max_depth = 10
+09.- self->vfov = hfov
+10.- self->pixel_samples_scale = 1.0 / self->samples_per_pixel
+11.- self->lookfrom = self->coor
+12.- self->lookat = self->lookfrom + self->novec
+13.- self->vup = (0,1,0)
+14.- self->focal_lenght = length(self->coor)
+15.- self->theta = (self->vfov * M_PI) / 180.0
+16.- self->h = tan(self->theta / 2)
+17.- self->viewport_height = 2 * self->h * self->focal_lenght;
+18.- self->viewport_width = self->viewport_height * ((double)self->image_width / self->image_height)
+19.- self->w = novec_unit
+20.- self->u = self->w cross self->vup
+21.- self->v = self->w cross &self->u
+22.- self->vp_v = -(self->v) times self->viewport_height
+23.- self->vp_u =  &self->u, self->viewport_width
+24.- self->pd_u = self->vp_u / self->image_width
+25.- self->pd_v = self->vp_v / self->image_height
+26.- self->vp_ul = self->center - ((self->vp_u / 2) + (self->vp_v / 2) + (self->w times self->focal_lenght))
+27.- self->pixel00_loc = &self->vp_ul + (self->pd_u + self->pd_v) / 2
+28.- self->color_start, 0.5, 0.7, 0.5;
+29.- self->color_end, 0.0, 0.0, 0.0;
+
+## Camera set new hvof
+
+03.- self->hfov = hfov;
+09.- self->vfov = hfov
+15.- self->theta = (self->vfov * M_PI) / 180.0
+16.- self->h = tan(self->theta / 2)
+17.- self->viewport_height = 2 * self->h * self->focal_lenght;
+18.- self->viewport_width = self->viewport_height * ((double)self->image_width / self->image_height)
+22.- self->vp_v = -(self->v) times self->viewport_height
+23.- self->vp_u =  &self->u, self->viewport_width
+24.- self->pd_u = self->vp_u / self->image_width
+25.- self->pd_v = self->vp_v / self->image_height
+26.- self->vp_ul = self->center - ((self->vp_u / 2) + (self->vp_v / 2) + (self->w times self->focal_lenght))
+27.- self->pixel00_loc = &self->vp_ul + (self->pd_u + self->pd_v) / 2
