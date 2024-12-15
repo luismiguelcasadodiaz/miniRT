@@ -71,6 +71,6 @@ t_vec3	eleme_average_coor(t_eleme *self)
 		}
 		aux = aux->next;
 	}
-	vec3_scale(&average, &average, num_elements);
+	vec3_div(&average, &average, num_elements);
 	return (average);
 }
