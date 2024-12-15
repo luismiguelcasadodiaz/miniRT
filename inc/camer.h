@@ -98,6 +98,7 @@ void			camer_s_focal_length_ave(t_win *w);
 
 // camer_setters_four.c
 void	camer_u_hfov(t_camer *self,  double change);
+void	camer_u_focal_lenght(t_camer *self,  double new_value);
 
 // camer_getters_one.c
 t_vec3			camer_g_coord(t_camer *self);

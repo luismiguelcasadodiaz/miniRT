@@ -98,3 +98,17 @@ Testing with red ambient light, we got.
 25.- self->pd_v = self->vp_v / self->image_height
 26.- self->vp_ul = self->center - ((self->vp_u / 2) + (self->vp_v / 2) + (self->w times self->focal_lenght))
 27.- self->pixel00_loc = &self->vp_ul + (self->pd_u + self->pd_v) / 2
+
+
+## Camera set new focal lenght
+
+
+14.- self->focal_lenght = length(self->coor)
+17.- self->viewport_height = 2 * self->h * self->focal_lenght;
+18.- self->viewport_width = self->viewport_height * ((double)self->image_width / self->image_height)
+22.- self->vp_v = -(self->v) times self->viewport_height
+23.- self->vp_u =  &self->u, self->viewport_width
+24.- self->pd_u = self->vp_u / self->image_width
+25.- self->pd_v = self->vp_v / self->image_height
+26.- self->vp_ul = self->center - ((self->vp_u / 2) + (self->vp_v / 2) + (self->w times self->focal_lenght))
+27.- self->pixel00_loc = &self->vp_ul + (self->pd_u + self->pd_v) / 2

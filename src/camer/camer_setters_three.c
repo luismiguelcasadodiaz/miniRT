@@ -55,5 +55,5 @@ void	camer_s_focal_length_ave(t_win *w)
 
 	average = eleme_average_coor(w->eleme);
 	vec3_sub(&d, &w->camera->coor, &average);
-	w->camera->focal_lenght = vec3_length(&d);
+	camer_u_focal_lenght(w->camera, vec3_length(&d));
 }
