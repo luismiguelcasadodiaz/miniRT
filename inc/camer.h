@@ -6,7 +6,7 @@
 /*   By: luicasad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 16:56:43 by luicasad          #+#    #+#             */
-/*   Updated: 2024/12/14 19:40:50 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/12/16 11:07:57 by luicasad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,8 @@ void			camer_s_focal_length(t_camer *self, double dist);
 void			camer_s_focal_length_ave(t_win *w);
 
 // camer_setters_four.c
-void	camer_u_hfov(t_camer *self,  double change);
-void	camer_u_focal_lenght(t_camer *self,  double new_value);
+void			camer_u_hfov(t_camer *self, double change);
+void			camer_u_focal_lenght(t_camer *self, double new_value);
 
 // camer_getters_one.c
 t_vec3			camer_g_coord(t_camer *self);
