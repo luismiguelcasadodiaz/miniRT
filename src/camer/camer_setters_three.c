@@ -39,12 +39,12 @@ void			camer_s_focus_dist(t_camer *self, double dist)
 
 void	camer_s_focal_length(t_camer *self, double dist)
 {
-	double	aux;
+	// double	aux;
 
-	aux = vec3_length(&self->coor);
-	if (aux != 0)
-		self->focal_lenght = dist * aux;
-	else
+	// aux = vec3_length(&self->coor);
+	// if (aux != 0)
+	// 	self->focal_lenght = dist * aux;
+	// else
 		self->focal_lenght = dist;
 }
 
@@ -52,8 +52,14 @@ void	camer_s_focal_length_ave(t_win *w)
 {
 	t_vec3		d;
 	t_vec3		average;
+	double	aux;
+	
 
 	average = eleme_average_coor(w->eleme);
-	vec3_sub(&d, &w->camera->coor, &average);
-	camer_u_focal_lenght(w->camera, vec3_length(&d));
+	vec3_sub(&d, &average, &w->camera->coor);
+	aux = vec3_length(&d);
+	if (aux != 0)
+		camer_u_focal_lenght(w->camera, aux);
+	else
+		camer_u_focal_lenght(w->camera, 1);
 }

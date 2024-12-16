@@ -35,7 +35,7 @@ void	camer_u_hfov(t_camer *self, double change)
 
 void	camer_u_focal_lenght(t_camer *self, double new_value)
 {
-	camer_s_focal_length(self, new_value);
+	self->focal_lenght = new_value;
 	camer_calc_viewport_height(self);
 	camer_calc_vierport_width(self);
 	camer_calc_viewport_u(self);
