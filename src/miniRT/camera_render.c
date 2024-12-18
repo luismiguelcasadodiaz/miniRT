@@ -6,7 +6,7 @@
 /*   By: luicasad <luicasad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 12:46:50 by luicasad          #+#    #+#             */
-/*   Updated: 2024/12/02 14:06:23 by luicasad         ###   ########.fr       */
+/*   Updated: 2024/12/16 18:29:03 by maria-nm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "miniRT.h"
@@ -78,7 +78,6 @@ void	camera_render(t_win *w)
 
 	r = ray_new();
 	camer_s_focal_length_ave(w);
-	camer_print(w->camera);
 	wy0 = (int)w->lu->e[1];
 	while (wy0 <= w->rd->e[1])
 	{

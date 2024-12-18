@@ -20,7 +20,10 @@ void	camer_s_cacen(t_camer *self)
 
 void	camer_s_vup(t_camer *self, double x, double y, double z)
 {
-	vec3_init_values(&self->vup, x, y, z);
+	if (self->novec.e[0] == 0.0 && self->novec.e[2] == 0.0)
+		vec3_init_values(&self->vup, 0, 0, -1);
+	else
+		vec3_init_values(&self->vup, x, y, z);
 }
 
 void	camer_s_aspect_ratio(t_camer *self, double dato)
