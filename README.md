@@ -49,7 +49,19 @@ Testing with red ambient light, we got.
 ![Blue_red_balls_With_20_Antialiasing](https://github.com/user-attachments/assets/b4fa9e51-1ad3-4098-b882-48136166e657)
 
 
+
 ![Antialiasing comparison](https://github.com/user-attachments/assets/984d284a-55a3-41bd-82d8-3d84b576f51e)
+![FOV_test](https://github.com/user-attachments/assets/be69eef7-6c4a-4313-bef0-8abbd4fe8a89)
+
+![Evaluacion_Semiesferas](https://github.com/user-attachments/assets/23a9890e-1971-4d02-848d-fc6d77d279aa)
+![four_cyl_one_sphere1](https://github.com/user-attachments/assets/21a4bfb4-ba92-4443-bcb3-91a516404ef3)
+![four_cyl_one_sphere2](https://github.com/user-attachments/assets/65f1bdd1-91aa-4cb6-b153-9a8583dbea94)
+
+
+![espirales](https://github.com/user-attachments/assets/56181c58-a29a-4abc-976c-a1956267841d)
+![Screenshot from 2024-12-11 14-02-31](https://github.com/user-attachments/assets/2a7f0677-3c9c-43e9-afc9-a3ec6ec314f9)
+
+
 
 
 ## Camera setup
